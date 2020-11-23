@@ -3,7 +3,7 @@
 body{
     background: rgba(230, 230, 230, 0.493);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 100%;
+    width: 115%;
 }
 @media(min-width:376px){
     body{
