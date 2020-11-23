@@ -1,8 +1,15 @@
+
+
 body{
     background: rgba(230, 230, 230, 0.493);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 118%;
 }
-
+@media(min-width:376px){
+    body{
+        width: 100%;
+    }
+}
 ul{
     overflow-y: scroll;
     height: 200px;
@@ -38,15 +45,18 @@ ul{
     border-radius: 10px;
     height: 200px;
     margin-left: 2.5%;
+   
     
 }
 .icono-titulo-1{
-    width: 350px;
+    width: 330px;
+    
 }
 .icono-titulo-2{
-    width: 400px;
+    width: 380px;
 }
 .alert-light{
+    width: 95%;
     color: black;
     box-shadow: 3px 3px 5px black;
 }
