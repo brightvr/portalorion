@@ -1,0 +1,71 @@
+body{
+    background: rgba(230, 230, 230, 0.37);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ul{
+    overflow-y: scroll;
+    height: 200px;
+    border: 2px solid green;
+}
+
+.logo-orion{
+
+    width: 200px;
+}
+
+.fondo-1{
+    background: black;
+}
+.chulo{
+    color: green;
+    font-size: 20px;
+}
+.card{
+    box-shadow: 7px 7px 7px black;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.titulo-app1{
+
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 95%;
+    padding: 2px;
+    font-size: 20px;
+    border-radius: 10px;
+    height: 200px;
+    margin-left: 2.5%;
+    
+}
+.icono-titulo-1{
+    width: 350px;
+}
+.icono-titulo-2{
+    width: 400px;
+}
+.alert-light{
+    color: black;
+}
+
+@media(min-width:100px){
+
+    .card{
+        margin: 20px;
+
+    }
+.titulo-app1{
+ 
+    width: 80%;
+    margin-left: 10%;
+}
+}
+
+@media(min-width:1200px){
+    .card{
+        margin: 50px;
+
+    }
+}
