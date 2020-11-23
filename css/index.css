@@ -1,5 +1,5 @@
 body{
-    background: rgba(230, 230, 230, 0.37);
+    background: rgba(230, 230, 230, 0.493);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -48,9 +48,14 @@ ul{
 }
 .alert-light{
     color: black;
+    box-shadow: 3px 3px 5px black;
+}
+.bombillos{
+    color: green;
+    font-size: 40px;
 }
 
-@media(min-width:100px){
+@media(min-width:1000px){
 
     .card{
         margin: 20px;
