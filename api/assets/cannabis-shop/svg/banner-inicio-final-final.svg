@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 475.7 214.59">
+  <defs>
+    <style>
+      .cls-1 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        fill: #ffc800;
+      }
+
+      .cls-3 {
+        fill: #388909;
+      }
+
+      .cls-4 {
+        mix-blend-mode: multiply;
+        fill: url(#linear-gradient);
+      }
+
+      .cls-5 {
+        fill: #fff;
+      }
+
+      .cls-6 {
+        font-size: 31.13px;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-10, .cls-19, .cls-6, .cls-7 {
+        font-family: MyriadPro-Regular, Myriad Pro;
+      }
+
+      .cls-7 {
+        font-size: 25.24px;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+
+      .cls-9 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-10 {
+        font-size: 18.51px;
+        fill: #f9f9f9;
+      }
+
+      .cls-11 {
+        letter-spacing: 0em;
+      }
+
+      .cls-12 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-13 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-14 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-15 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-16 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-17 {
+        letter-spacing: 0em;
+      }
+
+      .cls-18 {
+        letter-spacing: 0em;
+      }
+
+      .cls-19 {
+        font-size: 26.93px;
+        fill: #fcfcfc;
+      }
+
+      .cls-20 {
+        letter-spacing: -0.08em;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="199.76" y1="46.48" x2="279.8" y2="97.34" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a31300"/>
+      <stop offset="0.04" stop-color="#ae2e1d"/>
+      <stop offset="0.1" stop-color="#bf5a4c"/>
+      <stop offset="0.17" stop-color="#ce8177"/>
+      <stop offset="0.24" stop-color="#dba39c"/>
+      <stop offset="0.32" stop-color="#e6c0bb"/>
+      <stop offset="0.4" stop-color="#efd7d4"/>
+      <stop offset="0.5" stop-color="#f6e9e7"/>
+      <stop offset="0.61" stop-color="#fbf5f5"/>
+      <stop offset="0.75" stop-color="#fefdfd"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+  </defs>
+  <g class="cls-1">
+    <g id="Banner">
+      <g>
+        <rect class="cls-2" width="472.57" height="181.76"/>
+        <g>
+          <path d="M139.31,146H61.13L37.05,66.49H23.45a2.92,2.92,0,0,1,0-5.84H41.38l24.08,79.52h69.72l19.39-54.84a2.92,2.92,0,0,1,5.5,1.94Z" transform="translate(0 -18)"/>
+          <polygon points="53.31 67.52 68.32 118.21 132.87 118.21 150.4 67.52 53.31 67.52"/>
+          <g>
+            <circle cx="133.39" cy="138.58" r="5.34"/>
+            <path d="M65,156.58a5.35,5.35,0,1,0,5.34-5.34A5.34,5.34,0,0,0,65,156.58Z" transform="translate(0 -18)"/>
+          </g>
+          <path d="M157.32,80.75h-104a2.92,2.92,0,1,1,0-5.84h104a2.92,2.92,0,1,1,0,5.84Z" transform="translate(0 -18)"/>
+        </g>
+        <g>
+          <path class="cls-3" d="M472.57,18V199.76H123.34c22.89-37,93.92-151.91,113-181.76Z" transform="translate(0 -18)"/>
+          <path class="cls-4" d="M472.57,18V199.76H123.34c22.89-37,93.92-151.91,113-181.76Z" transform="translate(0 -18)"/>
+        </g>
+        <g>
+          <circle class="cls-5" cx="168.22" cy="51.28" r="9.72" transform="translate(79.66 185.22) rotate(-76.72)"/>
+          <path class="cls-5" d="M37.82,142.79a4,4,0,1,1-4-4A4,4,0,0,1,37.82,142.79Z" transform="translate(0 -18)"/>
+          <circle class="cls-5" cx="98.91" cy="157.45" r="7.23"/>
+          <path class="cls-5" d="M46.3,184.42a3.74,3.74,0,1,1-3.74-3.74A3.73,3.73,0,0,1,46.3,184.42Z" transform="translate(0 -18)"/>
+          <circle class="cls-5" cx="86.44" cy="22.81" r="13.21"/>
+          <path class="cls-5" d="M132.07,51.28a2.75,2.75,0,1,1-2.75-2.74A2.75,2.75,0,0,1,132.07,51.28Z" transform="translate(0 -18)"/>
+          <path class="cls-5" d="M188.41,78.46a4,4,0,1,1-4-4A4,4,0,0,1,188.41,78.46Z" transform="translate(0 -18)"/>
+          <circle class="cls-5" cx="21.37" cy="78.41" r="6.98"/>
+          <circle class="cls-3" cx="206.12" cy="19.32" r="8.73"/>
+          <path class="cls-3" d="M45.8,119.85a2.5,2.5,0,1,1-2.49-2.49A2.49,2.49,0,0,1,45.8,119.85Z" transform="translate(0 -18)"/>
+          <circle class="cls-3" cx="20.62" cy="159.44" r="6.73"/>
+          <path class="cls-3" d="M82.2,181.93A1.25,1.25,0,1,1,81,180.68,1.25,1.25,0,0,1,82.2,181.93Z" transform="translate(0 -18)"/>
+          <circle class="cls-3" cx="36.08" cy="39.82" r="8.23" transform="translate(-10.96 47.78) rotate(-76.72)"/>
+          <circle class="cls-3" cx="66.49" cy="38.77" r="1.75"/>
+          <path class="cls-3" d="M175,98.66a4.24,4.24,0,1,1-4.24-4.24A4.23,4.23,0,0,1,175,98.66Z" transform="translate(0 -18)"/>
+        </g>
+        <path class="cls-5" d="M137.05,194.07a.46.46,0,0,1-.22-.06.41.41,0,0,1-.13-.58l55.84-89.76a.42.42,0,0,1,.72.44l-55.85,89.76A.42.42,0,0,1,137.05,194.07Z" transform="translate(0 -18)"/>
+        <path class="cls-5" d="M187.92,130.74a.43.43,0,0,1-.22-.06.42.42,0,0,1-.14-.58l61.58-102a.42.42,0,0,1,.72.43l-61.58,102A.42.42,0,0,1,187.92,130.74Z" transform="translate(0 -18)"/>
+      </g>
+      <text class="cls-6" transform="translate(63.93 37.67)">10% off</text>
+    </g>
+    <g id="Cannabis">
+      <path class="cls-3" d="M126.28,119.7a26.2,26.2,0,0,0-6.5-2.19,35.69,35.69,0,0,0,7.19-14,1.35,1.35,0,0,0-1.32-1.65,1.43,1.43,0,0,0-.29,0,36.11,36.11,0,0,0-13.61,6.76v-.37a37.67,37.67,0,0,0-5.29-18.45,1.37,1.37,0,0,0-2.29,0,37.67,37.67,0,0,0-5.29,18.45v.37a36.11,36.11,0,0,0-13.61-6.76,1.43,1.43,0,0,0-.29,0,1.35,1.35,0,0,0-1,.4,1.32,1.32,0,0,0-.36,1.25,35.69,35.69,0,0,0,7.19,14,26.2,26.2,0,0,0-6.5,2.19,1.35,1.35,0,0,0-.57,1.83,1.4,1.4,0,0,0,.56.57,26.55,26.55,0,0,0,11.32,2.69c.52,0,1,0,1.48,0a24.34,24.34,0,0,0-1.43,3.32,1.37,1.37,0,0,0,.34,1.37,1.34,1.34,0,0,0,1.36.34,27,27,0,0,0,6.55-3.33v5.42a.67.67,0,0,0,.68.68H106a.67.67,0,0,0,.68-.68v-5.42a27,27,0,0,0,6.55,3.33,1.34,1.34,0,0,0,1.36-.34,1.37,1.37,0,0,0,.34-1.37,26,26,0,0,0-1.43-3.32c.47,0,1,0,1.48,0a26.55,26.55,0,0,0,11.32-2.69,1.37,1.37,0,0,0,.72-1.2A1.35,1.35,0,0,0,126.28,119.7Z" transform="translate(0 -18)"/>
+    </g>
+    <g id="Titulo">
+      <text class="cls-7" transform="translate(180.7 151.61)">10% descue<tspan class="cls-8" x="125.99" y="0">n</tspan><tspan class="cls-9" x="139.9" y="0">t</tspan><tspan x="148.11" y="0">o en pipas</tspan></text>
+    </g>
+    <g id="Imagenes">
+      <g id="imagen1">
+        <image width="787" height="754" transform="translate(232.08 25.25) scale(0.12)" xlink:href="../img/pipa/p-metal.png"/>
+      </g>
+      <g id="imagen_2" data-name="imagen 2">
+        <image width="588" height="597" transform="translate(342.66 4.14) scale(0.21)" xlink:href="../img/pipa/P-Wax-y-Herbal.png"/>
+      </g>
+    </g>
+    <g id="Informacion">
+      <g id="Rectangulo">
+        <rect y="160.72" width="472.57" height="50.99"/>
+      </g>
+      <g id="Info">
+        <text class="cls-10" transform="translate(16.56 181.17)">Esc<tspan class="cls-11" x="24.73" y="0">r</tspan><tspan x="30.86" y="0">ibe es</tspan><tspan class="cls-12" x="75.53" y="0">t</tspan><tspan x="81.54" y="0">e </tspan><tspan class="cls-13" x="94.74" y="0">c</tspan><tspan x="102.93" y="0">odigo a nuest</tspan><tspan class="cls-14" x="208.35" y="0">r</tspan><tspan x="214.22" y="0">os aseso</tspan><tspan class="cls-15" x="278.66" y="0">r</tspan><tspan x="284.53" y="0" xml:space="preserve">es  pa</tspan><tspan class="cls-16" x="328.44" y="0">r</tspan><tspan x="334.4" y="0">a el descue</tspan><tspan class="cls-17" x="419.63" y="0">n</tspan><tspan class="cls-12" x="429.83" y="0">t</tspan><tspan class="cls-18" x="435.85" y="0">o</tspan></text>
+      </g>
+    </g>
+    <g id="Codigo">
+      <text class="cls-19" transform="translate(200.79 207.86)">P1<tspan class="cls-20" x="28.14" y="0">P</tspan><tspan x="40.2" y="0">A5</tspan></text>
+    </g>
+  </g>
+</svg>

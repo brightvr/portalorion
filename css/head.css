@@ -1,0 +1,87 @@
+svg{
+    display: block;
+}
+body{
+    background: rgb(230, 230, 230);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 101%;
+}
+
+.fondo-negro{
+
+    background: black;
+    color: white;
+
+}
+
+.fondo-blanco{
+
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+
+}
+
+.fondo-verde{
+    background: #98C782;
+    color: black;
+}
+
+.fondo-verde2{
+    background: green;
+    color: rgb(0, 0, 0);
+}
+
+.logo-orion{
+
+    width: 150px;
+}
+
+
+
+@media(min-width:1000px){
+
+    .nav-link{
+
+        margin-left: 50px;
+    }
+
+}
+
+/*fin configuracion inicial*/
+
+
+/*estilos del cuerpo */
+
+.menu-apps{
+
+    background: rgba(255, 255, 255, 0.678);
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+}
+
+.iconos-menu-escogido{
+
+    color: black;
+    background: #98C782;
+    padding: 2px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.iconos-menu{
+
+    color: black;
+    background: rgba(71, 143, 71, 0);
+    padding: 2px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 360 521">
+  <defs>
+    <style>
+      .cls-1-card-orion {
+        fill: #3cb72e;
+      }
+
+      .cls-2-card-orion {
+        font-size: 26px;
+        fill: #f7f7f7;
+      }
+
+      .cls-2-card-orion, .cls-5, .cls-6, .cls-8 {
+        font-family: Rockwell;
+      }
+
+      .cls-3 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-4 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-5 {
+        font-size: 29px;
+      }
+
+      .cls-6 {
+        font-size: 19px;
+      }
+
+      .cls-7 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-8 {
+        font-size: 25px;
+        fill: #fcfcfc;
+      }
+
+      .cls-9 {
+        letter-spacing: 0.01em;
+      }
+    </style>
+  </defs>
+  <g id="Card">
+    <rect id="Verde2" class="cls-1-card-orion" x="24" y="404" width="315" height="96" rx="3"/>
+    <g id="Negro2">
+      <rect x="0.5" y="454.5" width="359" height="65"/>
+      <path d="M359,455v64H1V455H359m1-1H0v66H360V454Z"/>
+    </g>
+    <rect id="Verde1" class="cls-1-card-orion" x="21" y="31" width="319" height="39" rx="3"/>
+    <rect id="Negro1" width="360" height="40"/>
+  </g>
+  <g id="Producto">
+    <image width="824" height="1080" transform="translate(53 71) scale(0.3 0.3)" xlink:href="../../../../PROYECYOS/PORTAL%20ORION/TIENDAS-CLIENTE/DEJA-VU/PRODUCTOS/Satin-vinotinto/Satin-2-fondo-blanco.jpg"/>
+  </g>
+  <g id="Nombre-producto">
+    <text class="cls-2-card-orion" transform="translate(43.24 482.89)">Pijama pa<tspan class="cls-3" x="116.73" y="0">r</tspan><tspan x="126.93" y="0">a dama satin </tspan><tspan x="47.72" y="26">dej</tspan><tspan class="cls-4" x="86.46" y="26">a</tspan><tspan x="99.74" y="26">vu pijamas</tspan></text>
+  </g>
+  <g id="Precio-producto">
+    <text class="cls-5" transform="translate(59.46 437.69)">$39.000 pesos cop</text>
+  </g>
+  <g id="Promocion-producto">
+    <text class="cls-6" transform="translate(125.82 57.9)">E<tspan class="cls-3" x="11.88" y="0">n</tspan><tspan x="22.29" y="0">vios g</tspan><tspan class="cls-7" x="74.36" y="0">r</tspan><tspan x="81.81" y="0">atis</tspan></text>
+  </g>
+  <g id="Tienda-oficial">
+    <text class="cls-8" transform="translate(104.75 28.13)">Tienda o<tspan class="cls-9" x="99.77" y="0">f</tspan><tspan x="107.31" y="0">icial</tspan></text>
+  </g>
+</svg>

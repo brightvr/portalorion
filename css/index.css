@@ -1,86 +1,107 @@
 
 
-body{
-    background: rgba(230, 230, 230, 0.493);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 101%;
-}
-@media(min-width:376px){
-    body{
-        width: 100%;
-    }
-}
-ul{
-    overflow-y: scroll;
-    height: 200px;
-    border: 2px solid green;
-}
 
-.logo-orion{
+.principal{
 
-    width: 200px;
-}
-
-.fondo-1{
-    background: black;
-}
-.chulo{
-    color: green;
-    font-size: 20px;
-}
-.card{
-    box-shadow: 7px 7px 7px black;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-.titulo-app1{
-
-    background-color: black;
-    color: white;
+    width:100%;
+    height: 60px;
+    margin-bottom: 35px;
     display: flex;
     justify-content: center;
-    width: 95%;
-    padding: 2px;
-    font-size: 20px;
-    border-radius: 10px;
-    height: 200px;
-    margin-left: 2.5%;
-   
-    
-}
-.icono-titulo-1{
-    width: 330px;
-    
-}
-.icono-titulo-2{
-    width: 380px;
-}
-.alert-light{
-    width: 95%;
-    color: black;
-    box-shadow: 3px 3px 5px black;
-}
-.bombillos{
-    color: green;
-    font-size: 40px;
+    align-items: center;
+    font-size: 18px;
 }
 
+.pagos, .envios{
+
+    width: 350px;
+ 
+    box-shadow: 5px 5px 5px black;
+    background: white;
+    margin-bottom: 51px;
+    padding: 5px;
+    font-size: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+   
+}
+
+
+.icon-pay{
+    color: green;
+}
+.icono-pagos{
+    width: 70px;
+}
+.envios-orion{
+    width: 300px;
+}
+.tiendas{
+    width: 100%;
+    box-shadow: 5px 5px 5px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cannabis{
+    width: 100px;
+}
+.runalotus{
+
+    width: 70px;
+
+}
+
+.vector{
+    margin-left: 5%;
+}
+
+
+.btn-comprar{
+    width: 90%;
+    height: 50px;
+    box-shadow: 3px 3px 4px black;
+    cursor: pointer;
+   
+}
+
+.mi-container{
+
+    width: 100%;
+    height: 600px;
+    overflow-y: scroll;
+    border: 8px solid #98C782;
+}
+.el-container{
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.micard{
+    box-shadow: 5px 5px 9px black;
+}
 @media(min-width:1000px){
 
-    .card{
-        margin: 20px;
+    .principal{
 
+       font-size: 25px;
     }
-.titulo-app1{
- 
-    width: 80%;
-    margin-left: 10%;
-}
-}
 
-@media(min-width:1200px){
-    .card{
-        margin: 50px;
+    .pagos, .envios{
 
+        margin-top: 20px;
+        padding: 25px;
+        width: 500px;
+        margin-left: 30px;
+       
     }
+    .mi-container{
+
+        width: 100%;
+        height: 600px;
+        overflow-x: scroll;
+        border: 5px solid #98C782;
+        width: 350px;
+    }
+
 }
