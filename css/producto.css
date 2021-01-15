@@ -1,3 +1,7 @@
+.app-web{
+    display: none;
+}
+
 .img-producto{
 
     width: 100%;
@@ -46,6 +50,9 @@
 .app-mobile{
 
     display: none;
+}
+.app-web{
+    display: block;
 }
 
 .foto{
