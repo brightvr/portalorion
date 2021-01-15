@@ -41,11 +41,11 @@ class ConexionDB{
 }
 
 //credenciales produccion
-//$miconexion= new ConexionDB('localhost','u418177199_adminorion','5719326David','u418177199_portalorion');
+$miconexion= new ConexionDB('localhost','u418177199_adminorion','5719326David','u418177199_portalorion');
 
 
 //credenciales desarrollo
-$miconexion= new ConexionDB('5.181.218.103','u418177199_adminorion','5719326David','u418177199_portalorion');
+//$miconexion= new ConexionDB('5.181.218.103','u418177199_adminorion','5719326David','u418177199_portalorion');
 
 //var_dump('estoy incluido');
 
