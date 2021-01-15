@@ -17,18 +17,29 @@
 }
 
 .categorias{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
+    display: block;
+    width: 95%;
+    margin-left: 2.5%;
+    
     height: 220px;
     overflow-y: scroll;
     cursor: pointer;
+    padding: 5px;
+}
+
+.categorias > a {
+
+    width: 90%;
+    padding: 10px;
+    
 }
 
 .category{
     cursor: pointer;
     box-shadow: 5px 5px 8px black;
     padding: 3px;
+    width: 90%;
+    margin:5%;
 }
 .btn{
     height: 40px;
@@ -38,6 +49,48 @@
 
     width: 100%;
 }
+.manta{
+
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    z-index: 99999;
+    color :white;
+}
+.alert-success{
+
+    background: #98C782;
+    color: black;
+}
+.manta2{
+
+    overflow-y: scroll;
+    height: 600px;
+    position: relative;
+}
+.card{
+
+    box-shadow: 6px 6px 10px black;
+    margin: 10px;
+    margin-bottom: 50px;
+}
+
+.btn-cerrar{
+
+    font-size: 40px;
+    color: red;
+}
+
+.cont-buscador{
+
+   width: 90%;
+   margin-left: 5%;
+   padding: 20px;
+   border-radius: 4px;
+   box-shadow: 5px 5px 6px black;
+}
+
 @media(min-width:1000px){
 
     .mi-card{
@@ -45,7 +98,7 @@
     }
 
     .contra-entrega{
-        height: 300px;
+        height: 450px;
     }
 
     

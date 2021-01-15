@@ -3,7 +3,7 @@ $(window).on('load',function(){
     //click comprar inderx
     $('.btn-comprar').on('click',function(){
 
-        window.location.href="tienda.html";
+        window.location.href="tienda.php";
     });
 
 
@@ -119,7 +119,7 @@ $(window).on('load',function(){
         $('.micard').on('click',function(){
 
             console.log('click')
-            window.location.href="tienda.html";
+            window.location.href="tienda.php";
         })
         
         

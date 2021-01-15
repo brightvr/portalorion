@@ -8,7 +8,7 @@ $(window).on('load',function(){
 
         for(let i=0; i<response.length;i++)
         $('.categorias').append(`
-        <div class="btn btn-success categoria m-2"><h4>${response[i].nombre}</h4></div>
+        <a href="tienda.php#${response[i].nombre}" class="btn btn-success btn-block m-3 categoria m-2"><h4>${response[i].nombre}</h4></a>
         
         `);
         
@@ -34,5 +34,13 @@ $(window).on('load',function(){
         }
 
         $('.categorias').toggleClass('d-none');
+    });
+
+    $('.btn-cerrar').on('click',function(){
+
+        $('.manta').remove();
     })
-})
+
+
+
+});

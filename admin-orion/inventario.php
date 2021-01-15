@@ -505,25 +505,25 @@ while($res= mysqli_fetch_assoc($query)){
 
           <div class="form-group">
             <label >Nombre del producto:</label>
-            <input type="text" name="nombre-producto" class="form-control" >
+            <input type="text" name="nombre-producto" class="form-control" required>
           </div>
           <br>
           <br>
           <div class="form-group">
             <label>Precio normal:</label>
-            <input type="number" name="precio-producto" class="form-control" >
+            <input type="number" name="precio-producto" class="form-control" required>
           </div>
           <br>
           <br>
           <div class="form-group">
             <label >Precio con descuento :</label>
-            <input type="number" name="precio-descuento" class="form-control" >
+            <input type="number" name="precio-descuento" class="form-control" required>
           </div>
           <br>
           <br>
           <div class="form-group">
             <label >Stock :</label>
-            <input type="number" name="stock-producto" class="form-control" >
+            <input type="number" name="stock-producto" class="form-control" required>
           </div>
           <br>
           <br>
@@ -536,13 +536,13 @@ while($res= mysqli_fetch_assoc($query)){
 
           <div class="form-group">
             <label>Info corta:</label>
-            <input type="text" name="info-producto" class="form-control" >
+            <input type="text" name="info-producto" class="form-control" required>
           </div>
           <br><br>
           
           <div class="form-group">
           <label for="exampleFormControlFile1">Foto del producto :</label>
-          <input type="file" name="img-producto" id="exampleFormControlFile1">
+          <input type="file" name="img-producto" id="exampleFormControlFile1" required>
           </div>
           <br>
           <br>

@@ -13,19 +13,12 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark fondo-negro">
-    <a class="navbar-brand" href="index.html"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg navbar-dark fondo-negro  d-flex justify-content-between">
+    <a class="navbar-brand" href="index.php"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
+    <button class="cont-icon-user" type="button" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="icono-user"><i class="fas fa-user"></i></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" href="index.html"><h4>Inicio</h4></a>
-        <a class="nav-link" href="tienda.html"><h4>Tienda</h4></a>
-        <a class="nav-link" href=""><h4>Pagos</h4></a>
-        <a class="nav-link " href="#"><h4>Envios</h4></a>
-      </div>
-    </div>
+
   </nav>
   <div class="menu-apps">
 
@@ -35,7 +28,7 @@
         <div  class="vinculo iconos-menu " href="#"><i class="fas fa-truck"></i></div>
       </div>
   <br>
- 
+ <br><br>
 
   <div class="contenedor fondo-blanco ">
 
@@ -1552,6 +1545,13 @@
 
       <p style="background: black;box-shadow: 50%;"><img class="envios-orion" src="api/assets/img/envios-orion.png" alt=""></p>
       <br>
+      <p>Tipos de envio :</p>
+      <p>- Envios para pago contra entrega</p>
+      <p>- Envios que llegan el mismo día</p>
+      <p>- Envios  por transportadoras aliadas</p>
+      <p>- Envios a nivel nacional</p>
+      <p>- ¡Conoce nuestro seguro de proteccion de envios!</p>
+
       <div class="btn btn-block btn-success"><h3>Consultar tarifa de envíos</h3></div>
 
 

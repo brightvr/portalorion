@@ -1,10 +1,5 @@
 $(window).on('load', function(){
 
-    
-    const hash=window.location.hash;
-
-    //console.log(window.location.hash)
-
 
     //esta funcion define la ruta que se usara para traer datos
     const Ruta=(hash)=>{
@@ -17,40 +12,129 @@ $(window).on('load', function(){
            
             break;
 
-            case '#todo':
+            case '#Todo':
            
-                path_fetch ="data/productos.json";
+                path_fetch ="api/interfaces/productos.php";
           
             break;
 
-            case '#llegahoy':
+            case '#Llega_hoy':
            
-               path_fetch ="data/productos.json";
+               path_fetch ="api/interfaces/llegahoy.php";
       
             break;
 
-            case '#disponible':
+            case '#Pipas':
            
-                path_fetch ="data/productos.json";
+              path_fetch ="api/interfaces/pipas.php";
+     
+            break;
+
+            case '#Grinders':
+           
+              path_fetch ="api/interfaces/grinder.php";
+     
+            break;
+
+            case '#Bongs':
+           
+              path_fetch ="api/interfaces/bongs.php";
+     
+            break;
+
+            case '#Cueros':
+           
+              path_fetch ="api/interfaces/cueros.php";
+     
+            break;
+
+            case '#Encendedores':
+           
+              path_fetch ="api/interfaces/encendedores.php";
+     
+            break;
+
+            case '#Tecnologia':
+           
+              path_fetch ="api/interfaces/tecnologia.php";
+     
+            break;
+
+            case '#Tecnologia':
+           
+              path_fetch ="api/interfaces/tecnologia.php";
+     
+            break;
+
+            case '#Tecnologia':
+           
+              path_fetch ="api/interfaces/tecnologia.php";
+     
+            break;
+
+            case '#Usado':
+           
+              path_fetch ="api/interfaces/usados.php";
+     
+            break;
+
+            case '#Promociones':
+           
+              path_fetch ="api/interfaces/promociones.php";
+     
+            break;
+
+
+            case '#Combos':
+           
+              path_fetch ="api/interfaces/tecnologia.php";
+     
+            break;
+
+
+            case '#Pijamas_mujer':
+           
+                path_fetch ="api/interfaces/pijamasmujer.php";
        
             break;
 
-            case '#tiendasoficiales':
+            case '#Audio_y_sonido':
            
-                path_fetch ="data/productos.json";
-       
+              path_fetch ="api/interfaces/audioysonido.php";
+     
+            break;
+
+            case '#Electronica':
+           
+              path_fetch ="api/interfaces/electronica.php";
+     
+            break;
+
+            case '#Artesanias_Colombianas':
+           
+              path_fetch ="api/interfaces/artesanias.php";
+     
+            break;
+
+            case '#Otros':
+           
+              path_fetch ="api/interfaces/otros.php";
+     
             break;
        
             default:
                 console.log('Advertencia: Function Ruta esta retornado el valor por defecto')
-                path_fetch="data/productos.json"
+                path_fetch="api/interfaces/productos.php"
                
             break;
        }
 
        return path_fetch;
 
-    }
+    }// fiin de la funcion ruta 
+
+
+//______________________________________________________________________________
 
 
     //esta funcion define el card que se usara
@@ -132,7 +216,7 @@ $(window).on('load', function(){
                     <rect x="0.5" y="519.5" width="359" height="112"/>
                     <path d="M359,521V632H1V521H359m1-1H0V633H360V520Z" transform="translate(0 -1)"/>
                   </g>
-                  <g>
+                  <g class="comprar-producto" value="${data.id_producto}">
                     <rect class="ffff8acb-9f86-4e78-974a-d9aa7de3b931" x="23.5" y="541.5" width="313" height="68" rx="1.5"/>
                     <path class="ffff8acb-9f86-4e78-974a-d9aa7de3b931" d="M335,543a1,1,0,0,1,1,1v65a1,1,0,0,1-1,1H25a1,1,0,0,1-1-1V544a1,1,0,0,1,1-1H335m0-1H25a2,2,0,0,0-2,2v65a2,2,0,0,0,2,2H335a2,2,0,0,0,2-2V544a2,2,0,0,0-2-2Z" transform="translate(0 -1)"/>
                   </g>
@@ -180,7 +264,7 @@ $(window).on('load', function(){
                 <g id="b9f01aeb-e730-46b9-adba-9632a756adc5" data-name="texto2">
                   <text class="aec2e71c-a97f-49a9-809e-0ac13d78d69b" transform="translate(59.76 425.37)">$ ${data.precio} pesos cop</text>
                 </g>
-                <g id="f132159d-5e27-46d9-88d9-24d5448e63c7" data-name="comprar">
+                <g id="f132159d-5e27-46d9-88d9-24d5448e63c7" class="${data.id_producto} comprar-producto"  value="${data.id_producto}"  data-name="comprar">
                   <text class="eb7c4729-e31d-48b4-a780-3b04696e694b" transform="translate(72.34 585.92)">COMPRAR</text>
                 </g>
                
@@ -215,34 +299,171 @@ $(window).on('load', function(){
 
         return card;
 
-    }
+    }//fin de la funcion tipo card
+
+//______________________________________________________________________________________________________
 
 
+//esta funcion pinta los primeros productos
+   const Inicar =()=>{
 
+    $('#cont-cards').append(`
+    <div class="elcontenedor2">
 
-
-   
-
-         fetch(Ruta(hash))
-        .then(response=>response.json())
-        .then(response=>{
-           
-            console.log(response);
     
+    <div style="width: 20rem; height: 20rem;" class="spinner-border text-success" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
 
-            for(let i=0; i<response.length;i++){
+    </div>
+    
+    `);
 
+    let hash=window.location.hash;
+    fetch(Ruta(hash))
+    .then(response=>response.json())
+
+    .then(response=>{
+             
+           
+      //console.log(response.length);
+      //console.log(Ruta(hash2));
+
+      setTimeout(() => {
+
+        if(response==="Esta categoria se encuentra vacia por el momento"){
+
+          $('#cont-cards').append(`
+          <div class="elcontenedor alert alert-danger">
+         <h3> Ups esta categoria se encuentra vacia intenta con otra categoria</h3>
+           </div>`)
+
+
+        }else{
+
+          for(let i=0; i<response.length;i++){
+
+         
+            $('#cont-cards').append( `<div class="elcontenedor">${TipoCard(response[i],0)}</div>`);
+               
+  
+          }
+
+                          //clcik producto
+                          $('.comprar-producto').on('click',function(e){
+
+                              let id=parseInt(e.target.parentNode.attributes[1].nodeValue);
+                              
+
+                              window.location.href="producto.php?id="+id.toString();
+          
+                          });
+
+        }
+
+
+
+     $('.elcontenedor2').remove();
+        
+      }, 1000);
+
+
+      
+   });
+
+
+
+
+   }//fin de la funcion inicar
+
+    
+  //______________________________________________________________________________________________________________________
+
+    
+   //aqui se detecta el cambio de urly se cambia de productos
+        $(window).bind('hashchange', function() { 
+
+          $('.elcontenedor').remove();
+
+          $('#cont-cards').append(`
+          <div class="elcontenedor2">
+
+          
+          <div style="width: 20rem; height: 20rem;" class="spinner-border text-success" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+
+          </div>
+          
+          `);
+
+          let hash2=window.location.hash;
+
+
+          fetch(Ruta(hash2))
+          .then(response=>response.json())
+
+          .then(response=>{
+             
+           
+            //console.log(response.length);
+            //console.log(Ruta(hash2));
+     
+            setTimeout(() => {
+
+              if(response==="Esta categoria se encuentra vacia por el momento"){
+
+                $('#cont-cards').append(`
+                <div class="elcontenedor alert alert-danger">
+               <h3> Ups en el momento esta categoria se encuentra vacia, por favor intenta con otra categoria</h3>
+                 </div>`)
+      
+      
+              }else{
+
+
+                for(let i=0; i<response.length;i++){
+ 
+               
+                  $('#cont-cards').append( `<div class="elcontenedor">${TipoCard(response[i],0)}</div>`);
+                     
+  
+                 } 
+
+                 
+              //clcik producto
+              $('.comprar-producto').on('click',function(e){
+
+                let id=parseInt(e.target.parentNode.attributes[1].nodeValue);
+                
+
+                window.location.href="producto.php?id="+id.toString();
+
+            });
+
+
+              }
+
+
+
+           $('.elcontenedor2').remove();
               
-                $('#cont-cards').append( TipoCard(response[i],0) );
-                   
+            }, 1000);
+ 
 
-            }
-           
-        });
-    
-    
-    
-    
+          
+            
+         });
+
+
+
+
+
+
+        })
    
 
+  //inicar tienda
+
+    Inicar();
 });

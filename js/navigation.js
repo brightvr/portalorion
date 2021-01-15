@@ -10,13 +10,13 @@ $(window).on('load', function(){
                
                 case 0:
                 
-                    window.location.href="index.html";   
+                    window.location.href="index.php";   
 
                 break;
 
                 case 1:
                 
-                    window.location.href="tienda.html";   
+                    window.location.href="tienda.php";   
                     
                 break;
 
