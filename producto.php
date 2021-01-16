@@ -264,7 +264,7 @@
 
       <br>
       <br>
-      <div class=" cont-productos ">
+      <div class="container alert alert-primary cont-productos ">
             
             <?php
 
