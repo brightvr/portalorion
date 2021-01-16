@@ -47,6 +47,11 @@
 
  @media(min-width:1000px){
 
+ .atencion{
+
+    width: 600px;
+}
+
 .app-mobile{
 
     display: none;

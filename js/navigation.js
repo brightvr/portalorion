@@ -22,7 +22,7 @@ $(window).on('load', function(){
 
                 case 2:
                 
-                    console.log('Pagos');   
+                    window.location.href="pagos.php";  
                     
                 break;
 

@@ -66,13 +66,8 @@ $(window).on('load', function(){
      
             break;
 
-            case '#Tecnologia':
-           
-              path_fetch ="api/interfaces/tecnologia.php";
-     
-            break;
 
-            case '#Usado':
+            case '#Usuado':
            
               path_fetch ="api/interfaces/usados.php";
      
@@ -87,7 +82,7 @@ $(window).on('load', function(){
 
             case '#Combos':
            
-              path_fetch ="api/interfaces/tecnologia.php";
+              path_fetch ="api/interfaces/combos.php";
      
             break;
 

@@ -1,0 +1,15 @@
+.img-ubicacion{
+
+    width: 80px;
+}
+.pago-seguro{
+
+    width: 100%;
+}
+
+@media(min-width:1000px){
+
+    .pago-seguro{
+        height: 450px;
+    }
+}

@@ -80,7 +80,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tienda</title>
 </head>
 <body>
 
@@ -109,6 +109,14 @@
       </div>
       <br>
       <hr>
+     
+
+      <div class="container">
+      
+      <a href="tienda.php" class="btn btn-success"><h2><i class="fas fa-store"></i>  /  <i class="fas fa-arrow-left"></i> Tienda</h2></a>
+
+      </div>
+    
       <br>
 
       <div class="fondo-verde p-4"><h3 class="d-flex justify-content-center"><?php echo $producto[0]['nombre'] ?></h3></div>
@@ -129,7 +137,10 @@
       <h2>$ <?php echo $producto[0]['precio'] ?> pesos cop</h2>
       </div>
 
-      <form class="fondo-verde mt-2 p-3 d-block" action="" method="post">
+      <form class="fondo-verde mt-2 p-3 d-block" action="pagos.php" method="post">
+      <input type="text" class="d-none" name="id-producto" value="<?php echo $producto[0]['id_producto'] ?>">
+      <input type="text" class="d-none" name="comprar" value="1">
+      <input type="text" class="d-none" name="nombre-producto" value="<?php echo $producto[0]['nombre'] ?>">
 
     <h5>
       <label for="">Elige una cantidad :</label>
@@ -179,9 +190,9 @@
 
 
 
-      <div class="container">
+      <div class="container fondo-verde p-3">
       
-      <div class="alert fondo-verde">
+      <div class="alert bg-light">
       
       <div class="d-flex justify-content-center"><h4>Descrpicion</h4></div>
       <hr>
@@ -195,12 +206,22 @@
 
 
       <br>
+
+
+
+
+
+
+
       <div class="container">
       <div class=" container fondo-verde">
+      <br>
+      <div class=" p-2 bg-light container d-flex justify-content-center"><h4>Comprar desde Whatsapp</h4></div>
+      <br>
       
       <div class="d-flex justify-content-center">
       <br>
-      <h4>   Atencion a ventas</h4>
+      <h5 class="p-2 bg-light container">   Atencion a ventas</h5>
       </div>
       
       <hr>
@@ -216,21 +237,21 @@
 
         <hr>
 
-        <div class=" p-2 fondo-verde container d-flex justify-content-center"><h5>Comprar desde Whatsapp</h5></div>
         <br><br>
         <a href="https://api.whatsapp.com/send?phone=573192091708&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20<?php echo $producto[0]['nombre'] ?>" class="btn btn-success btn-block"><h4>ASESOR #1</h4></a>
-        <a href="https://api.whatsapp.com/send?phone=5731232043948&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20<?php echo $producto[0]['nombre'] ?>" class="btn btn-success btn-block"><h4>ASESOR #1</h4></a>
-        <a href="https://api.whatsapp.com/send?phone=5731228873812&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20<?php echo $producto[0]['nombre'] ?>" class="btn btn-success btn-block"><h4>ASESOR #1</h4></a>
+        <a href="https://api.whatsapp.com/send?phone=573232043948&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20<?php echo $producto[0]['nombre'] ?>" class="btn btn-success btn-block"><h4>ASESOR #2</h4></a>
+        <a href="https://api.whatsapp.com/send?phone=573228873812&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20<?php echo $producto[0]['nombre'] ?>" class="btn btn-success btn-block"><h4>ASESOR #3</h4></a>
 
         </div>
       
       <hr>
-
-  
-   
-
       </div>
       </div>
+
+
+
+
+
 
       <br>
       <hr>
@@ -489,7 +510,11 @@
 <h2>$ <?php echo $producto[0]['precio'] ?> pesos cop</h2>
 </div>
 
-<form class="fondo-verde mt-2 p-3 d-block" action="" method="post">
+<form class="fondo-verde mt-2 p-3 d-block" action="pagos.php" method="post">
+
+<input type="text" class="d-none" name="id-producto" value="<?php echo $producto[0]['id_producto'] ?>">
+<input type="text" class="d-none" name="comprar" value="1">
+<input type="text" class="d-none" name="nombre-producto" value="<?php echo $producto[0]['nombre'] ?>">
 
 <h5>
 <label for="">Elige una cantidad :</label>
@@ -540,15 +565,56 @@
 
 
 <br>
-<div class="container">
+<div class="container fondo-verde d-flex p-3">
       
-      <div class="alert fondo-verde">
+      <div class="alert bg-light  description">
       
       <div class="d-flex justify-content-center"><h4>Descrpicion</h4></div>
       <hr>
       <div><?php echo $producto[0]['descripcion'] ?></div>
 
       </div>
+
+
+      
+      <div class="container atencion">
+      <div class=" container fondo-verde">
+      <br>
+
+      <div class=" p-2 bg-light container d-flex justify-content-center"><h3>Comprar desde Whatsapp</h3></div>
+
+      <br>
+      <div class="d-flex justify-content-center">
+      <br>
+      <h5 class="p-2 bg-light container d-flex justify-content-center">   Atencion a ventas</h5>
+      </div>
+      
+      <hr>
+      <br>
+      <div class="bg-light d-block p-4 ">
+          <h5>Horarios:</h5>
+          <br>
+          <h5>Lunes a viernes : 9:00 a.m. - 6:00 p.m.</h5>
+          <br>
+          <h5>Sabados : 9:00 a.m. - 4:00 p.m.</h5>
+          <br>
+          <h5>Domingos y Festivos NO HAY ATENCION A VENTAS </h5>
+
+        <hr>
+
+        <br><br>
+        <a href="https://api.whatsapp.com/send?phone=573192091708&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20<?php echo $producto[0]['nombre'] ?>" class="btn btn-success btn-block"><h4>ASESOR #1</h4></a>
+        <a href="https://api.whatsapp.com/send?phone=573232043948&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20<?php echo $producto[0]['nombre'] ?>" class="btn btn-success btn-block"><h4>ASESOR #2</h4></a>
+        <a href="https://api.whatsapp.com/send?phone=573228873812&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20<?php echo $producto[0]['nombre'] ?>" class="btn btn-success btn-block"><h4>ASESOR #3</h4></a>
+
+        </div>
+      
+      <hr>
+      </div>
+      </div>
+
+
+
 
 </div>
 
