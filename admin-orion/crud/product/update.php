@@ -68,6 +68,15 @@ if($categoria_producto==null){
     <link rel="stylesheet" href="../../librerias/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../../librerias/icons/css/all.css">
 
+    <style>
+
+    .card-descripcion{
+
+      height: 500px;
+    }
+
+    </style>
+
 </head>
 <body>
 <br>
@@ -109,7 +118,7 @@ if($categoria_producto==null){
 <br>
 <div class="form-group">
 <label for="exampleFormControlTextarea1">Descripcion :</label>
-<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descripcion-producto" ><?php echo $response[0]['descripcion'] ?></textarea>
+<textarea class="form-control card-descripcion" id="exampleFormControlTextarea1" rows="3" name="descripcion-producto" ><?php echo $response[0]['descripcion'] ?></textarea>
 </div>
 <br>
 <br>

@@ -1,0 +1,17 @@
+.rastrear-pedido{
+
+    width: 100%;
+}
+.tarifas{
+
+    width: 100%;
+    height: 450px;
+    overflow-y: scroll;
+}
+
+@media(min-width:1000px){
+
+    .rastrear-pedido{
+        height: 450px;
+    }
+}

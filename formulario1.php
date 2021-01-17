@@ -30,10 +30,10 @@ session_start();
   </nav>
   <div class="menu-apps">
 
-        <div  class="vinculo iconos-menu " href="#"><i class="fas fa-house-user"></i></div>
-        <div  class="vinculo iconos-menu" href="#"><i class="fas fa-store"></i></div>
-        <div class="vinculo iconos-menu" href="#"><i class="fas fa-money-check-alt"></i></div>
-        <div  class="vinculo iconos-menu-escogido " href="#"><i class="fas fa-truck"></i></div>
+        <div  class="vinculo iconos-menu " ><i class="fas fa-house-user"></i></div>
+        <div  class="vinculo iconos-menu" ><i class="fas fa-store"></i></div>
+        <div class="vinculo iconos-menu" ><i class="fas fa-money-check-alt"></i></div>
+        <div  class="vinculo iconos-menu-escogido " ><i class="fas fa-truck"></i></div>
       </div>
   <br>
 
@@ -50,7 +50,7 @@ session_start();
 
 <div class="fondo-verde p-3">
 
-  <form class="bg-light p-3" action="">
+  <form class="bg-light p-3" action="ventas/addventa.php" method="POST">
   <br>
   <br>
   <label for="">Nombre destinatario :</label><br>
@@ -62,7 +62,7 @@ session_start();
   <br>
   <br>
   <label for="">Email :</label><br>
-  <input name="email-cliente" type="number" required>
+  <input name="email-cliente" type="email" required>
   <br>
   <br>
   <label for="">Ciudad :</label><br>
@@ -78,7 +78,7 @@ session_start();
   <br>
   <br>
   
-  <input class="d-none" type="text" required name="metodo-pago" value="contra-entrega">
+  <input class="d-none" type="text"  name="metodo-pago" value="contra-entrega">
   <button class="btn btn-block btn-success"><h4>Finalizar compra</h4></button>
 
 

@@ -216,7 +216,7 @@
       <div class="container">
       <div class=" container fondo-verde">
       <br>
-      <div class=" p-2 bg-light container d-flex justify-content-center"><h4>Comprar desde Whatsapp</h4></div>
+      <div class=" p-2 bg-light container d-flex justify-content-center"><h4>Compras desde Whatsapp</h4></div>
       <br>
       
       <div class="d-flex justify-content-center">
@@ -264,7 +264,7 @@
 
       <br>
       <br>
-      <div class="container alert alert-primary cont-productos ">
+      <div class="container alert alert-light cont-productos ">
             
             <?php
 
@@ -581,7 +581,7 @@
       <div class=" container fondo-verde">
       <br>
 
-      <div class=" p-2 bg-light container d-flex justify-content-center"><h3>Comprar desde Whatsapp</h3></div>
+      <div class=" p-2 bg-light container d-flex justify-content-center"><h3>Compras desde Whatsapp</h3></div>
 
       <br>
       <div class="d-flex justify-content-center">
@@ -630,7 +630,7 @@
           <h1>MÁS PRODUCTOS</h1>
       </div>
 
-<div class=" cont-productos ">
+<div class="container alert alert-light cont-productos ">
             
             <?php
 

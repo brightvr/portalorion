@@ -82,10 +82,10 @@ if(isset($_POST['comprar'])){
   </nav>
   <div class="menu-apps">
 
-        <div  class="vinculo iconos-menu " href="#"><i class="fas fa-house-user"></i></div>
-        <div  class="vinculo iconos-menu" href="#"><i class="fas fa-store"></i></div>
-        <div class="vinculo iconos-menu-escogido" href="#"><i class="fas fa-money-check-alt"></i></div>
-        <div  class="vinculo iconos-menu " href="#"><i class="fas fa-truck"></i></div>
+        <div  class="vinculo iconos-menu " ><i class="fas fa-house-user"></i></div>
+        <div  class="vinculo iconos-menu" ><i class="fas fa-store"></i></div>
+        <div class="vinculo iconos-menu-escogido" ><i class="fas fa-money-check-alt"></i></div>
+        <div  class="vinculo iconos-menu " ><i class="fas fa-truck"></i></div>
       </div>
   <br>
 
@@ -238,7 +238,7 @@ if(isset($_POST['comprar'])){
         <hr>
         
         <div class="btn btn-block btn-success"><h3>Pagar en efectivo (no contra-entrega)</h3></div>
-        <div class="btn btn-block btn-success"><h3>Pagar online</h3> </div>
+        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online</h3> </a>
         
         </div>
         <br>

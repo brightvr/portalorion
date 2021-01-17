@@ -28,8 +28,7 @@ $(window).on('load', function(){
 
                 case 3:
                 
-                    console.log('Envios');   
-                    
+                    window.location.href="envios.php";                     
                 break;
            
                default:

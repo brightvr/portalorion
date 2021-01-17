@@ -28,7 +28,7 @@
         <div  class="vinculo iconos-menu " href="#"><i class="fas fa-truck"></i></div>
       </div>
   <br>
- <br><br>
+ 
 
   <div class="contenedor fondo-blanco ">
 
@@ -1534,7 +1534,7 @@
       <p>Tajetas credito - Debito <span class="icon-pay"><i class="fas fa-credit-card"></i> </span></p><br>
       <p>Nequi -Daviplata <span ><img class="icono-pagos" src="api/assets/img/nequi-logo.png" alt=""> </span></p>
       <br>
-      <div class="btn btn-block btn-success"><h3>Consultar metodos de pago</h3></div>
+      <a href="pagos.php" class="btn btn-block btn-success"><h3>Consultar metodos de pago</h3></a>
 
 
     </div>
@@ -1552,7 +1552,7 @@
       <p>- Envios a nivel nacional</p>
       <p>- ¡Conoce nuestro seguro de proteccion de envios!</p>
 
-      <div class="btn btn-block btn-success"><h3>Consultar tarifa de envíos</h3></div>
+      <a href="envios.php" class="btn btn-block btn-success"><h3>Consultar tarifa de envíos</h3></a>
 
 
     </div>
@@ -1569,7 +1569,7 @@
 
 </div>
 
-<div class="mi-container container ">
+<div class="mi-container container">
 
  
 
