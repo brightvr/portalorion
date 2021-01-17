@@ -118,7 +118,7 @@ if($categoria_producto==null){
 <br>
 <div class="form-group">
 <label for="exampleFormControlTextarea1">Descripcion :</label>
-<textarea class="form-control card-descripcion" id="exampleFormControlTextarea1" rows="3" name="descripcion-producto" ><?php echo $response[0]['descripcion'] ?></textarea>
+<textarea rows="20" class="form-control card-descripcion" id="exampleFormControlTextarea1" rows="3" name="descripcion-producto" ><?php echo $response[0]['descripcion'] ?></textarea>
 </div>
 <br>
 <br>
