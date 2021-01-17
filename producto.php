@@ -252,7 +252,23 @@
 
 
 
+      <?php
 
+      echo '
+       <a href="'.$producto[0]['mercadolibre'].'" class="fondo-amarillo p-2 d-flex justify-content-center">
+      <h5>Comprar producto en mercado libre</h5>
+      </a>
+      '
+
+      ?>
+
+
+
+
+
+
+
+            
       <br>
       <hr>
       <br>
@@ -604,8 +620,8 @@
 
         <br><br>
         <a href="https://api.whatsapp.com/send?phone=573192091708&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20<?php echo $producto[0]['nombre'] ?>" class="btn btn-success btn-block"><h4>ASESOR #1</h4></a>
-        <a href="https://api.whatsapp.com/send?phone=573232043948&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20<?php echo $producto[0]['nombre'] ?>" class="btn btn-success btn-block"><h4>ASESOR #2</h4></a>
-        <a href="https://api.whatsapp.com/send?phone=573228873812&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20<?php echo $producto[0]['nombre'] ?>" class="btn btn-success btn-block"><h4>ASESOR #3</h4></a>
+        <a href="https://api.whatsapp.com/send?phone=5732288738128&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20<?php echo $producto[0]['nombre'] ?>" class="btn btn-success btn-block"><h4>ASESOR #2</h4></a>
+        <a href="https://api.whatsapp.com/send?phone=573232043948&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20<?php echo $producto[0]['nombre'] ?>" class="btn btn-success btn-block"><h4>ASESOR #3</h4></a>
 
         </div>
       
@@ -617,6 +633,20 @@
 
 
 </div>
+
+<br>
+
+<?php
+
+echo '
+ <a href="'.$producto[0]['mercadolibre'].'" class="fondo-amarillo p-2 d-flex justify-content-center">
+<h4>Comprar producto en mercado libre</h4>
+</a>
+'
+
+?>
+
+
 
 
 

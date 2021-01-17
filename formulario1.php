@@ -48,7 +48,22 @@ session_start();
 
 <br>
 
+
+
 <div class="fondo-verde p-3">
+  <div class="bg-light p-2">
+   <h5> Recuerda que si el domiciliario no se puede contactar contigo tu 
+    pedido sera <strong>CANCELADO</strong>, debes estar pendiente del numero de contacto que pongas en el formulario.</h5>
+  </div>
+</div>
+
+<br>
+
+
+
+
+<div class="fondo-verde p-3">
+
 
   <form class="bg-light p-3" action="ventas/addventa.php" method="POST">
   <br>
@@ -90,14 +105,7 @@ session_start();
 
 
 
-<div class="fondo-verde p-3">
-  <div class="bg-light p-2">
-   <h5> Recuerda que si el domiciliario no se puede contactar contigo tu 
-    pedido sera <strong>cancelado</strong>, debes estar pendiente del numero de contacto que pongas en el formulario.</h5>
-  </div>
-</div>
 
-<br>
 <hr>
   <script src="librerias/jquery/jquery-3.5.1.js"></script>
   <script src="librerias/bootstrap/js/bootstrap.min.js"></script>

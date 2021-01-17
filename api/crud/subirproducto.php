@@ -4,6 +4,7 @@
     var_dump($_SERVER['DOCUMENT_ROOT']);
     var_dump($_POST);
     var_dump($_FILES);
+    //die();
 
     function IdCategoriaProducto($selectData,$conect){
         
@@ -68,7 +69,7 @@
 
 
 
-            $insertProduct="insert into productos values(null,'".$dataProducto['nombre-producto']."','".$dataProducto['precio-producto']."','".$dataProducto['descripcion-producto']."','".$rutaDB."','".$dataProducto['stock-producto']."','".$dataProducto['info-producto']."','".$dataProducto['precio-descuento']."','{$disponibilidad}','".$tiendaOficial."')";
+            $insertProduct="insert into productos values(null,'".$dataProducto['nombre-producto']."','".$dataProducto['precio-producto']."','".$dataProducto['descripcion-producto']."','".$rutaDB."','".$dataProducto['stock-producto']."','".$dataProducto['info-producto']."','".$dataProducto['precio-descuento']."','{$disponibilidad}','".$tiendaOficial."','".$dataProducto['mercado-libre']."')";
 
 
             if(mysqli_query($miconexion->Conectando(),$insertProduct)){

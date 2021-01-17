@@ -113,6 +113,7 @@
  <h2>Tarifas de envíos</h2>
  </div>
 <br>
+<img class="rastrear-pedido" src="api/assets/img/banner-envios-2.gif" alt="">
 
  <div class="fondo-verde p-3">
 <h5 class="bg-light p-2 d-flex justify-content-center">Costo del envío para pagos contra-entrega</h5>
@@ -141,7 +142,11 @@
 
 
  <br>
- 
+<hr>
+<br>
+
+<img class="rastrear-pedido" src="api/assets/img/banner-envios-3.gif" alt="">
+
 
  <div class="fondo-verde p-3">
 <h5 class="bg-light p-2 d-flex justify-content-center">Costo del envío sin pago contra entrega</h5>

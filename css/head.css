@@ -26,6 +26,11 @@ body{
     color: black;
 }
 
+.fondo-amarillo{
+    background: yellow;
+    color: black;
+}
+
 .fondo-verde2{
     background: green;
     color: rgb(0, 0, 0);

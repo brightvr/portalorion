@@ -128,6 +128,11 @@ if($categoria_producto==null){
   <input type="text" name="info-producto" class="form-control" value="<?php echo $response[0]['info_corta'] ?>">
 </div>
 <br><br>
+          <div class="form-group">
+            <label>Link mercado libre :</label>
+            <input type="text" name="mercado-libre" class="form-control" required value="<?php echo $response[0]['mercadolibre'] ?>">
+          </div>
+          <br><br>
 
 <?php if( isset($categoria_producto[0]['id_categoria_producto'])){
 

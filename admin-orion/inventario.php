@@ -539,6 +539,12 @@ while($res= mysqli_fetch_assoc($query)){
             <input type="text" name="info-producto" class="form-control" required>
           </div>
           <br><br>
+          <div class="form-group">
+            <label>Link mercado libre :</label>
+            <input type="text" name="mercado-libre" class="form-control" required>
+          </div>
+          <br><br>
+          
           
           <div class="form-group">
           <label for="exampleFormControlFile1">Foto del producto :</label>
