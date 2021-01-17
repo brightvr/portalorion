@@ -119,7 +119,7 @@ function ChangeImgAdnData($data, $img, $conect){
             }
 
             $update="
-            update productos set nombre='".$data['nombre-producto']."', precio='".$data['precio-producto']."', descripcion='".$data['descripcion-producto']."', img='api/assets/img/".$img['img-producto']['name']."', stock='".$data['stock-producto']."', info_corta='".$data['info-producto']."', precio_descuento='".$data['precio-descuento']."', disponibilidad='".$stock."' where id_producto=".$data['id_producto']."
+            update productos set nombre='".$data['nombre-producto']."', precio='".$data['precio-producto']."', descripcion='".$data['descripcion-producto']."', img='api/assets/img/".$img['img-producto']['name']."', stock='".$data['stock-producto']."', info_corta='".$data['info-producto']."', precio_descuento='".$data['precio-descuento']."', disponibilidad='".$stock."'','".$data['mercado-libre']."' where id_producto=".$data['id_producto']."
             
             ";
 
@@ -175,7 +175,7 @@ function ChangeImgAdnData($data, $img, $conect){
             }
 
             $update="
-             update productos set nombre='".$data['nombre-producto']."', precio='".$data['precio-producto']."', descripcion='".$data['descripcion-producto']."', img='api/assets/img/".$img['img-producto']['name']."', stock='".$data['stock-producto']."', info_corta='".$data['info-producto']."', precio_descuento='".$data['precio-descuento']."', disponibilidad='".$stock."' where id_producto=".$data['id_producto']."
+             update productos set nombre='".$data['nombre-producto']."', precio='".$data['precio-producto']."', descripcion='".$data['descripcion-producto']."', img='api/assets/img/".$img['img-producto']['name']."', stock='".$data['stock-producto']."', info_corta='".$data['info-producto']."', precio_descuento='".$data['precio-descuento']."', disponibilidad='".$stock."'','".$data['mercado-libre']."' where id_producto=".$data['id_producto']."
             
             ";
 
