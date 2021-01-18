@@ -2,7 +2,25 @@
 
 session_start();
 
-//var_dump($_SESSION);
+var_dump($_SESSION);
+
+
+// SDK de Mercado Pago
+require __DIR__ .  '/vendor/autoload.php';
+
+// Agrega credenciales
+MercadoPago\SDK::setAccessToken('TEST-3690549563177613-121216-c7fa771be1d4555e433cd7d8025aaf39-565287926');
+
+// Crea un objeto de preferencia
+$preference = new MercadoPago\Preference();
+
+// Crea un ítem en la preferencia
+$item = new MercadoPago\Item();
+$item->title = 'Mi producto';
+$item->quantity = 1;
+$item->unit_price = 75;
+$preference->items = array($item);
+$preference->save();
 
 ?>
 
@@ -88,7 +106,11 @@ session_start();
 
 <br>
 
-
+          
+<script
+  src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+  data-preference-id="<?php echo $preference->id; ?>">
+</script>
 
 
 

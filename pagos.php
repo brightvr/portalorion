@@ -208,7 +208,7 @@ if(isset($_POST['comprar'])){
 
     }
 
-    if($pago_contra_entrega){
+    if($pago_contra_entrega && intval($subtotal)!=0){
 
         
 
@@ -222,11 +222,11 @@ if(isset($_POST['comprar'])){
         <hr>
         <a href="formulario1.php" class="btn btn-block btn-success"><h3>Pagar contra-entrega</h3></a>
         <div class="btn btn-block btn-success"><h3>Pagar en efectivo (no contra-entrega)</h3></div>
-        <div class="btn btn-block btn-success"><h3>Pagar online</h3> </div>
+        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online</h3> </a>
         
         </div>';
 
-    }else{
+    }else if(!$pago_contra_entrega && intval($subtotal)!=0){
 
         //var_dump("pago contra entrega deshabilitado");
 
@@ -247,19 +247,45 @@ if(isset($_POST['comprar'])){
         <br>
         <br>
         ';
+    }else if($subtotal==0){
+
+        echo '
+
+        <br>
+        <div class="container alert alert-light">
+
+        <div class="fondo-verde d-flex justify-content-center p-2"><h4>Formas de pago para : '.$_POST['destino-producto'].'</h4></div>
+        <hr>
+        
+        <div class="btn btn-block btn-danger"><h3>ESTE PRODUCTO ACTUALMENTE NO SE ENCUENTRA DISPONIBLE </h3></div>
+     
+        
+        </div>
+        <br>
+        <br>
+        <hr>
+        <br>
+        <br>
+        
+        
+        ';
     }
 
 
+}
+if(!isset($_POST['comprar'])){
+
+    require_once 'landingpagos.php';
 }
 
 
 ?>
 
+
+
 <br>
 <hr>
 <br>
-
-
 
 
 

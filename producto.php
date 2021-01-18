@@ -175,7 +175,21 @@
       </select><br>
       <br><br>
 
-      <button type="submit" class="btn comprar btn-block"><h1>COMPRAR</h1></button>
+      <?php
+      
+
+      if( intval($producto[0]['stock'])===0){
+
+        echo '  <div class="btn comprar btn-block"><h1>NO DISPONIBLE</h1></div>';
+
+      }else{
+
+          echo '  <button type="submit" class="btn comprar btn-block"><h1>COMPRAR</h1></button>';
+      }
+
+      ?>
+
+    
       <br>
       </h5>
       </form>
