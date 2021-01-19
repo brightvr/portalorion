@@ -1,5 +1,8 @@
 <?php
 
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(E_ALL);
 session_start();
 
 var_dump($_SESSION);
@@ -10,6 +13,7 @@ require __DIR__ .  '/vendor/autoload.php';
 
 // Agrega credenciales
 MercadoPago\SDK::setAccessToken('TEST-3690549563177613-121216-c7fa771be1d4555e433cd7d8025aaf39-565287926');
+
 
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
@@ -107,15 +111,25 @@ $preference->save();
 <br>
 
           
+
+
+
+<br>
+<hr>
+<script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+<script>
+
+  window.Mercadopago.setPublishableKey("TEST-51a06c60-3c37-4537-a448-0c5b2ad90d00");
+
+
+</script>
+
 <script
   src="https://www.mercadopago.com.co/integrations/v1/web-payment-checkout.js"
   data-preference-id="<?php echo $preference->id; ?>">
 </script>
 
 
-
-<br>
-<hr>
   <script src="librerias/jquery/jquery-3.5.1.js"></script>
   <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
   <script src="librerias/icons/js/all.js"></script>

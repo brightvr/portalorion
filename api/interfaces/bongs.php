@@ -1,4 +1,7 @@
 <?php
+
+
+
 require_once '../crud/conexion.php';
 
 $consulta="select * from  productos p, categorias_productos c  where c.id_categoria=10 and p.id_producto=c.id_producto";

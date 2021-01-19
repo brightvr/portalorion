@@ -1,5 +1,7 @@
 <?php
 
+
+
 /*Para usar la conexion en otros archivos externos
 solamente hay que incluir el archivo y usar la variable
 $miconexion e instanciar el metodo asi: $miconexion->Conectando()*/
