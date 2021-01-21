@@ -5,26 +5,18 @@ ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 session_start();
 
-var_dump($_SESSION);
+if(!isset($_SESSION['venta'])){
+
+  header('Location:https://google.com');
+}
 
 
-// SDK de Mercado Pago
-require __DIR__ .  '/vendor/autoload.php';
+//var_dump($_SESSION);
 
-// Agrega credenciales
-MercadoPago\SDK::setAccessToken('TEST-3690549563177613-121216-c7fa771be1d4555e433cd7d8025aaf39-565287926');
+if(!isset($_SESSION['venta'])){
 
-
-// Crea un objeto de preferencia
-$preference = new MercadoPago\Preference();
-
-// Crea un ítem en la preferencia
-$item = new MercadoPago\Item();
-$item->title = 'Mi producto';
-$item->quantity = 1;
-$item->unit_price = 75;
-$preference->items = array($item);
-$preference->save();
+  header('Location:https://google.com');
+}
 
 ?>
 
@@ -61,18 +53,32 @@ $preference->save();
 
   <div class="container">
       
-      <a href="envios.php" class="btn btn-success"><h2><i class="fas fa-truck"></i>  /  <i class="fas fa-arrow-left"></i> Envios</h2></a>
+      <a href="producto.php?id=<?php echo $_SESSION['venta']['id_producto'] ?>" class="btn btn-success"><h3><img style="width:80px;" src="<?php echo $_SESSION['venta']['img'] ?>" class="img-ubicacion">  /  <i class="fas fa-arrow-left"></i> Producto</h3></a>
 
-      </div>
+    </div>
 
 <br>
 <div class="fondo-verde p-3 d-flex justify-content-center"><h2>Formulario de compra</h2></div>
 
 <br>
 
+<div class="bg-light p-3">
+<h5>Recuerda que para poder pagar debes ser mayor de edad, 
+mercado pago te pedira tu numero de identificacion (cédula)
+para verfificar que seas <strong>mayor de edad </strong>
+</h5>
+</div>
+
+<br>
+
+<div class="fondo-verde d-flex justify-content-center p-2">
+
+<h4>Total a pagar : $ <?php echo $_SESSION['venta']['total'] ?> pesos cop</h4>
+</div>
+
 <div class="fondo-verde p-3">
 
-  <form class="bg-light p-3" action="">
+  <form class="bg-light p-3" action="mercadopago.php" method="POST">
   <br>
   <br>
   <label for="">Nombre destinatario :</label><br>
@@ -84,7 +90,7 @@ $preference->save();
   <br>
   <br>
   <label for="">Email :</label><br>
-  <input name="email-cliente" type="number" required>
+  <input name="email-cliente" type="email" required>
   <br>
   <br>
   <label for="">Ciudad :</label><br>
@@ -101,7 +107,8 @@ $preference->save();
   <br>
   
   <input class="d-none" type="text" required name="metodo-pago" value="contra-entrega">
-  <button class="btn btn-block btn-success"><h4>Finalizar compra</h4></button>
+  <button type="submit" class="btn btn-success btn-block"><h2>Finalizar compra</h2></button>
+
 
 
 
@@ -116,23 +123,13 @@ $preference->save();
 
 <br>
 <hr>
-<script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
-<script>
 
-  window.Mercadopago.setPublishableKey("TEST-51a06c60-3c37-4537-a448-0c5b2ad90d00");
-
-
-</script>
-
-<script
-  src="https://www.mercadopago.com.co/integrations/v1/web-payment-checkout.js"
-  data-preference-id="<?php echo $preference->id; ?>">
-</script>
 
 
   <script src="librerias/jquery/jquery-3.5.1.js"></script>
   <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
   <script src="librerias/icons/js/all.js"></script>
   <script src="js/navigation.js"></script>
+
 </body>
 </html>

@@ -1518,8 +1518,16 @@
   <br>
   <hr>
   <br>
+   
+   <div class="container p-2">
+   
+   <div class="btn fondo-negro btn-block"><h5>PORTAL ORION BASIC </h5><span style="font-size:25px; color:yellow;"><i class="fas fa-shield-alt"></i></span> </div>
+    <div class="btn fondo-negro btn-block"><h5>PORTAL ORION PREMIUM </h5><span style="font-size:25px; color:yellow;"><i class="fas fa-trophy"></i></span> </div>
 
+   
+   </div>
 
+<br>
 
 
   <div class="container d-flex flex-wrap justify-content-center">

@@ -2,6 +2,11 @@
 
 session_start();
 
+if(!isset($_SESSION['venta'])){
+
+  header('Location:https://google.com');
+}
+
 //var_dump($_SESSION);
 
 ?>
@@ -37,11 +42,12 @@ session_start();
       </div>
   <br>
 
+
   <div class="container">
       
-      <a href="envios.php" class="btn btn-success"><h2><i class="fas fa-truck"></i>  /  <i class="fas fa-arrow-left"></i> Envios</h2></a>
+      <a href="producto.php?id=<?php echo $_SESSION['venta']['id_producto'] ?>" class="btn btn-success"><h3><img style="width:80px;" src="<?php echo $_SESSION['venta']['img'] ?>" class="img-ubicacion">  /  <i class="fas fa-arrow-left"></i> Producto</h3></a>
 
-      </div>
+    </div>
 
 <br>
 <div class="fondo-verde p-3 d-flex justify-content-center"><h2>Formulario de compra</h2></div>
@@ -53,14 +59,19 @@ session_start();
 <div class="fondo-verde p-3">
   <div class="bg-light p-2">
    <h5> Recuerda que si el domiciliario no se puede contactar contigo tu 
-    pedido sera <strong>CANCELADO</strong>, debes estar pendiente del numero de contacto que pongas en el formulario.</h5>
+    pedido sera <strong style="color:red;">CANCELADO</strong>, debes estar pendiente del numero de contacto que pongas en el formulario.</h5>
+    <br>
+    <h5>La llamada de confirmacion se realiza entre 10 y 15 mintos despues de hacer efectiva la compra </h5>
   </div>
 </div>
 
 <br>
 
 
+<div class="fondo-verde d-flex justify-content-center p-2">
 
+<h4 class="bg-light p-2">Total a pagar : $ <?php echo $_SESSION['venta']['total'] ?> pesos cop</h4>
+</div>
 
 <div class="fondo-verde p-3">
 
@@ -94,7 +105,7 @@ session_start();
   <br>
   
   <input class="d-none" type="text"  name="metodo-pago" value="contra-entrega">
-  <button class="btn btn-block btn-success"><h4>Finalizar compra</h4></button>
+  <button class="btn btn-block btn-success"><h2>Finalizar compra</h4></button>
 
 
 

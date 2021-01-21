@@ -101,14 +101,8 @@ while($res= mysqli_fetch_assoc($query)){
       <li class="nav-item">
         <a class="nav-link" href="ventas.php">VENTAS</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="pedidos.php">PEDIDOS</a>
-      </li>
       <li class="nav-item active">
         <a class="nav-link" href="inventario.php">INVENTARIO</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="etiquetas.php">ETIQUETAS</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="contabilidad.php">CONTABILIDAD</a>

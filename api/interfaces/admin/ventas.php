@@ -22,7 +22,7 @@ while($res= mysqli_fetch_assoc($query)){
 
 if($ventas===null){
 
-  echo json_encode("Esta categoria se encuentra vacia por el momento");
+  echo json_encode("No existen ventas disponibles");
 
 }else{
   

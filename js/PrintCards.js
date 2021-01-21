@@ -116,6 +116,18 @@ $(window).on('load', function(){
               path_fetch ="api/interfaces/otros.php";
      
             break;
+
+            case '#Filtros':
+           
+              path_fetch ="api/interfaces/filtros.php";
+     
+            break;
+            case '##Cannabis_Shop':
+           
+              path_fetch ="api/interfaces/cannabisshop.php";
+     
+            break;
+       
        
             default:
                 console.log('Advertencia: Function Ruta esta retornado el valor por defecto')

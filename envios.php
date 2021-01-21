@@ -93,12 +93,102 @@
   <form class="p-3 bg-light" action="envios.php" method="post">
 
   <label>Numero de seguimiento :</label><br>
-  <input type="number" name="id_venta" required>
+  <input type="text" name="id_pedido" required>
   <br>
   <br>
   <button type="submit" class="btn btn-success btn-block"> <h3> Rastrear <i class="fas fa-search-location"></i></h3></button>
   
-</form>
+ </form>
+
+     <?php
+
+     if(isset($_POST['id_pedido'])){
+
+      $consulta4="select * from ventas where id_pedido='".$_POST['id_pedido']."'";
+
+
+     $query =mysqli_query($miconexion->Conectando(),$consulta4);
+ 
+      
+     $Pedido=null;
+ 
+     while($res= mysqli_fetch_assoc($query)){
+ 
+         $Pedido[]=$res;
+ 
+     }
+
+     if($Pedido===null){
+
+      echo '
+      <br><br>
+      <div class="container bg-light p-2">
+
+      <h3 style="color:red;" class="p-2 d-flex justify-xontent-center">No se encontraron resultados para "'.$_POST['id_pedido'].'", recuerda  poner el codigo de seguimiento sin el "#"</h3>
+
+      
+      </div>
+      ';
+
+     }else{
+
+      //var_dump($Pedido);
+
+      if($Pedido[0]['forma_de_pago']==="contra-entrega"){
+
+        $tiempo_estimado="Tiempo estimado de entrega:  12 a 24 horas  ";
+      
+      }else if($Pedido[0]['ciduad']==="bogota"){
+
+        $tiempo_estimado="Tiempo estimado de entrega: 1 a 3 días";
+      
+      }else{
+
+        $tiempo_estimado="Tiempo estimado de entrega: 1 a 5 días";
+      
+      }
+
+      if($Pedido[0]['estado']==="Entregado"){
+
+        $tiempo_estimado="Este pedido ha sido entregado satisfactoriamente";
+      }
+
+      echo '   
+      
+        <br>
+        <br>
+
+        <div class="container bg-light p-4">
+        <h5>
+        <p>Nombre destinatario : '.$Pedido[0]['nombre_cliente'].'</p>
+        <hr>
+        <p>Ciudad destino : '.$Pedido[0]['ciudad'].'</p>
+        <hr>
+        <p style="color:green;"><i class="fas fa-truck"></i> Estado : '.$Pedido[0]['estado'].'</p>
+        <hr>
+        <p style="color:green;"><i class="fas fa-truck-loading"></i> '.$tiempo_estimado.'</p>
+        <h5>
+        <hr>
+        <br>
+        <a href="">Necesito ayuda con mi pedido</a>
+        
+        </div>
+
+      
+      
+      ';
+
+
+
+     }
+
+
+
+     }
+
+
+     ?>
+ 
   </div>
 
 
@@ -126,7 +216,7 @@
 
 
     echo '
-    <li class="list-group-item">'.$contraEntrega[$i]['nombre_lugar'].' : $ '.$contraEntrega[$i]['precio3kg'].'</li>
+    <li class="list-group-item">'.$contraEntrega[$i]['nombre_lugar'].' : $ '.$contraEntrega[$i]['precio3kg'].' pesos</li>
 
     
     ';
@@ -159,7 +249,7 @@
 
 
     echo '
-    <li class="list-group-item">'.$envios[$i]['nombre_lugar'].' : $ '.$envios[$i]['precio3kg'].'</li>
+    <li class="list-group-item">'.$envios[$i]['nombre_lugar'].' : $ '.$envios[$i]['precio3kg'].' pesos</li>
 
     
     ';

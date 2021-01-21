@@ -154,7 +154,8 @@ if(isset($_POST['nombre-producto'])){
         "subtotal"=>$subtotal,
         "envio"=>$costo_envio,
         "total"=>$total_a_pagar,
-        "estado"=>"Alistando pedido"
+        "estado"=>"Alistando pedido",
+        "img"=>$producto[0]['img']
     ];
     
 
@@ -221,8 +222,7 @@ if(isset($_POST['comprar'])){
         <div class="fondo-verde d-flex justify-content-center p-2"><h4>Formas de pago para : '.$_POST['destino-producto'].'</h4></div>
         <hr>
         <a href="formulario1.php" class="btn btn-block btn-success"><h3>Pagar contra-entrega</h3></a>
-        <div class="btn btn-block btn-success"><h3>Pagar en efectivo (no contra-entrega)</h3></div>
-        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online</h3> </a>
+        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online (Incluye pagos en efectivo)</h3> </a>
         
         </div>';
 
@@ -237,8 +237,8 @@ if(isset($_POST['comprar'])){
         <div class="fondo-verde d-flex justify-content-center p-2"><h4>Formas de pago para : '.$_POST['destino-producto'].'</h4></div>
         <hr>
         
-        <div class="btn btn-block btn-success"><h3>Pagar en efectivo (no contra-entrega)</h3></div>
-        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online</h3> </a>
+       
+        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online (Incluye pagos en efectivo)</h3> </a>
         
         </div>
         <br>
