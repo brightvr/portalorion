@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+
+//var_dump($_SESSION);
 //var_dump($_GET);
 if(!isset($_GET['collection_status'])){
 
@@ -43,11 +46,44 @@ if(!isset($_GET['collection_status'])){
 
 <?php 
 
+    
+
     if($_GET['collection_status']==="pending" && $_GET['payment_type']==="ticket"){
+
+      if(isset( $_SESSION['pago-pendiente'])){
+
+
+        $longitud=50;
+        $clave=substr(md5(microtime()),1,$longitud);
+  
+        $longitud=9;
+        $idPedido=substr(md5(microtime()),1,$longitud);
+  
+  
+  
+         
+  
+          $insert="insert into ventas values(null,'".$_SESSION['cliente']['nombre-cliente']."','".$_SESSION['cliente']['ciudad-cliente']."','".$_SESSION['cliente']['barrio-cliente']."','".$_SESSION['cliente']['direccion-cliente']."','".$_SESSION['cliente']['celular-cliente']."','".$_SESSION['venta']['subtotal']."','".$_SESSION['venta']['envio']."','Pago pendiente','Alistando pedido','".$clave."','".$idPedido."','".$_SESSION['venta']['producto']."','".$_SESSION['venta']['cantidad']."')";
+         
+          require_once '../conexion.php';
+       
+          if(mysqli_query($miconexion->Conectando(),$insert)){
+  
+  
+  
+         }else{
+  
+          var_dump("Error al agregar compra pendiente");
+         }
+  
+
+         unset($_SESSION['pago-pendiente']);
+      }
 
         echo '<div class="bg-light p-3">PAGO EN EFECTIVO Pago pendiente ,
         una vez realices el pago, este se aprovara
-        inmediatamente y podras rastrear tu envio <a href="../envios.php">AQUÍ</a><br><hr>
+         y podras rastrear tu envio <a href="../envios.php">AQUÍ</a>, la aprobación suele
+         tardar un maximo de 60  minutos<br><hr>
         Recuerda que mercado pago te enviara al correo todo el proceso de la compra<br>
 
         <small>Si tienes algún problema con tu pago comunicate con nostros <a href="../envios.php">AQUÍ</a> </small>
@@ -77,6 +113,19 @@ if(!isset($_GET['collection_status'])){
   <script src="../librerias/bootstrap/js/bootstrap.min.js"></script>
   <script src="../librerias/icons/js/all.js"></script>
   <script src="../js/navigation2.js"></script>
-    
+
+
+<?php
+if(!isset($_SESSION['user'])){
+
+echo '<script src="../js/menuuser.js"></script>';
+
+}else{
+
+echo '<script src="../js/user.js"></script>';
+
+}
+
+?>
 </body>
 </html>

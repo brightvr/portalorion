@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+
 
 //var_dump($_GET);
 if(!isset($_GET['collection_status'])){
@@ -89,6 +92,19 @@ if(!isset($_GET['collection_status'])){
   <script src="../librerias/bootstrap/js/bootstrap.min.js"></script>
   <script src="../librerias/icons/js/all.js"></script>
   <script src="../js/navigation2.js"></script>
+
+  <?php
+if(!isset($_SESSION['user'])){
+
+echo '<script src="../js/menuuser.js"></script>';
+
+}else{
+
+echo '<script src="../js/user.js"></script>';
+
+}
+
+?>
     
 </body>
 </html>

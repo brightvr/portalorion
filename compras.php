@@ -102,6 +102,9 @@ if(isset($_GET['response'])){
   </div>
   <br>
   <br>
+  <div class="fondo-verde p-3">Recuerda que los pagos pendientes no aparecen registrados en tus compras hasta que sean aprovados</div>
+  <br>
+  <br>
   <div class="container p-3 bg-light d-flex flex-wrap">
 
 

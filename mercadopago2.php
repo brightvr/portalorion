@@ -15,6 +15,7 @@ if(isset($_POST['nombre-cliente'])){
 
   $_SESSION['cliente']=$_POST;
   $_SESSION['mercado-pago']=true;
+  $_SESSION['pago-pendiente']="Pago en proceso";
 
 }else{
 
@@ -69,8 +70,8 @@ require __DIR__ .  '/vendor/autoload.php';
 MercadoPago\SDK::setAccessToken('APP_USR-2420259730214944-011916-b0809548eac8d970b4f9e00b66bd6c60-565287926');
 
 $preference = new MercadoPago\Preference();
-
-/*$preference->back_urls =array(
+/*
+$preference->back_urls =array(
 
   "success"=>"http://localhost/portalorion/usuarios/comprausuario.php",
   "failure"=>"http://localhost/portalorion/ventas/pendiente.php",
