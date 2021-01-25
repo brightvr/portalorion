@@ -1,0 +1,115 @@
+<?php
+  
+if(isset($_GET['response'])){
+
+  echo '
+
+    <div  style="width:100%; position:fixed; z-index:9999999999999999;"  class="bg-success respuestas">
+    <span class="btn-cerrar" style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span>
+    <div class="container  p-3  text-white d-flex justify-content-center"><h5>'.$_GET['response'].'</h5></div>
+    </div>
+
+
+
+  ';
+
+  echo '
+  
+  <script>
+
+   let btn= document.querySelector(".btn-cerrar");
+   btn.addEventListener("click",()=>{
+
+
+   
+
+    let padre= document.querySelector(".respuestas").parentNode;
+    let hijo= document.querySelector(".respuestas")
+    padre.removeChild(hijo);
+
+  });
+
+  </script>
+  
+  ';
+
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Orion</title>
+
+  <link rel="stylesheet" href="librerias/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="librerias/icons/css/all.css">
+  <link rel="stylesheet" href="css/head.css">
+  <link rel="stylesheet" href="css/index.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fondo-negro  d-flex justify-content-between">
+  <a class="navbar-brand" href="index.php"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
+  <button class="cont-icon-user" type="button" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="icono-user"><i class="fas fa-user"></i></span>
+  </button>
+
+</nav>
+<div class="menu-apps">
+
+      <div  class="vinculo iconos-menu-escogido " href="#"><i class="fas fa-house-user"></i></div>
+      <div  class="vinculo iconos-menu" href="#"><i class="fas fa-store"></i></div>
+      <div class="vinculo iconos-menu" href="#"><i class="fas fa-money-check-alt"></i></div>
+      <div  class="vinculo iconos-menu " href="#"><i class="fas fa-truck"></i></div>
+    </div>
+<br>
+
+
+
+<div class="card container bg-light p-2">
+
+
+
+<form class="p-3" action="usuarios/forget.php" method="POST">
+<label>Introduce tu correo :</label><br>
+<input type="email" name="email" required><br>
+<br>
+<label>Metodo de recuperacion :</label><br>
+<select name="metodo-recuperacion">
+
+<option value="Llamada">Llamada</option><br>
+<option value="Whatsapp">Whatsapp</option><br>
+<option value="Correo">correo electronico</option><br>
+
+
+</select>
+<br><br>
+<button class="btn btn-danger btn-block">Enviar</button>
+
+</form>
+</div>
+
+
+<?php
+
+require_once 'footer.php';
+
+?>
+
+    
+
+
+<script src="librerias/jquery/jquery-3.5.1.js"></script>
+<script src="librerias/bootstrap/js/bootstrap.min.js"></script>
+    <script src="librerias/icons/js/all.js"></script>
+    <script src="js/navigation.js"></script>
+<script src="js/menuuser.js"></script>
+
+
+
+  </body>
+  </html>

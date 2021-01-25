@@ -1,11 +1,18 @@
 
 <?php
 
+session_start();
+
+//var_dump($_SESSION);
+//var_dump($_POST);
+//die();
+
+
 use MercadoPago\Shipments;
 
 if(isset($_POST['nombre-cliente'])){
 
-  session_start();
+
   $_SESSION['cliente']=$_POST;
   $_SESSION['mercado-pago']=true;
 
@@ -65,14 +72,14 @@ $preference = new MercadoPago\Preference();
 
 /*$preference->back_urls =array(
 
-  "success"=>"http://localhost/portalorion/ventas/addventa.php",
+  "success"=>"http://localhost/portalorion/usuarios/comprausuario.php",
   "failure"=>"http://localhost/portalorion/ventas/pendiente.php",
   "pending"=>"http://localhost/portalorion/ventas/error.php"
 
 );*/
 $preference->back_urls =array(
 
-  "success"=>"https://portalorion.store/ventas/addventa.php",
+  "success"=>"https://portalorion.store/usuarios/comprausuario.php",
   "failure"=>"https://portalorion.store/ventas/pendiente.php",
   "pending"=>"https://portalorion.store/ventas/error.php"
 

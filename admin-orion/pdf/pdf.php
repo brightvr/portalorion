@@ -21,7 +21,7 @@ if(isset($_GET['estado']) && $_GET['estado']==="En camino" || $_GET['estado']===
 
     }
 
-
+    header('Location:../ventas.php');
 }
 
 
@@ -110,6 +110,15 @@ $pdf->Ln(8);
  $pdf->Cell(60,5,utf8_decode($pedido[0]['direccion']));
  $pdf->Ln(8);
 
+ $pdf->Cell(60,5,utf8_decode('Producto :'));
+ $pdf->Cell(60,5,utf8_decode($pedido[0]['nombre_product']));
+ $pdf->Ln(8);
+
+ $pdf->Cell(60,5,utf8_decode('Unidades :'));
+ $pdf->Cell(60,5,utf8_decode($pedido[0]['cantidad_product']));
+ $pdf->Ln(8);
+
+
  $pdf->Cell(60,5,utf8_decode('Costo producto :'));
  $pdf->Cell(60,5,utf8_decode('$ '.$pedido[0]['precio_compra'].' pesos cop'));
  $pdf->Ln(8);
@@ -118,7 +127,7 @@ $pdf->Ln(8);
  $pdf->Cell(60,5,utf8_decode('$ '.$pedido[0]['precio_envio'].' pesos cop'));
  $pdf->Ln(8);
 
- $pdf->Cell(60,5,utf8_decode('Forma de pago'));
+ $pdf->Cell(60,5,utf8_decode('Forma de pago :'));
  $pdf->Cell(60,5,utf8_decode($pedido[0]['forma_de_pago']));
  $pdf->Ln(8);
 

@@ -1,13 +1,42 @@
 <?php
 
+if(isset($_GET['response'])){
 
-  if(isset($_GET['response'])){
+  echo '
 
-    echo '<div class="alert alert-success d-flex justify-content-center">'.$_GET['response'].'</div>';
+    <div  style="width:100%; position:fixed; z-index:9999999999999999;"  class="bg-success respuestas">
+    <span class="btn-cerrar" style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span>
+    <div class="container  p-3  text-white d-flex justify-content-center"><h5>'.$_GET['response'].'</h5></div>
+    </div>
 
-  }
+
+
+  ';
+
+  echo '
+  
+  <script>
+
+   let btn= document.querySelector(".btn-cerrar");
+   btn.addEventListener("click",()=>{
+
+
+   
+
+    let padre= document.querySelector(".respuestas").parentNode;
+    let hijo= document.querySelector(".respuestas")
+    padre.removeChild(hijo);
+
+  });
+
+  </script>
+  
+  ';
+
+}
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

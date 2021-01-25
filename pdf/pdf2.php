@@ -50,7 +50,7 @@ $pdf->SetFont('Times','',12);
     $pdf->Cell(20,10,utf8_decode(' Cantidad '),1,1,'C',0);
 
     //datos usuario 
-    $pdf->Cell(70,10,utf8_decode($_SESSION['cliente']['nombre-cliente']),1,0,'C',0);
+    $pdf->Cell(70,10,utf8_decode($_SESSION['user'][0]['nombre']),1,0,'C',0);
     $pdf->Cell(60,10,utf8_decode($_SESSION['venta']['producto']),1,0,'C',0);
     $pdf->Cell(40,10,utf8_decode('$ '.$_SESSION['venta']['precioxUnidad'].' pesos cop'),1,0,'C',0);
     $pdf->Cell(20,10,utf8_decode($_SESSION['venta']['cantidad']),1,0,'C',0);
@@ -84,5 +84,8 @@ $pdf->Output();
 
 unset($_SESSION['venta']);
 unset($_SESSION['cliente']);
+unset($_SESSION['id_pedido']);
+unset($_SESSION['user']['carrito']);
+
 
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-var_dump($_GET);
+//var_dump($_GET);
 if(!isset($_GET['collection_status'])){
 
     header('Location:https://google.com');
@@ -45,14 +45,28 @@ if(!isset($_GET['collection_status'])){
 
     if($_GET['collection_status']==="pending" && $_GET['payment_type']==="ticket"){
 
-        echo '<div class="bg-light p-3">Pago pendiente por Efecty, 
+        echo '<div class="bg-light p-3">PAGO EN EFECTIVO Pago pendiente ,
         una vez realices el pago, este se aprovara
-        inmediatamente y podras rastrear tu envio <a href="../envios.php">AQUÍ</a><br><hr><br>
+        inmediatamente y podras rastrear tu envio <a href="../envios.php">AQUÍ</a><br><hr>
+        Recuerda que mercado pago te enviara al correo todo el proceso de la compra<br>
 
         <small>Si tienes algún problema con tu pago comunicate con nostros <a href="../envios.php">AQUÍ</a> </small>
         
         </div>';
     }
+    if($_GET['collection_status']==="in_process" && $_GET['payment_type']==="credit_card"){
+
+      echo '<div class="bg-light p-3">Pago en proceso , 
+      una vez se apruebe tu pago podras rastrear tu envio  <a href="../envios.php">AQUÍ</a><br><hr>
+
+      Recuerda que mercado pago te enviara al correo todo el proceso de la compra<br>
+
+
+      <small>Si tienes algún problema con tu pago comunicate con nostros <a href="../envios.php">AQUÍ</a> </small>
+      
+      </div>';
+  }
+
 
 ?>
 

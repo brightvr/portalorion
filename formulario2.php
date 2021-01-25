@@ -5,6 +5,13 @@ ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 session_start();
 
+
+if(isset($_SESSION['user'])){
+
+  header('Location:newform.php');
+}
+
+
 if(!isset($_SESSION['venta'])){
 
   header('Location:https://google.com');
@@ -64,7 +71,7 @@ if(!isset($_SESSION['venta'])){
 
 <div class="bg-light p-3">
 <h5>Recuerda que para poder pagar debes ser mayor de edad, 
-mercado pago te pedira tu numero de identificacion (cédula)
+mercado pago te pedira tu numero de identificacion (cédula de ciudadania)
 para verfificar que seas <strong>mayor de edad </strong>
 </h5>
 </div>
@@ -73,7 +80,7 @@ para verfificar que seas <strong>mayor de edad </strong>
 
 <div class="fondo-verde d-flex justify-content-center p-2">
 
-<h4>Total a pagar : $ <?php echo $_SESSION['venta']['total'] ?> pesos cop</h4>
+<h4 class="bg-light p-2 ">Total a pagar : $ <?php echo $_SESSION['venta']['total'] ?> pesos cop</h4>
 </div>
 
 <div class="fondo-verde p-3">
@@ -107,6 +114,8 @@ para verfificar que seas <strong>mayor de edad </strong>
   <br>
   
   <input class="d-none" type="text" required name="metodo-pago" value="contra-entrega">
+  <input class="d-none" type="text"  name="name-product" value="<?php echo $_SESSION['venta']['producto'] ?>">
+  <input class="d-none" type="text"  name="cantidad-product" value="<?php echo $_SESSION['venta']['cantidad'] ?>">
   <button type="submit" class="btn btn-success btn-block"><h2>Finalizar compra</h2></button>
 
 
@@ -124,12 +133,33 @@ para verfificar que seas <strong>mayor de edad </strong>
 <br>
 <hr>
 
+<?php
 
+require_once 'footer.php';
+
+?>
+
+    
 
   <script src="librerias/jquery/jquery-3.5.1.js"></script>
   <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
   <script src="librerias/icons/js/all.js"></script>
   <script src="js/navigation.js"></script>
+  <?php
+
+if(!isset($_SESSION['user'])){
+
+  echo '<script src="js/menuuser.js"></script>';
+
+}else{
+
+  echo '<script src="js/user.js"></script>';
+
+}
+
+
+
+?>
 
 </body>
 </html>

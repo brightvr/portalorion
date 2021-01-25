@@ -5,6 +5,7 @@ class Stock{
 
     public $id_producto;
     public $conexion;
+    public $vendidos;
 
 
     public function __construct($id_producto,$conexion, $vendidos)
@@ -53,8 +54,8 @@ class Stock{
     public function ChangeStock($data)
     {
 
-        var_dump($data[0]['stock']);
-        var_dump($this->vendidos);
+       // var_dump($data[0]['stock']);
+        //var_dump($this->vendidos);
 
 
         $newStock=intval($data[0]['stock']) - intval($this->vendidos);
@@ -88,11 +89,12 @@ class Stock{
         if(mysqli_query($this->conect,$consulta2)){
 
 
-            var_dump("STOCK ACTUALIZADO CON EXITO");
+            //var_dump("STOCK ACTUALIZADO CON EXITO");
        
         }else{
 
-            var_dump("ERROR AL ACTUALIZAR EL STOCK");
+            //var_dump("ERROR AL ACTUALIZAR EL STOCK");
+            header('Location:../index.php?response=Error al actualizar stock comunicate con soporte');
 
         }
 

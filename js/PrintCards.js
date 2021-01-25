@@ -127,6 +127,12 @@ $(window).on('load', function(){
               path_fetch ="api/interfaces/cannabisshop.php";
      
             break;
+
+            case '#Ceniceros':
+           
+              path_fetch ="api/interfaces/ceniceros.php";
+     
+            break;
        
        
             default:

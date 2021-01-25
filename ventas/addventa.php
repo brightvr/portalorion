@@ -21,7 +21,7 @@ if(isset($_POST['nombre-cliente'])){
     $clave2=substr(md5(microtime()),1,$longitud2);
   
 
-  $insert="insert into ventas values(null,'".$_POST['nombre-cliente']."','".$_POST['ciudad-cliente']."','".$_POST['barrio-cliente']."','".$_POST['direccion-cliente']."','".$_POST['celular-cliente']."','".$_SESSION['venta']['subtotal']."','".$_SESSION['venta']['envio']."','".$_POST['metodo-pago']."','".$_SESSION['venta']['estado']."','".$clave."','".$clave2."');";
+  $insert="insert into ventas values(null,'".$_POST['nombre-cliente']."','".$_POST['ciudad-cliente']."','".$_POST['barrio-cliente']."','".$_POST['direccion-cliente']."','".$_POST['celular-cliente']."','".$_SESSION['venta']['subtotal']."','".$_SESSION['venta']['envio']."','".$_POST['metodo-pago']."','".$_SESSION['venta']['estado']."','".$clave."','".$clave2."','".$_POST['name-product']."','".$_POST['cantidad-product']."');";
    
   // var_dump($insert);
 
@@ -48,6 +48,7 @@ if(isset($_POST['nombre-cliente'])){
             $_SESSION['id_venta']=$id_venta[0]['id_venta'];
             $_SESSION['clave']=$id_venta[0]['clave'];
             $_SESSION['id_pedido']=$id_venta[0]['id_pedido'];
+            $_SESSION['stock-update']="Change stock";
     
             header('Location:../compraexitosa.php?compra='.$id_venta[0]['id_pedido']);
 

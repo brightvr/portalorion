@@ -7,6 +7,44 @@ if(!isset($_SESSION['usuario'])){
   header('Location:https://google.com');
 }
 
+
+if(isset($_GET['response'])){
+
+  echo '
+
+    <div  style="width:100%; position:fixed; z-index:9999999999999999;"  class="bg-success respuestas">
+    <span class="btn-cerrar" style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span>
+    <div class="container  p-3  text-white d-flex justify-content-center"><h5>'.$_GET['response'].'</h5></div>
+    </div>
+
+
+
+  ';
+
+  echo '
+  
+  <script>
+
+   let btn= document.querySelector(".btn-cerrar");
+   btn.addEventListener("click",()=>{
+
+
+   
+
+    let padre= document.querySelector(".respuestas").parentNode;
+    let hijo= document.querySelector(".respuestas")
+    padre.removeChild(hijo);
+
+  });
+
+  </script>
+  
+  ';
+
+}
+
+
+
 require_once 'crud/conexion.php';
 
 $consulta="select * from ventas";
@@ -136,10 +174,23 @@ while($response3=mysqli_fetch_assoc($query3)){
 <hr>
 <br><br>
 
+<style>
+
+
+.entregado, .en-camino, .pendiente{
+
+
+  height: 600px;
+  background: white;
+  overflow-y: scroll;
+
+}
+
+</style>
 <br>
 <div class="bg-danger p-2  d-flex justify-content-center"><h3>PEDIDOS PENDIENTES</h3></div>
 
-  <div class="container d-flex flex-wrap pendiente p-3" style="width: 100%;height:460px; overflow-y:scroll;">
+  <div class="container d-flex flex-wrap pendiente p-3" >
   <br>
   <div class="micontainer"><h1>Cargando pedidos pendientes ...</h1></div>
 
@@ -151,7 +202,7 @@ while($response3=mysqli_fetch_assoc($query3)){
 
 <div class="bg-warning p-2  d-flex justify-content-center"><h3>PEDIDOS EN CAMINO</h3></div>
 
-  <div class="container d-flex flex-wrap en-camino p-3" style="width: 100%;height:460px; overflow-y:scroll;">
+  <div class="container d-flex flex-wrap en-camino p-3">
   <br>
   <div class="micontainer"><h1>Cargando pedidos en camino ...</h1></div>
 
@@ -164,7 +215,7 @@ while($response3=mysqli_fetch_assoc($query3)){
 
 <div class="bg-success p-2  d-flex justify-content-center"><h3>PEDIDOS ENTREGADOS</h3></div>
 
-  <div class="container d-flex flex-wrap entregado p-3" style="width: 100%;height:460px; overflow-y:scroll;">
+  <div class="container d-flex flex-wrap entregado p-3" >
   <br>
   <div class="micontainer"><h1>Cargando pedidos entregados ...</h1></div>
 
@@ -186,7 +237,7 @@ while($response3=mysqli_fetch_assoc($query3)){
 
 
 
-<div class="container d-flex flex-wrap" style="width: 100%;height:460px; overflow-y:scroll;">
+<div class="container d-flex flex-wrap" >
 
 <?php
 
@@ -198,7 +249,7 @@ for($i=0;$i<count($ventas);$i++){
 
     echo '
 
-<div class="card p-2 m-4 " style="width: 24rem;">
+<div class="card p-2 m-4 " style="width: 20rem;">
 <div class="card-header">
   Identifiacdor venta : #'.$ventas[$i]['id_venta'].'
 </div>
@@ -241,14 +292,14 @@ for($i=0;$i<count($ventas);$i++){
 <script>
 
 
+const UpdatePedidos =()=>{
 
-setInterval(() => {
 
-    fetch("../api/interfaces/admin/ventas.php")
+  fetch("../api/interfaces/admin/ventas.php")
     .then(response=>response.json())
     .then(response=>{
 
-        //console.log(response);
+        console.log(response);
 
         $('.micontainer').remove();
         
@@ -261,7 +312,7 @@ setInterval(() => {
 
             $('.pendiente').append(`
 
-              <div class="micontainer m-2" style="max-width: 22rem;">
+              <div class="micontainer m-2" style="max-width: 19rem;">
 
               <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
               <div class="card-header">Venta Pendiente</div>
@@ -301,13 +352,11 @@ setInterval(() => {
 
             $('.en-camino').append(`
 
-              <div class="micontainer m-2" style="max-width: 22rem;">
+              <div class="micontainer m-2" style="max-width: 19rem;">
 
               <div class="card text-dark bg-warning mb-3" style="max-width: 18rem;">
               <div class="card-header">Venta Pendiente</div>
               <div class="card-body">
-                  <h5 class="card-title">Pedido numero: #${response[i].id_pedido}</h5>
-                  <hr>
                   <h5 class="card-title">Pedido numero: #${response[i].id_pedido}</h5>
                   <hr>
                   <h5 class="card-title">Destinatario: ${response[i].nombre_cliente}</h5>
@@ -320,7 +369,8 @@ setInterval(() => {
                   <hr>
                   <h5 class="card-title">Direccion : ${response[i].direccion}</h5>
                   <hr>
-                  <a href="pdf/pdf.php?pedido=${response[i].id_pedido}&estado=Entregado" class="btn btn-block btn-dark">DESCARGAR ETIQUETA</a>
+                  <a href="pdf/pdf.php?pedido=${response[i].id_pedido}&estado=Entregado" class="btn btn-block btn-dark">MARCAR COMO ENTREGADO</a>
+                  <a href="pdf/pdf.php?pedido=${response[i].id_pedido}" class="btn btn-block btn-dark">DESCARGAR ETIQUETA</a>
               </div>
               </div>
 
@@ -345,7 +395,7 @@ setInterval(() => {
 
             $('.entregado').append(`
 
-              <div class="micontainer m-2" style="max-width: 22rem;">
+              <div class="micontainer m-2" style="max-width: 19rem;">
 
               <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
               <div class="card-header">Venta entregada</div>
@@ -384,9 +434,23 @@ setInterval(() => {
 
 
     })
-    
-}, 9000);
 
+
+
+
+
+}//final de la funcion UpdatePedidos
+
+
+
+UpdatePedidos();
+
+
+setInterval(() => {
+
+    UpdatePedidos();
+    
+}, 39000);
 
 
 

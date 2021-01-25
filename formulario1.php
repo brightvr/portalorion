@@ -2,6 +2,11 @@
 
 session_start();
 
+if(isset($_SESSION['user'])){
+
+  header('Location:newform.php');
+}
+
 if(!isset($_SESSION['venta'])){
 
   header('Location:https://google.com');
@@ -105,7 +110,9 @@ if(!isset($_SESSION['venta'])){
   <br>
   
   <input class="d-none" type="text"  name="metodo-pago" value="contra-entrega">
-  <button class="btn btn-block btn-success"><h2>Finalizar compra</h4></button>
+  <input class="d-none" type="text"  name="name-product" value="<?php echo $_SESSION['venta']['producto'] ?>">
+  <input class="d-none" type="text"  name="cantidad-product" value="<?php echo $_SESSION['venta']['cantidad'] ?>">
+  <button type="submit" class="btn btn-block btn-success"><h2>Finalizar compra</h4></button>
 
 
 
@@ -114,7 +121,13 @@ if(!isset($_SESSION['venta'])){
 
 <br>
 
+<?php
 
+require_once 'footer.php';
+
+?>
+
+    
 
 
 <hr>
@@ -122,5 +135,20 @@ if(!isset($_SESSION['venta'])){
   <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
   <script src="librerias/icons/js/all.js"></script>
   <script src="js/navigation.js"></script>
+  <?php
+
+if(!isset($_SESSION['user'])){
+
+  echo '<script src="js/menuuser.js"></script>';
+
+}else{
+
+  echo '<script src="js/user.js"></script>';
+
+}
+
+
+
+?>
 </body>
 </html>

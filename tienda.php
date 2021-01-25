@@ -1,5 +1,44 @@
 <?php
 
+session_start();
+
+if(isset($_GET['response'])){
+
+  echo '
+
+    <div  style="width:100%; position:fixed; z-index:9999999999999999;"  class="bg-success respuestas">
+    <span class="btn-cerrar" style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span>
+    <div class="container  p-3  text-white d-flex justify-content-center"><h5>'.$_GET['response'].'</h5></div>
+    </div>
+
+
+
+  ';
+
+  echo '
+  
+  <script>
+
+   let btn= document.querySelector(".btn-cerrar");
+   btn.addEventListener("click",()=>{
+
+
+   
+
+    let padre= document.querySelector(".respuestas").parentNode;
+    let hijo= document.querySelector(".respuestas")
+    padre.removeChild(hijo);
+
+  });
+
+  </script>
+  
+  ';
+
+}
+
+
+
 if(isset($_POST['buscar'])){
 
 
@@ -114,14 +153,37 @@ unset($_POST);
   <br>
  
   <img class="contra-entrega" src="api/assets/img/banner-tienda.gif" alt="">
-  <br>
+  <br> 
   <br>
   <br>
   <br>
   <div class="alert fondo-verde d-flex justify-content-center"><h1>TIENDA</h1></div>
   <br>
   <br>
-  <br>
+  <?php
+
+    if(isset($_SESSION['user'])){
+
+      echo '
+        <div class="container d-flex justify-content-center">
+
+        <div  class="card p-2 m-2" style="background:#1D8A1E; color:white; width:90%;">
+        <div class="alert bg-danger d-flex justify-content-center"><h4>Disponible próximamemte</h4></div>
+        <hr>
+        <div class=" p-3 btn-block   " style="width:100%; height:100%; background:#1D8A1E; color:white; font-size:25px;"><i class="fas fa-boxes"></i>  Comprar paquete </div>
+        <hr>
+        <h6 class="p-2"> '.strtoupper($_SESSION['user'][0]['nombre']).' recuerda que al ser usuario registrado puedes comprar paquetes, eliges varios productos y pagas un solo envio</h6> 
+        <hr>
+        <a href="#" class="btn btn-dark btn-block" style="font-size:20px;">Comprar paquete</a>
+        </div>
+
+        </div>
+        <br>
+
+      ';
+    }
+
+  ?>
   <div class="cont-buscador  bg-light">
     <div class="fondo-verde d-flex justify-content-center"><h4>¿Que estás buscando?</h4></div>
     <br>
@@ -156,6 +218,13 @@ unset($_POST);
 
 
 </div>
+<?php
+
+require_once 'footer.php';
+
+?>
+
+    
     
     <script src="librerias/jquery/jquery-3.5.1.js"></script>
     <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
@@ -163,5 +232,20 @@ unset($_POST);
     <script src="js/navigation.js"></script>
     <script src="js/PrintCards.js"></script>
     <script src="js/tienda.js"></script>
+    <?php
+
+if(!isset($_SESSION['user'])){
+
+  echo '<script src="js/menuuser.js"></script>';
+
+}else{
+
+  echo '<script src="js/user.js"></script>';
+
+}
+
+
+
+?>
   </body>
   </html>

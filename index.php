@@ -1,3 +1,44 @@
+<?php
+  session_start();
+
+  
+  if(isset($_GET['response'])){
+
+    echo '
+
+      <div  style="width:100%; position:fixed; z-index:9999999999999999;"  class="bg-success respuestas">
+      <span class="btn-cerrar" style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span>
+      <div class="container  p-3  text-white d-flex justify-content-center"><h5>'.$_GET['response'].'</h5></div>
+      </div>
+
+
+
+    ';
+
+    echo '
+    
+    <script>
+
+     let btn= document.querySelector(".btn-cerrar");
+     btn.addEventListener("click",()=>{
+
+
+     
+
+      let padre= document.querySelector(".respuestas").parentNode;
+      let hijo= document.querySelector(".respuestas")
+      padre.removeChild(hijo);
+
+    });
+
+    </script>
+    
+    ';
+
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,6 +72,30 @@
  
 
   <div class="contenedor fondo-blanco ">
+
+  <?php
+
+    if(isset($_SESSION['user'])){
+
+      //var_dump($_SESSION);
+
+
+    echo '
+
+      <br>
+      <div class="fondo-verde p-2 d-flex justify-content-center"><h3><i class="fas fa-user"></i> '.strtoupper($_SESSION['user'][0]['nombre']).'</h3>
+      </div>
+      <div class="container mt-1">
+      <a href="perfil.php" class="btn btn-block btn-success" style="font-size:22px;">Ver perfil</a>
+      </div>
+      <br><br>
+      
+    
+    ';
+
+    }
+
+  ?>
 
     <div class=" principal fondo-verde">
       Compras protegidas y pagos contra entrega
@@ -1615,13 +1680,40 @@
   </div>
 
   <br>
+  <?php
 
+require_once 'footer.php';
 
+?>
 
-  <script src="librerias/jquery/jquery-3.5.1.js"></script>
+    
+
+  <?php
+
+   echo ' <script src="librerias/jquery/jquery-3.5.1.js"></script>';
+
+  ?>
+
   <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
   <script src="librerias/icons/js/all.js"></script>
   <script src="js/navigation.js"></script>
-  <script src="js/index.js"></script>
+  <script src="js/index.js"></script> 
+
+  <?php
+
+    if(!isset($_SESSION['user'])){
+
+      echo '<script src="js/menuuser.js"></script>';
+
+    }else{
+
+      echo '<script src="js/user.js"></script>';
+
+    }
+
+   
+
+  ?>
+  
 </body>
 </html>

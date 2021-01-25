@@ -1,11 +1,45 @@
 <?php
 
+session_start();
+//var_dump($_SESSION);
 
-        if(isset($_GET['response'])){
 
-            echo '<div class="alert alert-success d-flex justify-content-center"><h4>'.$_GET['response'].'</h4></div>';
+if(isset($_GET['response'])){
 
-        }
+  echo '
+
+    <div  style="width:100%; position:fixed; z-index:9999999999999999;"  class="bg-success respuestas">
+    <span class="btn-cerrar" style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span>
+    <div class="container  p-3  text-white d-flex justify-content-center"><h5>'.$_GET['response'].'</h5></div>
+    </div>
+
+
+
+  ';
+
+  echo '
+  
+  <script>
+
+   let btn= document.querySelector(".btn-cerrar");
+   btn.addEventListener("click",()=>{
+
+
+   
+
+    let padre= document.querySelector(".respuestas").parentNode;
+    let hijo= document.querySelector(".respuestas")
+    padre.removeChild(hijo);
+
+  });
+
+  </script>
+  
+  ';
+
+}
+
+
 
           //___________________________________________________________________________________________________
 
@@ -49,7 +83,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Orion</title>
+    <title>Envios</title>
 
     <link rel="stylesheet" href="librerias/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="librerias/icons/css/all.css">
@@ -84,6 +118,38 @@
   <hr>
   <br>
 
+
+  <?php
+
+if(isset($_SESSION['user'])){
+
+  echo '
+  <div class="container d-flex justify-content-center">
+
+    <div class="container card p-2" style="background:#1D8A1E; color:white; width:90%">
+
+    <div class=" p-3 btn-block   " style="width:100%; height:100%; background:#1D8A1E; color:white; font-size:25px;"><i class="fas fa-truck"></i> ¿A donde quieres que enviemos tus pedidos?</div>
+    <hr>
+    <h5 class="p-2"> '.strtoupper($_SESSION['user'][0]['nombre']).' recuerda que 
+    al ser usuario registrado 
+    puedes seleccionar una direccion de envio , de esa forma <strong>con un solo click podras comprar</strong>,
+   ¡sin volver a llenar formularios!
+    </h5> 
+    <hr>
+    <a href="perfil.php" class="btn btn-dark btn-block" style="font-size:20px;">Registrar direccion de envio</a>
+    </div>
+
+    </div>
+    <br>
+
+  ';
+}
+
+?>
+
+
+  <br>
+
   <div class=" p-3 container fondo-verde">
 
   <div class="bg-light d-flex justify-content-center p-2">
@@ -93,7 +159,8 @@
   <form class="p-3 bg-light" action="envios.php" method="post">
 
   <label>Numero de seguimiento :</label><br>
-  <input type="text" name="id_pedido" required>
+  <input  placeholder="Ejemplo: a34lff0a8" type="text" name="id_pedido" required>
+  <small id="emailHelp" class="form-text text-muted">Por favor no incluyas el simbolo "#" en la busqueda</small>
   <br>
   <br>
   <button type="submit" class="btn btn-success btn-block"> <h3> Rastrear <i class="fas fa-search-location"></i></h3></button>
@@ -277,7 +344,7 @@
         perdidas o daños del producto, recuerda que el costo del domicilio 
         sin pago contra entrega
          incluye un deposito de seguridad y proteccion para tus pedidos, el deposito de garantia
-          por la distancia mas larga(Amazonas - Guajira) es de  $1500 pesos cop aproximadamente,nunca te cobramos mas de $2000 pesos, consulta nuestros términos y condiciones 
+          por la distancia mas larga(Amazonas - Guajira) es de  $2000 pesos cop aproximadamente,nunca te cobramos mas de $2500 pesos, consulta nuestros términos y condiciones 
         <a href="terminos.php">aquí.</a>
         </div>
 </div>
@@ -285,8 +352,8 @@
 <div class="container">
     <div class="bg-light p-3">
       
-    El costo de los envios para pagos contra entrega los determina directamente Portal Orion, 
-    nos reservamos el derecho de cobro para pago contra-entrega, este costo se calcula, segun la distancia,
+    El costo de los envios de cualquier indole los determina directamente Portal Orion, 
+    nos reservamos el derecho de cobro para los envios, este costo se calcula, segun la distancia,
     seguridad y facilidad de acceso al lugar de destino, consulta nuestros términos y condiciones 
         <a href="terminos.php">aquí.</a>
         </div>
@@ -294,10 +361,32 @@
 <br>
 
 
+<?php
 
+require_once 'footer.php';
+
+?>
+
+    
   <script src="librerias/jquery/jquery-3.5.1.js"></script>
   <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
   <script src="librerias/icons/js/all.js"></script>
   <script src="js/navigation.js"></script>
+
+  <?php
+
+if(!isset($_SESSION['user'])){
+
+  echo '<script src="js/menuuser.js"></script>';
+
+}else{
+
+  echo '<script src="js/user.js"></script>';
+
+}
+
+
+
+?>
 </body>
 </html>

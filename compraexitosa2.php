@@ -41,7 +41,7 @@ session_start();
 
 //var_dump($_SESSION);
 
-if(!isset($_SESSION['cliente']['nombre-cliente'])){
+if(!isset($_SESSION['user'])){
 
     header('Location:index.php');
 }
@@ -51,12 +51,16 @@ if(!isset($_SESSION['venta'])){
   header('Location:index.php');
 }
 
+
+
+
 require_once 'conexion.php';
 
 if(isset($_SESSION['stock-update'])){
-  //hacer logica de stock una sola vez en la compra
- 
+ //hacer logica de stock una sola vez en la compra
+
   require_once 'stock/updatestock.php';
+
 
   $stock= new Stock($_SESSION['venta']['id_producto'],$miconexion->Conectando(),$_SESSION['venta']['cantidad']);
 
@@ -64,8 +68,8 @@ if(isset($_SESSION['stock-update'])){
 
   unset($_SESSION['stock-update']);
 
- 
- }
+}
+
 
 
 
@@ -107,14 +111,17 @@ if(isset($_SESSION['stock-update'])){
     <br>
     <hr>
     <br>
-    <h4>Tu compra fue exitosa, tu numero de guias es: <strong><?php echo '#'.$_GET['compra'] ?></strong>, descarga la factura de garantia</p></h4>
+    <h4>Tu compra fue exitosa, tu numero de guias es: <strong><?php echo $_SESSION['id_pedido'] ?></strong>, descarga la factura de garantia</p></h4>
     <br>
     
     <hr>
     <br>
-    <h5> <?php echo $_SESSION['cliente']['nombre-cliente'] ?>, gracias por tu compra <span style=" color:red;"><i class="fas fa-heart"></i></span></h5>
+    <h5><?php echo $_SESSION['user'][0]['nombre'] ?>, gracias por tu compra <span style=" color:red;"><i class="fas fa-heart"></i></span></h5>
     <br>
-    <a href="pdf/pdf.php" class="btn btn-success btn-block"> <h4> DESCARGAF FACTURA </h4> </a>
+    <a href="pdf/pdf2.php" class="btn btn-success btn-block"> <h4> DESCARGAF FACTURA </h4> </a>
+    <br>
+    <a href="envios.php" class="btn btn-warning btn-block"> <h4> RASTREAR PEDIDO </h4> </a>
+
     <br>
     <hr>
     <br>
@@ -140,7 +147,6 @@ if(isset($_SESSION['stock-update'])){
     
    
     </div>
-
     <?php
 
 require_once 'footer.php';
@@ -148,6 +154,7 @@ require_once 'footer.php';
 ?>
 
     
+
   <script src="librerias/jquery/jquery-3.5.1.js"></script>
   <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
   <script src="librerias/icons/js/all.js"></script>
