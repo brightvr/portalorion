@@ -137,7 +137,7 @@ unset($_POST);
  ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -219,14 +219,20 @@ require 'componentes-interfaces/nav.php';
   <br>
  
   <div class="fondo-verde p-3 d-flex justify-content-center"><h3>Categorias</h3></div>
+  <br>
+  <div class="container bg-light p-4">
+  <input name="buscar" class="form-control mr-sm-2 buscador-categorias" type="search" placeholder="Buscar categoria" aria-label="Search"><br>
+  <button class="buscar-categoria btn-success btn-block my-2 "><h3>Buscar categoria</h3></button>
+  <button class="all-category btn-danger btn-block my-2 d-none"><h3>Todas las categorias</h3></button>
+  </div>
 
 
-  <div class="p-2 container d-flex flex-wrap justify-content-center">
+  <div class="cont-categorias p-2 container d-flex flex-wrap justify-content-center">
 
 
     <?php 
 
-    var_dump($category[0]['card']);
+    //var_dump($category[0]['card']);
     for($f=0; $f<count($category);$f++){
 
       
@@ -251,20 +257,8 @@ require 'componentes-interfaces/nav.php';
 
   <br>
   
-  <br>
+ 
 
-  <div class="category fondo-verde d-flex justify-content-center">
-   <h2 class="title-categorias"> Ver Categorias</h2>
-  </div>
-  <div class="categorias   fondo-verde  p-4 d-none">
-
-
-  </div>
-  <br>
-  <hr>
-  <br>
-
-  <div id="cont-cards" class="contenedor-cards">
 
  
  
