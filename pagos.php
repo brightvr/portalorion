@@ -112,13 +112,11 @@ if(isset($_POST['comprar'])){
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark fondo-negro  d-flex justify-content-between">
-    <a class="navbar-brand" href="index.php"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
-    <button class="cont-icon-user" type="button" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="icono-user"><i class="fas fa-user"></i></span>
-    </button>
+<?php
 
-  </nav>
+require 'componentes-interfaces/nav.php';
+
+?>
   <div class="menu-apps">
 
         <div  class="vinculo iconos-menu " ><i class="fas fa-house-user"></i></div>
@@ -149,12 +147,17 @@ if(isset($producto[0])){
 }
 
 ?>
-<img class="pago-seguro" src="api/assets/img/banner-pagos.gif" alt="">
-<br>
-<hr>
-<br>
+
 <?php
 
+if(!isset($_POST['nombre-producto'])){
+
+    echo '<img class="pago-seguro" src="api/assets/img/banner-pagos.gif" alt="">
+    <br>
+    <hr>
+    <br>';
+
+}
 
 
 
@@ -193,11 +196,12 @@ if(isset($_POST['nombre-producto'])){
         "envio"=>$costo_envio,
         "total"=>$total_a_pagar,
         "estado"=>"Alistando pedido",
-        "img"=>$producto[0]['img']
+        "img"=>$producto[0]['img'],
+        "destino"=>$_POST['destino-producto']
     ];
     
 
-
+    number_format( floatval($subtotal), 0, ".", ",");
 
     echo '
     <div class="bg-light p-3">
@@ -208,10 +212,10 @@ if(isset($_POST['nombre-producto'])){
     <ul class="list-group list-group-flush">
         <li class="list-group-item"><strong>Producto :</strong> '.$_POST['nombre-producto'].'</li>
         <li class="list-group-item"><strong>Unidades : </strong>'.$_POST['cantidad-producto'].'</li>
-        <li class="list-group-item"><strong>PrecioxUnidad :</strong> $ '.$producto[0]['precio'].' pesos cop</li>
-        <li class="list-group-item"><strong>Subtotal :</strong> $ '.$subtotal.' pesos cop</li>
-        <li class="list-group-item"><strong>Envío :</strong> $ '.$costo_envio.' pesos cop</li>
-        <li class="list-group-item"><strong>Total :</strong> $ '.$total_a_pagar.' pesos cop</li>
+        <li class="list-group-item"><strong>PrecioxUnidad :</strong> $ '.number_format( floatval($producto[0]['precio']), 0, ".", ",").' pesos cop</li>
+        <li class="list-group-item"><strong>Subtotal :</strong> $ '.number_format( floatval($subtotal), 0, ".", ",").' pesos cop</li>
+        <li class="list-group-item"><strong>Envío :</strong> $ '.number_format( floatval($costo_envio), 0, ".", ",").' pesos cop</li>
+        <li class="list-group-item"><strong>Total :</strong> $ '.number_format( floatval($total_a_pagar), 0, ".", ",").' pesos cop</li>
 
     </ul>
     </h5>

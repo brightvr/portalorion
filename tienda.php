@@ -136,13 +136,11 @@ unset($_POST);
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark fondo-negro d-flex justify-content-between ">
-    <a class="navbar-brand" href="index.php"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
-    <button class="cont-icon-user" type="button" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="icono-user"><i class="fas fa-user"></i></span>
-    </button>
+<?php
 
-  </nav>
+require 'componentes-interfaces/nav.php';
+
+?>
   <div class="menu-apps">
 
         <div class=" vinculo iconos-menu " href="#"><i class="fas fa-house-user"></i></div>
@@ -151,39 +149,42 @@ unset($_POST);
         <div class=" vinculo iconos-menu " href="#"><i class="fas fa-truck"></i></div>
       </div>
   <br>
- 
-  <img class="contra-entrega" src="api/assets/img/banner-tienda.gif" alt="">
+
+
+  <!--<div class="alert fondo-verde d-flex justify-content-center"><h1>TIENDA</h1></div>-->
+  
+  <img class="contra-entrega" src="api/assets/img/Graphic Design Website Header Template.gif" alt="">
   <br> 
-  <br>
-  <br>
-  <br>
-  <div class="alert fondo-verde d-flex justify-content-center"><h1>TIENDA</h1></div>
-  <br>
-  <br>
+
+  
   <?php
+ //var_dump($_SESSION['user']);
 
     if(isset($_SESSION['user'])){
 
+    
+
       echo '
-        <div class="container d-flex justify-content-center">
+      <br>
+        <div class="p-2  container d-flex justify-content-center">
 
-        <div  class="card p-2 m-2" style="background:#1D8A1E; color:white; width:90%;">
-        <div class="alert bg-danger d-flex justify-content-center"><h4>Disponible próximamemte</h4></div>
-        <hr>
-        <div class=" p-3 btn-block   " style="width:100%; height:100%; background:#1D8A1E; color:white; font-size:25px;"><i class="fas fa-boxes"></i>  Comprar paquete </div>
-        <hr>
-        <h6 class="p-2"> '.strtoupper($_SESSION['user'][0]['nombre']).' recuerda que al ser usuario registrado puedes comprar paquetes, eliges varios productos y pagas un solo envio</h6> 
-        <hr>
-        <a href="#" class="btn btn-dark btn-block" style="font-size:20px;">Comprar paquete</a>
+        <div style="color:white; background:green; box-shadow:5px 5px 7px black; border-radius:6px;" class="carrito  ">
+        <p style="font-size:22px" class="m-3 p-2"><span style="font-size:22px; color:white;"><i class="fas fa-cart-plus"></i></span> Mi carrito(vacío)    <span style="margin-left:35px; color:black; font-size:32px;"><i class="fas fa-boxes"></i></span></p>
+        <hr class="elcarrito d-none"> 
+        <p class="m-3 elcarrito d-none"><small>'.$_SESSION['user'][0]['nombre'].', crea paquetes de hasta 30 productos y paga un solo envío</small></p>
+        <hr class="elcarrito d-none">
+        <a href="carrito.php" style="width:80%; box-shadow:3px 3px 4px black; margin-left:10%;" class="d-none elcarrito btn btn-light btn-block mb-4"><h4>VER CARRITO</h4></a>
+        </div>
         </div>
 
-        </div>
-        <br>
+        
+  
 
       ';
     }
 
   ?>
+  <!--
   <div class="cont-buscador  bg-light">
     <div class="fondo-verde d-flex justify-content-center"><h4>¿Que estás buscando?</h4></div>
     <br>
@@ -192,8 +193,44 @@ unset($_POST);
       <button class=" btn-success btn-block my-2 " type="submit"><h3>Buscar producto</h3></button>
     </form>
     <br>
-  </div>
+  </div>-->
    
+  
+
+    <br>
+  <hr>
+  <br>
+ 
+  <div class="fondo-verde p-3 d-flex justify-content-center"><h3>Categorias</h3></div>
+
+
+  <div class="p-2 container d-flex flex-wrap justify-content-center">
+
+  <div class=" p-2 pt-5">
+    <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2">Supermercado</div>
+       <img style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;" src="api/assets/img/elsuper_Mesa de trabajo 1.svg" alt="" srcset="">
+  </div>
+
+    <div class=" p-2  pt-5">
+      <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2">Accesorios cannabicos</div>
+       <img style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;" src="api/assets/svg/cannabis-orion.svg" alt="" srcset="">
+    </div>
+
+    <div class=" p-2  pt-5">
+      <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2">Electronica & Robotica</div>
+       <img style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;" src="api/assets/svg/electronica-orion.svg" alt="" srcset="">
+    </div>
+
+
+    <div class=" p-2  pt-5">
+      <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2">Aseo personal</div>
+       <img style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;" src="api/assets/svg/aseo-orio.svg" alt="" srcset="">
+    </div>
+
+
+
+  </div>
+
   <br>
   
   <br>
@@ -201,7 +238,7 @@ unset($_POST);
   <div class="category fondo-verde d-flex justify-content-center">
    <h2 class="title-categorias"> Ver Categorias</h2>
   </div>
-  <div class="categorias  fondo-verde  p-2 d-none">
+  <div class="categorias   fondo-verde  p-4 d-none">
 
 
   </div>

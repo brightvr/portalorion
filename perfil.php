@@ -63,13 +63,11 @@ if(isset($_GET['response'])){
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark fondo-negro d-flex justify-content-between ">
-    <a class="navbar-brand" href="index.php"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
-    <button class="cont-icon-user" type="button" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="icono-user"><i class="fas fa-user"></i></span>
-    </button>
+<?php
 
-  </nav>
+require 'componentes-interfaces/nav.php';
+
+?>
   <div class="menu-apps">
 
         <div class=" vinculo iconos-menu " href="#"><i class="fas fa-house-user"></i></div>

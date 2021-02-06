@@ -2,7 +2,7 @@
 
 require_once '../crud/conexion.php';
 
-$consulta="select * from categorias";
+$consulta="select * from categorias where id_categoria>6 order by rand()";
 
 
 $query =mysqli_query($miconexion->Conectando(),$consulta);

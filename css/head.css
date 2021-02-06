@@ -38,8 +38,65 @@ body{
 
 .logo-orion{
 
-    width: 150px;
+    width: 100px;
+    margin-left: -28px;
 }
+
+.buscar-nav{
+
+    margin-left:125px;
+    position: absolute;
+    
+}
+@media(min-width:368px){
+
+    .buscar-nav{
+
+        margin-left:150px;
+       
+    }
+    
+}
+@media(min-width:400px){
+
+    .buscar-nav{
+
+        margin-left:180px;
+       
+    }
+    
+}
+@media(min-width:500px){
+
+    .buscar-nav{
+
+        margin-left:200px;
+       
+    }
+    
+}
+@media(min-width:545px){
+
+    .buscar-nav{
+
+        margin-left:230px;
+       
+    }
+    
+}
+
+@media(min-width:600px){
+
+    .buscar-nav{
+
+        position: relative;
+        margin-left:0px;
+    
+    }
+    
+}
+
+    
 
 
 
@@ -50,6 +107,17 @@ body{
         margin-left: 50px;
     }
 
+    .logo-orion{
+
+        width: 150px;
+    }
+
+    .buscar-nav{
+
+        margin-left:0px;
+        position: relative;
+    }
+    
 }
 
 /*fin configuracion inicial*/
@@ -96,7 +164,7 @@ body{
 
 .icono-user{
 
-    font-size: 30px;
+    font-size: 20px;
     color: white;
 }
 .navbar-toggler{
@@ -108,8 +176,8 @@ body{
     border: 3px solid rgb(71, 148, 81);
     background: black;
     border-radius: 5px ;
-    width: 60px;
-    height: 58px;
+    width: 40px;
+    height: 38px;
 }
 
 /*menu user*/
@@ -131,4 +199,20 @@ body{
     height: 100vh;
     background: black;
     overflow-y: scroll;
+}
+@media(min-width:1000px){
+
+    .cont-icon-user{
+
+
+        width: 60px;
+        height: 58px;
+    }
+
+.icono-user{
+
+    font-size: 33px;
+    
+}
+
 }

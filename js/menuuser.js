@@ -10,7 +10,7 @@ menu.addEventListener('click',()=>{
         
             <div class="contenedor-menu p-3">
 
-                <div class="d-flex justify-content-end btn-cerrar-menu"><span style="font-size:50px; color:red;"><i class="fas fa-window-close"></i></span></div>
+                <div class="d-flex justify-content-end btn-cerrar-menu"><span style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span></div>
             
                 <form class="bg-light p-2" action="usuarios/autenticacion.php" method="POST">
                     <br>

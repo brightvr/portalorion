@@ -18,10 +18,11 @@ if(isset($_GET['estado']) && $_GET['estado']==="En camino" || $_GET['estado']===
 
 
         var_dump("ERROR DE PEDIDO");
+        header('Location:../ventas.php?response=ERROR DE PEDIDO');
 
     }
 
-    header('Location:../ventas.php');
+   
 }
 
 

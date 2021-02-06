@@ -31,13 +31,11 @@ if(!isset($_SESSION['venta'])){
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark fondo-negro  d-flex justify-content-between">
-    <a class="navbar-brand" href="index.php"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
-    <button class="cont-icon-user" type="button" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="icono-user"><i class="fas fa-user"></i></span>
-    </button>
+<?php
 
-  </nav>
+require 'componentes-interfaces/nav.php';
+
+?>
   <div class="menu-apps">
 
         <div  class="vinculo iconos-menu " ><i class="fas fa-house-user"></i></div>
@@ -55,28 +53,20 @@ if(!isset($_SESSION['venta'])){
     </div>
 
 <br>
-<div class="fondo-verde p-3 d-flex justify-content-center"><h2>Formulario de compra</h2></div>
-
-<br>
+<div class="fondo-verde p-3 d-flex justify-content-center"><h3 class="bg-light p-2">TU COMPRA</h3></div>
 
 
 
-<div class="fondo-verde p-3">
-  <div class="bg-light p-2">
-   <h5> Recuerda que si el domiciliario no se puede contactar contigo tu 
-    pedido sera <strong style="color:red;">CANCELADO</strong>, debes estar pendiente del numero de contacto que pongas en el formulario.</h5>
-    <br>
-    <h5>La llamada de confirmacion se realiza entre 10 y 15 mintos despues de hacer efectiva la compra </h5>
-  </div>
+<div class="fondo-verde  p-2">
+
+<h5 class="bg-light p-2"> <?php echo $_SESSION['venta']['producto'] ?> <img style="width: 70px; height:60px;" src="<?php  echo $_SESSION['venta']['img'] ?>"></h5>
+<h5 class="bg-light p-2"> Productos: $ <?php echo number_format( floatval($_SESSION['venta']['subtotal']), 0, ".", ",") ?> pesos cop</h5>
+<h5 class="bg-light p-2"> Envio: $ <?php echo number_format( floatval($_SESSION['venta']['envio']), 0, ".", ",") ?> pesos cop</h4>
+<h5 class="bg-light p-2"> Total a Pagar: $ <?php echo number_format( floatval($_SESSION['venta']['total']), 0, ".", ",") ?> pesos cop</h4>
+
 </div>
-
-<br>
-
-
-<div class="fondo-verde d-flex justify-content-center p-2">
-
-<h4 class="bg-light p-2">Total a pagar : $ <?php echo $_SESSION['venta']['total'] ?> pesos cop</h4>
-</div>
+<hr>
+<div class="fondo-verde  d-flex justify-content-center"><h5 style="box-shadow: 4px 4px 6px black;" class="bg-light p-2"><strong>FORMA DE PAGO: CONTRA-ENTREGA</strong></h5></div>
 
 <div class="fondo-verde p-3">
 
@@ -97,11 +87,11 @@ if(!isset($_SESSION['venta'])){
   <br>
   <br>
   <label for="">Ciudad :</label><br>
-  <input name="ciudad-cliente" type="text" required>
+  <input name="ciudad-cliente" value="Bogotá/Municpios aledaños" type="text" required readonly>
   <br>
   <br>
   <label for="">Barrio/localidad :</label><br>
-  <input name="barrio-cliente" type="text" required>
+  <input name="barrio-cliente" type="text" value="<?php echo $_SESSION['venta']['destino'] ?>" required readonly>
   <br>
   <br>
   <label for="">Direccion exacta :</label><br>
@@ -112,7 +102,7 @@ if(!isset($_SESSION['venta'])){
   <input class="d-none" type="text"  name="metodo-pago" value="contra-entrega">
   <input class="d-none" type="text"  name="name-product" value="<?php echo $_SESSION['venta']['producto'] ?>">
   <input class="d-none" type="text"  name="cantidad-product" value="<?php echo $_SESSION['venta']['cantidad'] ?>">
-  <button type="submit" class="btn btn-block btn-success"><h2>Finalizar compra</h4></button>
+  <button type="submit" class="btn btn-block btn-success"><h1>Finalizar compra</h1></button>
 
 
 
@@ -120,6 +110,20 @@ if(!isset($_SESSION['venta'])){
 </div>
 
 <br>
+
+
+
+<div class="fondo-verde p-3">
+  <div class="bg-light p-2">
+   <h5> Recuerda que si el domiciliario no se puede contactar contigo tu 
+    pedido sera <strong style="color:red;">CANCELADO</strong>, debes estar pendiente del numero de contacto que pongas en el formulario.</h5>
+    <br>
+    <h5>La llamada de confirmacion se realiza entre 10 y 15 mintos despues de hacer efectiva la compra </h5>
+  </div>
+</div>
+
+<br>
+
 
 <?php
 

@@ -65,13 +65,11 @@ if(!isset($_SESSION['user'])){
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark fondo-negro  d-flex justify-content-between">
-    <a class="navbar-brand" href="index.php"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
-    <button class="cont-icon-user" type="button" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="icono-user"><i class="fas fa-user"></i></span>
-    </button>
+<?php
 
-  </nav>
+require 'componentes-interfaces/nav.php';
+
+?>
   <div class="menu-apps">
 
         <div  class="vinculo iconos-menu " href="#"><i class="fas fa-house-user"></i></div>
@@ -81,51 +79,25 @@ if(!isset($_SESSION['user'])){
       </div>
   <br>
 
+  <div class="container">
+      
+      <a href="producto.php?id=<?php echo $_SESSION['venta']['id_producto'] ?>" class="btn btn-success"><h3><img style="width:80px;" src="<?php echo $_SESSION['venta']['img'] ?>" class="img-ubicacion">  /  <i class="fas fa-arrow-left"></i> Producto</h3></a>
+
+    </div>
+
+      <br>
+      <div class="fondo-verde p-3 d-flex justify-content-center"><h3 class="bg-light p-2">TU COMPRA</h3></div>
+
+      <div class="fondo-verde  p-2">
+
+      <h5 class="bg-light p-2"> <?php echo $_SESSION['venta']['producto'] ?> <img style="width: 70px; height:60px;" src="<?php  echo $_SESSION['venta']['img'] ?>"></h5>
+      <h5 class="bg-light p-2"> Productos: $ <?php echo number_format( floatval($_SESSION['venta']['subtotal']), 0, ".", ",") ?> pesos cop</h5>
+      <h5 class="bg-light p-2"> Envio: $ <?php echo number_format( floatval($_SESSION['venta']['envio']), 0, ".", ",") ?> pesos cop</h4>
+      <h5 class="bg-light p-2"> Total a Pagar: $ <?php echo number_format( floatval($_SESSION['venta']['total']), 0, ".", ",") ?> pesos cop</h4>
+
+      </div>
+      <hr>
       <?php
-
-
-
-        echo '<div style="box-shadow:6px 6px 9px black;" class="d-flex justify-content-center container bg-light p-2">
-        <h4>Total a pagar : $ '.$_SESSION['venta']['total'].' pesos cop</h4>
-        </div>
-        <br>';
-
-        if($_GET['pago']==="contra-entrega"){
-
-          $path="usuarios/comprausuario.php";
-
-            echo '
-            
-            <div class="fondo-verde p-3">
-            <div class="bg-light p-2">
-             <h5> Recuerda que si el domiciliario no se puede contactar contigo tu 
-              pedido sera <strong style="color:red;">CANCELADO</strong>, debes estar pendiente del numero de contacto que pongas en el formulario.</h5>
-              <br>
-              <h5>La llamada de confirmacion se realiza entre 10 y 15 mintos despues de hacer efectiva la compra </h5>
-            </div>
-          </div>
-          <br>
-          
-            
-            
-            ';
-        }else{
-
-          $path="mercadopago2.php";
-
-            echo '
-            
-            <div class="bg-light p-3">
-            <h5>Recuerda que para poder pagar debes ser mayor de edad, 
-            mercado pago te pedira tu numero de identificacion (cédula de ciudadania)
-            para verfificar que seas <strong>mayor de edad </strong>
-            </h5>
-            </div>
-            <br>
-            
-            ';
-        }
-
 
 
 
@@ -138,7 +110,7 @@ if(!isset($_SESSION['user'])){
             echo '
             
             <div class="container">
-            <div class="card" style="width: 90%; box-shadow:5px 5px 7px black;">
+            <div class="card" style="width: 97%; box-shadow:5px 5px 7px black;">
         <div class="card-header" style="background:#1D8A1E;color:white;">
           <h5>Formulario automatico COMPLETO</h5><br>
           <small>
@@ -197,7 +169,7 @@ if(!isset($_SESSION['user'])){
             
             
             <div class="container">
-            <div class="card" style="width: 90%; box-shadow:5px 5px 7px black;">
+            <div class="card" style="width: 97%; box-shadow:5px 5px 7px black;">
         <div class="card-header" style="background:#1D8A1E;color:white;">
           <h5>Formulario automatico</h5><br>
           <small>
@@ -248,6 +220,43 @@ if(!isset($_SESSION['user'])){
             
             ';
             
+        }
+
+        echo '<br><br>';
+        if($_GET['pago']==="contra-entrega"){
+
+          $path="usuarios/comprausuario.php";
+
+            echo '
+            
+            <div class="fondo-verde p-3">
+            <div class="bg-light p-2">
+             <h5> Recuerda que si el domiciliario no se puede contactar contigo tu 
+              pedido sera <strong style="color:red;">CANCELADO</strong>, debes estar pendiente del numero de contacto que pongas en el formulario.</h5>
+              <br>
+              <h5>La llamada de confirmacion se realiza entre 10 y 15 mintos despues de hacer efectiva la compra </h5>
+            </div>
+          </div>
+          <br>
+          
+            
+            
+            ';
+        }else{
+
+          $path="mercadopago2.php";
+
+            echo '
+            
+            <div class="bg-light p-3">
+            <h5>Recuerda que para poder pagar debes ser mayor de edad, 
+            mercado pago te pedira tu numero de identificacion (cédula de ciudadania)
+            para verfificar que seas <strong>mayor de edad </strong>
+            </h5>
+            </div>
+            <br>
+            
+            ';
         }
 
       ?>

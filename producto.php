@@ -82,7 +82,9 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda</title>
+    <meta property="og:image" itemprop="image" content="<?php echo $producto[0]['img'] ?>">
+    <meta property="og:image"  content="<?php echo $producto[0]['nombre'] ?>">
+    <title><?php echo $producto[0]['nombre'] ?></title>
 </head>
 <body>
 
@@ -95,13 +97,11 @@ session_start();
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark fondo-negro d-flex justify-content-between ">
-    <a class="navbar-brand" href="index.php"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
-    <button class="cont-icon-user" type="button" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="icono-user"><i class="fas fa-user"></i></span>
-    </button>
+<?php
 
-  </nav>
+require 'componentes-interfaces/nav.php';
+
+?>
   <div class="menu-apps">
 
         <div class=" vinculo iconos-menu " href="#"><i class="fas fa-house-user"></i></div>
@@ -132,11 +132,18 @@ session_start();
 
       <img class="img-producto" src="<?php echo $producto[0]['img'] ?>" alt="">
       <br><br>
+      <?php
 
+      
+    
+
+     $price= number_format( floatval($producto[0]['precio']), 0, '.', ',');
+
+      ?>
     
       <br>
       <div class="container fondo-verde d-flex justify-content-center p-2">
-      <h2>$ <?php echo $producto[0]['precio'] ?> pesos cop</h2>
+      <h2>$ <?php echo  $price   ?> pesos cop</h2>
       </div>
 
       <form class="fondo-verde mt-2 p-3 d-block" action="pagos.php" method="post">
@@ -500,7 +507,8 @@ session_start();
 
 <!--herramienta para cotizar envios-->
 <div class="container">
-      
+<div class="alert bg-danger d-flex justify-content-center"><h3>Disponible próximamemte</h3></div>
+
       <div class="card " >
       <div class="card-header  bg-success text-white">
       <div class="d-flex justify-content-center"> <h4>Cotizacion</h4></div>
@@ -580,7 +588,7 @@ session_start();
 
 
 <div class="container fondo-verde d-flex justify-content-center p-2">
-<h2>$ <?php echo $producto[0]['precio'] ?> pesos cop</h2>
+<h2>$ <?php echo $price ?> pesos cop</h2>
 </div>
 
 <form class="fondo-verde mt-2 p-3 d-block" action="pagos.php" method="post">

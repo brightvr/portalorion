@@ -153,6 +153,16 @@ $(window).on('load', function(){
     //esta funcion define el card que se usara
     const TipoCard=(data, id_card)=>{
 
+
+
+
+      const formatearMoneda = ()=>{
+
+        let formato = new Intl.NumberFormat().format(parseInt(data.precio));
+
+        return formato;
+      }
+
         let card;
 
         switch (id_card) {
@@ -266,7 +276,7 @@ $(window).on('load', function(){
                   <image width="1322" height="1113" transform="translate(3 102) scale(0.27 0.26)" xlink:href="${data.img}"/>
                 </g>
                 <g id="e27e2678-efb7-4375-976a-ddb950241a7d" data-name="texto1">
-                  <text class="efa87712-205c-4cd0-91cd-2e9d1e9f971d" transform="translate(30.58 31.18)">${data.nombre} </text>
+                  <text class="efa87712-205c-4cd0-91cd-2e9d1e9f971d" transform="translate(18.58 31.18)">${data.nombre} </text>
                 </g>
                 <g data-name="texto1">
                 <text class="efa87712-205c-4cd0-91cd-2e9d1e9f971d" transform="translate(200.58 31.18)"></text>
@@ -275,7 +285,7 @@ $(window).on('load', function(){
                   <text class="a1803540-80f4-4717-9018-54cf33252226" transform="translate(45.33 480.1)">${data.disponibilidad}</text>
                 </g>
                 <g id="b9f01aeb-e730-46b9-adba-9632a756adc5" data-name="texto2">
-                  <text class="aec2e71c-a97f-49a9-809e-0ac13d78d69b" transform="translate(59.76 425.37)">$ ${data.precio} pesos cop</text>
+                  <text class="aec2e71c-a97f-49a9-809e-0ac13d78d69b" transform="translate(59.76 425.37)">$ ${formatearMoneda()} pesos cop</text>
                 </g>
                 <g id="f132159d-5e27-46d9-88d9-24d5448e63c7" class="${data.id_producto} comprar-producto"  value="${data.id_producto}"  data-name="comprar">
                   <text class="eb7c4729-e31d-48b4-a780-3b04696e694b" transform="translate(72.34 585.92)">COMPRAR</text>
