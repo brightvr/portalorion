@@ -9,7 +9,7 @@ if(!isset($_SESSION['usuario'])){
 require_once '../conexion.php';
 //var_dump($_POST);
 
-$consulta= "insert into categorias values(null,"."'".$_POST['nombre-categoria']."')";
+$consulta= "insert into categorias values(null,"."'".$_POST['nombre-categoria']."','api/assets/img/vender-orion.jpg')";
 
 var_dump($consulta);
 
