@@ -129,7 +129,7 @@ unset($_POST);
 
     $miconsulta= "select * from categorias";
 
-    $query2 =mysqli_query($miconexion->Conectando(),$miconsulta);
+    $query2 = mysqli_query($miconexion->Conectando(),$miconsulta);
 
     $category=null;
 
