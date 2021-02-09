@@ -246,7 +246,7 @@ require 'componentes-interfaces/nav.php';
 
 
       <div class=" p-2  pt-5">
-        <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2">'.$category[$f]['nombre'].'</div>
+        <div style=" width: 350px; box-shadow:5px 5px 8px black;" class="titulo fondo-verde d-flex justify-content-center p-2"><h3>'.$category[$f]['nombre'].'</h3></div>
         <img  src="'.$category[$f]['card'].'" alt="" style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;">
       </div>
       
