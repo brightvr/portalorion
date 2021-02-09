@@ -1,26 +1,26 @@
 <?php
 
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(E_ALL);
 session_start();
 
-var_dump($_SESSION);
+
+if(isset($_SESSION['user'])){
+
+  header('Location:newform.php');
+}
 
 
-// SDK de Mercado Pago
-require __DIR__ .  '/vendor/autoload.php';
+if(!isset($_SESSION['venta'])){
 
-// Agrega credenciales
-MercadoPago\SDK::setAccessToken('TEST-3690549563177613-121216-c7fa771be1d4555e433cd7d8025aaf39-565287926');
+  header('Location:https://google.com');
+}
 
-// Crea un objeto de preferencia
-$preference = new MercadoPago\Preference();
 
-// Crea un ítem en la preferencia
-$item = new MercadoPago\Item();
-$item->title = 'Mi producto';
-$item->quantity = 1;
-$item->unit_price = 75;
-$preference->items = array($item);
-$preference->save();
+//var_dump($_SESSION);
+
+
 
 ?>
 
@@ -39,13 +39,11 @@ $preference->save();
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark fondo-negro  d-flex justify-content-between">
-    <a class="navbar-brand" href="index.php"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
-    <button class="cont-icon-user" type="button" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="icono-user"><i class="fas fa-user"></i></span>
-    </button>
+<?php
 
-  </nav>
+require 'componentes-interfaces/nav.php';
+
+?>
   <div class="menu-apps">
 
         <div  class="vinculo iconos-menu " ><i class="fas fa-house-user"></i></div>
@@ -57,18 +55,31 @@ $preference->save();
 
   <div class="container">
       
-      <a href="envios.php" class="btn btn-success"><h2><i class="fas fa-truck"></i>  /  <i class="fas fa-arrow-left"></i> Envios</h2></a>
+      <a href="producto.php?id=<?php echo $_SESSION['venta']['id_producto'] ?>" class="btn btn-success"><h3><img style="width:80px;" src="<?php echo $_SESSION['venta']['img'] ?>" class="img-ubicacion">  /  <i class="fas fa-arrow-left"></i> Producto</h3></a>
 
-      </div>
-
-<br>
-<div class="fondo-verde p-3 d-flex justify-content-center"><h2>Formulario de compra</h2></div>
+    </div>
 
 <br>
+<div class="fondo-verde p-3 d-flex justify-content-center"><h3 class="bg-light p-2">TU COMPRA</h3></div>
+
+
+
+<br>
+
+<div class="fondo-verde  p-2">
+
+<h5 class="bg-light p-2"> <?php echo $_SESSION['venta']['producto'] ?> <img style="width: 70px; height:60px;" src="<?php  echo $_SESSION['venta']['img'] ?>"></h5>
+<h5 class="bg-light p-2"> Productos: $ <?php echo number_format( floatval($_SESSION['venta']['subtotal']), 0, ".", ",") ?> pesos cop</h5>
+<h5 class="bg-light p-2"> Envio: $ <?php echo number_format( floatval($_SESSION['venta']['envio']), 0, ".", ",") ?> pesos cop</h4>
+<h5 class="bg-light p-2"> Total a Pagar: $ <?php echo number_format( floatval($_SESSION['venta']['total']), 0, ".", ",") ?> pesos cop</h4>
+
+</div>
+<hr>
+<div class="fondo-verde  d-flex justify-content-center"><h5 style="box-shadow: 4px 4px 6px black;" class="bg-light p-2"><strong>FORMA DE PAGO: MERCADOPAGO </strong></h5></div>
 
 <div class="fondo-verde p-3">
 
-  <form class="bg-light p-3" action="">
+  <form class="bg-light p-3" action="mercadopago.php" method="POST">
   <br>
   <br>
   <label for="">Nombre destinatario :</label><br>
@@ -80,11 +91,11 @@ $preference->save();
   <br>
   <br>
   <label for="">Email :</label><br>
-  <input name="email-cliente" type="number" required>
+  <input name="email-cliente" type="email" required>
   <br>
   <br>
   <label for="">Ciudad :</label><br>
-  <input name="ciudad-cliente" type="text" required>
+  <input name="ciudad-cliente" type="text" value="<?php echo $_SESSION['venta']['destino'] ?>" required readonly>
   <br>
   <br>
   <label for="">Barrio/localidad :</label><br>
@@ -97,7 +108,10 @@ $preference->save();
   <br>
   
   <input class="d-none" type="text" required name="metodo-pago" value="contra-entrega">
-  <button class="btn btn-block btn-success"><h4>Finalizar compra</h4></button>
+  <input class="d-none" type="text"  name="name-product" value="<?php echo $_SESSION['venta']['producto'] ?>">
+  <input class="d-none" type="text"  name="cantidad-product" value="<?php echo $_SESSION['venta']['cantidad'] ?>">
+  <button type="submit" class="btn btn-success btn-block"><h1>Finalizar compra</h1></button>
+
 
 
 
@@ -105,20 +119,48 @@ $preference->save();
 </div>
 
 <br>
+<br>
 
+<div class="bg-light p-3">
+<h5>Recuerda que para poder pagar debes ser mayor de edad, 
+mercado pago te pedira tu numero de identificacion (cédula de ciudadania)
+para verfificar que seas <strong>mayor de edad </strong>
+</h5>
+</div>
           
-<script
-  src="https://www.mercadopago.com.co/integrations/v1/web-payment-checkout.js"
-  data-preference-id="<?php echo $preference->id; ?>">
-</script>
 
 
 
 <br>
 <hr>
+
+<?php
+
+require_once 'footer.php';
+
+?>
+
+    
+
   <script src="librerias/jquery/jquery-3.5.1.js"></script>
   <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
   <script src="librerias/icons/js/all.js"></script>
   <script src="js/navigation.js"></script>
+  <?php
+
+if(!isset($_SESSION['user'])){
+
+  echo '<script src="js/menuuser.js"></script>';
+
+}else{
+
+  echo '<script src="js/user.js"></script>';
+
+}
+
+
+
+?>
+
 </body>
 </html>

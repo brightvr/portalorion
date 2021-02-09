@@ -11,8 +11,39 @@ if(!isset($_SESSION['usuario'])){
 
 if(isset($_GET['response'])){
 
-  echo  '<div class="alert alert-success d-flex justify-content-center">'.$_GET['response'].'</div>';
+  echo '
+
+    <div  style="width:100%; position:fixed; z-index:9999999999999999;"  class="bg-success respuestas">
+    <span class="btn-cerrar" style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span>
+    <div class="container  p-3  text-white d-flex justify-content-center"><h5>'.$_GET['response'].'</h5></div>
+    </div>
+
+
+
+  ';
+
+  echo '
+  
+  <script>
+
+   let btn= document.querySelector(".btn-cerrar");
+   btn.addEventListener("click",()=>{
+
+
+   
+
+    let padre= document.querySelector(".respuestas").parentNode;
+    let hijo= document.querySelector(".respuestas")
+    padre.removeChild(hijo);
+
+  });
+
+  </script>
+  
+  ';
+
 }
+
 
 
 require_once 'crud/conexion.php';
@@ -101,14 +132,8 @@ while($res= mysqli_fetch_assoc($query)){
       <li class="nav-item">
         <a class="nav-link" href="ventas.php">VENTAS</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="pedidos.php">PEDIDOS</a>
-      </li>
       <li class="nav-item active">
         <a class="nav-link" href="inventario.php">INVENTARIO</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="etiquetas.php">ETIQUETAS</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="contabilidad.php">CONTABILIDAD</a>

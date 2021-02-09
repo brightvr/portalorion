@@ -63,15 +63,11 @@ class ComposerStaticInit3180c2dcdb8e63dd9747f96655bfc7e3
         ),
         'Doctrine\\Common\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
+            0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
             1 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
             2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
-            3 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
+            3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
         ),
-    );
-
-    public static $classMap = array (
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -79,7 +75,6 @@ class ComposerStaticInit3180c2dcdb8e63dd9747f96655bfc7e3
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit3180c2dcdb8e63dd9747f96655bfc7e3::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit3180c2dcdb8e63dd9747f96655bfc7e3::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit3180c2dcdb8e63dd9747f96655bfc7e3::$classMap;
 
         }, null, ClassLoader::class);
     }

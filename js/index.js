@@ -162,6 +162,17 @@ $(window).on('load',function(){
         }//fina for
 
 
+                      //clcik producto
+                      $('.comprar-producto').on('click',function(e){
+
+                        let id=parseInt(e.target.parentNode.attributes[1].nodeValue);
+                        
+        
+                        window.location.href="producto.php?id="+id.toString();
+        
+                    });
+
+
         $('.micard').on('click',function(){
 
             console.log('click')

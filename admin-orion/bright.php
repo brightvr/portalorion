@@ -7,6 +7,40 @@ if(!isset($_SESSION['usuario'])){
   header('Location:https://google.com');
 }
 
+if(isset($_GET['response'])){
+
+  echo '
+
+    <div  style="width:100%; position:fixed; z-index:9999999999999999;"  class="bg-success respuestas">
+    <span class="btn-cerrar" style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span>
+    <div class="container  p-3  text-white d-flex justify-content-center"><h5>'.$_GET['response'].'</h5></div>
+    </div>
+
+
+
+  ';
+
+  echo '
+  
+  <script>
+
+   let btn= document.querySelector(".btn-cerrar");
+   btn.addEventListener("click",()=>{
+
+
+   
+
+    let padre= document.querySelector(".respuestas").parentNode;
+    let hijo= document.querySelector(".respuestas")
+    padre.removeChild(hijo);
+
+  });
+
+  </script>
+  
+  ';
+
+}
 
 ?>
 
@@ -47,15 +81,11 @@ if(!isset($_SESSION['usuario'])){
       <li class="nav-item">
         <a class="nav-link" href="ventas.php">VENTAS</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="pedidos.php">PEDIDOS</a>
-      </li>
+      
       <li class="nav-item">
         <a class="nav-link" href="inventario.php">INVENTARIO</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="etiquetas.php">ETIQUETAS</a>
-      </li>
+
       <li class="nav-item">
         <a class="nav-link" href="contabilidad.php">CONTABILIDAD</a>
       </li>
@@ -72,20 +102,17 @@ if(!isset($_SESSION['usuario'])){
   <img src="assets/ventas.png" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Ventas</h5>
-    <p class="card-text">Aquí puedes ver el registro completo de las ventas y los clientes</p>
-    <a href="#" class="btn btn-danger btn-block">Ver aplicación</a>
+    <p class="card-text">
+    Aquí puedes ver el registro completo de las ventas y los clientes<br><br>
+    Aquí puedes ver los pedidos pendientes y realizados<br><br>
+    Aqui puedes imprimir las etiquetas de los pedidos pendientes
+    
+    </p>
+
+    <a href="ventas.php" class="btn btn-danger btn-block">Ver aplicación</a>
   </div>
 </div>
-<br>
-<div class="card m-2" style="width: 18rem;">
-  <img src="assets/pedidos.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Pedidos</h5>
-    <p class="card-text">Aquí puedes ver los pedidos pendientes y realizados </p>
-    <a href="#" class="btn btn-danger btn-block">ver aplicación</a>
-  </div>
-</div>
-<br>
+
 <div class="card m-2" style="width: 18rem;">
   <img src="assets/inventario.jpg" class="card-img-top" alt="...">
   <div class="card-body">
@@ -95,15 +122,7 @@ if(!isset($_SESSION['usuario'])){
   </div>
 </div>
 <br>
-<div class="card m-2" style="width: 18rem;">
-  <img src="assets/etiquetas.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Etiquetas</h5>
-    <p class="card-text">Aqui puedes imprimir las etiquetas de los pedidos pendientes</p>
-    <a href="#" class="btn btn-danger btn-block">Ver aplicación</a>
-  </div>
-</div>
-<br>
+
 
 <div class="card m-2" style="width: 18rem;">
   <img src="assets/contabilidad.jpg" class="card-img-top" alt="...">

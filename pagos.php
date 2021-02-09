@@ -1,5 +1,44 @@
 <?php
 
+session_start();
+
+//var_dump($_SESSION);
+
+if(isset($_GET['response'])){
+
+    echo '
+
+      <div  style="width:100%; position:fixed; z-index:9999999999999999;"  class="bg-success respuestas">
+      <span class="btn-cerrar" style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span>
+      <div class="container  p-3  text-white d-flex justify-content-center"><h5>'.$_GET['response'].'</h5></div>
+      </div>
+
+
+
+    ';
+
+    echo '
+    
+    <script>
+
+     let btn= document.querySelector(".btn-cerrar");
+     btn.addEventListener("click",()=>{
+
+
+     
+
+      let padre= document.querySelector(".respuestas").parentNode;
+      let hijo= document.querySelector(".respuestas")
+      padre.removeChild(hijo);
+
+    });
+
+    </script>
+    
+    ';
+
+  }
+
 require_once 'conexion.php';
 
 if(isset($_POST['comprar'])){
@@ -62,7 +101,7 @@ if(isset($_POST['comprar'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Orion</title>
+    <title>Pagos</title>
 
     <link rel="stylesheet" href="librerias/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="librerias/icons/css/all.css">
@@ -73,13 +112,11 @@ if(isset($_POST['comprar'])){
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark fondo-negro  d-flex justify-content-between">
-    <a class="navbar-brand" href="index.php"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
-    <button class="cont-icon-user" type="button" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="icono-user"><i class="fas fa-user"></i></span>
-    </button>
+<?php
 
-  </nav>
+require 'componentes-interfaces/nav.php';
+
+?>
   <div class="menu-apps">
 
         <div  class="vinculo iconos-menu " ><i class="fas fa-house-user"></i></div>
@@ -110,12 +147,17 @@ if(isset($producto[0])){
 }
 
 ?>
-<img class="pago-seguro" src="api/assets/img/banner-pagos.gif" alt="">
-<br>
-<hr>
-<br>
+
 <?php
 
+if(!isset($_POST['nombre-producto'])){
+
+    echo '<img class="pago-seguro" src="api/assets/img/banner-pagos.gif" alt="">
+    <br>
+    <hr>
+    <br>';
+
+}
 
 
 
@@ -143,7 +185,6 @@ if(isset($_POST['nombre-producto'])){
 
 
     //INICIO DE SESSION DE VENTAS
-    session_start();
 
     $_SESSION['venta']=[
 
@@ -154,11 +195,13 @@ if(isset($_POST['nombre-producto'])){
         "subtotal"=>$subtotal,
         "envio"=>$costo_envio,
         "total"=>$total_a_pagar,
-        "estado"=>"Alistando pedido"
+        "estado"=>"Alistando pedido",
+        "img"=>$producto[0]['img'],
+        "destino"=>$_POST['destino-producto']
     ];
     
 
-
+    number_format( floatval($subtotal), 0, ".", ",");
 
     echo '
     <div class="bg-light p-3">
@@ -169,10 +212,10 @@ if(isset($_POST['nombre-producto'])){
     <ul class="list-group list-group-flush">
         <li class="list-group-item"><strong>Producto :</strong> '.$_POST['nombre-producto'].'</li>
         <li class="list-group-item"><strong>Unidades : </strong>'.$_POST['cantidad-producto'].'</li>
-        <li class="list-group-item"><strong>PrecioxUnidad :</strong> $ '.$producto[0]['precio'].' pesos cop</li>
-        <li class="list-group-item"><strong>Subtotal :</strong> $ '.$subtotal.' pesos cop</li>
-        <li class="list-group-item"><strong>Envío :</strong> $ '.$costo_envio.' pesos cop</li>
-        <li class="list-group-item"><strong>Total :</strong> $ '.$total_a_pagar.' pesos cop</li>
+        <li class="list-group-item"><strong>PrecioxUnidad :</strong> $ '.number_format( floatval($producto[0]['precio']), 0, ".", ",").' pesos cop</li>
+        <li class="list-group-item"><strong>Subtotal :</strong> $ '.number_format( floatval($subtotal), 0, ".", ",").' pesos cop</li>
+        <li class="list-group-item"><strong>Envío :</strong> $ '.number_format( floatval($costo_envio), 0, ".", ",").' pesos cop</li>
+        <li class="list-group-item"><strong>Total :</strong> $ '.number_format( floatval($total_a_pagar), 0, ".", ",").' pesos cop</li>
 
     </ul>
     </h5>
@@ -186,6 +229,9 @@ if(isset($_POST['nombre-producto'])){
 
 
 <?php
+
+
+
 
 if(isset($_POST['comprar'])){
 
@@ -210,6 +256,41 @@ if(isset($_POST['comprar'])){
 
     if($pago_contra_entrega && intval($subtotal)!=0){
 
+
+
+
+
+
+        //opciones usuario
+        if($_SESSION['user']){
+
+
+            $_SESSION['user']['carrito']=$_POST;
+
+
+
+            echo '
+            
+            <br>
+            <div class="container alert  alert-light">
+        
+            <h4>'.strtoupper($_SESSION['user'][0]['nombre']).', COMPRA CON UN SOLO CLICK</h4>
+            <hr>
+            <div class="fondo-verde d-flex justify-content-center p-2"><h4>Formas de pago para : '.$_POST['destino-producto'].'</h4></div>
+            <hr>
+            <a href="newform.php?pago=contra-entrega" class="btn btn-success btn-block"><h3>PAGAR CONTRA-ENTREGA</h3></a>
+            <a href="newform.php?pago=online" class="btn btn-success btn-block"><h3>PAGAR ONLINE</h3></a>
+            <a href="#" class="btn btn-warning btn-block"><h3>CREAR PAQUETE</h3><small><strong>DISPONIBLE PRÓXIMAMENTE</strong></small></a>
+            </div>
+            <br>
+        
+           
+            ';
+        
+        
+        }
+
+
         
 
         //var_dump("Pago contra entrega habilitado");
@@ -217,28 +298,58 @@ if(isset($_POST['comprar'])){
         echo '
         <br>
         <div class="container alert alert-light">
+        <h4>Pagar como invitado</h4><br>
 
         <div class="fondo-verde d-flex justify-content-center p-2"><h4>Formas de pago para : '.$_POST['destino-producto'].'</h4></div>
         <hr>
         <a href="formulario1.php" class="btn btn-block btn-success"><h3>Pagar contra-entrega</h3></a>
-        <div class="btn btn-block btn-success"><h3>Pagar en efectivo (no contra-entrega)</h3></div>
-        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online</h3> </a>
+        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online (Incluye pagos en efectivo)</h3> </a>
         
         </div>';
 
+
+
     }else if(!$pago_contra_entrega && intval($subtotal)!=0){
+
+
+
+        //opciones usuario
+        if($_SESSION['user']){
+
+            $_SESSION['user']['carrito']=$_POST;
+
+            echo '
+            
+            <br>
+            <div class="container alert text-dark alert-light">
+        
+            <h6>'.strtoupper($_SESSION['user'][0]['nombre']).', COMPRA CON UN SOLO CLICK;</h6>
+            <hr>
+            <div class="fondo-verde d-flex justify-content-center p-2"><h4>Formas de pago para : '.$_POST['destino-producto'].'</h4></div>
+            <hr>
+            <a href="newform.php?pago=online" class="btn btn-success btn-block"><h3>PAGAR ONLINE</h3></a>
+            <a href="#" class="btn btn-warning btn-block"><h3>CREAR PAQUETE</h3><small><strong>DISPONIBLE PRÓXIMAMENTE</strong></small></a>
+            </div>
+            <br>
+        
+           
+            ';
+        
+        
+        }
+
 
         //var_dump("pago contra entrega deshabilitado");
 
         echo '
         <br>
         <div class="container alert alert-light">
-
+        <h4>Pagar como invitado</h4><br>
         <div class="fondo-verde d-flex justify-content-center p-2"><h4>Formas de pago para : '.$_POST['destino-producto'].'</h4></div>
         <hr>
         
-        <div class="btn btn-block btn-success"><h3>Pagar en efectivo (no contra-entrega)</h3></div>
-        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online</h3> </a>
+       
+        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online (Incluye pagos en efectivo)</h3> </a>
         
         </div>
         <br>
@@ -290,12 +401,33 @@ if(!isset($_POST['comprar'])){
 
 
 
+<?php
 
+require_once 'footer.php';
+
+?>
+
+    
 
  
  <script src="librerias/jquery/jquery-3.5.1.js"></script>
   <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
   <script src="librerias/icons/js/all.js"></script>
   <script src="js/navigation.js"></script>
+  <?php
+
+if(!isset($_SESSION['user'])){
+
+  echo '<script src="js/menuuser.js"></script>';
+
+}else{
+
+  echo '<script src="js/user.js"></script>';
+
+}
+
+
+
+?>
 </body>
 </html>

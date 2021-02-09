@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
     if(isset($_GET['id'])){
 
         require_once 'conexion.php';
@@ -35,7 +37,7 @@
 
         //trayendo data productos
 
-        $consulta3=array('select * from productos limit 5');
+        $consulta3=array('select * from productos order by  rand() limit 15');
   
         $allProducts=null;
      
@@ -80,7 +82,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda</title>
+    <meta property="og:image" itemprop="image" content="<?php echo $producto[0]['img'] ?>">
+    <meta property="og:image"  content="<?php echo $producto[0]['nombre'] ?>">
+    <title><?php echo $producto[0]['nombre'] ?></title>
 </head>
 <body>
 
@@ -93,13 +97,11 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark fondo-negro d-flex justify-content-between ">
-    <a class="navbar-brand" href="index.php"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
-    <button class="cont-icon-user" type="button" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="icono-user"><i class="fas fa-user"></i></span>
-    </button>
+<?php
 
-  </nav>
+require 'componentes-interfaces/nav.php';
+
+?>
   <div class="menu-apps">
 
         <div class=" vinculo iconos-menu " href="#"><i class="fas fa-house-user"></i></div>
@@ -130,11 +132,18 @@
 
       <img class="img-producto" src="<?php echo $producto[0]['img'] ?>" alt="">
       <br><br>
+      <?php
 
+      
+    
+
+     $price= number_format( floatval($producto[0]['precio']), 0, '.', ',');
+
+      ?>
     
       <br>
       <div class="container fondo-verde d-flex justify-content-center p-2">
-      <h2>$ <?php echo $producto[0]['precio'] ?> pesos cop</h2>
+      <h2>$ <?php echo  $price   ?> pesos cop</h2>
       </div>
 
       <form class="fondo-verde mt-2 p-3 d-block" action="pagos.php" method="post">
@@ -184,7 +193,17 @@
 
       }else{
 
+        if(isset($_SESSION['user'][0]['nombre'])){
+
+
+          echo '  <a href="#" class="btn btn-warning btn-block"><h3>CREAR PAQUETE</h3><small><strong>DISPONIBLE PRÓXIMAMENTE</strong></small></a>';
+
+
+        }
+
           echo '  <button type="submit" class="btn comprar btn-block"><h1>COMPRAR</h1></button>';
+
+
       }
 
       ?>
@@ -374,7 +393,7 @@
                     <rect x="0.5" y="519.5" width="359" height="112"/>
                     <path d="M359,521V632H1V521H359m1-1H0V633H360V520Z" transform="translate(0 -1)"/>
                   </g>
-                  <g class="comprar-producto" value="${data.id_producto}">
+                  <g class="comprar-producto" value="'.$allProducts[$h]['id_producto'].'">
                     <rect class="ffff8acb-9f86-4e78-974a-d9aa7de3b931" x="23.5" y="541.5" width="313" height="68" rx="1.5"/>
                     <path class="ffff8acb-9f86-4e78-974a-d9aa7de3b931" d="M335,543a1,1,0,0,1,1,1v65a1,1,0,0,1-1,1H25a1,1,0,0,1-1-1V544a1,1,0,0,1,1-1H335m0-1H25a2,2,0,0,0-2,2v65a2,2,0,0,0,2,2H335a2,2,0,0,0,2-2V544a2,2,0,0,0-2-2Z" transform="translate(0 -1)"/>
                   </g>
@@ -422,7 +441,7 @@
                 <g id="b9f01aeb-e730-46b9-adba-9632a756adc5" data-name="texto2">
                   <text class="aec2e71c-a97f-49a9-809e-0ac13d78d69b" transform="translate(59.76 425.37)">$ '.$allProducts[$h]['precio'].' pesos cop</text>
                 </g>
-                <g id="f132159d-5e27-46d9-88d9-24d5448e63c7" class="${data.id_producto} comprar-producto"  value="${data.id_producto}"  data-name="comprar">
+                <g id="f132159d-5e27-46d9-88d9-24d5448e63c7" class="'.$allProducts[$h]['id_producto'].' comprar-producto"  value="'.$allProducts[$h]['id_producto'].'"  data-name="comprar">
                   <text class="eb7c4729-e31d-48b4-a780-3b04696e694b" transform="translate(72.34 585.92)">COMPRAR</text>
                 </g>
                
@@ -442,7 +461,34 @@
             ';
 
 
+
           }
+
+
+
+
+          //script javascript
+        echo '
+        <script src="librerias/jquery/jquery-3.5.1.js"></script>
+
+        <script>
+        //clcik producto
+        $(".comprar-producto").on("click",function(e){
+
+        
+
+          let id=parseInt(e.target.parentNode.attributes[1].nodeValue);
+          console.log(id);
+          
+
+          window.location.href="producto.php?id="+id.toString();
+
+      });
+      </script>
+        
+        ';
+
+
 
 
 
@@ -461,7 +507,8 @@
 
 <!--herramienta para cotizar envios-->
 <div class="container">
-      
+<div class="alert bg-danger d-flex justify-content-center"><h3>Disponible próximamemte</h3></div>
+
       <div class="card " >
       <div class="card-header  bg-success text-white">
       <div class="d-flex justify-content-center"> <h4>Cotizacion</h4></div>
@@ -523,6 +570,10 @@
 
 </div>
 
+
+<!--_____________________________vista web____________________________________________________-->
+
+
 <div class="app-web">
     <br><br>
 
@@ -537,7 +588,7 @@
 
 
 <div class="container fondo-verde d-flex justify-content-center p-2">
-<h2>$ <?php echo $producto[0]['precio'] ?> pesos cop</h2>
+<h2>$ <?php echo $price ?> pesos cop</h2>
 </div>
 
 <form class="fondo-verde mt-2 p-3 d-block" action="pagos.php" method="post">
@@ -754,7 +805,7 @@ echo '
                     <rect x="0.5" y="519.5" width="359" height="112"/>
                     <path d="M359,521V632H1V521H359m1-1H0V633H360V520Z" transform="translate(0 -1)"/>
                   </g>
-                  <g class="comprar-producto" value="${data.id_producto}">
+                  <g class="comprar-producto" value="'.$allProducts[$h]['id_producto'].'">
                     <rect class="ffff8acb-9f86-4e78-974a-d9aa7de3b931" x="23.5" y="541.5" width="313" height="68" rx="1.5"/>
                     <path class="ffff8acb-9f86-4e78-974a-d9aa7de3b931" d="M335,543a1,1,0,0,1,1,1v65a1,1,0,0,1-1,1H25a1,1,0,0,1-1-1V544a1,1,0,0,1,1-1H335m0-1H25a2,2,0,0,0-2,2v65a2,2,0,0,0,2,2H335a2,2,0,0,0,2-2V544a2,2,0,0,0-2-2Z" transform="translate(0 -1)"/>
                   </g>
@@ -802,7 +853,7 @@ echo '
                 <g id="b9f01aeb-e730-46b9-adba-9632a756adc5" data-name="texto2">
                   <text class="aec2e71c-a97f-49a9-809e-0ac13d78d69b" transform="translate(59.76 425.37)">$ '.$allProducts[$h]['precio'].' pesos cop</text>
                 </g>
-                <g id="f132159d-5e27-46d9-88d9-24d5448e63c7" class="${data.id_producto} comprar-producto"  value="${data.id_producto}"  data-name="comprar">
+                <g id="f132159d-5e27-46d9-88d9-24d5448e63c7" class="'.$allProducts[$h]['id_producto'].' comprar-producto"  value="'.$allProducts[$h]['id_producto'].'"  data-name="comprar">
                   <text class="eb7c4729-e31d-48b4-a780-3b04696e694b" transform="translate(72.34 585.92)">COMPRAR</text>
                 </g>
                
@@ -826,6 +877,26 @@ echo '
 
 
 
+          //script javascript
+        echo '
+        <script src="librerias/jquery/jquery-3.5.1.js"></script>
+        <script>
+        //clcik producto
+        $(".comprar-producto").on("click",function(e){
+
+          let id=parseInt(e.target.parentNode.attributes[1].nodeValue);
+          //console.log(id);
+          
+
+          window.location.href="producto.php?id="+id.toString();
+
+      });
+        </script>
+        ';
+
+
+
+
             ?>
       
       </div>
@@ -841,13 +912,13 @@ echo '
       <br>
 <!--herramienta para cotizar envios-->
 <div class="container">
-      
+      <div class="alert bg-danger d-flex justify-content-center"><h3>Disponible próximamemte</h3></div>
       <div class="card " >
       <div class="card-header  bg-success text-white">
       <div class="d-flex justify-content-center"> <h4>Cotizacion</h4></div>
       ( Con esta herramienta podras cotizar los costos de tu pedido sin tener que comprar)
       </div>
-      <form action="" method="post">
+      <form action="#" method="post">
       <ul class="list-group list-group-flush">
       <li class="list-group-item p-3 m-2"><h5>Forma de pago :</h5><br>
              <h5> <select name="forma-pago" id="cars" form="carform">
@@ -902,10 +973,32 @@ echo '
 
 </div>
 
-      <script src="librerias/jquery/jquery-3.5.1.js"></script>
+<?php
+
+require_once 'footer.php';
+
+?>
+
+    
+
     <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
     <script src="librerias/icons/js/all.js"></script>
     <script src="js/navigation.js"></script>
+    <?php
+
+if(!isset($_SESSION['user'])){
+
+  echo '<script src="js/menuuser.js"></script>';
+
+}else{
+
+  echo '<script src="js/user.js"></script>';
+
+}
+
+
+
+?>
 
   </body>
   </html>

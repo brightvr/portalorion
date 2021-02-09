@@ -1,7 +1,7 @@
 <?php
 require_once '../crud/conexion.php';
 
-$consulta="select * from  productos p, categorias_productos c  where c.id_categoria=6 and p.id_producto=c.id_producto";
+$consulta="select * from  productos p, categorias_productos c  where c.id_categoria=6 and p.id_producto=c.id_producto order by rand()";
 
 $productos=null;
 $query =mysqli_query($miconexion->Conectando(),$consulta);
