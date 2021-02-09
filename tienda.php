@@ -1,6 +1,13 @@
 <?php
 
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(E_ALL);
+
+
+
 session_start();
+require_once 'conexion.php';
 
 if(isset($_GET['response'])){
 
@@ -42,7 +49,7 @@ if(isset($_GET['response'])){
 if(isset($_POST['buscar'])){
 
 
-  require_once 'conexion.php';
+  
 
   $consulta='select * from productos where nombre like "%'.$_POST['buscar'].'%";';
 
@@ -117,10 +124,26 @@ if(isset($_POST['buscar'])){
 
 unset($_POST);
 
+
+
+
+    $miconsulta= "select * from categorias";
+
+    $query2 = mysqli_query($miconexion->Conectando(),$miconsulta);
+
+    $category=null;
+
+    while($res2= mysqli_fetch_assoc($query2)){
+
+     $category[]=$res2;
+
+    }
+
+
  ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -202,51 +225,46 @@ require 'componentes-interfaces/nav.php';
   <br>
  
   <div class="fondo-verde p-3 d-flex justify-content-center"><h3>Categorias</h3></div>
-
-
-  <div class="p-2 container d-flex flex-wrap justify-content-center">
-
-  <div class=" p-2 pt-5">
-    <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2">Supermercado</div>
-       <img style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;" src="api/assets/img/elsuper_Mesa de trabajo 1.svg" alt="" srcset="">
+  <br>
+  <div class="container bg-light p-4">
+  <input name="buscar" class="form-control mr-sm-2 buscador-categorias" type="search" placeholder="Buscar categoria" aria-label="Search"><br>
+  <button class="buscar-categoria btn-success btn-block my-2 "><h3>Buscar categoria</h3></button>
+  <button class="all-category btn-danger btn-block my-2 d-none"><h3>Todas las categorias</h3></button>
   </div>
 
-    <div class=" p-2  pt-5">
-      <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2">Accesorios cannabicos</div>
-       <img style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;" src="api/assets/svg/cannabis-orion.svg" alt="" srcset="">
-    </div>
 
-    <div class=" p-2  pt-5">
-      <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2">Electronica & Robotica</div>
-       <img style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;" src="api/assets/svg/electronica-orion.svg" alt="" srcset="">
-    </div>
+  <div class="cont-categorias p-2 container d-flex flex-wrap justify-content-center">
 
 
-    <div class=" p-2  pt-5">
-      <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2">Aseo personal</div>
-       <img style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;" src="api/assets/svg/aseo-orio.svg" alt="" srcset="">
-    </div>
+    <?php 
+
+    //var_dump($category[0]['card']);
+    for($f=0; $f<count($category);$f++){
+
+      
+      echo '
 
 
+      <div class=" p-2  pt-5">
+        <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2">'.$category[$f]['nombre'].'</div>
+        <img  src="'.$category[$f]['card'].'" alt="" style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;">
+      </div>
+      
+      ';
+
+
+    }
+
+
+
+    ?>
 
   </div>
 
   <br>
   
-  <br>
+ 
 
-  <div class="category fondo-verde d-flex justify-content-center">
-   <h2 class="title-categorias"> Ver Categorias</h2>
-  </div>
-  <div class="categorias   fondo-verde  p-4 d-none">
-
-
-  </div>
-  <br>
-  <hr>
-  <br>
-
-  <div id="cont-cards" class="contenedor-cards">
 
  
  
@@ -267,7 +285,7 @@ require_once 'footer.php';
     <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
     <script src="librerias/icons/js/all.js"></script>
     <script src="js/navigation.js"></script>
-    <script src="js/PrintCards.js"></script>
+    <!--<script src="js/PrintCards.js"></script>-->
     <script src="js/tienda.js"></script>
     <?php
 
