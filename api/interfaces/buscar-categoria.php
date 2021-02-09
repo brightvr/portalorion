@@ -17,7 +17,7 @@
 
         if($categorias===null){
 
-            echo json_encode("Esta categoria se encuentra vacia por el momento");
+            echo json_encode('No se encontraron resultados para '.$_POST['buscar']);
 
         }else{
             
@@ -26,7 +26,7 @@
         
     }else{
 
-        echo json_encode('No se encontraron resultados para'.$_POST['buscar']);
+        echo json_encode('No se encontraron resultados para '.$_POST['buscar']);
 
     }
 

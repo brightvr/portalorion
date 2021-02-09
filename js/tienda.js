@@ -38,25 +38,54 @@ $(window).on('load',function(){
 
                 for(let i=0;i<response.length;i++){
 
-                    $('.cont-categorias').append(`
+                    if(response[i].nombre===undefined){
 
-                    <div class=" p-2  pt-5">
-                    <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2"><h4>${response[i].nombre}</h4></div>
-                    <img  src="${response[i].card}" alt="" style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;">
-                  </div>
+                        $('.cont-categorias').append(`
 
-                    `);
+                        <div class=" p-2  pt-5">
+                        <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2"><h4>${response}</h4></div>
+                      </div>
+    
+                        `);
+                        break;
+                       
+                    }else{
+
+                        $('.cont-categorias').append(`
+
+                        <div class=" p-2  pt-5">
+                        <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2"><h4>${response[i].nombre}</h4></div>
+                        <img  src="${response[i].card}" alt="" style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;">
+                      </div>
+    
+                        `);
+
+                    }
+
+
 
                 }
 
                 
             }, 1000);
-           // console.log(response);
+           //console.log(response);
             
-        });
+        });//fin fetch
     
 
-    });
+    });//fin fucnion 
+
+
+    //volver a ver todas las categorias
+
+    $('.all-category').on('click',function(){
+
+        $('.all-category').addClass('d-none');
+
+        fetch('api/interfaces/categorias.php');
+
+
+    })
 
 
 
