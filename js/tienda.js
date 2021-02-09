@@ -54,7 +54,7 @@ $(window).on('load',function(){
                         $('.cont-categorias').append(`
 
                         <div class=" p-2  pt-5">
-                        <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2"><h4>${response[i].nombre}</h4></div>
+                        <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2"><h2>${response[i].nombre}</h2></div>
                         <img  src="${response[i].card}" alt="" style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;">
                       </div>
     
