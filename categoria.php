@@ -92,11 +92,11 @@ require 'componentes-interfaces/nav.php';
 
  <div style="width:90%; margin-left:5%; box-shadow: 5px 5px 6px black;" class="container fondo-verde btn-categorias">
  
- 
+ <br>
  <div  class=" p-2 d-flex justify-content-around">
 
- <h3><img src="<?php echo $categoriaactual[0]['img'] ?>"><?php echo $_GET['categoria'] ?></h3>
- <h2 class="flecha-categoria"><i class="fas fa-angle-down miflecha"></i><i class="fas fa-angle-up d-none miflecha"></i></h2>
+ <h3><img class="mr-1" style="width: 60px; border-radius:50%;" src="<?php echo $categoriaactual[0]['img'] ?>"><?php echo $_GET['categoria'] ?></h3>
+ <h1 class="flecha-categoria mt-2"><i class="fas fa-angle-down miflecha"></i><i class="fas fa-angle-up d-none miflecha"></i></h1>
  
  </div>
  <hr>
