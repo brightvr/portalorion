@@ -851,7 +851,7 @@ echo '
                   <text class="a1803540-80f4-4717-9018-54cf33252226" transform="translate(45.33 480.1)">'.$allProducts[$h]['disponibilidad'].'</text>
                 </g>
                 <g id="b9f01aeb-e730-46b9-adba-9632a756adc5" data-name="texto2">
-                  <text class="aec2e71c-a97f-49a9-809e-0ac13d78d69b" transform="translate(59.76 425.37)">$ '.$allProducts[$h]['precio'].' pesos cop</text>
+                  <text class="aec2e71c-a97f-49a9-809e-0ac13d78d69b" transform="translate(59.76 425.37)">$ '.number_format(floatval($allProducts[$h]['precio']),0,'.',',').' pesos cop</text>
                 </g>
                 <g id="f132159d-5e27-46d9-88d9-24d5448e63c7" class="'.$allProducts[$h]['id_producto'].' comprar-producto"  value="'.$allProducts[$h]['id_producto'].'"  data-name="comprar">
                   <text class="eb7c4729-e31d-48b4-a780-3b04696e694b" transform="translate(72.34 585.92)">COMPRAR</text>
