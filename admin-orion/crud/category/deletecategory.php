@@ -9,7 +9,7 @@ if(!isset($_SESSION['usuario'])){
   
 
 require_once '../conexion.php';
-var_dump('POST: '.$_POST);
+//var_dump($_POST);
 
 
 //buscar relaciones entre categoria y producto
@@ -43,7 +43,7 @@ if($categoriaProducto===null){
         header('Location:../../inventario.php?response=Categoria eliminada correctamente');
     }else{
     
-        header('Location:../../inventario.php?response=Error al eliminar categoria, intentalo mas tarde');
+        header('Location:../../inventario.php?response=Error al eliminar categoria sin relacion, intentalo mas tarde');
     }
 
 
@@ -70,7 +70,7 @@ if(mysqli_query($miconexion->Conectando(),$consulta_1)){
         header('Location:../../inventario.php?response=Categoria eliminada correctamente');
     }else{
     
-        header('Location:../../inventario.php?response=Error al eliminar categoria, intentalo mas tarde');
+        header('Location:../../inventario.php?response=Error al eliminar categoria con relacion, intentalo mas tarde');
     }
 
 

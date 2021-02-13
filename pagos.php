@@ -262,7 +262,7 @@ if(isset($_POST['comprar'])){
 
 
         //opciones usuario
-        if($_SESSION['user']){
+        if(isset($_SESSION['user'])){
 
 
             $_SESSION['user']['carrito']=$_POST;

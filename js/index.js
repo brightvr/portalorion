@@ -18,6 +18,15 @@ $(window).on('load',function(){
 
         for(let f=0; f< response.length;f++){
 
+          const formatearMoneda = ()=>{
+
+            let formato = new Intl.NumberFormat().format(parseInt( response[f].precio));
+    
+            return formato;
+          }
+    
+
+         
 
             $('.mi-container').append(`
         
@@ -135,7 +144,7 @@ $(window).on('load',function(){
                   <text class="a1803540-80f4-4717-9018-54cf33252226" transform="translate(45.33 480.1)">${response[f].disponibilidad}</text>
                 </g>
                 <g id="b9f01aeb-e730-46b9-adba-9632a756adc5" data-name="texto2">
-                  <text class="aec2e71c-a97f-49a9-809e-0ac13d78d69b" transform="translate(59.76 425.37)">$ ${response[f].precio} pesos cop</text>
+                  <text class="aec2e71c-a97f-49a9-809e-0ac13d78d69b" transform="translate(59.76 425.37)">$ ${formatearMoneda()} pesos cop</text>
                 </g>
                 <g id="f132159d-5e27-46d9-88d9-24d5448e63c7" class="${response[f].id_producto} comprar-producto"  value="${response[f].id_producto}"  data-name="comprar">
                   <text class="eb7c4729-e31d-48b4-a780-3b04696e694b" transform="translate(72.34 585.92)">COMPRAR</text>
