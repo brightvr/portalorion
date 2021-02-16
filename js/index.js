@@ -35,7 +35,7 @@ $(window).on('load',function(){
           
 
                           <div class="card mb-3" style="width: 90%;margin-left:5%;box-shadow:4px 4px 5px black;">
-                <img src="..." class="card-img-top" alt="...">
+                <img src="${response[f].img}" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h3 class="card-title">${response[f].nombre}</h3>
                   <p class="card-text">${response[f].info_corta}</p>
@@ -106,11 +106,11 @@ $(window).on('load',function(){
 
       $('categorias').append(`
     
-      <a  href="categoria.php?categoria=${response[i].nombre}"><img class="m-2" style="width:300px; border:0.5px solidgrey; box-shadow:3px 3px 5px black;" src="${response[i].card}"></a>
+      <a  href="categoria.php?categoria=${response[i].nombre}"><img class="m-2 mb-4" style="width:300px; border:0.5px solidgrey; box-shadow:3px 3px 5px black;" src="${response[i].card}"></a>
     
     `)
 
-
+     
     }
 
 

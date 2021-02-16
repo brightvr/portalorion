@@ -56,6 +56,14 @@
 
   }
 
+
+  echo '<div style="width:100%; height:60px; background:black;color:white;">
+
+  <div class="d-flex justify-content-center">3228873812 - 3038915</div>
+  <div class="d-flex justify-content-center">ventas@portalorion.store</div>
+  
+  </div>';
+
 ?>
 
 <!DOCTYPE html>
@@ -1771,6 +1779,8 @@ require 'componentes-interfaces/nav.php';
  }
 
 ?>
+<br>
+<br>
 </div>
 </div>
 
@@ -1783,7 +1793,7 @@ require 'componentes-interfaces/nav.php';
 
 <div class="principal fondo-verde">
 
-<h2>OFERTAS</h2>
+<h2>SUPERMERCADO</h2>
 
 </div>
 
@@ -1821,7 +1831,7 @@ require 'componentes-interfaces/nav.php';
 
       <p style="background: black;box-shadow: 50%;"><img class="envios-orion" src="api/assets/img/envios-orion.png" alt=""></p>
       <br>
-      <p>Tipos de usuario:</p>
+      <p>Tipos de envíos:</p>
       <p><span style="font-size:25px; color:black;"><i class="fas fa-trophy"></i></span>
        <strong>Premium:</strong> Pagas cuando recibes el producto, te llega el mismo día.</p>
       <p> <span style="font-size:25px; color:black;"><i class="fas fa-shield-alt"></i></span> 
