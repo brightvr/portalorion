@@ -111,6 +111,7 @@ require 'componentes-interfaces/nav.php';
         <a href="categoria.php?categoria='.$categorias[$f]['nombre'].'"  class="d-block ">
         <div style="width:90%; font-size:22px; box-shadow:4px 4px 5px black; " class=" pb-3 p-3 m-2  btn-success btn-block">
         '.$categorias[$f]['nombre'].'  </div>
+        <input type="text" class="d-none categoria" value="'.$categorias[$f]['nombre'].'">
         </a>
     
     ';
@@ -185,7 +186,7 @@ require_once 'footer.php';
     <script src="librerias/icons/js/all.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/tienda-categoria.js"></script>
-
+d
     <?php
 
 if(!isset($_SESSION['user'])){

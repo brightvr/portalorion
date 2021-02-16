@@ -54,7 +54,7 @@ $(window).on('load',function(){
                         $('.cont-categorias').append(`
 
                         <div  class=" p-2  pt-5">
-                        <div style=" width: 350px; box-shadow:5px 5px 8px black;" class="titulo fondo-verde d-flex justify-content-center p-2"><h3>${response[i].nombre}</h3></div>
+                        <div style=" width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2"><h3>${response[i].nombre}</h3></div>
                         <a href="categoria.php?categoria=${response[i].nombre}"><img  src="${response[i].card}" alt="" style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;"></a>
                       </div>
     
@@ -82,7 +82,43 @@ $(window).on('load',function(){
 
         $('.all-category').addClass('d-none');
 
-        fetch('api/interfaces/categorias.php');
+        fetch('api/interfaces/categorias.php')
+        .then(response=>response.json())
+        .then(response=>{
+            console.log(response);
+
+            $('.cont-categorias').empty();
+
+    
+    
+            $('.cont-categorias').prepend(`
+            
+            <div style="width: 20rem; height: 20rem;" class="spinner-border text-success" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+            
+            
+            `);
+
+            setTimeout(()=>{
+
+                $('.cont-categorias').empty();
+                for(let i=0;i<response.length;i++){
+
+                    $('.cont-categorias').append(`
+
+                    <div  class=" p-2  pt-5">
+                    <div style=" width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2"><h3>${response[i].nombre}</h3></div>
+                    <a href="categoria.php?categoria=${response[i].nombre}"><img  src="${response[i].card}" alt="" style="box-shadow:5px 5px 8px black; background:white; width: 350px; height:200px;"></a>
+                  </div>
+    
+                    `);
+
+                }
+
+
+            },1000)
+        })
 
 
     })

@@ -1,6 +1,25 @@
 <?php
   session_start();
 
+ require_once 'conexion.php';
+ $select="select * from productos  order by rand() limit 10";
+ $query=mysqli_query($miconexion->Conectando(),$select);
+
+ while($response=mysqli_fetch_assoc($query)){
+
+  $productos[]=$response;
+ }
+
+
+ $select="select * from productos where TiendaOficial=0 limit 6";
+ $query=mysqli_query($miconexion->Conectando(),$select);
+
+ while($response=mysqli_fetch_assoc($query)){
+
+  $productos2[]=$response;
+ }
+
+
   
   if(isset($_GET['response'])){
 
@@ -1578,28 +1597,214 @@ require 'componentes-interfaces/nav.php';
 
 
 
-  <br>
-  <hr>
-  <br>
+ 
+<br>
+ <hr>
+ <br>
    
-   <div class="container p-2">
-   
+   <div class="container  bg-light  p-2">
+
+      <h3 class="d-flex justify-content-center">Categorias</h3>
+     <hr>
+          <categorias style="overflow-x: scroll ;height:200px;" class="p-2 d-flex ">
+          </categorias>
+   <!--
    <div class="btn fondo-negro btn-block"><h5>VENDER </h5><span style="font-size:25px; color:yellow;"><i class="fas fa-shield-alt"></i></span> </div>
    <div class="btn fondo-negro btn-block"><h5>DROPSHIPING </h5><span style="font-size:25px; color:yellow;"><i class="fas fa-trophy"></i></span> </div>
-
+-->
    
    </div>
 
+   <br>
+<hr>
 <br>
 
 
+<div class="bg-light">
+<h3 class="d-flex justify-content-center p-2 bg-light">Mas vendidos</h3>
+
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+    <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
+  </ol>
+  <div class="carousel-inner">
+
+
+
+    <div class="carousel-item active">
+      <img src="<?php echo $productos2[0]['img'] ?>" class="d-block w-100" alt="...">
+      <div class="carousel-caption ">
+        <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[0]['nombre'] ?></h5>
+        <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[0]['info_corta'] ?></p>
+      </div>
+    </div>
+
+
+    <div class="carousel-item ">
+      <img src="<?php echo $productos2[1]['img'] ?>" class="d-block w-100" alt="...">
+      <div class="carousel-caption ">
+        <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[1]['nombre'] ?></h5>
+        <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[1]['info_corta'] ?></p>
+      </div>
+    </div>
+
+    <div class="carousel-item ">
+      <img src="<?php echo $productos2[2]['img'] ?>" class="d-block w-100" alt="...">
+      <div class="carousel-caption ">
+        <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[2]['nombre'] ?></h5>
+        <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[2]['info_corta'] ?></p>
+      </div>
+    </div>
+
+
+    <div class="carousel-item ">
+      <img src="<?php echo $productos2[3]['img'] ?>" class="d-block w-100" alt="...">
+      <div class="carousel-caption ">
+        <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[3]['nombre'] ?></h5>
+        <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[3]['info_corta'] ?></p>
+      </div>
+    </div>
+
+    <div class="carousel-item ">
+      <img src="<?php echo $productos2[4]['img'] ?>" class="d-block w-100" alt="...">
+      <div class="carousel-caption ">
+        <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[4]['nombre'] ?></h5>
+        <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[4]['info_corta'] ?></p>
+      </div>
+    </div>
+
+    <div class="carousel-item ">
+      <img src="<?php echo $productos2[5]['img'] ?>" class="d-block w-100" alt="...">
+      <div class="carousel-caption ">
+        <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[5]['nombre'] ?></h5>
+        <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[5]['info_corta'] ?></p>
+      </div>
+    </div>
+
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+
+
+
+<br>
+  <hr>
+  <br>
+
+
+
+  <div class="bg-light">
+  <div class=" principal bg-light">
+   <h1>Tiendas Oficiales</h1>
+  </div>
+
+  <hr>
+  <div class="container">
+
+<div class="tiendas d-flex fondo-blanco runalotusArtesanias ">
+
+  <img class="runalotus" src="api/assets/runalotus/logo-runalotus.png" alt="">
+  <h4 style="color: rgb(160, 7, 7);">Runalotus Artesanias</h4>
+
+</div>
+<br>
+
+<div class="tiendas d-flex fondo-blanco cannabisShop">
+
+  <img class="cannabis" src="api/assets/img/logo-cannabis-shop.png" alt="">
+  <a></a><h4 style="color: green;"> Cannabis Shop</h4>
+
+</div>
+
+<br>
+</div>
+<br>
+</div>
+
+
+
+
+<br>
+<hr>
+<br>
+
+
+
+
+<div class="bg-light">
+<h3 class="d-flex justify-content-center p-2 bg-light">Recomendados</h3>
+<hr>
+<div class="  d-flex flex-wrap justify-content-center">
+<?php
+
+ for($i=0;$i<count($productos);$i++){
+
+  echo '
+ 
+
+    <div class=" card m-2" style="width: 10rem;  box-shadow:3px 3px 4px black;">
+      <img src="'.$productos[$i]['img'].'" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">'.$productos[$i]['nombre'].'</p>
+        <hr>
+        <p class="card-text">$ '.number_format(floatval($productos[$i]['precio']),0,'.',',').' pesos </p>
+      </div>
+  </div>
+
+
+  
+  ';
+ }
+
+?>
+</div>
+</div>
+
+
+<br>
+<hr>
+<br>
+
+
+
+<div class="principal fondo-verde">
+
+<h2>OFERTAS</h2>
+
+</div>
+
+<div  class="container  mi-container p-2 ">
+
+ 
+
+
+  <br>
+</div>
+
+<br>
+<hr>
+<br>
   <div class="container d-flex flex-wrap justify-content-center">
 
-    <div class="pagos">
+    <div class="pagos p-3">
       <h2><span class="icon-pay"><i class="fas fa-credit-card"></i> </span>  Formas de Pago</h2>
       <hr>
       <p>  Contra entrega <span class="icon-pay"><i class="fas fa-motorcycle"></i> </span></p><br>
-      <p>Efecty- Baloto <span ><img class="icono-pagos" src="api/ssets/img/efecty-logo.png" alt=""> </span></p>
+      <p>Efecty- Baloto <span ><img class="icono-pagos" src="api/assets/img/efecty-logo.png" alt=""> </span></p>
       <p>Transferencia Bancaria<span ><img class="icono-pagos" src="api/assets/img/logo-pse.png" alt=""> </span></p>
       <p>Mercado Pago <span class="icon-pay"><i class="fas fa-credit-card"></i> </span></p><br>
       <p>Tajetas credito - Debito <span class="icon-pay"><i class="fas fa-credit-card"></i> </span></p><br>
@@ -1610,18 +1815,19 @@ require 'componentes-interfaces/nav.php';
 
     </div>
 
-    <div class="envios">
+    <div class="envios p-3">
       <h2><span class="icon-pay"><i class="fas fa-truck"></i> </span> Formas de Envio</h2>
       <hr>
 
       <p style="background: black;box-shadow: 50%;"><img class="envios-orion" src="api/assets/img/envios-orion.png" alt=""></p>
       <br>
-      <p>Tipos de envio :</p>
-      <p>- Envios para pago contra entrega</p>
-      <p>- Envios que llegan el mismo día</p>
-      <p>- Envios  por transportadoras aliadas</p>
-      <p>- Envios a nivel nacional</p>
-      <p>- ¡Conoce nuestro seguro de proteccion de envios!</p>
+      <p>Tipos de usuario:</p>
+      <p><span style="font-size:25px; color:black;"><i class="fas fa-trophy"></i></span>
+       <strong>Premium:</strong> Pagas cuando recibes el producto, te llega el mismo día.</p>
+      <p> <span style="font-size:25px; color:black;"><i class="fas fa-shield-alt"></i></span> 
+      <strong>Express:</strong> Pagas cuando recibes el producto, te llega en menos de 48 horas. </p>
+      <p> <span style="font-size:25px; color:black;"><i class="fas fa-shield-alt"></i></span> 
+      <strong>Classic:</strong>  Pagas online, gestionamos tu envio por medio de nuestras transportadoras aliadas.</p>
 
       <a href="envios.php" class="btn btn-block btn-success"><h3>Consultar tarifa de envíos</h3></a>
 
@@ -1630,52 +1836,13 @@ require 'componentes-interfaces/nav.php';
 
   </div>
 
-  <hr>
-<br>
-
-
-<div class="principal fondo-verde">
-
-<h2>OFERTAS</h2>
-
-</div>
-
-<div class="mi-container container">
-
- 
-
-
-  <br>
-</div>
 
 
 <br>
 <hr>
 <br>
-  <div class=" principal fondo-verde">
-   <h1>Tiendas Oficiales</h1>
-  </div>
 
-  <br>
-  <div class="container">
 
-    <div class="tiendas d-flex fondo-blanco runalotusArtesanias ">
-
-      <img class="runalotus" src="api/assets/runalotus/logo-runalotus.png" alt="">
-      <h4 style="color: rgb(160, 7, 7);">Runalotus Artesanias</h4>
-
-    </div>
-    <br>
-
-    <div class="tiendas d-flex fondo-blanco cannabisShop">
-
-      <img class="cannabis" src="api/assets/img/logo-cannabis-shop.png" alt="">
-      <a></a><h4 style="color: green;"> Cannabis Shop</h4>
-
-    </div>
-    
-
-  </div>
 
   <br>
   <?php

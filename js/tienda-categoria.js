@@ -12,7 +12,7 @@ btnCategoria.addEventListener('click', ()=>{
 
         flechaCategorias[i].classList.toggle('d-none');
     }
-   
+    
 
 
    
