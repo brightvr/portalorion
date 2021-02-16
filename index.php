@@ -57,13 +57,6 @@
   }
 
 
-  echo '<div style="width:100%; height:60px; background:black;color:white;">
-
-  <div class="d-flex justify-content-center">3228873812 - 3038915</div>
-  <div class="d-flex justify-content-center">ventas@portalorion.store</div>
-  
-  </div>';
-
 ?>
 
 <!DOCTYPE html>
