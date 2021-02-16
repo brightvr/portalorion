@@ -87,7 +87,7 @@
                 <h6>Los pagos en efectivo los puedes realizar en cualquiera
                  de los punto de efecty, baloto, 4-72 o Soluciones red
                  <br>
-                 <strong>Tu compra se acredita apenas pagas,algunas veces tu pago se acredita en un lapso de tiempo de 30 min - 60 min</strong>
+                 <strong>Tu compra se acredita apenas pagas</strong>
                  </h6></p>
                 <br>
                 <p><h6>

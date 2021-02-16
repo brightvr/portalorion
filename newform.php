@@ -98,7 +98,16 @@ require 'componentes-interfaces/nav.php';
       </div>
       <hr>
       <?php
+      
+        if($_GET['pago']==="contra-entrega"){
 
+          $path="usuarios/comprausuario.php";
+
+        }else{
+
+          $path="mercadopago2.php";
+
+        }
 
 
       if($_SESSION['user'][0]['barrio_localidad']!=="" &&
@@ -223,6 +232,7 @@ require 'componentes-interfaces/nav.php';
         }
 
         echo '<br><br>';
+
         if($_GET['pago']==="contra-entrega"){
 
           $path="usuarios/comprausuario.php";
