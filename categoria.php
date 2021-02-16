@@ -186,7 +186,7 @@ require_once 'footer.php';
     <script src="librerias/icons/js/all.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/tienda-categoria.js"></script>
-d
+
     <?php
 
 if(!isset($_SESSION['user'])){

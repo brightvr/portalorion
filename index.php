@@ -1638,52 +1638,52 @@ require 'componentes-interfaces/nav.php';
 
 
     <div class="carousel-item active">
-      <img src="<?php echo $productos2[0]['img'] ?>" class="d-block w-100" alt="...">
+      <a href="producto.php?id=<?php echo $productos2[0]['id_producto'] ?>"><img src="<?php echo $productos2[0]['img'] ?>" class="d-block w-100" alt="..."></a>
       <div class="carousel-caption ">
-        <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[0]['nombre'] ?></h5>
-        <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[0]['info_corta'] ?></p>
+      <a href="producto.php?id=<?php echo $productos2[0]['id_producto'] ?>"><h5 style="background: rgba(0, 0, 0, 0.750);color:white; padding:10px;"><?php echo $productos2[0]['nombre'] ?></h5></a>
+      <a href="producto.php?id=<?php echo $productos2[0]['id_producto'] ?>"> <p style="background: rgba(0, 0, 0, 0.750);color:white; padding:10px;"><?php echo $productos2[0]['info_corta'] ?></p></a>
       </div>
     </div>
 
 
     <div class="carousel-item ">
-      <img src="<?php echo $productos2[1]['img'] ?>" class="d-block w-100" alt="...">
+    <a href="producto.php?id=<?php echo $productos2[1]['id_producto'] ?>"><img src="<?php echo $productos2[1]['img'] ?>" class="d-block w-100" alt="..."></a>
       <div class="carousel-caption ">
-        <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[1]['nombre'] ?></h5>
-        <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[1]['info_corta'] ?></p>
+      <a href="producto.php?id=<?php echo $productos2[1]['id_producto'] ?>"><h5 style="background: rgba(0, 0, 0, 0.750);color:white; padding:10px;"><?php echo $productos2[1]['nombre'] ?></h5></a>
+      <a href="producto.php?id=<?php echo $productos2[1]['id_producto'] ?>"><p style="background: rgba(0, 0, 0, 0.750);color:white; padding:10px;"><?php echo $productos2[1]['info_corta'] ?></p></a>
       </div>
     </div>
 
     <div class="carousel-item ">
-      <img src="<?php echo $productos2[2]['img'] ?>" class="d-block w-100" alt="...">
+    <a href="producto.php?id=<?php echo $productos2[2]['id_producto'] ?>"><img src="<?php echo $productos2[2]['img'] ?>" class="d-block w-100" alt="..."></a>
       <div class="carousel-caption ">
-        <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[2]['nombre'] ?></h5>
-        <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[2]['info_corta'] ?></p>
+      <a href="producto.php?id=<?php echo $productos2[2]['id_producto'] ?>"> <h5 style="background: rgba(0, 0, 0, 0.750);color:white; padding:10px;"><?php echo $productos2[2]['nombre'] ?></h5></a>
+      <a href="producto.php?id=<?php echo $productos2[2]['id_producto'] ?>"> <p style="background: rgba(0, 0, 0, 0.750);color:white; padding:10px;"><?php echo $productos2[2]['info_corta'] ?></p></a>
       </div>
     </div>
 
 
     <div class="carousel-item ">
-      <img src="<?php echo $productos2[3]['img'] ?>" class="d-block w-100" alt="...">
+    <a href="producto.php?id=<?php echo $productos2[3]['id_producto'] ?>"><img src="<?php echo $productos2[3]['img'] ?>" class="d-block w-100" alt="..."></a>
       <div class="carousel-caption ">
-        <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[3]['nombre'] ?></h5>
-        <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[3]['info_corta'] ?></p>
+      <a href="producto.php?id=<?php echo $productos2[3]['id_producto'] ?>"><h5 style="background: rgba(0, 0, 0, 0.750);color:white; padding:10px;"><?php echo $productos2[3]['nombre'] ?></h5></a>
+      <a href="producto.php?id=<?php echo $productos2[3]['id_producto'] ?>"> <p style="background: rgba(0, 0, 0, 0.750);color:white; padding:10px;"><?php echo $productos2[3]['info_corta'] ?></p></a>
       </div>
     </div>
 
     <div class="carousel-item ">
-      <img src="<?php echo $productos2[4]['img'] ?>" class="d-block w-100" alt="...">
+    <a href="producto.php?id=<?php echo $productos2[4]['id_producto'] ?>"><img src="<?php echo $productos2[4]['img'] ?>" class="d-block w-100" alt="..."></a>
       <div class="carousel-caption ">
-        <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[4]['nombre'] ?></h5>
-        <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[4]['info_corta'] ?></p>
+      <a href="producto.php?id=<?php echo $productos2[4]['id_producto'] ?>"> <h5 style="background: rgba(0, 0, 0, 0.750);color:white; padding:10px;"><?php echo $productos2[4]['nombre'] ?></h5></a>
+      <a href="producto.php?id=<?php echo $productos2[4]['id_producto'] ?>"> <p style="background: rgba(0, 0, 0, 0.750);color:white; padding:10px;"><?php echo $productos2[4]['info_corta'] ?></p></a>
       </div>
     </div>
 
     <div class="carousel-item ">
-      <img src="<?php echo $productos2[5]['img'] ?>" class="d-block w-100" alt="...">
+    <a href="producto.php?id=<?php echo $productos2[5]['id_producto'] ?>"><img src="<?php echo $productos2[5]['img'] ?>" class="d-block w-100" alt="..."></a>
       <div class="carousel-caption ">
-        <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[5]['nombre'] ?></h5>
-        <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[5]['info_corta'] ?></p>
+      <a href="producto.php?id=<?php echo $productos2[5]['id_producto'] ?>"><h5 style="background: rgba(0, 0, 0, 0.750);color:white; padding:10px;"><?php echo $productos2[5]['nombre'] ?></h5></a>
+      <a href="producto.php?id=<?php echo $productos2[5]['id_producto'] ?>"> <p style="background: rgba(0, 0, 0, 0.750);color:white; padding:10px;"><?php echo $productos2[5]['info_corta'] ?></p></a>
       </div>
     </div>
 
@@ -1708,40 +1708,7 @@ require 'componentes-interfaces/nav.php';
 
 
 
-  <div class="bg-light">
-  <div class=" principal bg-light">
-   <h1>Tiendas Oficiales</h1>
-  </div>
 
-  <hr>
-  <div class="container">
-
-<div class="tiendas d-flex fondo-blanco runalotusArtesanias ">
-
-  <img class="runalotus" src="api/assets/runalotus/logo-runalotus.png" alt="">
-  <h4 style="color: rgb(160, 7, 7);">Runalotus Artesanias</h4>
-
-</div>
-<br>
-
-<div class="tiendas d-flex fondo-blanco cannabisShop">
-
-  <img class="cannabis" src="api/assets/img/logo-cannabis-shop.png" alt="">
-  <a></a><h4 style="color: green;"> Cannabis Shop</h4>
-
-</div>
-
-<br>
-</div>
-<br>
-</div>
-
-
-
-
-<br>
-<hr>
-<br>
 
 
 
@@ -1757,14 +1724,14 @@ require 'componentes-interfaces/nav.php';
   echo '
  
 
-    <div class=" card m-2" style="width: 10rem;  box-shadow:3px 3px 4px black;">
+    <a style="text-decoration:none;color:black;" href="producto.php?id='.$productos[$i]['id_producto'].'"><div class=" card m-2" style="width: 10rem;  box-shadow:3px 3px 4px black;">
       <img src="'.$productos[$i]['img'].'" class="card-img-top" alt="...">
       <div class="card-body">
         <p class="card-text">'.$productos[$i]['nombre'].'</p>
         <hr>
-        <p class="card-text">$ '.number_format(floatval($productos[$i]['precio']),0,'.',',').' pesos </p>
+        <p class="card-text"><h4>$ '.number_format(floatval($productos[$i]['precio']),0,'.',',').' pesos </p>
       </div>
-  </div>
+  </div></a>
 
 
   
@@ -1797,6 +1764,50 @@ require 'componentes-interfaces/nav.php';
 
   <br>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="bg-light">
+  <div class=" principal bg-light">
+   <h1>Tiendas Oficiales</h1>
+  </div>
+
+  <hr>
+  <div class="container">
+
+<div class="tiendas d-flex fondo-blanco runalotusArtesanias ">
+
+  <img class="runalotus" src="api/assets/runalotus/logo-runalotus.png" alt="">
+  <h4 style="color: rgb(160, 7, 7);">Runalotus Artesanias</h4>
+
+</div>
+<br>
+
+<div class="tiendas d-flex fondo-blanco cannabisShop">
+
+  <img class="cannabis" src="api/assets/img/logo-cannabis-shop.png" alt="">
+  <a></a><h4 style="color: green;"> Cannabis Shop</h4>
+
+</div>
+
+<br>
+</div>
+<br>
+</div>
+
+
+
+
+
 
 <br>
 <hr>

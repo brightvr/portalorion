@@ -41,11 +41,11 @@ $(window).on('load',function(){
                   <p class="card-text">${response[f].info_corta}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><h5>$ ${formatearMoneda()} pesos</h5></li>
+                  <li class="list-group-item"><h4>$ ${formatearMoneda()} pesos</h4></li>
                 </ul>
                 <div class="card-body">
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
+                  <a href="producto.php?id=${response[f].id_producto}" class="btn btn-block btn-success">Comprar</a>
+                  
                 </div>
               </div>
         
