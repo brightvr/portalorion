@@ -90,10 +90,10 @@ require 'componentes-interfaces/nav.php';
  </div>
  <br>
 
- <div style="width:90%;margin-left:5% ; box-shadow: 5px 5px 6px black;" class="container bg-light btn-categorias">
+ <div style="width:90%;margin-left:5%; box-shadow: 5px 5px 6px black;" class="container bg-light btn-categorias">
  
  <br>
- <div  style="background-image:url(<?php echo $categoriaactual[0]['card'] ?>);background-size:100%"  class=" d-flex justify-content-between">
+ <div  style="background-image:url(<?php echo $categoriaactual[0]['card'] ?>);background-size:100%;height:180px;"  class=" d-flex justify-content-between">
 
  <h3 ><img class="mr-1 d-none" style="width: 300px;" src=""></h3>
  <h1 style="height:50px;width:44px; box-shadow:2px 2px 3px black;" class="p-2  btn-success flecha-categoria "><span style="font-size:30px; position:absolute;margin-left:4px;"><i class="fas fa-angle-down miflecha"></i><i class="fas fa-angle-up d-none miflecha"></i></span></h1>
