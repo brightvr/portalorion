@@ -101,12 +101,10 @@ require 'componentes-interfaces/nav.php';
     echo '
 
       <br>
-      <div class="fondo-verde p-2 d-flex justify-content-center"><h3><i class="fas fa-user"></i> '.strtoupper($_SESSION['user'][0]['nombre']).'</h3>
+      <a style="text-deoration:none;" href="perfil.php"><div style="width:90%;margin-left:4%;border-radius:4px;box-shadow:5px 5px 8px black;" class="fondo-verde2 text-white p-2 d-flex justify-content-center"><h3><i class="fas fa-user"></i> '.strtoupper($_SESSION['user'][0]['nombre']).'</h3>
       </div>
-      <div class="container mt-1">
-      <a href="perfil.php" class="btn btn-block btn-success" style="font-size:22px;">Ver perfil</a>
-      </div>
-      <br><br>
+
+      <br><br></a>
       
     
     ';
@@ -1603,10 +1601,10 @@ require 'componentes-interfaces/nav.php';
  <hr>
  <br>
    
-   <div class="container  bg-light  p-2">
 
-      <h3 class="d-flex justify-content-center">Categorias</h3>
-     <hr>
+
+      <h3 class="d-flex justify-content-center p-3 fondo-verde2 text-light">Categorias</h3>
+      <div class="container  bg-light  p-2">
           <categorias style="overflow-x: scroll ;height:200px;" class="p-2 d-flex ">
           </categorias>
    <!--
@@ -1622,7 +1620,7 @@ require 'componentes-interfaces/nav.php';
 
 
 <div class="bg-light">
-<h3 class="d-flex justify-content-center p-2 bg-light">Mas vendidos</h3>
+<h3 class="d-flex justify-content-center p-2 fondo-verde2 text-light">Mas vendidos</h3>
 
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -1720,8 +1718,8 @@ require 'componentes-interfaces/nav.php';
 
 
 <div class="bg-light">
-<h3 class="d-flex justify-content-center p-2 bg-light">Recomendados</h3>
-<hr>
+<h3 class="d-flex justify-content-center p-2 fondo-verde2 text-light">Recomendados</h3>
+<br>
 <div class="  d-flex flex-wrap justify-content-center">
 <?php
 
@@ -1757,7 +1755,7 @@ require 'componentes-interfaces/nav.php';
 
 
 
-<div class="principal fondo-verde">
+<div class="principal fondo-verde2 text-light">
 
 <h2>SUPERMERCADO</h2>
 
@@ -1857,11 +1855,13 @@ require 'componentes-interfaces/nav.php';
       <p>Tipos de envíos:</p>
       <p><span style="font-size:25px; color:black;"><i class="fas fa-trophy"></i></span>
        <strong>Premium:</strong> Pagas cuando recibes el producto, te llega el mismo día.</p>
+     
+      <hr>
+      
       <p> <span style="font-size:25px; color:black;"><i class="fas fa-shield-alt"></i></span> 
       <strong>Express:</strong> Pagas cuando recibes el producto, te llega en menos de 48 horas. </p>
-      <p> <span style="font-size:25px; color:black;"><i class="fas fa-shield-alt"></i></span> 
-      <strong>Classic:</strong>  Pagas online, gestionamos tu envio por medio de nuestras transportadoras aliadas.</p>
-
+      
+      <br>
       <a href="envios.php" class="btn btn-block btn-success"><h3>Consultar tarifa de envíos</h3></a>
 
 

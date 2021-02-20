@@ -113,7 +113,7 @@ require 'componentes-interfaces/nav.php';
   <img class="rastrear-pedido" src="api/assets/img/banner-envios.gif" alt="">
 
   <br>
-  <hr>
+
   <br>
 
 
@@ -121,26 +121,7 @@ require 'componentes-interfaces/nav.php';
 
 if(isset($_SESSION['user'])){
 
-  echo '
-  <div class="container d-flex justify-content-center">
-
-    <div class="container card p-2" style="background:#1D8A1E; color:white; width:90%">
-
-    <div class=" p-3 btn-block   " style="width:100%; height:100%; background:#1D8A1E; color:white; font-size:25px;"><i class="fas fa-truck"></i> ¿A donde quieres que enviemos tus pedidos?</div>
-    <hr>
-    <h5 class="p-2"> '.strtoupper($_SESSION['user'][0]['nombre']).' recuerda que 
-    al ser usuario registrado 
-    puedes seleccionar una direccion de envio , de esa forma <strong>con un solo click podras comprar</strong>,
-   ¡sin volver a llenar formularios!
-    </h5> 
-    <hr>
-    <a href="perfil.php" class="btn btn-dark btn-block" style="font-size:20px;">Registrar direccion de envio</a>
-    </div>
-
-    </div>
-    <br>
-
-  ';
+ 
 }
 
 ?>
@@ -148,14 +129,15 @@ if(isset($_SESSION['user'])){
 
   <br>
 
-  <div class=" p-3 container fondo-verde">
+  <div style="border-radius:4px;box-shadow:3px 3px 6px black; width:90%;margin-left:5%;" class=" ">
 
-  <div class="bg-light d-flex justify-content-center p-2">
+  <div  class="bg-light d-flex justify-content-center pt-2 ">
       <h3>Rastreador de pedidos</h3>
+      
   </div>
-
+  
   <form class="p-3 bg-light" action="envios.php" method="post">
-
+  <hr>
   <label>Numero de seguimiento :</label><br>
   <input  placeholder="Ejemplo: a34lff0a8" type="text" name="id_pedido" required>
   <small id="emailHelp" class="form-text text-muted">Por favor no incluyas el simbolo "#" en la busqueda</small>
@@ -222,8 +204,9 @@ if(isset($_SESSION['user'])){
       
         <br>
         <br>
-
-        <div class="container bg-light p-4">
+        <div style="padding:30px;width:100%;height:100vh;background: rgba(0, 0, 0, 0.541);position:absolute;margin-top:-730px;margin-left:-20px;">
+        <div class="btn btn-block btn-danger"><h4>CERRAR</h4></div>
+        <div style="" class="container bg-light p-3">
         <h5>
         <p>Nombre destinatario : '.$Pedido[0]['nombre_cliente'].'</p>
         <hr>
@@ -256,22 +239,30 @@ if(isset($_SESSION['user'])){
  
   </div>
 
-
+<br>
  <br>
  <hr>
  <br>
+ <br>
  
  
- 
- <div class=" container fondo-verde d-flex justify-content-center">
+ <div class=" container fondo-verde2 text-light p-2 d-flex justify-content-center">
 
  <h2>Tarifas de envíos</h2>
  </div>
-<br>
+<br><br>
 <img class="rastrear-pedido" src="api/assets/img/banner-envios-2.gif" alt="">
+<br><br>
+ <div class="bg-light p-3">
+ <h5 class="bg-light pl-2 ">ENVIOS PREMIUM <span style="font-size:25px; color:black;"><i class="fas fa-trophy"></i></span></h5>
+<hr>
+<h5 class="bg-light pl-2 ">PAGAS CUANDO RECIBES EL PRODUCTO</h5>
+<hr>
+<h5 class="bg-light pl-2">TE LLEGA EN 24 HORAS </h5>
+<hr>
+<h5 class=" pl-2 p-3 text-light bg-success">TARIFA ENVIOS PREMIUM :</h5>
 
- <div class="fondo-verde p-3">
-<h5 class="bg-light p-2 d-flex justify-content-center">Costo del envío para pagos contra-entrega</h5>
+
  <div class="card tarifas">
   <ul class="list-group list-group-flush">
    
@@ -279,9 +270,10 @@ if(isset($_SESSION['user'])){
  
  for($i=0;$i<count($contraEntrega);$i++){
 
+    $price=number_format( floatval($contraEntrega[$i]['precio3kg']), 0, '.', ',');
 
     echo '
-    <li class="list-group-item">'.$contraEntrega[$i]['nombre_lugar'].' : $ '.$contraEntrega[$i]['precio3kg'].' pesos</li>
+    <li class="list-group-item">'.$contraEntrega[$i]['nombre_lugar'].' : $ '.$price.' pesos</li>
 
     
     ';
@@ -295,16 +287,30 @@ if(isset($_SESSION['user'])){
 
 
 
-
+<br>
  <br>
 <hr>
-<br>
+<br><br>
 
 <img class="rastrear-pedido" src="api/assets/img/banner-envios-3.gif" alt="">
+<br>
+<br>
+<div class="bg-light p-3">
+ <h5 class="bg-light pl-2 ">ENVIOS EXPRESS <span style="font-size:25px; color:black;"><i class="fas fa-shield-alt"></i></span> </h5>
+<hr>
+<h5 class="bg-light pl-2 ">PAGO SEGURO USANDO MERCADOPAGO</h5>
+<hr>
+<h5 class="bg-light pl-2">ENVIOS A TRAVES DE LAS MEJORES EMPRESAS DE MENSAJERIA<br><br>
+<a href="#">-Interrapidisimo</a><br>
+<a href="#">-Servientrega</a><br>
+<a href="#">-Coordinadora</a><br>
+</h5>
+<hr>
+<h5 class="bg-light pl-2 ">ENVIOS A TODA COLOMBIA</h5>
+<hr>
+<h5 class=" pl-2 p-3 text-light bg-success">TARIFA ENVIOS EXPRESS :</h5>
 
 
- <div class="fondo-verde p-3">
-<h5 class="bg-light p-2 d-flex justify-content-center">Costo del envío sin pago contra entrega</h5>
  <div class="card tarifas">
   <ul class="list-group list-group-flush">
    
@@ -312,9 +318,9 @@ if(isset($_SESSION['user'])){
  
  for($i=0;$i<count($envios);$i++){
 
-
+    $price=number_format( floatval($envios[$i]['precio3kg']), 0, '.', ',');
     echo '
-    <li class="list-group-item">'.$envios[$i]['nombre_lugar'].' : $ '.$envios[$i]['precio3kg'].' pesos</li>
+    <li class="list-group-item">'.$envios[$i]['nombre_lugar'].' : $ '.$price.' pesos</li>
 
     
     ';
@@ -332,7 +338,7 @@ if(isset($_SESSION['user'])){
 
 
 
-<div class="container fondo-verde d-flex justify-content-center p-2">
+<div class="container fondo-verde2 text-light d-flex justify-content-center p-2">
     <h3>Información importante</h3>
 </div>
 <br>

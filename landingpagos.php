@@ -32,15 +32,15 @@
 
 
 
-<div class="container fondo-verde p-3">
+<div style="width: 95%;margin-left:2%;;" class="container bg-light p-2">
 
     <div class="bg-light p-2 d-flex justify-content-center">
-    <h1>Metodos de pago</h1>
+    <h2>Metodos de pago</h2>
 
     </div>
-    <br>
+    <hr>
 
-        <div class="bg-light p-3">
+        <div class="bg-light p-2">
 
             <div class="btn btn-success btn-block contra-entrega"><h4>Pagos contra entrega</h4></div>
 
@@ -109,13 +109,15 @@
 
 </div>
 <br>
+<hr>
+<br>
 
-<div class="container fondo-verde p-3 ">
+<div  style="width: 95%;margin-left:2%;;" class="container bg-light p-2">
 
-    <h2 class="bg-light p-3 d-flex justify-content-center">¿Como protegemos tu dinero?</h2>
+    <h2 class="bg-light p-2 d-flex justify-content-center">¿Como protegemos tu dinero?</h2>
     <br>
 
-    <div class="bg-light p-3">
+    <div class="bg-light p-2">
 
     <p><strong> Garantia de pago seguro</strong></p>
 
@@ -136,7 +138,7 @@
 
     </div>
     <br>
-    <div class="bg-light p-3">
+    <div class="bg-light p-2">
 
         Portal Orion procesa los pagos ya sea de
         tarjetas de credito, transacciones bancarias, giros por efecty o baloto,

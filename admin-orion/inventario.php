@@ -153,6 +153,10 @@ while($res= mysqli_fetch_assoc($query)){
 <div class="container">
     <div class="btn btn-block btn-success btn-categorias"><h3>Categorias</h3></div>
 </div>
+<br>
+<div class="container">
+    <a style="text-decoration: none;" href="subcategorias.php"  class="btn btn-block btn-success text-light"><h3>Subcategorias</h3></a>
+</div>
 
 
 
