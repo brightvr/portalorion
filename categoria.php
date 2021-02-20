@@ -165,7 +165,20 @@ require 'componentes-interfaces/nav.php';
 
 </div>
 
+<div class="container">
 
+    <div style="width: 90%;margin-left:5%;background:white;box-shadow:4px,4px,6px,black;" class="micard">
+    
+    <div class="d-flex">
+
+      <div class="d-block "></div>
+      <div class="d-block"></div>
+
+    </div>
+    
+    </div>
+
+</div>
 
 
 

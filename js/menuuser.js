@@ -4,7 +4,7 @@ let menu = document.querySelector('.cont-icon-user');
 menu.addEventListener('click',()=>{
 
 
-    $('body').prepend(`
+    $('.new-place').append(`
     
         <div class="sabana d-flex justify-content-end">
         

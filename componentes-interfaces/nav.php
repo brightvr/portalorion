@@ -1,4 +1,4 @@
-<nav class="container-fluid p-1 pt-2 pb-1 navbar navbar-expand-lg navbar-dark fondo-negro d-flex justify-content-between">
+<nav style="z-index:999999999;" class="position-fixed container-fluid p-1 pt-2 pb-1 navbar navbar-expand-lg navbar-dark fondo-negro d-flex justify-content-between">
    
    <a class="navbar-brand ml-1" href="index.php"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
    
@@ -13,6 +13,8 @@
    </button>
 
    
-
+<div class="new-place position-absolute d-flex justify-content-end"></div>
    
  </nav>
+
+ <div style="height: 72px;" class="espaciado"></div>
