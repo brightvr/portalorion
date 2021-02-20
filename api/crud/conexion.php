@@ -43,7 +43,7 @@ class ConexionDB{
 }
 
 //credenciales produccion
-//$miconexion= new ConexionDB('localhost','u418177199_adminorion','5719326David','u418177199_portalorion');
+$miconexion= new ConexionDB('localhost','u418177199_adminorion','5719326David','u418177199_portalorion');
 
 
 //credenciales desarrollo
