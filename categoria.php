@@ -166,7 +166,7 @@ require 'componentes-interfaces/nav.php';
 </div>
 
 
-<br>
+<br><br>
 
 
 <div class="contenedor">
@@ -175,17 +175,16 @@ require 'componentes-interfaces/nav.php';
     
       <div class="d-flex">
 
-        <div style="width: 55%;" class="d-block "><img style=" width: 100%;;" src="api/assets/img/pipas-tawe.jpg" alt="">
-        <div class="p-2"><div class="btn btn-success btn-block">Ver más</div></div> 
-        
+        <div style="width: 50%; padding-top:50px;" class="d-block "><img style=" width: 100%;;" src="api/assets/img/pipas-tawe.jpg" alt=""> 
+       
         </div>
 
-        <div style="width: 45%;" class="d-block p-2 pl-3">
-        <h5 class="pl-4">Pipas Tawe</h5>
+        <div style="width: 50%;" class="d-block p-2 pl-3">
+        <h4 style="margin-left:-80%;" class="pl-4">Pipas Tawe</h4>
         <hr>
-        <h6>$ 50,000 pesos cop</h6>
+        <h5><strong>$ 50,000 pesos</strong></h5>
         <hr>
-        <div class="d-flex p-2 pt-1">
+        <div style="margin-left: -8%;"  class="d-flex p-2 ">
 
             <div class="btn btn-success mr-2"><h3 style="margin-top:-6px;">-</h3></div>
             <input style="width:50px;" type="number" value="">

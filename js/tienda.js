@@ -157,7 +157,7 @@ $(window).on('load',function(){
         //console.log(contador);
 
         
-    },5660);
+    },3660);
 
 
     //carrito usuario registrado

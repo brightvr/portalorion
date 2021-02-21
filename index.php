@@ -1804,17 +1804,17 @@ require 'componentes-interfaces/nav.php';
   <hr>
   <div class="container">
 
-<div  class="tiendas d-flex fondo-blanco runalotusArtesanias ">
+<div style="border:1px solid rgb(107, 0, 0);"  class="tiendas d-flex fondo-blanco runalotusArtesanias ">
 
   <img style="width: 100%;" src="api/assets/img/tienda-ofocial-runalotus.jpg" alt="">
 
 </div>
 <br>
 
-<div class="tiendas d-flex fondo-blanco cannabisShop">
+<div style="border:1px solid green"  class="tiendas d-flex fondo-blanco cannabisShop">
 
-  <img class="cannabis" src="api/assets/img/logo-cannabis-shop.png" alt="">
-  <a></a><h4 style="color: green;"> Cannabis Shop</h4>
+<img style="width: 100%;" src="api/assets/img/cards-nuevos-cannabis.jpg" alt="">
+
 
 </div>
 

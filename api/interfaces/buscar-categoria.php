@@ -4,7 +4,7 @@
 
         require_once '../crud/conexion.php';
 
-        $consulta='select * from categorias where nombre like "%'.$_POST['buscar'].'%";';
+        $consulta='select * from categorias where nombre like "%'.$_POST['buscar'].'%" or tags like "%'.$_POST['buscar'].'%";';
 
         $categorias=null;
         $query =mysqli_query($miconexion->Conectando(),$consulta);
