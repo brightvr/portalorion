@@ -171,7 +171,7 @@ require 'componentes-interfaces/nav.php';
 
 <div class="contenedor">
 
-    <div style="width: 94%;margin-left:3%;background:white;box-shadow:4px 4px 10px black;" class="micard">
+    <div style="width: 95%;margin-left:2%;background:white;box-shadow:4px 4px 10px black;" class="micard">
     
       <div class="d-flex">
 
@@ -184,11 +184,11 @@ require 'componentes-interfaces/nav.php';
         <hr>
         <h5><strong>$ 50,000 pesos</strong></h5>
         <hr>
-        <div style="margin-left: -8%;"  class="d-flex p-2 ">
+        <div style="margin-left: -2%;"  class="d-flex p-2 ">
 
-            <div class="btn btn-success mr-2"><h3 style="margin-top:-6px;">-</h3></div>
-            <input style="width:50px;" type="number" value="">
-            <div class="btn btn-success ml-2"><h3 style="margin-top:-6px;">+</h3></div>
+            <div class="btn btn-success mr-2"><h5 style="margin-top:-2px;">-</h5></div>
+            <input style="width:40px;" type="number" value="">
+            <div class="btn btn-success ml-2"><h5 style="margin-top:-2px;">+</h5></div>
 
         </div>
         </div>
