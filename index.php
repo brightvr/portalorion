@@ -1679,10 +1679,10 @@ require 'componentes-interfaces/nav.php';
         for($f=0;$f<count($productos4);$f++){
 
           echo '    <div class="carousel-item ">
-          <a style="text-decoration: none;color:white;" href="producto.php?id='.$productos2[$f]['id_producto'].'"> <img src="'.$productos2[$f]['img'] .'" class="d-block w-100" alt="...">
+          <a style="text-decoration: none;color:white;" href="producto.php?id='.$productos4[$f]['id_producto'].'"> <img src="'.$productos4[$f]['img'] .'" class="d-block w-100" alt="...">
             <div class="carousel-caption ">
-            <a style="text-decoration: none;color:white;" href="producto.php?id='.$productos2[$f]['id_producto'].'">  <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;">'.$productos2[$f]['nombre'].'</h5></a>
-            <a style="text-decoration: none;color:white;" href="producto.php?id='.$productos2[$f]['id_producto'].'">  <p style="background: rgba(0, 0, 0, 0.650); padding:10px;">'.$productos2[5]['info_corta'].'></p></a>
+            <a style="text-decoration: none;color:white;" href="producto.php?id='.$productos4[$f]['id_producto'].'">  <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;">'.$productos4[$f]['nombre'].'</h5></a>
+            <a style="text-decoration: none;color:white;" href="producto.php?id='.$productos4[$f]['id_producto'].'">  <p style="background: rgba(0, 0, 0, 0.650); padding:10px;">'.$productos4[$f]['info_corta'].'></p></a>
             </div>
           </div>';
         }
