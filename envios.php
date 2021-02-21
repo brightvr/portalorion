@@ -254,7 +254,7 @@ if(isset($_SESSION['user'])){
 <img class="rastrear-pedido" src="api/assets/img/banner-envios-2.gif" alt="">
 <br><br>
  <div class="bg-light p-3">
- <h5 class="bg-light pl-2 ">ENVIOS PREMIUM <span style="font-size:25px; color:black;"><i class="fas fa-trophy"></i></span></h5>
+ <h5 style="background:black;" class="text-warning pl-2 p-3">ENVIOS PREMIUM <span style="font-size:25px;"><i class="fas fa-trophy"></i></span></h5>
 <hr>
 <h5 class="bg-light pl-2 ">PAGAS CUANDO RECIBES EL PRODUCTO</h5>
 <hr>
@@ -296,7 +296,7 @@ if(isset($_SESSION['user'])){
 <br>
 <br>
 <div class="bg-light p-3">
- <h5 class="bg-light pl-2 ">ENVIOS EXPRESS <span style="font-size:25px; color:black;"><i class="fas fa-shield-alt"></i></span> </h5>
+ <h5 style="background:black;" class="text-warning pl-2  p-3">ENVIOS EXPRESS <span style="font-size:25px; "><i class="fas fa-shield-alt"></i></span> </h5>
 <hr>
 <h5 class="bg-light pl-2 ">PAGO SEGURO USANDO MERCADOPAGO</h5>
 <hr>

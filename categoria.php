@@ -94,6 +94,7 @@ require 'componentes-interfaces/nav.php';
  
  <br>
  <div  style="background-image:url(<?php echo $categoriaactual[0]['card'] ?>);background-size:100%;height:174px;"  class=" d-flex justify-content-between">
+ <input class="d-none my-category" type="text" value="<?php echo $categoriaactual[0]['id_categoria'] ?>">
 
  <h3 ><img class="mr-1 d-none" style="width: 300px;" src=""></h3>
  <h1 style="height:50px;width:44px; box-shadow:2px 2px 3px black;" class="p-2  btn-success flecha-categoria "><span style="font-size:30px; position:absolute;margin-left:4px;"><i class="fas fa-angle-down miflecha"></i><i class="fas fa-angle-up d-none miflecha"></i></span></h1>
@@ -168,40 +169,11 @@ require 'componentes-interfaces/nav.php';
 
 <br><br>
 
+<div class="container-cards">
+<br>
 
-<div class="contenedor">
 
-    <div style="width: 95%;margin-left:2%;background:white;box-shadow:4px 4px 10px black;" class="micard">
-    
-      <div class="d-flex">
 
-        <div style="width: 50%; padding-top:50px;" class="d-block "><img style=" width: 100%;;" src="api/assets/img/pipas-tawe.jpg" alt=""> 
-       
-        </div>
-
-        <div style="width: 50%;" class="d-block p-2 pl-3">
-        <h4 style="margin-left:-80%;" class="pl-4">Pipas Tawe</h4>
-        <hr>
-        <h5><strong>$ 50,000 pesos</strong></h5>
-        <hr>
-        <div style="margin-left: -2%;"  class="d-flex p-2 ">
-
-            <div class="btn btn-success mr-2"><h5 style="margin-top:-2px;">-</h5></div>
-            <input style="width:40px;" type="number" value="">
-            <div class="btn btn-success ml-2"><h5 style="margin-top:-2px;">+</h5></div>
-
-        </div>
-        </div>
-
-      </div>
-
-      <div class="d-flex p-2">
-      <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-warning btn-block">Añadir</div> </div>
-        <div style=" background: rgba(0, 0, 0, 0.178); width: 1px; height:50px;"></div>
-        <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-danger btn-block">Comprar</div> </div>
-      </div>
-    
-    </div>
 
 </div>
 
