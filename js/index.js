@@ -44,7 +44,7 @@ $(window).on('load',function(){
                   <li class="list-group-item"><h4>$ ${formatearMoneda()} pesos</h4></li>
                 </ul>
                 <div class="card-body">
-                  <a href="producto.php?id=${response[f].id_producto}" class="btn btn-block btn-success">Comprar</a>
+                  <a href="producto.php?id=${response[f].id_producto}" class="btn btn-block btn-success"><h4>Comprar</h4></a>
                   
                 </div>
               </div>

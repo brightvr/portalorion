@@ -12,7 +12,7 @@ menu.addEventListener('click',()=>{
 
                 <div class="d-flex justify-content-end btn-cerrar-menu"><span style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span></div>
             
-                <form class="bg-light p-2" action="usuarios/autenticacion.php" method="POST">
+                <form class="bg-light text-dark p-2" action="usuarios/autenticacion.php" method="POST">
                     <br>
 
                     <div class="fondo-verde p-2 d-flex justify-content-center">Identificate</div>
@@ -38,7 +38,7 @@ menu.addEventListener('click',()=>{
                 <br>
                 <br>
 
-                <form class="bg-light p-2" action="usuarios/registro.php" method="POST">
+                <form class="bg-light text-dark p-2" action="usuarios/registro.php" method="POST">
                     <br>
 
                     <div class="fondo-verde p-2 d-flex justify-content-center">Registrate y empieza a comprar online de forma segura</div>

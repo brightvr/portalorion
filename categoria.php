@@ -165,25 +165,50 @@ require 'componentes-interfaces/nav.php';
 
 </div>
 
-<div class="container">
 
-    <div style="width: 90%;margin-left:5%;background:white;box-shadow:4px,4px,6px,black;" class="micard">
+<br>
+
+
+<div class="contenedor">
+
+    <div style="width: 94%;margin-left:3%;background:white;box-shadow:4px 4px 10px black;" class="micard">
     
-    <div class="d-flex">
+      <div class="d-flex">
 
-      <div class="d-block "></div>
-      <div class="d-block"></div>
+        <div style="width: 55%;" class="d-block "><img style=" width: 100%;;" src="api/assets/img/pipas-tawe.jpg" alt="">
+        <div class="p-2"><div class="btn btn-success btn-block">Ver más</div></div> 
+        
+        </div>
 
-    </div>
+        <div style="width: 45%;" class="d-block p-2 pl-3">
+        <h5 class="pl-4">Pipas Tawe</h5>
+        <hr>
+        <h6>$ 50,000 pesos cop</h6>
+        <hr>
+        <div class="d-flex p-2 pt-1">
+
+            <div class="btn btn-success mr-2"><h3 style="margin-top:-6px;">-</h3></div>
+            <input style="width:50px;" type="number" value="">
+            <div class="btn btn-success ml-2"><h3 style="margin-top:-6px;">+</h3></div>
+
+        </div>
+        </div>
+
+      </div>
+
+      <div class="d-flex p-2">
+      <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-warning btn-block">Añadir</div> </div>
+        <div style=" background: rgba(0, 0, 0, 0.178); width: 1px; height:50px;"></div>
+        <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-danger btn-block">Comprar</div> </div>
+      </div>
     
     </div>
 
 </div>
 
 
-
-
-
+<br>
+<hr>
 
 
   <?php

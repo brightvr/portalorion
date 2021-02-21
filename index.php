@@ -2,7 +2,7 @@
   session_start();
 
  require_once 'conexion.php';
- $select="select * from productos  order by rand() limit 10";
+ $select="select * from productos  order by rand() limit 14";
  $query=mysqli_query($miconexion->Conectando(),$select);
 
  while($response=mysqli_fetch_assoc($query)){
@@ -18,6 +18,30 @@
 
   $productos2[]=$response;
  }
+
+
+
+
+ $select="select * from productos order by rand() limit 40";
+ $query=mysqli_query($miconexion->Conectando(),$select);
+
+ while($response=mysqli_fetch_assoc($query)){
+
+  $productos3[]=$response;
+ }
+
+
+
+
+
+ $select="select * from productos order by rand() limit 19";
+ $query=mysqli_query($miconexion->Conectando(),$select);
+
+ while($response=mysqli_fetch_assoc($query)){
+
+  $productos4[]=$response;
+ }
+
 
 
   
@@ -1625,11 +1649,16 @@ require 'componentes-interfaces/nav.php';
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
-    <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
+<?php
+
+    for($h=1;$h<39;$h++){
+
+      echo '<li data-target="#carouselExampleCaptions" data-slide-to="'.$h.'"></li>';
+
+    }
+         
+
+?>
   </ol>
   <div class="carousel-inner">
 
@@ -1645,46 +1674,20 @@ require 'componentes-interfaces/nav.php';
       </div>
     </div>
 
-    <div class="carousel-item ">
-    <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[1]['id_producto'] ?>"><img src="<?php echo $productos2[1]['img'] ?>" class="d-block w-100" alt="..."></a>
-      <div class="carousel-caption ">
-      <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[1]['id_producto'] ?>"><h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[1]['nombre'] ?></h5></a>
-      <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[1]['id_producto'] ?>"><p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[1]['info_corta'] ?></p></a>
-      </div>
-    </div>
+    <?php
 
-    <div class="carousel-item ">
-    <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[2]['id_producto'] ?>">   <img src="<?php echo $productos2[2]['img'] ?>" class="d-block w-100" alt="..."></a>
-      <div class="carousel-caption ">
-      <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[2]['id_producto'] ?>"> <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[2]['nombre'] ?></h5></a>
-      <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[2]['id_producto'] ?>">  <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[2]['info_corta'] ?></p></a>
-      </div>
-    </div>
+        for($f=0;$f<count($productos4);$f++){
 
+          echo '    <div class="carousel-item ">
+          <a style="text-decoration: none;color:white;" href="producto.php?id='.$productos2[$f]['id_producto'].'"> <img src="'.$productos2[$f]['img'] .'" class="d-block w-100" alt="...">
+            <div class="carousel-caption ">
+            <a style="text-decoration: none;color:white;" href="producto.php?id='.$productos2[$f]['id_producto'].'">  <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;">'.$productos2[$f]['nombre'].'</h5></a>
+            <a style="text-decoration: none;color:white;" href="producto.php?id='.$productos2[$f]['id_producto'].'">  <p style="background: rgba(0, 0, 0, 0.650); padding:10px;">'.$productos2[5]['info_corta'].'></p></a>
+            </div>
+          </div>';
+        }
 
-    <div class="carousel-item ">
-    <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[3]['id_producto'] ?>"> <img src="<?php echo $productos2[3]['img'] ?>" class="d-block w-100" alt="..."></a>
-      <div class="carousel-caption ">
-      <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[3]['id_producto'] ?>"> <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[3]['nombre'] ?></h5></a>
-      <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[3]['id_producto'] ?>"> <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[3]['info_corta'] ?></p></a>
-      </div>
-    </div>
-
-    <div class="carousel-item ">
-    <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[4]['id_producto'] ?>"> <img src="<?php echo $productos2[4]['img'] ?>" class="d-block w-100" alt="..."></a>
-      <div class="carousel-caption ">
-      <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[4]['id_producto'] ?>">   <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[4]['nombre'] ?></h5></a>
-      <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[4]['id_producto'] ?>">   <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[4]['info_corta'] ?></p></a>
-      </div>
-    </div>
-
-    <div class="carousel-item ">
-    <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[5]['id_producto'] ?>"> <img src="<?php echo $productos2[5]['img'] ?>" class="d-block w-100" alt="...">
-      <div class="carousel-caption ">
-      <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[5]['id_producto'] ?>">  <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[5]['nombre'] ?></h5></a>
-      <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[5]['id_producto'] ?>">  <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[5]['info_corta'] ?></p></a>
-      </div>
-    </div>
+    ?>
 
 
   </div>
@@ -1801,10 +1804,9 @@ require 'componentes-interfaces/nav.php';
   <hr>
   <div class="container">
 
-<div class="tiendas d-flex fondo-blanco runalotusArtesanias ">
+<div  class="tiendas d-flex fondo-blanco runalotusArtesanias ">
 
-  <img class="runalotus" src="api/assets/runalotus/logo-runalotus.png" alt="">
-  <h4 style="color: rgb(160, 7, 7);">Runalotus Artesanias</h4>
+  <img style="width: 100%;" src="api/assets/img/tienda-ofocial-runalotus.jpg" alt="">
 
 </div>
 <br>
@@ -1820,6 +1822,48 @@ require 'componentes-interfaces/nav.php';
 </div>
 <br>
 </div>
+
+
+
+
+<br>
+<hr>
+<br>
+
+
+
+<div class="bg-light">
+<h3 class="d-flex justify-content-center p-2 fondo-verde2 text-light">Más Productos</h3>
+<br>
+<div class="  d-flex flex-wrap justify-content-center">
+<?php
+
+ for($i=0;$i<count($productos3);$i++){
+
+  echo '
+ 
+
+    <a style="text-decoration:none;color:black;" href="producto.php?id='.$productos3[$i]['id_producto'].'"><div class=" card m-2" style="width: 10rem;  box-shadow:3px 3px 4px black;">
+      <img src="'.$productos3[$i]['img'].'" class="card-img-top" alt="...">
+      <div class="card-body">
+        <p class="card-text">'.$productos3[$i]['nombre'].'</p>
+        <hr>
+        <p class="card-text"><h4>$ '.number_format(floatval($productos3[$i]['precio']),0,'.',',').' pesos </p>
+      </div>
+  </div></a>
+
+
+  
+  ';
+ }
+
+?>
+<br>
+<br>
+</div>
+</div>
+
+
 
 
 
@@ -1853,13 +1897,14 @@ require 'componentes-interfaces/nav.php';
       <p style="background: black;box-shadow: 50%;"><img class="envios-orion" src="api/assets/img/envios-orion.png" alt=""></p>
       <br>
       <p>Tipos de envíos:</p>
-      <p><span style="font-size:25px; color:black;"><i class="fas fa-trophy"></i></span>
-       <strong>Premium:</strong> Pagas cuando recibes el producto, te llega el mismo día.</p>
+      <hr>
+      <p ><span style="font-size:25px; color:green;"><i class="fas fa-trophy"></i></span>
+       <strong style="color:green;">Premium:</strong> Pagas cuando recibes el producto, te llega el mismo día.</p>
      
       <hr>
       
-      <p> <span style="font-size:25px; color:black;"><i class="fas fa-shield-alt"></i></span> 
-      <strong>Express:</strong> Pagas cuando recibes el producto, te llega en menos de 48 horas. </p>
+      <p> <span style="font-size:25px; color:green;"><i class="fas fa-shield-alt"></i></span> 
+      <strong style="color:green;">Express:</strong> Pagas cuando recibes el producto, te llega en menos de 48 horas. </p>
       
       <br>
       <a href="envios.php" class="btn btn-block btn-success"><h3>Consultar tarifa de envíos</h3></a>
