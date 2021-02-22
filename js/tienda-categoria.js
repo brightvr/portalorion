@@ -44,16 +44,16 @@ let btnCategory = document.querySelector('.btn-categorias'),
                     
                       <div class="d-flex">
             
-                        <div style="width: 55%; padding-top:50px;" class="d-block "><img style=" width: 100%;;" src="${data.img}" alt=""> 
+                        <div style="width: 50%; padding-top:50px;" class="d-block "><img style=" width: 100%;;" src="${data.img}" alt=""> 
                       
                         </div>
             
-                        <div style="width: 45%;" class="d-block p-2 pl-3">
-                        <h5 style="margin-left:-160%;" class="pl-4"><strong>${data.nombre}</strong></h5>
+                        <div style="width: 50%;" class="d-block p-2 pl-3">
+                        <h5 style="margin-left:-140%;" class="pl-4"><strong>${data.nombre}</strong></h5>
                         <hr>
                         <h5><strong>$ ${formatMoney()} pesos</strong></h5>
                         <hr>
-                        <div style="margin-left: -15%;"  class="d-flex p-2 ">
+                        <div style="margin-left: -9%;"  class="d-flex p-2 ">
             
                             <div class="btn btn-success mr-2 menos"><h5 style="margin-top:-2px;">-</h5></div>
                             <input class="cantidad" style="width:40px;" type="number" value="1" min="0" max="${data.stock}" readonly>
