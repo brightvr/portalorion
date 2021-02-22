@@ -144,12 +144,17 @@ require 'componentes-interfaces/nav.php';
 
     }else{
 
+      echo '
+      <div style="border-radius:5px;  box-shadow:4px 4px 5px black;" class=" ver-todo  d-flex justify-content-around p-2 btn-success m-2">
+        <p style="font-size:20px;" class="mr-2">Ver Todo</p> 
+       </div>';
+
 
         for($i=0;$i<count($subcategorias);$i++){
 
             echo '
     
-            <div style="border-radius:5px;  box-shadow:4px 4px 5px black;" class="  d-flex justify-content-around p-2 btn-success m-2">
+            <div style="border-radius:5px;  box-shadow:4px 4px 5px black;" class=" btn-subcategoria d-flex justify-content-around p-2 btn-success m-2">
             <p style="font-size:20px;" class="mr-2">'.$subcategorias[$i]['nombre'].' </p> 
              </div>
     

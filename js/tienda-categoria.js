@@ -1,9 +1,9 @@
 'use strict';
 
-//show-hide categorys
-let btnCategory = document.querySelector('.btn-categorias'),
-    allCategorys = document.querySelector('.categorias'),
-    arrowCategory = document.getElementsByClassName('miflecha');
+    //show-hide categorys
+    let btnCategory = document.querySelector('.btn-categorias'),
+        allCategorys = document.querySelector('.categorias'),
+        arrowCategory = document.getElementsByClassName('miflecha');
 
     btnCategory.addEventListener('click', ()=>{
 
@@ -15,6 +15,10 @@ let btnCategory = document.querySelector('.btn-categorias'),
         }
         
     });
+
+
+
+
 
     //type card, you need  id (id = int[0-9]) card for use this function
     // data=[array product (id_producto,nombre,precio,img)] ,this contain all data for use with  any card 
@@ -49,11 +53,11 @@ let btnCategory = document.querySelector('.btn-categorias'),
                         </div>
             
                         <div style="width: 50%;" class="d-block p-2 pl-3">
-                        <h5 style="margin-left:-115%;" class="pl-4"><strong>${data.nombre}</strong></h5>
+                        <h5 style="margin-left:-128%;" class="pl-4"><strong>${data.nombre}</strong></h5>
                         <hr>
                         <h5><strong>$ ${formatMoney()} pesos</strong></h5>
                         <hr>
-                        <div style="margin-left: -9%;"  class="d-flex p-2 ">
+                        <div style="margin-left: -6%;"  class="d-flex p-2 ">
             
                             <div class="btn btn-success mr-2 menos"><h5 style="margin-top:-2px;">-</h5></div>
                             <input class="cantidad" style="width:40px;" type="number" value="1" min="0" max="${data.stock}" readonly>
@@ -65,9 +69,10 @@ let btnCategory = document.querySelector('.btn-categorias'),
                       </div>
             
                       <div class="d-flex p-2">
-                      <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-warning btn-block">Añadir <i class="fas fa-cart-plus"></i></div> </div>
+                      <div style="width: 50%;" class="d-block p-2"> <a href="producto.php?id=${data.id_producto}" class="btn btn-danger btn-block">Ver producto</a> </div>     
                         <div style=" background: rgba(0, 0, 0, 0.178); width: 1px; height:50px;"></div>
-                        <div style="width: 50%;" class="d-block p-2"> <a href="producto.php?id=${data.id_producto}" class="btn btn-danger btn-block">Ver producto</a> </div>
+                        <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-warning btn-block">Añadir <i class="fas fa-cart-plus"></i></div> </div>
+                 
                       </div>
                     
                 </div>
@@ -91,11 +96,13 @@ let btnCategory = document.querySelector('.btn-categorias'),
             break;
         }
 
-
-
         return card;
 
     }
+
+
+
+
 
 
     //print cards
@@ -103,12 +110,121 @@ let btnCategory = document.querySelector('.btn-categorias'),
 
         place.append(card);
 
-
-
-
-
       
     }
+
+
+
+    //increment products for cart
+    const ControlMore = (inputCuantity,response,f)=>{
+
+        if(parseInt(inputCuantity[f].value) === parseInt(response[f].stock)){
+
+            inputCuantity[f].value=parseInt(response[f].stock);
+
+        }else if(parseInt(inputCuantity[f].value)===0 &&  parseInt(response[f].stock)===0 ){
+
+            inputCuantity[f].value=0;
+        
+        }else if(parseInt(inputCuantity[f].value)<parseInt(response[f].stock) &&  parseInt(response[f].stock)!==0){
+
+            inputCuantity[f].value=parseInt(inputCuantity[f].value)+1;
+        }
+
+    }
+
+
+
+
+
+    //decrement product for cart
+    const ControlLess = (inputCuantity,response,f)=>{
+
+        if(parseInt(inputCuantity[f].value) === parseInt(response[f].stock) && parseInt(response[f].stock)!==0){
+
+            inputCuantity[f].value=parseInt(inputCuantity[f].value)-1;
+
+        }else if(parseInt(inputCuantity[f].value)===0 &&  parseInt(response[f].stock)===0 ){
+
+            inputCuantity[f].value=0;
+
+        }else if(parseInt(inputCuantity[f].value)<parseInt(response[f].stock) &&  parseInt(inputCuantity[f].value)!==0){
+
+            inputCuantity[f].value=parseInt(inputCuantity[f].value)-1;
+
+        }else if(parseInt(inputCuantity[f].value)===0){
+            $('.container-cards').empty();
+            $('.container-cards').prepend(`
+    
+                <div style="width: 20rem; height: 20rem;" class="spinner-border text-success" role="status">
+                    
+                    <span class="sr-only">Loading...</span>
+            
+                </div>
+    
+           `);
+
+        }
+
+    }
+
+
+    const PrintSpinner=()=>{
+
+        $('.container-cards').empty();
+        $('.container-cards').prepend(`
+
+            <div style="width: 20rem; height: 20rem;" class="spinner-border text-success" role="status">
+                
+                <span class="sr-only">Loading...</span>
+        
+            </div>
+
+       `);
+
+    }
+
+
+    const LogicCards = (response)=>{
+
+                       
+        setTimeout(()=>{
+
+            $('.container-cards').empty();
+
+            //console.log(response);
+            for(let i = 0;i<response.length;i++){
+
+                PrintCards($('.container-cards'),Cards(0,response[i]));
+
+            }
+
+
+            // controls of more and less products for cart
+            let inputCuantity = document.getElementsByClassName('cantidad');
+            let moreCuantity = document.getElementsByClassName('mas');
+            let lessCuantity = document.getElementsByClassName('menos');
+
+        
+            for( let f=0; f<inputCuantity.length;f++){
+
+                moreCuantity[f].addEventListener('click',()=>{
+
+                    ControlMore(inputCuantity,response,f);
+                
+                });
+
+                lessCuantity[f].addEventListener('click',()=>{
+
+                    ControlLess(inputCuantity,response,f);
+                
+                });
+
+            }
+
+        },500);
+    }
+
 
 
 
@@ -122,71 +238,9 @@ let btnCategory = document.querySelector('.btn-categorias'),
             
         })
         .then(response=>response.json())
-        .then(response=>{      console.log('click');
+        .then(response=>{      
 
-            //console.log(response);
-            for(let i = 0;i<response.length;i++){
-
-                PrintCards($('.container-cards'),Cards(0,response[i]));
-
-            }
-
-            
-
-            let inputCuantity = document.getElementsByClassName('cantidad');
-            let moreCuantity = document.getElementsByClassName('mas');
-            let lessCuantity = document.getElementsByClassName('menos');
-
-           // console.log(inputCuantity[0].value);
-
-            for(let f = 0; f<inputCuantity.length;f++){
-
-                //increment cuantity product
-                moreCuantity[f].addEventListener('click',()=>{
-
-                    console.log('click');
-
-                    if(parseInt(inputCuantity[f].value) === parseInt(response[f].stock)){
-
-                        inputCuantity[f].value=parseInt(response[f].stock);
-
-                    }else if(parseInt(inputCuantity[f].value)===0 &&  parseInt(response[f].stock)===0 ){
-
-                        inputCuantity[f].value=0;
-                    }else if(parseInt(inputCuantity[f].value)<parseInt(response[f].stock) &&  parseInt(response[f].stock)!==0){
-
-                        inputCuantity[f].value=parseInt(inputCuantity[f].value)+1;
-                    }
-                });
-
-                //decrement cuantity product
-                lessCuantity[f].addEventListener('click',()=>{
-
-                    if(parseInt(inputCuantity[f].value) === parseInt(response[f].stock) && parseInt(response[f].stock)!==0){
-
-                        inputCuantity[f].value=parseInt(inputCuantity[f].value)-1;
-
-                    }else if(parseInt(inputCuantity[f].value)===0 &&  parseInt(response[f].stock)===0 ){
-
-                        inputCuantity[f].value=0;
-
-                    }else if(parseInt(inputCuantity[f].value)<parseInt(response[f].stock) &&  parseInt(inputCuantity[f].value)!==0){
-
-                        inputCuantity[f].value=parseInt(inputCuantity[f].value)-1;
-
-                    }else if(parseInt(inputCuantity[f].value)===0){
-
-                        inputCuantity[f].value=0
-
-                    }
-
-                });
-            }
-
-
-
-
-      
+            LogicCards(response);
 
 
         })
@@ -194,22 +248,79 @@ let btnCategory = document.querySelector('.btn-categorias'),
 
             console.log(wrong);
         })
+
+    }//end PushCategoryProducts
+
+
+
+
+    const PushSubcategoryProducts = (subcategory)=>{
+
+        fetch('api/interfaces/subcategory-product.php',{
+
+            method: 'POST',
+            body: subcategory
+            
+        })
+        .then(response=>response.json())
+        .then(response=>{
+
+            //console.log(response);
+
+            LogicCards(response);
+
+        })
+
     }
 
 
+
+    
     //first time for print all cards
     let inputCategory = $('.my-category').val();
 
     const category = new FormData();
     
     category.append('categoria',inputCategory);
-
+    PrintSpinner();
     PushCategoryProducts(category);
 
 
-    //called function
+
+
+    //call show all category products
+    let showAll = document.querySelector('.ver-todo');
+
+    showAll.addEventListener('click',()=>{
+
+        PrintSpinner();
+        PushCategoryProducts(category);
+
+    })
 
   
+
+    //call subcategory  products
+
+    let btnSubcategory = document.getElementsByClassName('btn-subcategoria');
+ 
+
+    for(let i = 0;i<btnSubcategory.length;i++){
+
+        btnSubcategory[i].addEventListener('click',()=>{
+
+            //subcategory's name
+            //console.log(btnSubcategory[i].textContent.trim());    
+
+            const sendSubcategory = new FormData();
+
+            sendSubcategory.append('subcategoria',btnSubcategory[i].textContent.trim());
+
+            PrintSpinner();
+            PushSubcategoryProducts(sendSubcategory);
+
+        })
+    }
 
 
 
