@@ -49,7 +49,7 @@ let btnCategory = document.querySelector('.btn-categorias'),
                         </div>
             
                         <div style="width: 50%;" class="d-block p-2 pl-3">
-                        <h5 style="margin-left:-140%;" class="pl-4"><strong>${data.nombre}</strong></h5>
+                        <h5 style="margin-left:-90%;" class="pl-4"><strong>${data.nombre}</strong></h5>
                         <hr>
                         <h5><strong>$ ${formatMoney()} pesos</strong></h5>
                         <hr>
