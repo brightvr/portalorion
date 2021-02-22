@@ -44,11 +44,11 @@ let btnCategory = document.querySelector('.btn-categorias'),
                     
                       <div class="d-flex">
             
-                        <div style="width: 60%; padding-top:50px;" class="d-block "><img style=" width: 100%;;" src="${data.img}" alt=""> 
+                        <div style="width: 55%; padding-top:50px;" class="d-block "><img style=" width: 100%;;" src="${data.img}" alt=""> 
                       
                         </div>
             
-                        <div style="width: 40%;" class="d-block p-2 pl-3">
+                        <div style="width: 45%;" class="d-block p-2 pl-3">
                         <h5 style="margin-left:-160%;" class="pl-4"><strong>${data.nombre}</strong></h5>
                         <hr>
                         <h5><strong>$ ${formatMoney()} pesos</strong></h5>
