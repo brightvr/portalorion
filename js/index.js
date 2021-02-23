@@ -37,11 +37,11 @@ $(window).on('load',function(){
                           <div class="card mb-3" style="width: 90%;margin-left:5%;box-shadow:4px 4px 5px black;">
                 <img src="${response[f].img}" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h3 class="card-title">${response[f].nombre}</h3>
+                  <h4 class="card-title">${response[f].nombre}</h4>
                   <p class="card-text">${response[f].info_corta}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><h4>$ ${formatearMoneda()} pesos</h4></li>
+                  <li class="list-group-item"><h5>$ ${formatearMoneda()} pesos</h5></li>
                 </ul>
                 <div class="card-body">
                   <a href="producto.php?id=${response[f].id_producto}" class="btn btn-block btn-success"><h4>Comprar</h4></a>

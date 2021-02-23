@@ -135,7 +135,7 @@ require 'componentes-interfaces/nav.php';
                     
         echo '
     
-        <div style="border-radius:5px;" class="btn  btn-block p-2 btn-success m-2">
+        <div style="border-radius:5px;" class="ver-todo  btn  btn-block p-2 btn-success m-2">
         <p class="mr-2">'.$_GET['categoria'].' </p> 
 
          </div>

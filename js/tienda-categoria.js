@@ -60,7 +60,7 @@
                         <div style="margin-left: -6%;"  class="d-flex p-2 ">
             
                             <div class="btn btn-success mr-2 menos"><h5 style="margin-top:-2px;">-</h5></div>
-                            <input class="cantidad" style="width:40px;" type="number" value="1" min="0" max="${data.stock}" readonly>
+                            <input class="cantidad" style="width:40px;" type="number" value="0" min="0" max="${data.stock}" readonly>
                             <div class="btn btn-success ml-2 mas"><h5 style="margin-top:-2px;">+</h5></div>
             
                         </div>
@@ -122,7 +122,7 @@
 
             inputCuantity[f].value=parseInt(response[f].stock);
 
-        }else if(parseInt(inputCuantity[f].value)===0 &&  parseInt(response[f].stock)===0 ){
+        }else if(parseInt(response[f].stock)===0 ){
 
             inputCuantity[f].value=0;
         
@@ -144,7 +144,7 @@
 
             inputCuantity[f].value=parseInt(inputCuantity[f].value)-1;
 
-        }else if(parseInt(inputCuantity[f].value)===0 &&  parseInt(response[f].stock)===0 ){
+        }else if(parseInt(response[f].stock)===0 ){
 
             inputCuantity[f].value=0;
 
@@ -153,16 +153,8 @@
             inputCuantity[f].value=parseInt(inputCuantity[f].value)-1;
 
         }else if(parseInt(inputCuantity[f].value)===0){
-            $('.container-cards').empty();
-            $('.container-cards').prepend(`
-    
-                <div style="width: 20rem; height: 20rem;" class="spinner-border text-success" role="status">
-                    
-                    <span class="sr-only">Loading...</span>
-            
-                </div>
-    
-           `);
+
+            inputCuantity[f].value=0;
 
         }
 
@@ -173,11 +165,12 @@
 
         $('.container-cards').empty();
         $('.container-cards').prepend(`
-
+            <div class="p-2 d-flex justify-content-center">
             <div style="width: 20rem; height: 20rem;" class="spinner-border text-success" role="status">
                 
                 <span class="sr-only">Loading...</span>
         
+            </div>
             </div>
 
        `);
@@ -233,12 +226,13 @@
         $('.container-cards').append(`
         
         <div class="bg-light p-2">
-        
-            <h3 style="color:green;">
 
-                UPS, PRECE QUE NO HAY PRODUCTOS DISPONIBLES
+            <img style="width:100%;" src="api/assets/img/metodos-pago/oops.png">
+            <h6 style="color:grey;padding:8px;">
+
+                Parece que no hay productos disponibles, intenta con otra categria
             
-            </h3>
+            </h6>
         
         </div>
         
@@ -362,9 +356,6 @@
 
         })
     }
-
-
-
 
    
 

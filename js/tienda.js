@@ -43,7 +43,10 @@ $(window).on('load',function(){
                         $('.cont-categorias').append(`
 
                         <div class=" p-2  pt-5">
-                        <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2"><h4>${response}</h4></div>
+                        <div style="width: 350px; box-shadow:5px 5px 8px black;" class="titulo bg-light p-2">
+                        <img style="width:100%;" src="api/assets/img/metodos-pago/oops.png">
+                        <br>
+                        <h6 style="color:grey">${response}, Intenta con otra palabra clave o explora por tu cuenta las categorias, no te arrepentiras</h6></div>
                       </div>
     
                         `);

@@ -1742,7 +1742,7 @@ require 'componentes-interfaces/nav.php';
       <div class="card-body">
         <p class="card-text">'.$productos[$i]['nombre'].'</p>
         <hr>
-        <p class="card-text"><h4>$ '.number_format(floatval($productos[$i]['precio']),0,'.',',').' pesos </p>
+        <p class="card-text"><h6>$ '.number_format(floatval($productos[$i]['precio']),0,'.',',').' pesos </h6></p>
       </div>
   </div></a>
 
@@ -1766,7 +1766,7 @@ require 'componentes-interfaces/nav.php';
 
 <div class="principal fondo-verde2 text-light">
 
-<h2>SUPERMERCADO</h2>
+<h2>Supermercado</h2>
 
 </div>
 
@@ -1854,7 +1854,7 @@ require 'componentes-interfaces/nav.php';
       <div class="card-body">
         <p class="card-text">'.$productos3[$i]['nombre'].'</p>
         <hr>
-        <p class="card-text"><h4>$ '.number_format(floatval($productos3[$i]['precio']),0,'.',',').' pesos </p>
+        <p class="card-text"><h6>$ '.number_format(floatval($productos3[$i]['precio']),0,'.',',').' pesos </h6></p>
       </div>
   </div></a>
 

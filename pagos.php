@@ -135,7 +135,7 @@ if(isset($producto[0])){
     
     <div class="container">
       
-      <a href="producto.php?id='.$producto[0]['id_producto'].'" class="btn btn-success"><h3><img src="'.$producto[0]['img'].'" class="img-ubicacion">  /  <i class="fas fa-arrow-left"></i> Producto</h3></a>
+      <a href="producto.php?id='.$producto[0]['id_producto'].'" class="btn btn-success"><h6><img src="'.$producto[0]['img'].'" class="img-ubicacion">  /  <i class="fas fa-arrow-left"></i> Producto</h6></a>
 
     </div>
     <br>
@@ -204,12 +204,13 @@ if(isset($_POST['nombre-producto'])){
     number_format( floatval($subtotal), 0, ".", ",");
 
     echo '
-    <div class="bg-light p-3">
-    <div class="p-2 fondo-verde d-flex justify-content-center"><h3>Datos de la compra</h3></div>
+    <div class="bg-light" style="width:90%;margin-left:5%;box-shadow:3px 3px 6px black;">
+    <div class="p-2 fondo-verde2 text-light d-flex justify-content-center"><h4>Datos de la compra</h4></div>
     <br>
         <div class="card" style="width: 100%">
-    <h5>
+    <h6>
     <ul class="list-group list-group-flush">
+    <li class="list-group-item d-flex justify-content-center"><img src="'.$producto[0]['img'].'" style="width:70%;"></li>
         <li class="list-group-item"><strong>Producto :</strong> '.$_POST['nombre-producto'].'</li>
         <li class="list-group-item"><strong>Unidades : </strong>'.$_POST['cantidad-producto'].'</li>
         <li class="list-group-item"><strong>PrecioxUnidad :</strong> $ '.number_format( floatval($producto[0]['precio']), 0, ".", ",").' pesos cop</li>
@@ -218,7 +219,7 @@ if(isset($_POST['nombre-producto'])){
         <li class="list-group-item"><strong>Total :</strong> $ '.number_format( floatval($total_a_pagar), 0, ".", ",").' pesos cop</li>
 
     </ul>
-    </h5>
+    </h6>
     </div>
     </div>
     
@@ -297,17 +298,39 @@ if(isset($_POST['comprar'])){
 
         echo '
         <br>
-        <div class="container alert alert-light">
-        <h4>Pagar como invitado</h4><br>
+        <div style="width:90%;margin-left:5%;box-shadow:3px 3px 6px black;background:white;" class=" p-3">
+        <h6 style="color:grey;">Ya casi es tuyo, pagas como invitado</h6><br>
 
-        <div class="fondo-verde d-flex justify-content-center p-2"><h4>Formas de pago para : '.$_POST['destino-producto'].'</h4></div>
+        <div class="fondo-verde2 text-light d-flex justify-content-center p-2"><h5>¿Cómo deseas pagar?</h5></div>
         <hr>
-        <a href="formulario1.php" class="btn btn-block btn-success"><h3>Pagar contra-entrega</h3></a>
-        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online (Incluye pagos en efectivo)</h3> </a>
+        <div class="d-flex justify-content-between" style="color:green;">
+        <p class="p-1 d-flex justify-content-center">contra-entrega</p>
+        <p class="p-1 d-flex justify-content-center">on-line</p>
+        </div>
+        <div class="d-flex ">
         
+               <div style="width:48%;" class="d-block">
+               
+               <img src="api/assets/img/metodos-pago/pago-contra-entrega3.png" style="width:100%;box-shadow:3px 3px 6px black;margin-right:35px;border:2px solid green;">
+               
+               </div>
+
+
+               
+
+
+               <div style="width:48%;padding:5px;box-shadow:3px 3px 6px black;margin-left:35px;border:2px solid green;" class="d-block">
+
+               <img src="api/assets/img/metodos-pago/online.png" style="width:90%;">
+               </div>
+
+        </div>
+        
+        <br>
         </div>';
 
-
+/*<a href="formulario1.php" class="btn btn-block btn-success"><h3>Pagar contra-entrega</h3></a>
+        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online (Incluye pagos en efectivo)</h3> </a> */
 
     }else if(!$pago_contra_entrega && intval($subtotal)!=0){
 

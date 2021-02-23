@@ -95,6 +95,7 @@ session_start();
     <link rel="stylesheet" href="librerias/icons/css/all.css">
     <link rel="stylesheet" href="css/head.css">
     <link rel="stylesheet" href="css/producto.css">
+    <script src="librerias/jquery/jquery-3.5.1.js"></script>
 
 
 </head>
@@ -183,14 +184,24 @@ require 'componentes-interfaces/nav.php';
           <input type="text" class="d-none" name="id-producto" value="<?php echo $producto[0]['id_producto'] ?>">
           <input type="text" class="d-none" name="comprar" value="1">
           <input type="text" class="d-none" name="nombre-producto" value="<?php echo $producto[0]['nombre'] ?>">
-
+          <input type="number" class="d-none stock" value="<?php echo $producto[0]['stock'] ?>">
         <h6>
         <label class="" for="">Elige una cantidad : </label>
         <div class="d-flex">
-          
-          <div class="btn btn-success mr-1">-</div>
-          <input name="cantidad-producto" type="number" value="1" min="0" max="<?php echo $producto[0]['stock'] ?>">
-          <div class="btn btn-success ml-1 mr-1">+</div>
+         <?php
+
+        if( intval($producto[0]['stock'])===0){
+
+          $min=0;
+
+        }else{
+          $min=1;
+        }
+
+         ?>
+          <div class="btn btn-success mr-1 menos">-</div>
+          <input class="cantidad" name="cantidad-producto" type="number" value="<?php echo $min ?>" min="<?php echo $min ?>" max="<?php echo $producto[0]['stock'] ?>">
+          <div class="btn btn-success ml-1 mr-1 mas">+</div>
           <div class="pt-2" style="color: grey;"><?php echo '<small>(disponibles: '.$producto[0]['stock'].')</small>' ?></div>
           </div>
           <br>
@@ -221,26 +232,35 @@ require 'componentes-interfaces/nav.php';
 
 
           ?>
-          </select>
-          <br>
+          </select><br>
+          <small style="color: grey;">Veras el costo del envío en la parte de abajo</small>
+          
           <br>
           <hr>
           <br>
-          <p><span style="color:#FFAA00"><i class="fas fa-trophy"></i>  Envío Premium : </span><br>
+          <div class="envio">
+
+          <span style="color:#FFAA00"><i class="fas fa-trophy"></i>  Envío Premium : </span>
+          
+          <span style="color: green;" class="price-envio">$ 6,000 pesos </span><br>
+
           <br> <div><i class="fas fa-hand-holding-usd"></i>  Pagas cuando recibes el producto</div>
+
           <br> <span style="color: green;"><i class="fas fa-truck"></i>  Te llega en menos de 24 horas</span>
-          </p>
+
+
+          </div>
 
           <br>
           <hr>
          <br>
           <p><i class="fas fa-shield-alt"></i> Garantia : <br>
           <br>
-           <p>14 días por defectos de fabrica</p>
+           <p><i class="fas fa-calendar-day"></i> 14 días por defectos de fabrica</p>
          
-           <p>Emitimos factura al realizar la compra</p>
+           <p><i class="fas fa-file-alt"></i> Emitimos factura al realizar la compra</p>
          
-             <p> Si no es lo que esperabas te devolvemos tu dinero</p>
+             <p><i class="fas fa-lock"></i>  Si no es lo que esperabas te devolvemos tu dinero</p>
            </p>
           <br>
           <hr>
@@ -254,13 +274,6 @@ require 'componentes-interfaces/nav.php';
 
           }else{
 
-            if(isset($_SESSION['user'][0]['nombre'])){
-
-
-              echo '  <a href="#" class="btn btn-warning btn-block"><h3>CREAR PAQUETE</h3><small><strong>DISPONIBLE PRÓXIMAMENTE</strong></small></a>';
-
-
-            }
 
               echo '  <button type="submit" class="btn comprar btn-block"><h1>COMPRAR</h1></button>
               
@@ -270,8 +283,11 @@ require 'componentes-interfaces/nav.php';
               <div class="container">
                 <p>Otras formas de compra :</p>
               <div class="d-flex justify-content-center">
-              <img style="width:30%;margin-right:20px;border-radius:6px;box-shadow:2px 2px 5px black;" src="api/assets/img/metodos-pago/mercadolibre.jpg">
-              <img style="width:30%;border-radius:6px;box-shadow:2px 2px 5px black;" src="api/assets/img/metodos-pago/what.jpg">
+              <a href="'.$producto[0]['mercadolibre'].'"><img style="width:90px;height:60px;margin-right:20px;border-radius:6px;box-shadow:2px 2px 5px black;" src="api/assets/img/metodos-pago/mercadolibre.jpg"></a>
+              <a href="https://api.whatsapp.com/send?phone=573192091708&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20este%20articulo%20:%20'.$producto[0]['nombre'].'"><img style="width:90px;height:60px;border-radius:6px;box-shadow:2px 2px 5px black;" src="api/assets/img/metodos-pago/what.jpg"></a>
+              <img style="width:90px;height:60px;margin-left:20px;border-radius:6px;box-shadow:2px 2px 5px black;" src="api/assets/img/metodos-pago/telefono.png">
+
+
               </div>
 
               </div>
@@ -319,18 +335,18 @@ require 'componentes-interfaces/nav.php';
 
 
           <div class="container">
-          <div class=" container fondo-verde">
+          <div class=" container bg-light" style="box-shadow: 3px 3px 5px black;">
           <br>
           <div class=" p-2 bg-light container d-flex justify-content-center"><h4>Compras desde Whatsapp</h4></div>
           <br>
           
           <div class="d-flex justify-content-center">
           <br>
-          <h5 class="p-2 bg-light container">   Atencion a ventas</h5>
+          <h5 >   Atencion a ventas</h5>
           </div>
           
           <hr>
-          <br>
+
           <div class="bg-light d-block p-4 ">
               <h5>Horarios:</h5>
               <br>
@@ -357,20 +373,6 @@ require 'componentes-interfaces/nav.php';
 
 
 
-          <?php
-
-          echo '
-          <a href="'.$producto[0]['mercadolibre'].'" class="fondo-amarillo p-2 d-flex justify-content-center">
-          <h5>Comprar producto en mercado libre</h5>
-          </a>
-          '
-
-          ?>
-
-
-
-
-
 
 
                 
@@ -379,8 +381,8 @@ require 'componentes-interfaces/nav.php';
           <br>
           <br>
 
-          <div class="fondo-verde d-flex justify-content-center p-3">
-              <h1>MÁS PRODUCTOS</h1>
+          <div class="fondo-verde2 text-light  d-flex justify-content-center p-3">
+              <h3>Más Productos</h3>
           </div>
 
           <br>
@@ -541,7 +543,7 @@ require 'componentes-interfaces/nav.php';
 
               //script javascript
             echo '
-            <script src="librerias/jquery/jquery-3.5.1.js"></script>
+
 
             <script>
             //clcik producto
@@ -574,70 +576,10 @@ require 'componentes-interfaces/nav.php';
     <br>
     <br>
     <hr>
+    <br>
+    <br>
 
 
-
-    <!--herramienta para cotizar envios-->
-    <div class="container">
-    <div class="alert bg-danger d-flex justify-content-center"><h3>Disponible próximamemte</h3></div>
-
-          <div class="card " >
-          <div class="card-header  bg-success text-white">
-          <div class="d-flex justify-content-center"> <h4>Cotizacion</h4></div>
-          ( Con esta herramienta podras cotizar los costos de tu pedido sin tener que comprar)
-          </div>
-          <form action="" method="post">
-          <ul class="list-group list-group-flush">
-          <li class="list-group-item p-3 m-2"><h5>Forma de pago :</h5><br>
-                <h5> <select name="forma-pago" id="cars" form="carform">
-                      <option value="contra-entrega">Contra entrega (Bogotá )</option>
-                      <option value="saab">Efectivo (no contra entrega)</option>
-                      <option value="opel">Efecty - Baloto</option>
-                      <option value="audi">Tarjetas debito - credito</option>
-                      <option value="audi">Transferencia PSE</option>
-                      <option value="audi">Nequi - Daviplata</option>
-                      <option value="audi">Mercado Pago</option>
-                  </select></h5>
-              </li>
-          <li class="list-group-item p-3 m-2 d-flex"><h5>PrecioxUnidad :  <?php echo ' $ '.$producto[0]['precio'].' pesos ' ?></h5></li>
-              <li class="list-group-item p-3 m-2 d-flex"><h5>Cantidad :  <input name="cantidad-producto" type="number" value="1" min="0" max="<?php echo $producto[0]['stock'] ?>"></h5></li>
-              <li class="list-group-item p-3 m-2"><h5>Envio : (Elige un destino)</h5><br>
-              <h5><select name="cars" form="carform">
-              <?php 
-              
-
-            
-
-
-              if($envios===null){
-
-                  var_dump("fallo al obtener resultados");
-              
-              }else{
-
-                  var_dump($envios);
-
-                  for($f=0;$f<count($envios);$f++){
-
-                      echo '<option value="'.$envios[$f]['nombre_lugar'].'">'.$envios[$f]['nombre_lugar'].'</option>';
-
-
-                  }
-
-              }
-              
-              
-              ?>
-                  </select></h5>
-              </li>
-              <li class="list-group-item p-3 m-2 d-flex"> <div class="btn btn-success btn-block"><h2>COTIZAR</h2></div> </li>
-          </ul>
-          </form>
-          </div>
-          
-    </div>
-
-    <!--final herramienta para cotizar envios-->
 
 
 </div>
