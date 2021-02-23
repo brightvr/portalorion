@@ -28,29 +28,32 @@
 </style>
 
 
+<div style="background:white;width:90%;margin-left:5%;box-shadow:5px 5px 6px black;" class="container ">
 
+<img width="100%" src="api/assets/img/metodos-pago/CONTRAENTREGA_Y_MERCADO_PAGOS.png" alt="">
 
-
+</div>
+<br>
+<br>
+<br>
 
 <div style="width: 95%;margin-left:2%;;" class="container bg-light p-2">
 
-    <div class="bg-light p-2 d-flex justify-content-center">
-    <h2>Metodos de pago</h2>
+    <div class="fondo-verde2 text-light p-2 d-flex justify-content-center">
+    <h3>Metodos de pago</h3>
 
     </div>
+    <br>
     <hr>
-
+    <br>
         <div class="bg-light p-2">
 
-            <div class="btn btn-success btn-block contra-entrega"><h4>Pagos contra entrega</h4></div>
+
 
             <div class="bg-light info-pagos">
-
-
-                <img class="pago-seguro" src="api/assets/img/banner-pago-contra-entrega.gif" alt="">
-                <br>
-                <hr>
-                <br>
+                <h4 class="fondo-verde p-3 d-flex justify-content-center">PAGOS CONTRA ENTREGA</h4>
+                <img width="100%;" class="pago-seguro" src="api/assets/img/banner-pago-contra-entrega.gif" alt="">
+               
                 <p><h6>
                     Los pagos contra entrega le brindan a nuestros compradores toda la seguridad y transparencia
                     necesaria para realizar compreas en linea y fortalecer la economia digital
@@ -70,15 +73,24 @@
 
                 </h6></p>
 
+                <div style=" height:300px;" class="container">
+              
+
+                </div>
+                
+
 
             </div>
+            <br>
+            <br>
             <hr>
             <br>
-            <div class="btn btn-success btn-block online"><h4>Pagos online (Incluye pagos en efectivo)</h4></div>
+            <br>
+            
 
             <div class="bg-light info-pagos">
 
-
+            <h4 class="fondo-verde p-3 d-flex justify-content-center">PAGOS ON-LINE</h4>
                 <img class="pago-seguro" src="api/assets/img/banner-pago-online.gif" alt="">
                 <br>
                 <hr>

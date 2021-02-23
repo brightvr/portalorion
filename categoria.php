@@ -1,5 +1,8 @@
 <?php
 
+  session_start();
+
+
   //  var_dump($_GET['categoria']);
 
   require_once 'conexion.php';
@@ -213,7 +216,17 @@ if(!isset($_SESSION['user'])){
 
 }
 
+$_SESSION['categoria.php']=[
 
+  'categoria.php?categoria='.$categoriaactual[0]['nombre'],
+  $categoriaactual[0]['card'],
+  $categoriaactual[0]['nombre']
+];
+
+if(isset($_SESSION['index.php'])){
+
+  unset($_SESSION['index.php']);
+}
 
 ?>
   </body>

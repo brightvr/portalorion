@@ -227,6 +227,27 @@
 
 
 
+    const Wrong = ()=>{
+
+        $('.container-cards').empty();
+        $('.container-cards').append(`
+        
+        <div class="bg-light p-2">
+        
+            <h3 style="color:green;">
+
+                UPS, PRECE QUE NO HAY PRODUCTOS DISPONIBLES
+            
+            </h3>
+        
+        </div>
+        
+        `);
+
+
+    }
+
+
 
     //api consult all category products
     const PushCategoryProducts=(data)=>{
@@ -240,7 +261,18 @@
         .then(response=>response.json())
         .then(response=>{      
 
-            LogicCards(response);
+
+            if(response==="No se encontraron resultados"){
+
+                Wrong();
+
+            }else{
+
+                LogicCards(response);
+
+            }
+
+           
 
 
         })
@@ -265,9 +297,18 @@
         .then(response=>response.json())
         .then(response=>{
 
-            //console.log(response);
+            if(response==="No se encontraron resultados"){
 
-            LogicCards(response);
+                Wrong();
+
+            }else{
+
+                LogicCards(response);
+
+            }
+
+
+            
 
         })
 
@@ -275,7 +316,7 @@
 
 
 
-    
+
     //first time for print all cards
     let inputCategory = $('.my-category').val();
 

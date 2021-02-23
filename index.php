@@ -1,5 +1,11 @@
 <?php
   session_start();
+  $_SESSION['index.php']=true;
+  
+  if(isset($_SESSION['categoria.php'])){
+
+    unset($_SESSION['categoria.php']);
+  }
 
  require_once 'conexion.php';
  $select="select * from productos  order by rand() limit 14";

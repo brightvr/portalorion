@@ -131,15 +131,15 @@ $(window).on('load',function(){
 
     let banners=[
         
-        'api/assets/img/Copia de Graphic Design Website Header Template.gif',
-        'api/assets/img/banner-pagos.gif',
-        'api/assets/img/banner-super-final.gif',
+        'api/assets/img/banner-tienda.gif',
         
+        'api/assets/img/banner-super-final.gif',
+        'api/assets/img/banner-pagos.gif',
         'api/assets/img/categorias-mas.gif',
         'api/assets/img/Graphic Design Website Header Template.gif',
        
         'api/assets/img/banner-cannabis-fin.gif',
-        'api/assets/img/banner-tienda.gif']
+         'api/assets/img/Copia de Graphic Design Website Header Template.gif']
 
     let contador=0;
     console.log(banners.length-1);
@@ -157,7 +157,7 @@ $(window).on('load',function(){
         //console.log(contador);
 
         
-    },3660);
+    },3000);
 
 
     //carrito usuario registrado

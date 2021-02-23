@@ -21,7 +21,7 @@ if(isset($_POST['categoria'])){
 
     if($categorias===null){
 
-        echo json_encode('No se encontraron resultados para '.$_POST['categoria']);
+        echo json_encode('No se encontraron resultados');
 
     }else{
         
@@ -30,7 +30,7 @@ if(isset($_POST['categoria'])){
 
 }else{
 
-    echo json_encode('No estas enviando nada por POST ');
+    echo json_encode('No estas enviando nada por POST');
 
 }
 

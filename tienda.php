@@ -176,7 +176,7 @@ require 'componentes-interfaces/nav.php';
 
   <!--<div class="alert fondo-verde d-flex justify-content-center"><h1>TIENDA</h1></div>-->
   
-  <a href="categoria.php?categoria=Todo"><img class="contra-entrega" src="api/assets/img/Graphic Design Website Header Template.gif" alt=""></a>
+  <a href="categoria.php?categoria=Todo"><img class="contra-entrega" src="api/assets/img/banner-tienda.gif" alt=""></a>
   <br> 
 
   
@@ -224,7 +224,7 @@ require 'componentes-interfaces/nav.php';
   <hr>
   <br>
  
-  <div class="fondo-verde2 p-3 d-flex justify-content-center"><h5 class="text-light">Las mejores categorias</h3></div>
+  <div class="fondo-verde2 p-3 d-flex justify-content-center"><h3 class="text-light">Las mejores categorias</h3></div>
   <br>
   <div class="container bg-light p-4">
   <input name="buscar" class="form-control mr-sm-2 buscador-categorias" type="search" placeholder="Buscar categoria" aria-label="Search"><br>
