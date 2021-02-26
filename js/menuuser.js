@@ -102,11 +102,12 @@ menu.addEventListener('click',()=>{
     `);
 
     $('.contenedor-cate').empty();
+
     $('.contenedor-cate').append(`
     <div class="d-flex justify-content-center">
-    <div style="width: 5rem; height: 5rem;" class="spinner-border text-success" role="status">
-    <span class="sr-only">Loading...</span>
-  </div>
+        <div style="width: 5rem; height: 5rem;" class="spinner-border text-success" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
   </div>
     
     
@@ -117,7 +118,8 @@ menu.addEventListener('click',()=>{
     .then(response=>{
 
 
-        console.log(response);
+        //console.log(response);
+        $('.contenedor-cate').empty();
 
         for(let f=0;f<response.length;f++){
 
