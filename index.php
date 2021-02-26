@@ -8,7 +8,7 @@
   }
 
  require_once 'conexion.php';
- $select="select * from productos  order by rand() limit 14";
+ $select="select * from productos  order by rand() limit 8";
  $query=mysqli_query($miconexion->Conectando(),$select);
 
  while($response=mysqli_fetch_assoc($query)){
@@ -28,7 +28,7 @@
 
 
 
- $select="select * from productos order by rand() limit 40";
+ $select="select * from productos order by rand() limit 20";
  $query=mysqli_query($miconexion->Conectando(),$select);
 
  while($response=mysqli_fetch_assoc($query)){
@@ -40,7 +40,7 @@
 
 
 
- $select="select * from productos order by rand() limit 19";
+ $select="select * from productos order by rand() limit 10";
  $query=mysqli_query($miconexion->Conectando(),$select);
 
  while($response=mysqli_fetch_assoc($query)){
@@ -1630,6 +1630,7 @@ require 'componentes-interfaces/nav.php';
 <br>
  <hr>
  <br>
+ <br>
    
 
 
@@ -1643,7 +1644,7 @@ require 'componentes-interfaces/nav.php';
 -->
    
    </div>
-
+    <br>
    <br>
 <hr>
 <br>
@@ -1799,12 +1800,12 @@ require 'componentes-interfaces/nav.php';
   <hr>
   <br>
 
-
+ <br>
 
   <div class="bg-light">
 
-  <div class=" principal bg-light">
-   <h1>Tiendas Oficiales</h1>
+  <div class=" principal d-flex justify-content-center p-2 fondo-verde2 text-light">
+   <h1 class="">Tiendas Oficiales</h1>
   </div>
 
   <hr>
@@ -1910,7 +1911,7 @@ require 'componentes-interfaces/nav.php';
       <hr>
       
       <p> <span style="font-size:25px; color:green;"><i class="fas fa-shield-alt"></i></span> 
-      <strong style="color:green;">Express:</strong> Pagas cuando recibes el producto, te llega en menos de 48 horas. </p>
+      <strong style="color:green;">Express:</strong> Pagas online, te llega de 1  a 5 días dependiendo de tu ubicación </p>
       
       <br>
       <a href="envios.php" class="btn btn-block btn-success"><h3>Consultar tarifa de envíos</h3></a>

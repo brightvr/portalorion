@@ -37,7 +37,7 @@
 <br>
 <br>
 
-<div style="width: 95%;margin-left:2%;;" class="container bg-light p-2">
+<div style="width:90%;margin-left:5%;box-shadow:3px 3px 6px black;" class="container bg-light p-2">
 
     <div class="fondo-verde2 text-light p-2 d-flex justify-content-center">
     <h3>Metodos de pago</h3>
@@ -124,7 +124,7 @@
 <hr>
 <br>
 
-<div  style="width: 95%;margin-left:2%;;" class="container bg-light p-2">
+<div  style="width:90%;margin-left:5%;box-shadow:3px 3px 6px black;" class="container bg-light p-2">
 
     <h2 class="bg-light p-2 d-flex justify-content-center">¿Como protegemos tu dinero?</h2>
     <br>

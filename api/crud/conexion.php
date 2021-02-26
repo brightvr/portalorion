@@ -51,5 +51,5 @@ $miconexion= new ConexionDB('localhost','u418177199_adminorion','5719326David','
 
 //var_dump('estoy incluido');
 
-//USANDO LA VARIABLE $miconexion SE INSTANCIA EL METODO CONECTANDO 
+//USANDO LA VARIABLE $miconexion SE INSTANCIA EL METODO CONECTANDO  28 smoking blu, cueros sabores 28, 45 ocb, 
 

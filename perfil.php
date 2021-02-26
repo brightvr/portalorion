@@ -80,15 +80,15 @@ require 'componentes-interfaces/nav.php';
 
   <div class="container">
   
-    <div class="fondo-verde p-2 d-flex justify-content-center"><h3><?php echo $_SESSION['user'][0]['nombre'] ?></h3></div>  
+    <div class="fondo-verde2 text-light p-2 d-flex justify-content-center"><h3><?php echo $_SESSION['user'][0]['nombre'] ?></h3></div>  
   
   </div>
   <br>
   <br>
-  <div class="container p-3 bg-light">
+  <div style="width:90%;margin-left:5%;box-shadow:3px 3px 6px black;" class="container p-3 bg-light">
   
     <div class="d-flex justify-content-center"><h5>Datos de envio</h5></div>
-    <div class="d-flex justify-content-center"><small>
+    <div style="color:grey;" class="d-flex justify-content-center"><small>
 
         Los datos que pongas aqui los usaremos para enviar tus pedidos
 
@@ -103,7 +103,7 @@ require 'componentes-interfaces/nav.php';
 
         <label>Correo :</label><br>
         <input name="correo" type="text" value="<?php echo $_SESSION['user'][0]['correo'] ?>" required readonly><br>
-        <small>Este dato no lo puedes cambiar</small>
+        <small style="color: grey;">Este dato no lo puedes cambiar</small>
         <br><br>
 
         <label>Ciudad  :</label><br>

@@ -59,7 +59,7 @@ require 'componentes-interfaces/nav.php';
 ?>
 <div class="menu-apps">
 
-      <div  class="vinculo iconos-menu-escogido " href="#"><i class="fas fa-house-user"></i></div>
+      <div  class="vinculo iconos-menu " href="#"><i class="fas fa-house-user"></i></div>
       <div  class="vinculo iconos-menu" href="#"><i class="fas fa-store"></i></div>
       <div class="vinculo iconos-menu" href="#"><i class="fas fa-money-check-alt"></i></div>
       <div  class="vinculo iconos-menu " href="#"><i class="fas fa-truck"></i></div>
@@ -68,7 +68,7 @@ require 'componentes-interfaces/nav.php';
 
 
 
-<div class="card container bg-light p-2">
+<div style="width:90%;height:5%;box-shadow:3px 3px 6px black;" class="card container bg-light p-2">
 
 
 
@@ -90,7 +90,8 @@ require 'componentes-interfaces/nav.php';
 
 </form>
 </div>
-
+<br>
+<br>
 
 <?php
 

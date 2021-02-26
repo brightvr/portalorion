@@ -106,7 +106,7 @@ $(window).on('load',function(){
 
       $('categorias').append(`
     
-      <a  href="categoria.php?categoria=${response[i].nombre}"><img class="m-2 mb-4" style="width:300px; border:0.5px solidgrey; box-shadow:3px 3px 5px black;" src="${response[i].card}"></a>
+      <a  class=" pl-2 pr-2" href="categoria.php?categoria=${response[i].nombre}"><img class="m-2 mb-4" style="width:300px; border:0.5px solidgrey; box-shadow:3px 3px 5px black;" src="${response[i].card}"></a>
     
     `)
 

@@ -105,24 +105,27 @@ require 'componentes-interfaces/nav.php';
  
     <div class="bg-light p-3">
 
-    <h2 class="d-flex justify-content-center" style="color: green;">Compra Exitosa</h2>
+    <h4 class="d-flex justify-content-center" style="color: green;">Compra Exitosa</h4>
     <br>
     <hr>
     <br>
-    <h4>Tu compra fue exitosa, tu numero de guias es: <strong><?php echo $_SESSION['id_pedido'] ?></strong>, descarga la factura de garantia</p></h4>
+    <h6>Tu compra fue exitosa, tu numero de guias es: <strong><?php echo $_SESSION['id_pedido'] ?></strong>, descarga la factura de garantia</p></h6>
     <br>
     
     <hr>
     <br>
-    <h5><?php echo $_SESSION['user'][0]['nombre'] ?>, gracias por tu compra <span style=" color:red;"><i class="fas fa-heart"></i></span></h5>
+    <h6><?php echo $_SESSION['user'][0]['nombre'] ?>, gracias por tu compra <span style=" color:red;"><i class="fas fa-heart"></i></span></h6>
     <br>
-    <a href="pdf/pdf2.php" class="btn btn-success btn-block"> <h4> DESCARGAF FACTURA </h4> </a>
+    <a href="pdf/pdf2.php" class="btn btn-success btn-block"> <h5> DESCARGAF FACTURA </h5> </a>
     <br>
-    <a href="envios.php" class="btn btn-warning btn-block"> <h4> RASTREAR PEDIDO </h4> </a>
+    <a href="envios.php" class="btn btn-warning btn-block"> <h5> RASTREAR PEDIDO </h5> </a>
 
     <br>
     <hr>
     <br>
+
+    <div style="color:grey;">
+
     <h6>Trabajamos para el desarrollo y fortalecimiento  de la
         economia digital 
     </h6>
@@ -131,9 +134,9 @@ require 'componentes-interfaces/nav.php';
     Para el optimo avance de la economia digital portal orion ha desarrollado una logistica de
     pago contra entrega que le permite al cliente la flexibilidad de realizar el pago una vez tiene el
     producto en sus manos.<br><br>
-    <small><a href="">-Terminos y condiciones del pago contra entrega</a></small><br>
+    <small><a style="text-decoration: none;" href="">-Terminos y condiciones del pago contra entrega</a></small><br>
     <br>
-    <small><a href="">-Causas de bloqueo del pago contra entrega</a></small>
+    <small><a style="text-decoration:none;" href="">-Causas de bloqueo del pago contra entrega</a></small>
     </h6>
     <br>
     <h6>
@@ -142,6 +145,9 @@ require 'componentes-interfaces/nav.php';
     </h6>
 
     <br>
+
+
+    <div>
     
    
     </div>

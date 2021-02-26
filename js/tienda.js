@@ -60,7 +60,8 @@ $(window).on('load',function(){
                         <div style=" width: 300px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2"><h5>${response[i].nombre}</h5></div>
                         <a href="categoria.php?categoria=${response[i].nombre}"><img  src="${response[i].card}" alt="" style="box-shadow:5px 5px 8px black; background:white; width: 300px; height:150px;"></a>
                       </div>
-    
+                      <br>
+                        <hr>
                         `);
 
                     }
@@ -114,6 +115,8 @@ $(window).on('load',function(){
                     <div style=" width:300px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2"><h5>${response[i].nombre}</h5></div>
                     <a href="categoria.php?categoria=${response[i].nombre}"><img  src="${response[i].card}" alt="" style="box-shadow:5px 5px 8px black; background:white; width:300px; height:150px;"></a>
                   </div>
+                  <br>
+                  <hr>
     
                     `);
 

@@ -40,6 +40,7 @@
             array_push($envios2,' Pagas online usando mercadopago');
             array_push($envios2,' Te llega de 1 a 5 días aprox...');
             array_push($envios2,' Pagos en efectivo habilitados');
+            array_push($envios2, $_POST['envio']);
             
             echo json_encode($envios2);
         }
@@ -54,6 +55,7 @@
             array_push($envios,' Pagas cuando recibes el producto');
             array_push($envios,' Te llega en menos de 24 horas');
             array_push($envios,' Tambien puedes pagar online');
+            array_push($envios2, $_POST['envio']);
             
             echo json_encode($envios);
         }

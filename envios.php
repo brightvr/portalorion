@@ -131,21 +131,24 @@ if(isset($_SESSION['user'])){
 
   <div style="border-radius:4px;box-shadow:3px 3px 6px black; width:90%;margin-left:5%;" class=" ">
 
-  <div  class="bg-light d-flex justify-content-center pt-2 ">
-      <h3>Rastreador de pedidos</h3>
+  <div  class="fondo-verde2 text-light p-2 d-flex justify-content-center pt-1 ">
+      <h5 class="">Rastreador de pedidos</h5>
       
   </div>
   
-  <form class="p-3 bg-light" action="envios.php" method="post">
+  <form  class="p-3 bg-light" action="envios.php" method="post">
   <hr>
   <label>Numero de seguimiento :</label><br>
   <input  placeholder="Ejemplo: a34lff0a8" type="text" name="id_pedido" required>
-  <small id="emailHelp" class="form-text text-muted">Por favor no incluyas el simbolo "#" en la busqueda</small>
+  <hr>
+  <small id="emailHelp" class="form-text text-muted"><li>No incluyas el simbolo "#" en la busqueda</li></small>
+  <small id="emailHelp" class="form-text text-muted"><li>El numero de guia lo encuentras en la factura </li></small>
   <br>
   <br>
-  <button type="submit" class="btn btn-success btn-block"> <h3> Rastrear <i class="fas fa-search-location"></i></h3></button>
+  <button type="submit" class="btn btn-success btn-block"> <h5> Rastrear <i class="fas fa-search-location"></i></h5></button>
   
  </form>
+ </div>
 
      <?php
 
@@ -168,10 +171,22 @@ if(isset($_SESSION['user'])){
      if($Pedido===null){
 
       echo '
-      <br><br>
-      <div class="container bg-light p-2">
-
-      <h3 style="color:red;" class="p-2 d-flex justify-xontent-center">No se encontraron resultados para "'.$_POST['id_pedido'].'", recuerda  poner el codigo de seguimiento sin el "#"</h3>
+      <div id="rastreo">
+        <br>
+        <br>
+        <div style="padding:30px;width:100%;height:100vh;background: rgba(0, 0, 0, 0.541);position:absolute;margin-top:-700px;margin-left:0px;">
+        <br>
+        <br>
+        <br><br><br>
+        <div class="cerrar btn btn-block btn-danger"><h5>CERRAR</h5></div>
+        <div style="" class="container bg-light p-3">
+        <h6>
+        No se encotraron resultados para "'.$_POST['id_pedido'].'"
+        <h6>
+        <hr>
+        <br>
+   
+        </div>
 
       
       </div>
@@ -201,13 +216,16 @@ if(isset($_SESSION['user'])){
       }
 
       echo '   
-      
+      <div id="rastreo">
         <br>
         <br>
-        <div style="padding:30px;width:100%;height:100vh;background: rgba(0, 0, 0, 0.541);position:absolute;margin-top:-730px;margin-left:-20px;">
-        <div class="btn btn-block btn-danger"><h4>CERRAR</h4></div>
+        <div style="padding:30px;width:100%;height:100vh;background: rgba(0, 0, 0, 0.541);position:absolute;margin-top:-700px;margin-left:0px;">
+        <br>
+        <br>
+        <br><br><br>
+        <div class="cerrar btn btn-block btn-danger"><h5>CERRAR</h5></div>
         <div style="" class="container bg-light p-3">
-        <h5>
+        <h6>
         <p>Nombre destinatario : '.$Pedido[0]['nombre_cliente'].'</p>
         <hr>
         <p>Ciudad destino : '.$Pedido[0]['ciudad'].'</p>
@@ -215,7 +233,7 @@ if(isset($_SESSION['user'])){
         <p style="color:green;"><i class="fas fa-truck"></i> Estado : '.$Pedido[0]['estado'].'</p>
         <hr>
         <p style="color:green;"><i class="fas fa-truck-loading"></i> '.$tiempo_estimado.'</p>
-        <h5>
+        <h6>
         <hr>
         <br>
         <a href="">Necesito ayuda con mi pedido</a>
@@ -223,9 +241,10 @@ if(isset($_SESSION['user'])){
         </div>
 
       
-      
+      </div>
       ';
 
+  
 
 
      }
@@ -253,14 +272,14 @@ if(isset($_SESSION['user'])){
 <br><br>
 <img class="rastrear-pedido" src="api/assets/img/banner-envios-2.gif" alt="">
 <br><br>
- <div class="bg-light p-3">
- <h5 style="background:black;" class="text-warning pl-2 p-3">ENVIOS PREMIUM <span style="font-size:25px;"><i class="fas fa-trophy"></i></span></h5>
+ <div style="width: 90%; margin-left:5%;box-shadow:3px 3px 6px black;border-radius:5px;" class="bg-light p-3">
+ <h6 style="background:black;" class="text-warning pl-2 p-3">ENVÍOS PREMIUM <span style="font-size:25px;"><i class="fas fa-trophy"></i></span></h6>
 <hr>
-<h5 class="bg-light pl-2 ">PAGAS CUANDO RECIBES EL PRODUCTO</h5>
+<h6 class="bg-light pl-2 ">PAGAS CUANDO RECIBES EL PRODUCTO</h6>
 <hr>
-<h5 class="bg-light pl-2">TE LLEGA EN 24 HORAS </h5>
+<h6 class="bg-light pl-2">TE LLEGA EN 24 HORAS </h6>
 <hr>
-<h5 class=" pl-2 p-3 text-light bg-success">TARIFA ENVIOS PREMIUM :</h5>
+<h6 class=" pl-2 p-3 text-light bg-success">TARIFA ENVIOS PREMIUM :</h6>
 
 
  <div class="card tarifas">
@@ -295,20 +314,20 @@ if(isset($_SESSION['user'])){
 <img class="rastrear-pedido" src="api/assets/img/banner-envios-3.gif" alt="">
 <br>
 <br>
-<div class="bg-light p-3">
- <h5 style="background:black;" class="text-warning pl-2  p-3">ENVIOS EXPRESS <span style="font-size:25px; "><i class="fas fa-award"></i></span> </h5>
+<div style="width: 90%; margin-left:5%;box-shadow:3px 3px 6px black;border-radius:5px;" class="bg-light p-3">
+ <h6 style="background:black;" class="text-warning pl-2  p-3">ENVIOS EXPRESS <span style="font-size:25px; "><i class="fas fa-award"></i></span> </h6>
 <hr>
-<h5 class="bg-light pl-2 ">PAGO SEGURO USANDO MERCADOPAGO</h5>
+<h6 class="bg-light pl-2 ">PAGO SEGURO USANDO MERCADOPAGO</h6>
 <hr>
-<h5 class="bg-light pl-2">ENVIOS A TRAVES DE LAS MEJORES EMPRESAS DE MENSAJERIA<br><br>
+<h6 class="bg-light pl-2">ENVIOS A TRAVES DE LAS MEJORES EMPRESAS DE MENSAJERIA<br><br>
 <a href="#">-Interrapidisimo</a><br>
 <a href="#">-Servientrega</a><br>
 <a href="#">-Coordinadora</a><br>
-</h5>
+</h6>
 <hr>
-<h5 class="bg-light pl-2 ">ENVIOS A TODA COLOMBIA</h5>
+<h6 class="bg-light pl-2 ">ENVIOS A TODA COLOMBIA</h6>
 <hr>
-<h5 class=" pl-2 p-3 text-light bg-success">TARIFA ENVIOS EXPRESS :</h5>
+<h6 class=" pl-2 p-3 text-light bg-success">TARIFA ENVIOS EXPRESS :</h6>
 
 
  <div class="card tarifas">
@@ -343,7 +362,7 @@ if(isset($_SESSION['user'])){
 </div>
 <br>
 <div class="container">
-    <div class="bg-light p-3">
+    <div style="box-shadow:3px 3px 6px black;" class="bg-light p-3">
         Los enviós en portal orion cuentan con garantia por 
         perdidas o daños del producto, recuerda que el costo del domicilio 
         sin pago contra entrega
@@ -354,7 +373,7 @@ if(isset($_SESSION['user'])){
 </div>
 <br>
 <div class="container">
-    <div class="bg-light p-3">
+    <div style="box-shadow:3px 3px 6px black;" class="bg-light p-3">
       
     El costo de los envios de cualquier indole los determina directamente Portal Orion, 
     nos reservamos el derecho de cobro para los envios, este costo se calcula, segun la distancia,
@@ -376,6 +395,16 @@ require_once 'footer.php';
   <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
   <script src="librerias/icons/js/all.js"></script>
   <script src="js/navigation.js"></script>
+  <script>
+
+  $('.cerrar').on('click',function(){
+
+    $('#rastreo').remove();
+
+  });
+
+
+  </script>
 
   <?php
 
@@ -389,6 +418,11 @@ if(!isset($_SESSION['user'])){
 
 }
 
+if(isset($_POST['id_pedido'])){
+
+  unset($_POST['id_pedido']);
+
+}
 
 
 ?>

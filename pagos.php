@@ -2,6 +2,11 @@
 
 session_start();
 
+if(isset($_SESSION['venta-pagos'])){
+
+    $_POST=$_SESSION['venta-pagos'];
+}
+
 //var_dump($_SESSION);
 
 if(isset($_GET['response'])){
@@ -150,6 +155,8 @@ if(isset($producto[0])){
 
 <?php
 
+
+
 if(!isset($_POST['nombre-producto'])){
 
     echo '<img class="pago-seguro" src="api/assets/img/banner-pagos.gif" alt="">
@@ -255,7 +262,7 @@ if(isset($_POST['comprar'])){
 
     }
 
-    if($pago_contra_entrega && intval($subtotal)!=0){
+    if($pago_contra_entrega && intval($subtotal)!==0){
 
 
 
@@ -303,15 +310,15 @@ if(isset($_POST['comprar'])){
 
         <div class="fondo-verde2 text-light d-flex justify-content-center p-2"><h5>¿Cómo deseas pagar?</h5></div>
         <hr>
-        <div class="d-flex justify-content-between" style="color:green;">
-        <p class="p-1 d-flex justify-content-center">contra-entrega</p>
-        <p class="p-1 d-flex justify-content-center">on-line</p>
+        <div class="d-flex justify-content-between" style="color:green;width:80%;margin-left:5%;">
+        <p  class="p-1 ">contraentrega</p>
+        <p class="p-1 ">online</p>
         </div>
         <div class="d-flex ">
         
                <div style="width:48%;" class="d-block">
                
-               <img src="api/assets/img/metodos-pago/pago-contra-entrega3.png" style="width:100%;box-shadow:3px 3px 6px black;margin-right:35px;border:2px solid green;">
+               <a href="formulario1.php" ><img src="api/assets/img/metodos-pago/contraentrega-btn.jpg" style="width:100%;box-shadow:4px 4px 7px black;margin-right:35px;border-radius:10px;"></a>
                
                </div>
 
@@ -319,9 +326,9 @@ if(isset($_POST['comprar'])){
                
 
 
-               <div style="width:48%;padding:5px;box-shadow:3px 3px 6px black;margin-left:35px;border:2px solid green;" class="d-block">
+               <div style="width:48%;box-shadow:4px 4px 7px black;margin-left:35px;border-radius:10px;" class="d-block">
 
-               <img src="api/assets/img/metodos-pago/online.png" style="width:90%;">
+               <a href="formulario2.php"><img src="api/assets/img/metodos-pago/online-btn.jpg" style="width:100%;border-radius:10px;"></a>
                </div>
 
         </div>
@@ -329,59 +336,52 @@ if(isset($_POST['comprar'])){
         <br>
         </div>';
 
-/*<a href="formulario1.php" class="btn btn-block btn-success"><h3>Pagar contra-entrega</h3></a>
-        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online (Incluye pagos en efectivo)</h3> </a> */
-
-    }else if(!$pago_contra_entrega && intval($subtotal)!=0){
 
 
 
-        //opciones usuario
-        if($_SESSION['user']){
 
-            $_SESSION['user']['carrito']=$_POST;
+    }else if(!$pago_contra_entrega && intval($subtotal)!==0){
 
-            echo '
-            
-            <br>
-            <div class="container alert text-dark alert-light">
-        
-            <h6>'.strtoupper($_SESSION['user'][0]['nombre']).', COMPRA CON UN SOLO CLICK;</h6>
-            <hr>
-            <div class="fondo-verde d-flex justify-content-center p-2"><h4>Formas de pago para : '.$_POST['destino-producto'].'</h4></div>
-            <hr>
-            <a href="newform.php?pago=online" class="btn btn-success btn-block"><h3>PAGAR ONLINE</h3></a>
-            <a href="#" class="btn btn-warning btn-block"><h3>CREAR PAQUETE</h3><small><strong>DISPONIBLE PRÓXIMAMENTE</strong></small></a>
-            </div>
-            <br>
-        
-           
-            ';
-        
-        
-        }
+
 
 
         //var_dump("pago contra entrega deshabilitado");
 
         echo '
         <br>
-        <div class="container alert alert-light">
-        <h4>Pagar como invitado</h4><br>
-        <div class="fondo-verde d-flex justify-content-center p-2"><h4>Formas de pago para : '.$_POST['destino-producto'].'</h4></div>
+        <br>
+        <div style="width:90%;margin-left:5%;box-shadow:3px 3px 6px black;background:white;" class=" p-3">
+        <h6 style="color:grey;">Ya casi es tuyo, pagas como invitado</h6><br>
+
+        <div class="fondo-verde2 text-light d-flex justify-content-center p-2"><h5>¿Cómo deseas pagar?</h5></div>
         <hr>
-        
-       
-        <a href="formulario2.php" class="btn btn-block btn-success"><h3>Pagar online (Incluye pagos en efectivo)</h3> </a>
-        
+        <div class="d-flex justify-content-center" style="color:green;">
+    
+        <p class="p-1 d-flex justify-content-center">online</p>
         </div>
+        <div class="block">
+        
+               
+
+
+               
+
+
+               <div style="width:70%;box-shadow:4px 4px 7px black;margin-left:15%;border-radius:10px;" class="d-block">
+
+               <a href="formulario2.php"><img src="api/assets/img/metodos-pago/online-btn.jpg" style="width:100%;border-radius:10px;"></a>
+               </div>
+
+        </div>
+        
         <br>
-        <br>
-        <hr>
-        <br>
-        <br>
+        </div>
         ';
-    }else if($subtotal==0){
+
+
+
+
+    }else if($subtotal===0){
 
         echo '
 
@@ -449,7 +449,7 @@ if(!isset($_SESSION['user'])){
 
 }
 
-
+$_SESSION['venta-pagos']=$_POST;
 
 ?>
 </body>

@@ -11,11 +11,22 @@ menu.addEventListener('click',()=>{
             <div class="contenedor-menu p-3">
 
                 <div class="d-flex justify-content-end btn-cerrar-menu"><span style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span></div>
+                <br>
+                <div class="btn btn-success btn-block ver-cate"><h6>Ver categorias</h6></div>
+                <br>
+                <div style="height:350px;overflow-y:scroll;" class="contenedor-cate d-none bg-light p-2">
+                <br>
+               
+
+                </div>
+                      
+
+                <br>
             
                 <form class="bg-light text-dark p-2" action="usuarios/autenticacion.php" method="POST">
                     <br>
 
-                    <div class="fondo-verde p-2 d-flex justify-content-center">Identificate</div>
+                    <div class="fondo-verde2 text-light p-2 d-flex justify-content-center">Identificate</div>
                     <br>
 
                     <label>Correo electronico: </label>
@@ -41,7 +52,7 @@ menu.addEventListener('click',()=>{
                 <form class="bg-light text-dark p-2" action="usuarios/registro.php" method="POST">
                     <br>
 
-                    <div class="fondo-verde p-2 d-flex justify-content-center">Registrate y empieza a comprar online de forma segura</div>
+                    <div class="fondo-verde2 text-light p-2 d-flex justify-content-center">Registrate y empieza a comprar online de forma segura</div>
                     <br>
 
                     <label>Nombre :</label>
@@ -90,6 +101,61 @@ menu.addEventListener('click',()=>{
     
     `);
 
+    
+    fetch('api/interfaces/categorias.php')
+    .then(response=>response.json())
+    .then(response=>{
+
+
+        console.log(response);
+
+        for(let f=0;f<response.length;f++){
+
+            $('.contenedor-cate').append(`
+
+            <a href="categoria.php?categoria=${response[f].nombre}" class="btn btn-success btn-block">${response[f].nombre}</a>
+            <br>
+            
+            `);
+        }
+
+        
+
+        
+
+
+
+    })
+
+
+   
+
+    let contador=1;
+    $('.ver-cate').on('click',function(){
+
+     
+
+        if(contador % 2 === 0){  
+
+            $('.ver-cate').empty();
+            $('.ver-cate').append('<h6>Ver Categorias </h6>');
+        
+        }else{
+
+            $('.ver-cate').empty();
+            $('.ver-cate').append('<h6>Cerrar Categorias</h6>');
+
+        }
+
+
+        $('.contenedor-cate').toggleClass('d-none');
+
+        contador++;
+
+
+
+    })
+
 
 
 
@@ -103,7 +169,9 @@ menu.addEventListener('click',()=>{
 
 
 
+
+
+
+
 });
-
-
 

@@ -48,32 +48,33 @@ require 'componentes-interfaces/nav.php';
 
   <div class="container">
       
-      <a href="producto.php?id=<?php echo $_SESSION['venta']['id_producto'] ?>" class="btn btn-success"><h3><img style="width:80px;" src="<?php echo $_SESSION['venta']['img'] ?>" class="img-ubicacion">  /  <i class="fas fa-arrow-left"></i> Producto</h3></a>
+      <a href="pagos.php" class="btn btn-success"><h6><i class="fas fa-money-check-alt"></i>  /  <i class="fas fa-arrow-left"></i> Formas de pago</h6></a>
 
     </div>
 
 <br>
-<div class="fondo-verde p-3 d-flex justify-content-center"><h3 class="bg-light p-2">TU COMPRA</h3></div>
+<div style="width:90%;box-shadow:3px 3px 6px black;margin-left:5%;" class="fondo-verde2 text-light p-2 d-flex justify-content-center btn-data"><h5>Datos de la compra</h5></div>
 
 
 
-<div class="fondo-verde  p-2">
+<div style="width:90%;box-shadow:3px 3px 6px black;margin-left:5%;" class="bg-light data-pay d-none  p-2 ">
 
-<h5 class="bg-light p-2"> <?php echo $_SESSION['venta']['producto'] ?> <img style="width: 70px; height:60px;" src="<?php  echo $_SESSION['venta']['img'] ?>"></h5>
-<h5 class="bg-light p-2"> Productos: $ <?php echo number_format( floatval($_SESSION['venta']['subtotal']), 0, ".", ",") ?> pesos cop</h5>
-<h5 class="bg-light p-2"> Envio: $ <?php echo number_format( floatval($_SESSION['venta']['envio']), 0, ".", ",") ?> pesos cop</h4>
-<h5 class="bg-light p-2"> Total a Pagar: $ <?php echo number_format( floatval($_SESSION['venta']['total']), 0, ".", ",") ?> pesos cop</h4>
+<h6 class="bg-light p-2"> <?php echo $_SESSION['venta']['producto'] ?> <img style="width: 50px; height:40px;" src="<?php  echo $_SESSION['venta']['img'] ?>"></h6><hr>
+<h6 class="bg-light p-2"> Productos: $ <?php echo number_format( floatval($_SESSION['venta']['subtotal']), 0, ".", ",") ?> pesos cop</h6><hr>
+<h6 class="bg-light p-2"> Envio: $ <?php echo number_format( floatval($_SESSION['venta']['envio']), 0, ".", ",") ?> pesos cop</h6><hr>
+<h6 class="bg-light p-2"> Total a Pagar: $ <?php echo number_format( floatval($_SESSION['venta']['total']), 0, ".", ",") ?> pesos cop</h6>
 
 </div>
-<hr>
-<div class="fondo-verde  d-flex justify-content-center"><h5 style="box-shadow: 4px 4px 6px black;" class="bg-light p-2"><strong>FORMA DE PAGO: CONTRA-ENTREGA</strong></h5></div>
+<br>
 
-<div class="fondo-verde p-3">
+<br>
+<div style="width:90%;margin-left:5%;box-shadow:3px 3px 6px black;" class="fondo-verde2 p-2 text-light  d-flex justify-content-center"><strong>PAGAS CONTRA ENTREGA</strong></div>
 
+<div style="width:90%;margin-left:5%;box-shadow:3px 3px 6px black;" class="bg-light p-2">
+<small class="d-flex justify-content-center" style="color:grey;">Enviar  pedido a :</small>
 
   <form class="bg-light p-3" action="ventas/addventa.php" method="POST">
-  <br>
-  <br>
+
   <label for="">Nombre destinatario :</label><br>
   <input name="nombre-cliente" type="text" required>
   <br>
@@ -98,13 +99,15 @@ require 'componentes-interfaces/nav.php';
   <input name="direccion-cliente" type="text" required>
   <br>
   <br>
+  <small style="color:grey;">Emitimos factura de garantia </small>
+  <br>
   
   <input class="d-none" type="text"  name="metodo-pago" value="contra-entrega">
   <input class="d-none" type="text"  name="name-product" value="<?php echo $_SESSION['venta']['producto'] ?>">
   <input class="d-none" type="text"  name="cantidad-product" value="<?php echo $_SESSION['venta']['cantidad'] ?>">
-  <button type="submit" class="btn btn-block btn-success"><h1>Finalizar compra</h1></button>
+  <button style="box-shadow:3px 3px 6px black;" type="submit" class="btn btn-block btn-success"><h4>Finalizar compra</h4></button>
 
-
+<br>
 
   </form>
 </div>
@@ -113,12 +116,12 @@ require 'componentes-interfaces/nav.php';
 
 
 
-<div class="fondo-verde p-3">
-  <div class="bg-light p-2">
-   <h5> Recuerda que si el domiciliario no se puede contactar contigo tu 
-    pedido sera <strong style="color:red;">CANCELADO</strong>, debes estar pendiente del numero de contacto que pongas en el formulario.</h5>
+<div style="color:grey;"  class=" p-3">
+  <div style="box-shadow:3px 3px 6px black;" class="bg-light p-3">
+   <small> Recuerda que si el domiciliario no se puede contactar contigo tu 
+    pedido sera <strong style="color:red;">CANCELADO</strong>, debes estar pendiente del numero de contacto que pongas en el formulario.</small>
     <br>
-    <h5>La llamada de confirmacion se realiza entre 10 y 15 mintos despues de hacer efectiva la compra </h5>
+  
   </div>
 </div>
 
@@ -134,11 +137,20 @@ require_once 'footer.php';
     
 
 
-<hr>
   <script src="librerias/jquery/jquery-3.5.1.js"></script>
   <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
   <script src="librerias/icons/js/all.js"></script>
   <script src="js/navigation.js"></script>
+  <script>
+
+    $('.btn-data').on('click',function(){
+
+      $('.data-pay').toggleClass('d-none');
+
+    });
+  
+  
+  </script>
   <?php
 
 if(!isset($_SESSION['user'])){

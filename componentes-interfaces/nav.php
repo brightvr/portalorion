@@ -4,7 +4,7 @@
    
    <form style="width: 48%; margin-left:-25px;" class="d-flex justify-content-center">
      <input style="width: 100%;" class="form-control" type="search" placeholder="buscar producto" aria-label="Search">
-     <button  class="btn btn-success buscar-nav" type="submit"><i class="fas fa-search"></i></button>
+    
 
    </form>
 

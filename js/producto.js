@@ -1,7 +1,7 @@
 'use strict'
 
 //format price 
-const FormatMoney = (price)=>{
+const FormatPrice = (price)=>{
 
     let format = new Intl.NumberFormat().format(parseInt(price));
 
@@ -20,11 +20,13 @@ const PullDelivery = (path, data)=>{
     .then(response=>response.json())
     .then(response=>{
 
-        //console.log(response);
+        console.log(response);
         
         setTimeout(()=>{
 
-            PrintDelivery($('.envio'),FormatMoney(response[0].precio3kg),response[1],response[2],response[3],response[4]);
+            PrintDelivery($('.envio'),FormatPrice(response[0].precio3kg),response[1],response[2],response[3],response[4]);
+
+            document.getElementById('destino-entrega').value=response[0].nombre_lugar;
 
 
         },500)
@@ -165,4 +167,107 @@ less.addEventListener('click',()=>{
     cuantity.value = LessCuantity(parseInt(cuantity.value),parseInt(stock.value))
 
 });
+
+
+//these are all controls of product's cards 
+
+let inputProducts = document.getElementsByClassName('cantidad-1');
+let btnMore = document.getElementsByClassName('mas-1');
+let btnLess = document.getElementsByClassName('menos-1');
+let stockProducts = document.getElementsByClassName('stock-1');
+
+
+for(let k = 0;k<inputProducts.length;k++){
+
+
+    btnMore[k].addEventListener('click',()=>{
+
+      
+
+        if(parseInt(inputProducts[k].value)<parseInt(stockProducts[k].value)){
+
+
+            inputProducts[k].value=(parseInt(inputProducts[k].value)+1);
+
+     
+
+        }
+
+
+        if(parseInt(inputProducts[k].value)===0 && stockProducts[k].value!==0){
+
+            inputProducts[k].value=1;
+        }
+
+
+
+     if(parseInt(inputProducts[k].value)===stockProducts[k].value ){
+
+            inputProducts[k].value=stockProducts[k].value;
+        }
+
+       
+    });
+
+
+    btnLess[k].addEventListener('click',()=>{
+
+       // console.log(parseInt(inputProducts[k].value));
+
+        if(parseInt(inputProducts[k].value)===parseInt(stockProducts[k].value) ){
+
+            inputProducts[k].value=(parseInt(inputProducts[k].value)-1);
+
+        }
+
+        if(parseInt(inputProducts[k].value)>1 && parseInt(stockProducts[k].value)!==0  ){
+
+            inputProducts[k].value=(parseInt(inputProducts[k].value)-1);
+
+        }
+        if(parseInt(inputProducts[k].value)===1 && parseInt(stockProducts[k].value)!==0  ){
+
+            inputProducts[k].value=1;
+
+        }
+        if(parseInt(stockProducts[k].value)===0 ){
+
+            inputProducts[k].value=0;
+
+        }
+        
+        
+        
+
+       
+    });
+
+
+        
+ 
+
+}
+
+
+//call btn sell  since phone
+
+let phone = $('.telefofono');
+
+ phone.on('click',function(){
+
+    $('.phone').empty();
+
+    $('.phone').append(`
+   
+    <p style="color:grey"><h6>
+    <br>
+    <hr>
+    <li>Llamanos al 3038915</li>
+    <li>Atencion: </li>
+    <li>lunes a viernes 9 a.m. - 6 p. m.</li>
+    </h6></p>
+    
+    `);
+
+ })
 
