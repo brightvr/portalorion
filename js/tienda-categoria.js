@@ -53,9 +53,9 @@
                         </div>
             
                         <div style="width: 50%;" class="d-block p-2 pl-3">
-                        <h5 style="margin-left:-128%;" class="pl-4"><strong>${data.nombre}</strong></h5>
+                        <h6 style="margin-left:-128%;" class="pl-4"><strong>${data.nombre}</strong></h6>
                         <hr>
-                        <h5><strong>$ ${formatMoney()} pesos</strong></h5>
+                        <h6><strong>$ ${formatMoney()} pesos</strong></h6>
                         <hr>
                         <div style="margin-left: -6%;"  class="d-flex p-2 ">
             
@@ -71,7 +71,7 @@
                       <div class="d-flex p-2">
                       <div style="width: 50%;" class="d-block p-2"> <a href="producto.php?id=${data.id_producto}" class="btn btn-danger btn-block">Ver producto</a> </div>     
                         <div style=" background: rgba(0, 0, 0, 0.178); width: 1px; height:50px;"></div>
-                        <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-warning btn-block">Añadir <i class="fas fa-cart-plus"></i></div> </div>
+                        <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-warning btn-block carrito">Añadir <i class="fas fa-cart-plus"></i></div> </div>
                  
                       </div>
                     
@@ -197,6 +197,7 @@
             let inputCuantity = document.getElementsByClassName('cantidad');
             let moreCuantity = document.getElementsByClassName('mas');
             let lessCuantity = document.getElementsByClassName('menos');
+            let cart = document.getElementsByClassName('carrito');
 
         
             for( let f=0; f<inputCuantity.length;f++){
@@ -213,7 +214,31 @@
                 
                 });
 
+
+                cart[f].addEventListener('click',()=>{
+
+                    //console.log($('.type-user').val());
+
+                    if($('.type-user').val()==="desconocido"){
+
+                        $('.contenedor-msg').toggleClass('d-none');
+                    
+                    }else{
+
+
+                    }
+            
+            
+                });
+            
+
             }
+
+           
+
+
+
+
 
         },500);
     }
@@ -263,6 +288,8 @@
             }else{
 
                 LogicCards(response);
+
+
 
             }
 
@@ -358,6 +385,12 @@
     }
 
    
+        $('.cart-wrogn').on('click',function(){
+            
+            $('.contenedor-msg').addClass('d-none');
+
+        })
 
 
-    
+
+

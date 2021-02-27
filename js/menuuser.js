@@ -12,9 +12,9 @@ menu.addEventListener('click',()=>{
 
                 <div class="d-flex justify-content-end btn-cerrar-menu"><span style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span></div>
                 <br>
-                <div class="btn btn-success btn-block ver-cate"><h6>Ver categorias</h6></div>
+                <div class="ver-cate"><img style="width:100%;" src="api/assets/img/metodos-pago/categoria-img.png"></div>
                 <br>
-                <div style="height:350px;overflow-y:scroll;" class="contenedor-cate d-none bg-light p-2">
+                <div style="height:350px;overflow-y:scroll;" class="contenedor-cate d-none bg-light p-3">
                 <br>
                
 
@@ -125,7 +125,7 @@ menu.addEventListener('click',()=>{
 
             $('.contenedor-cate').append(`
 
-            <a href="categoria.php?categoria=${response[f].nombre}" class="btn btn-success btn-block">${response[f].nombre}</a>
+            <a href="categoria.php?categoria=${response[f].nombre}" class="btn btn-success btn-block d-flex justify-content-start"><span style="font-size:20px;margin-right:15px;"><i class="fas fa-hand-point-right"></i></span> ${response[f].nombre}</a>
             <br>
             
             `);
@@ -142,27 +142,14 @@ menu.addEventListener('click',()=>{
 
    
 
-    let contador=1;
     $('.ver-cate').on('click',function(){
 
      
 
-        if(contador % 2 === 0){  
-
-            $('.ver-cate').empty();
-            $('.ver-cate').append('<h6>Ver Categorias </h6>');
-        
-        }else{
-
-            $('.ver-cate').empty();
-            $('.ver-cate').append('<h6>Cerrar Categorias</h6>');
-
-        }
 
 
         $('.contenedor-cate').toggleClass('d-none');
 
-        contador++;
 
 
 

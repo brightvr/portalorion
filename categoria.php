@@ -78,7 +78,21 @@
 
 require 'componentes-interfaces/nav.php';
 
+if(isset($_SESSION['usuer'])){
+
+  $usuario="cliente";
+
+}else{
+
+  $usuario="desconocido";
+
+}
+
+
 ?>
+
+<input class="d-none type-user" type="text" value="<?php echo $usuario ?>">
+
   <div class="menu-apps">
 
         <div class=" vinculo iconos-menu " href="#"><i class="fas fa-house-user"></i></div>
@@ -87,6 +101,33 @@ require 'componentes-interfaces/nav.php';
         <div class=" vinculo iconos-menu " href="#"><i class="fas fa-truck"></i></div>
       </div>
   <br>
+
+
+
+
+
+  <div style="width:100%;height:100vh;background:black;z-index:999999999999;position:fixed;margin-top:-70px;" class="contenedor-msg  d-none p-2">
+
+<div style="width:100%;height:100vh;background:black;z-index:999999999999;position:absolute;" class="contenedor-msg  d-none p-2">
+
+  <div class="d-flex justify-content-end p-2 cart-wrogn"><span style="font-size:30px;color:red;"><i class="fas fa-window-close"></i></span></div>
+  <br>
+  <div style="width:90%;margin-left:5%;color:grey;;border-radius:10px;" class="bg-light p-3">
+   <img src="api/assets/img/metodos-pago/oops.png" style="width: 100%;">
+   <hr>
+    <h6><li>Al parecer no eres usuario registrado</li></h6>
+    <hr>
+    <h6><li>Para usar el carrito debes ser usuario registrado</li></h6>
+
+
+  </div>
+
+</div>
+
+</div>
+
+
+
 
  <div class="container">
         <a href="tienda.php" class="btn btn-success"><i class="fas fa-store"></i> / <i class="fas fa-arrow-left"></i> Tienda </a>
@@ -176,6 +217,7 @@ require 'componentes-interfaces/nav.php';
 
 
 <br><br>
+
 
 <div class="container-cards">
 <br>

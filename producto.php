@@ -108,7 +108,20 @@ if(isset($_SESSION['venta-pagos'])){
 
 require 'componentes-interfaces/nav.php';
 
+
+if(isset($_SESSION['usuer'])){
+
+  $usuario="cliente";
+
+}else{
+
+  $usuario="desconocido";
+
+}
+
 ?>
+
+<input class="d-none type-user" type="text" value="<?php echo $usuario ?>">
   <div class="menu-apps">
 
         <div class=" vinculo iconos-menu " href="#"><i class="fas fa-house-user"></i></div>
@@ -117,6 +130,37 @@ require 'componentes-interfaces/nav.php';
         <div class=" vinculo iconos-menu " href="#"><i class="fas fa-truck"></i></div>
       </div>
       <br>
+
+
+
+
+
+
+
+      <div style="width:100%;height:100vh;background:black;z-index:999999999999;position:fixed;margin-top:-70px;" class="contenedor-msg  d-none p-2">
+
+<div style="width:100%;height:100vh;background:black;z-index:999999999999;position:absolute;" class="contenedor-msg  d-none p-2">
+
+  <div class="d-flex justify-content-end p-2 cart-wrogn"><span style="font-size:30px;color:red;"><i class="fas fa-window-close"></i></span></div>
+  <br>
+  <div style="width:90%;margin-left:5%;color:grey;border-radius:10px;" class="bg-light p-3">
+    <img src="api/assets/img/metodos-pago/oops.png" style="width: 100%;">
+    <hr>
+    <h6><li>Al parecer no eres usuario registrado</li></h6>
+    <hr>
+    <h6><li>Para usar el carrito debes ser usuario registrado</li></h6>
+
+
+  </div>
+
+</div>
+
+</div>
+
+
+
+
+
 
      
 
@@ -208,6 +252,9 @@ require 'componentes-interfaces/nav.php';
           <div class="pt-2" style="color: grey;"><?php echo '<small>(disponibles: '.$producto[0]['stock'].')</small>' ?></div>
           </div>
           <br>
+          <div class="btn btn-warning btn-block add-carrito-principal">Añadir <i class="fas fa-cart-plus"></i></div>
+         
+          <br>
           <hr>
           <br>
           <label for="">Elige un destino :</label>
@@ -238,6 +285,8 @@ require 'componentes-interfaces/nav.php';
           </select><br>
           <small style="color: grey;">Veras el costo del envío en la parte de abajo</small>
           <input type="text" name="destino-producto" id="destino-entrega" value="" class="d-none">
+          
+         
           
           <br>
           <hr>
@@ -414,9 +463,9 @@ require 'componentes-interfaces/nav.php';
                         </div>
             
                         <div style="width: 50%;" class="d-block p-2 pl-3">
-                        <h5 style="margin-left:-128%;" class="pl-4"><strong>'.$allProducts[$h]['nombre'].'</strong></h5>
+                        <h6 style="margin-left:-128%;" class="pl-4"><strong>'.$allProducts[$h]['nombre'].'</strong></h6>
                         <hr>
-                        <h5><strong>$ '.number_format(floatval($allProducts[$h]['precio']),0,'.',',').' pesos</strong></h5>
+                        <h6><strong>$ '.number_format(floatval($allProducts[$h]['precio']),0,'.',',').' pesos</strong></h6>
                         <hr>
                         <div style="margin-left: -6%;"  class="d-flex p-2 ">
             
@@ -432,7 +481,7 @@ require 'componentes-interfaces/nav.php';
                       <div class="d-flex p-2">
                       <div style="width: 50%;" class="d-block p-2"> <a href="producto.php?id='.$allProducts[$h]['id_producto'].'" class="btn btn-danger btn-block">Ver producto</a> </div>     
                         <div style=" background: rgba(0, 0, 0, 0.178); width: 1px; height:50px;"></div>
-                        <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-warning btn-block">Añadir <i class="fas fa-cart-plus"></i></div> </div>
+                        <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-warning btn-block add-carrito">Añadir <i class="fas fa-cart-plus"></i></div> </div>
                  
                       </div>
                     

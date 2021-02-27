@@ -143,7 +143,7 @@ require 'componentes-interfaces/nav.php';
 
   ?>
 
-    <div class=" principal fondo-verde">
+    <div class=" principal fondo-verde2 text-light">
       Compras protegidas y pagos contra entrega
     </div>
 

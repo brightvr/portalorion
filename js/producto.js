@@ -271,3 +271,53 @@ let phone = $('.telefofono');
 
  })
 
+
+ //call add cart
+
+ $('.add-carrito').on('click',function(){
+
+    //console.log('click');
+
+    if($('.type-user').val()==="desconocido"){
+
+        $('.contenedor-msg').toggleClass('d-none');
+    
+    }else{
+
+
+    }
+
+
+
+ });
+
+
+
+ 
+ //______________________
+
+   
+ $('.cart-wrogn').on('click',function(){
+            
+    $('.contenedor-msg').addClass('d-none');
+
+})
+
+
+//_______________________
+
+
+$('.add-carrito-principal').on('click',function(){
+
+    if($('.type-user').val()==="desconocido"){
+
+        $('.contenedor-msg').toggleClass('d-none');
+    
+    }else{
+
+
+    }
+
+    
+
+})

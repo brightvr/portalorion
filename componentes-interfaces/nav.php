@@ -5,8 +5,8 @@
    
    <a class="navbar-brand ml-1" href="index.php"><img class="logo-orion" src="api/assets/img/logo-orion-claro.png" alt=""></a>
 
-   <form style="width: 48%; margin-left:-25px;" class="d-flex justify-content-center">
-     <input style="width: 100%;" class="form-control" type="search" placeholder="buscar producto" aria-label="Search">
+   <form method="POST" action="busqueda.php" style="width: 48%; margin-left:-25px;" class="d-flex justify-content-center">
+     <input name="buscar-producto" style="width: 100%;" class="form-control" type="search" placeholder="buscar producto" aria-label="Search">
     
 
    </form>
@@ -36,12 +36,13 @@
 
       }
 
-    document.getElementsByTagName('body')[0].innerHTML='<img style="width:100%;" src="api/assets/img/metodos-pago/banner-escritorio.jpg" >'
-    }
+      document.getElementsByTagName('body')[0].innerHTML='<img style="width:100%;" src="api/assets/img/metodos-pago/banner-escritorio.jpg" >'
+    
+    } 
 
 
 
-  },1000);
+  },2000);
 
 
 
