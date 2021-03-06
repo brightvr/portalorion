@@ -175,6 +175,8 @@ let inputProducts = document.getElementsByClassName('cantidad-1');
 let btnMore = document.getElementsByClassName('mas-1');
 let btnLess = document.getElementsByClassName('menos-1');
 let stockProducts = document.getElementsByClassName('stock-1');
+let cart = document.getElementsByClassName('add-carrito-1');
+let idProduct = document.getElementsByClassName('id-product');
 
 
 for(let k = 0;k<inputProducts.length;k++){
@@ -243,6 +245,74 @@ for(let k = 0;k<inputProducts.length;k++){
     });
 
 
+    cart[k].addEventListener('click',()=>{
+
+        //console.log($('.type-user').val());
+
+        if($('.type-user').val()==="desconocido"){
+
+            $('.contenedor-msg').toggleClass('d-none');
+        
+        }else{
+
+            
+
+            if(parseInt(inputProducts[k].value)===0){
+
+                $('#texto1').empty();
+                $('#texto2').empty();
+
+                $('#texto1').append(`No puedes agregar "0" unidades`);
+                $('#texto2').append(`Si no te permite añadir unidades es por que no hay stock disponible`);
+
+                $('.contenedor-msg').toggleClass('d-none');
+
+            }else{
+
+                cart[k].innerHTML=`
+                <div class="p-2 d-flex justify-content-center">
+                   <div style="width: 2rem; height: 2rem;" class="spinner-border text-success" role="status">
+                       
+                       <span class="sr-only">Loading...</span>
+ 
+                   </div>
+                 </div>
+                
+                `;
+ 
+                 const addCart = new FormData();
+                 
+                 //console.log("<?php //echo $_SESSION['user'][0]['id_usuario'] ?>");
+                 console.log(idProduct[k].value);
+                 addCart.append('add-product',idProduct[k].value);
+ 
+                 let path = "api/interfaces/addCart.php";
+ 
+                 fetch(path,{
+ 
+                   method : 'POST',
+                   body : addCart
+                 
+                 })
+                 .then(response=>response.json())
+                 .then(response=>{
+                    
+                    console.log(response);
+                   cart[k].innerHTML="Añadido";
+ 
+                 })
+                 
+ 
+
+
+            }
+
+        }
+
+
+    });
+
+
         
  
 
@@ -272,25 +342,6 @@ let phone = $('.telefofono');
  })
 
 
- //call add cart
-
- $('.add-carrito').on('click',function(){
-
-    //console.log('click');
-
-    if($('.type-user').val()==="desconocido"){
-
-        $('.contenedor-msg').toggleClass('d-none');
-    
-    }else{
-
-
-    }
-
-
-
- });
-
 
 
  
@@ -309,11 +360,67 @@ let phone = $('.telefofono');
 
 $('.add-carrito-principal').on('click',function(){
 
+ 
+
     if($('.type-user').val()==="desconocido"){
 
         $('.contenedor-msg').toggleClass('d-none');
     
     }else{
+
+
+        if(parseInt(cuantity.value)===0){
+
+            $('#texto1').empty();
+            $('#texto2').empty();
+
+            $('#texto1').append(`No puedes agregar "0" unidades`);
+            $('#texto2').append(`Si no te permite añadir unidades es por que no hay stock disponible`);
+
+            $('.contenedor-msg').toggleClass('d-none');
+
+        }else{
+            
+            $('.add-carrito-principal').empty();
+
+            $('.add-carrito-principal').append(`
+            <div class="p-2 d-flex justify-content-center">
+               <div style="width: 2rem; height: 2rem;" class="spinner-border text-success" role="status">
+                   
+                   <span class="sr-only">Loading...</span>
+
+               </div>
+             </div>
+            
+            `);
+
+             const addCart = new FormData();
+             
+             //console.log("<?php //echo $_SESSION['user'][0]['id_usuario'] ?>");
+             console.log(cuantity.value);
+             addCart.append('add-product',cuantity.value);
+
+             let path = "api/interfaces/addCart.php";
+
+             fetch(path,{
+
+               method : 'POST',
+               body : addCart
+             
+             })
+             .then(response=>response.json())
+             .then(response=>{
+                
+                console.log(response);
+                $('.add-carrito-principal').empty();
+                $('.add-carrito-principal').append("Añadido");
+
+             })
+             
+          
+
+
+        }
 
 
     }

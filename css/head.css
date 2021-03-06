@@ -45,59 +45,7 @@ body{
     margin-left: -28px;
 }
 
-.buscar-nav{
 
-    margin-left:130px;
-    position: absolute;
-    
-}
-@media(min-width:368px){
-
-    .buscar-nav{
-
-        margin-left:155px;
-       
-    }
-    
-}
-@media(min-width:400px){
-
-    .buscar-nav{
-
-        margin-left:185px;
-       
-    }
-    
-}
-@media(min-width:500px){
-
-    .buscar-nav{
-
-        margin-left:205px;
-       
-    }
-    
-}
-@media(min-width:545px){
-
-    .buscar-nav{
-
-        margin-left:235px;
-       
-    }
-    
-}
-
-@media(min-width:600px){
-
-    .buscar-nav{
-
-        position: relative;
-        margin-left:0px;
-    
-    }
-    
-}
 
     
 
@@ -115,11 +63,7 @@ body{
         width: 150px;
     }
 
-    .buscar-nav{
 
-        margin-left:0px;
-        position: relative;
-    }
     
 }
 
@@ -197,6 +141,13 @@ body{
     margin-top:-110px;
 }
 
+.sabana2{
+    background: rgba(0, 0, 0, 0.507);
+    width: 100%;
+    height: 100%;
+}
+
+
 .contenedor-menu{
 
 
@@ -214,10 +165,19 @@ body{
         height: 58px;
     }
 
-.icono-user{
+    .icono-user{
 
-    font-size: 33px;
-    
+        font-size: 33px;
+        
+    }
+
 }
 
+
+
+.new-place2{
+
+    width: 100%;
+    height: 100%;
+    z-index: 999999999999999999999999999;
 }

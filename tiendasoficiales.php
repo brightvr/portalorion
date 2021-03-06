@@ -80,12 +80,12 @@ require 'componentes-interfaces/nav.php';
 
   <div class="container">
   
-    <div class="fondo-verde p-2 d-flex justify-content-center"><h3>Tiendas Oficiales</h3></div>  
+    <div class="fondo-verde2 text-light p-2 d-flex justify-content-center"><h4>Tiendas Oficiales</h4></div>  
   
   </div>
   <br>
   <br>
-  <div class="container p-3 bg-light">
+  <div style="margin-left:5%;width:90%;box-shadow:3px 3px 6px black;" class="container p-3 bg-light">
   
     <div class="d-flex justify-content-center"><h5>Encuentra diferentes tiendas por tematicas</h5></div>
     <div class="d-flex justify-content-center"><small>

@@ -275,33 +275,48 @@ if(isset($_POST['comprar'])){
 
             $_SESSION['user']['carrito']=$_POST;
 
-
+                //var_dump($_SESSION);
 
             echo '
             
             <br>
-            <div class="container alert  alert-light">
-        
-            <h4>'.strtoupper($_SESSION['user'][0]['nombre']).', COMPRA CON UN SOLO CLICK</h4>
-            <hr>
-            <div class="fondo-verde d-flex justify-content-center p-2"><h4>Formas de pago para : '.$_POST['destino-producto'].'</h4></div>
-            <hr>
-            <a href="newform.php?pago=contra-entrega" class="btn btn-success btn-block"><h3>PAGAR CONTRA-ENTREGA</h3></a>
-            <a href="newform.php?pago=online" class="btn btn-success btn-block"><h3>PAGAR ONLINE</h3></a>
-            <a href="#" class="btn btn-warning btn-block"><h3>CREAR PAQUETE</h3><small><strong>DISPONIBLE PRÓXIMAMENTE</strong></small></a>
-            </div>
+            <div style="width:90%;margin-left:5%;box-shadow:3px 3px 6px black;background:white;" class=" p-3">
+            <small style="color:grey;">'.$_SESSION['user'][0]['nombre'].', como usuario registrado protegemos tu compra dandote garantia de reembolso de  14 días</small><br>
             <br>
-        
+            <div class="fondo-verde2 text-light d-flex justify-content-center p-2"><h5>¿Cómo deseas pagar?</h5></div>
+            <hr>
+            <div class="d-flex justify-content-between" style="color:green;width:80%;margin-left:5%;">
+            <p  class="p-1 ">contraentrega</p>
+            <p class="p-1 ">online</p>
+            </div>
+            <div class="d-flex ">
+            
+                   <div style="width:48%;" class="d-block">
+                   
+                   <a href="newform.php?pago=contra-entrega" ><img src="api/assets/img/metodos-pago/contraentrega-btn.jpg" style="width:100%;box-shadow:4px 4px 7px black;margin-right:35px;border-radius:10px;"></a>
+                   
+                   </div>
+    
+    
+                   
+    
+    
+                   <div style="width:48%;box-shadow:4px 4px 7px black;margin-left:35px;border-radius:10px;" class="d-block">
+    
+                   <a href="newform.php?pago=online"><img src="api/assets/img/metodos-pago/online-btn.jpg" style="width:100%;border-radius:10px;"></a>
+                   </div>
+    
+            </div>
+            
+            <br>
+            </div>
            
             ';
         
         
-        }
+        }else{
 
-
-        
-
-        //var_dump("Pago contra entrega habilitado");
+             //var_dump("Pago contra entrega habilitado");
 
         echo '
         <br>
@@ -338,6 +353,15 @@ if(isset($_POST['comprar'])){
 
 
 
+        }
+
+
+        
+
+       
+
+
+
 
 
     }else if(!$pago_contra_entrega && intval($subtotal)!==0){
@@ -347,36 +371,90 @@ if(isset($_POST['comprar'])){
 
         //var_dump("pago contra entrega deshabilitado");
 
-        echo '
-        <br>
-        <br>
-        <div style="width:90%;margin-left:5%;box-shadow:3px 3px 6px black;background:white;" class=" p-3">
-        <h6 style="color:grey;">Ya casi es tuyo, pagas como invitado</h6><br>
 
-        <div class="fondo-verde2 text-light d-flex justify-content-center p-2"><h5>¿Cómo deseas pagar?</h5></div>
-        <hr>
-        <div class="d-flex justify-content-center" style="color:green;">
+        if(isset($_SESSION['user'])){
+
+
+            $_SESSION['user']['carrito']=$_POST;
+
+                //var_dump($_SESSION);
+
+            echo '
+            
+            <br>
+            <div style="width:90%;margin-left:5%;box-shadow:3px 3px 6px black;background:white;" class=" p-3">
+            <small style="color:grey;">'.$_SESSION['user'][0]['nombre'].', como usuario registrado protegemos tu compra dandote garantia de reembolso de  14 días</small><br>
+            <br>
+            <div class="fondo-verde2 text-light d-flex justify-content-center p-2"><h5>¿Cómo deseas pagar?</h5></div>
+            <hr>
+            <div class="d-flex justify-content-center" style="color:green;width:80%;margin-left:5%;">
+            <p class="p-1 ">online</p>
+            </div>
+            <div class="block">
+            
+                   
     
-        <p class="p-1 d-flex justify-content-center">online</p>
-        </div>
-        <div class="block">
+    
+                   
+    
+    
+            <div style="width:70%;box-shadow:4px 4px 7px black;margin-left:15%;border-radius:10px;" class="d-block">
+
+            <a href="newform.php?pago=online"><img src="api/assets/img/metodos-pago/online-btn.jpg" style="width:100%;border-radius:10px;"></a>
+            </div>
+
+     </div>
+     
+     <br>
+            
+            <br>
+            </div>
+           
+            ';
         
-               
-
-
-               
-
-
-               <div style="width:70%;box-shadow:4px 4px 7px black;margin-left:15%;border-radius:10px;" class="d-block">
-
-               <a href="formulario2.php"><img src="api/assets/img/metodos-pago/online-btn.jpg" style="width:100%;border-radius:10px;"></a>
-               </div>
-
-        </div>
         
-        <br>
-        </div>
-        ';
+        }else{
+
+
+            echo '
+            <br>
+            <br>
+            <div style="width:90%;margin-left:5%;box-shadow:3px 3px <div class="bg-light p-3">
+            <h5>Recuerda que para poder pagar debes ser mayor de edad, 
+            mercado pago te pedira tu numero de identificacion (cédula de ciudadania)
+            para verfificar que seas <strong>mayor de edad </strong>
+            </h5>
+            </div> 6px black;background:white;" class=" p-3">
+            <h6 style="color:grey;">Ya casi es tuyo, pagas como invitado</h6><br>
+    
+            <div class="fondo-verde2 text-light d-flex justify-content-center p-2"><h5>¿Cómo deseas pagar?</h5></div>
+            <hr>
+            <div class="d-flex justify-content-center" style="color:green;">
+        
+            <p class="p-1 d-flex justify-content-center">online</p>
+            </div>
+            <div class="block">
+            
+                   
+    
+    
+                   
+    
+    
+                   <div style="width:70%;box-shadow:4px 4px 7px black;margin-left:15%;border-radius:10px;" class="d-block">
+    
+                   <a href="formulario2.php"><img src="api/assets/img/metodos-pago/online-btn.jpg" style="width:100%;border-radius:10px;"></a>
+                   </div>
+    
+            </div>
+            
+            <br>
+            </div>
+            ';
+
+        }
+
+
 
 
 
@@ -388,10 +466,10 @@ if(isset($_POST['comprar'])){
         <br>
         <div class="container alert alert-light">
 
-        <div class="fondo-verde d-flex justify-content-center p-2"><h4>Formas de pago para : '.$_POST['destino-producto'].'</h4></div>
+        <div class="fondo-verde d-flex justify-content-center p-2"><h5>Formas de pago para : '.$_POST['destino-producto'].'</h5></div>
         <hr>
         
-        <div class="btn btn-block btn-danger"><h3>ESTE PRODUCTO ACTUALMENTE NO SE ENCUENTRA DISPONIBLE </h3></div>
+        <div class="btn btn-block btn-danger"><h4>ESTE PRODUCTO ACTUALMENTE NO SE ENCUENTRA DISPONIBLE </h4></div>
      
         
         </div>

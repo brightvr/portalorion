@@ -1,5 +1,9 @@
 <?php
   session_start();
+
+
+
+
   $_SESSION['index.php']=true;
   
   if(isset($_SESSION['categoria.php'])){
@@ -1677,7 +1681,6 @@ require 'componentes-interfaces/nav.php';
 
       <div class="carousel-caption ">
       <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[0]['id_producto'] ?>"> <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[0]['nombre'] ?></h5></a>
-      <a style="text-decoration: none;color:white;" href="producto.php?id=<?php echo $productos2[0]['id_producto'] ?>"> <p style="background: rgba(0, 0, 0, 0.650); padding:10px;"><?php echo $productos2[0]['info_corta'] ?></p></a>
       </div>
     </div>
 
@@ -1689,7 +1692,6 @@ require 'componentes-interfaces/nav.php';
           <a style="text-decoration: none;color:white;" href="producto.php?id='.$productos4[$f]['id_producto'].'"> <img src="'.$productos4[$f]['img'] .'" class="d-block w-100" alt="...">
             <div class="carousel-caption ">
             <a style="text-decoration: none;color:white;" href="producto.php?id='.$productos4[$f]['id_producto'].'">  <h5 style="background: rgba(0, 0, 0, 0.650); padding:10px;">'.$productos4[$f]['nombre'].'</h5></a>
-            <a style="text-decoration: none;color:white;" href="producto.php?id='.$productos4[$f]['id_producto'].'">  <p style="background: rgba(0, 0, 0, 0.650); padding:10px;">'.$productos4[$f]['info_corta'].'></p></a>
             </div>
           </div>';
         }
@@ -1880,10 +1882,10 @@ require 'componentes-interfaces/nav.php';
 <br>
 <hr>
 <br>
-  <div class="container d-flex flex-wrap justify-content-center">
+  <div style="font-size: 12px;" class="container d-flex flex-wrap justify-content-center">
 
     <div class="pagos p-3">
-      <h2><span class="icon-pay"><i class="fas fa-credit-card"></i> </span>  Formas de Pago</h2>
+      <h3><span class="icon-pay"><i class="fas fa-credit-card"></i> </span>  Formas de Pago</h3>
       <hr>
       <p>  Contra entrega <span class="icon-pay"><i class="fas fa-motorcycle"></i> </span></p><br>
       <p>Efecty- Baloto <span ><img class="icono-pagos" src="api/assets/img/efecty-logo.png" alt=""> </span></p>
@@ -1898,19 +1900,19 @@ require 'componentes-interfaces/nav.php';
     </div>
 
     <div class="envios p-3">
-      <h2><span class="icon-pay"><i class="fas fa-truck"></i> </span> Formas de Envio</h2>
+      <h3><span class="icon-pay"><i class="fas fa-truck"></i> </span> Formas de Envio</h3>
       <hr>
 
       <p style="background: black;box-shadow: 50%;"><img class="envios-orion" src="api/assets/img/envios-orion.png" alt=""></p>
       <br>
       <p>Tipos de envíos:</p>
       <hr>
-      <p ><span style="font-size:25px; color:green;"><i class="fas fa-trophy"></i></span>
+      <p ><span style="font-size:20px; color:green;"><i class="fas fa-trophy"></i></span>
        <strong style="color:green;">Premium:</strong> Pagas cuando recibes el producto, te llega el mismo día.</p>
      
       <hr>
       
-      <p> <span style="font-size:25px; color:green;"><i class="fas fa-shield-alt"></i></span> 
+      <p> <span style="font-size:20px; color:green;"><i class="fas fa-shield-alt"></i></span> 
       <strong style="color:green;">Express:</strong> Pagas online, te llega de 1  a 5 días dependiendo de tu ubicación </p>
       
       <br>

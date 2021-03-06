@@ -6,8 +6,10 @@ ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 
 
-
 session_start();
+
+
+
 require_once 'conexion.php';
 
 if(isset($_GET['response'])){
@@ -43,6 +45,11 @@ if(isset($_GET['response'])){
   
   ';
 
+}
+
+if(!isset($_POST['buscar-producto'])){
+
+  header('location:categoria.php');
 }
 
 
@@ -82,7 +89,7 @@ while($response= mysqli_fetch_assoc($query)){
 
 require 'componentes-interfaces/nav.php';
 
-if(isset($_SESSION['usuer'])){
+if(isset($_SESSION['user'])){
 
   $usuario="cliente";
 
@@ -126,9 +133,9 @@ if(isset($_SESSION['usuer'])){
   <div style="width:90%;margin-left:5%;color:grey;;border-radius:10px;" class="bg-light p-3">
    <img src="api/assets/img/metodos-pago/oops.png" style="width: 100%;">
    <hr>
-    <h6><li>Al parecer no eres usuario registrado</li></h6>
+    <h6><li id="texto1">Al parecer no eres usuario registrado</li></h6>
     <hr>
-    <h6><li>Para usar el carrito debes ser usuario registrado</li></h6>
+    <h6><li id="texto2">Para usar el carrito debes ser usuario registrado</li></h6>
 
 
   </div>
@@ -148,12 +155,13 @@ if(isset($_SESSION['usuer'])){
 
 
 
-
-
+<div class="d-flex justify-content-end pl-3 pr-3">
+<a href="carrito.php" style="box-shadow:2px 2px 5px black;" class="btn btn-warning btn-block ">Carrito  <i class="fas fa-cart-plus"></i></a>
+</div>
     
 <div style="width:100%;" class=" cont-product p-1">
 
-
+<hr style="width:80%;margin-left:10%;">
 <div class="d-flex justify-content-center" style="color:grey;width:90%;margin-left:5%;"><h6 style="color:grey;"><li>Resultados para: "<?php echo $_POST['buscar-producto'] ?>" </li></h6></div>
 <hr style="width:80%;margin-left:10%;">
 <?php
@@ -186,6 +194,7 @@ if($productos===null){
     $price= number_format( floatval($productos[$i]['precio']), 0, '.', ',');
   
     echo '<br>
+    <input class="d-none id-product" value="'.$productos[$i]['id_producto'].'">
     <input class="d-none stock" value="'.$productos[$i]['stock'].'">
     <div class="contenedor">
   
@@ -216,7 +225,7 @@ if($productos===null){
           <div class="d-flex p-2">
           <div style="width: 50%;" class="d-block p-2"> <a href="producto.php?id='.$productos[$i]['id_producto'].'" class="btn btn-danger btn-block">Ver producto</a> </div>     
             <div style=" background: rgba(0, 0, 0, 0.178); width: 1px; height:50px;"></div>
-            <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-warning btn-block  add-cart">Añadir <i class="fas fa-cart-plus"></i></div> </div>
+            <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-warning btn-block carrito add-cart">Añadir <i class="fas fa-cart-plus"></i></div> </div>
      
           </div>
         
@@ -257,19 +266,7 @@ require_once 'footer.php';
     <script src="js/navigation.js"></script> 
     <script>
 
-    $('.add-cart').on('click',function(){
 
-      if($('.type-user').val()==="desconocido"){
-
-      $('.contenedor-msg').toggleClass('d-none');
-
-      }else{
-
-
-
-      }
-
-    });
 
 
 
@@ -318,7 +315,7 @@ require_once 'footer.php';
     const ControlLess = (inputCuantity,stock,f)=>{
 
         if(parseInt(inputCuantity[f].value) === parseInt(stock.value) && parseInt(stock.value)!==0){
-
+          
             inputCuantity[f].value=parseInt(inputCuantity[f].value)-1;
 
         }else if(parseInt(stock.value)===0 ){
@@ -347,6 +344,8 @@ require_once 'footer.php';
       let menos = document.getElementsByClassName('menos');
       let cantidad = document.getElementsByClassName('cantidad');
       let stock = document.getElementsByClassName('stock');
+      let cart = document.getElementsByClassName('carrito');
+      let idProduct = document.getElementsByClassName('id-product');
 
 
       for(let i=0;i<cantidad.length;i++){
@@ -363,6 +362,72 @@ require_once 'footer.php';
           ControlMore(cantidad,stock[i],i);
 
         });
+
+        cart[i].addEventListener('click',()=>{
+
+          
+
+          if($('.type-user').val()==="desconocido"){
+
+              $('.contenedor-msg').toggleClass('d-none');
+          
+          }else{
+
+              
+
+              if(parseInt(cantidad[i].value)===0){
+
+                  $('#texto1').empty();
+                  $('#texto2').empty();
+
+                  $('#texto1').append(`No puedes agregar "0" unidades`);
+                  $('#texto2').append(`Si no te permite añadir unidades es por que no hay stock disponible`);
+
+                  $('.contenedor-msg').toggleClass('d-none');
+
+              }else{
+             
+               cart[i].innerHTML=`
+               <div class="p-2 d-flex justify-content-center">
+                  <div style="width: 2rem; height: 2rem;" class="spinner-border text-success" role="status">
+                      
+                      <span class="sr-only">Loading...</span>
+
+                  </div>
+                </div>
+               
+               `;
+
+                const addCart = new FormData();
+                
+                //console.log("<?php //echo $_SESSION['user'][0]['id_usuario'] ?>");
+                console.log(idProduct[i].value);
+                addCart.append('add-product',idProduct[i].value);
+
+                let path = "api/interfaces/addCart.php";
+
+                fetch(path,{
+
+                  method : 'POST',
+                  body : addCart
+                
+                })
+                .then(response=>response.json())
+                .then(response=>{
+
+                  cart[i].innerHTML="Añadido";
+
+                })
+                
+
+
+              }
+
+          }
+
+
+        });
+
       }
 
 

@@ -2,6 +2,10 @@
 
   session_start();
 
+  if(!isset($_GET['categoria'])){
+
+    header('Location:categoria.php?categoria=Todo');
+  }
 
   //  var_dump($_GET['categoria']);
 
@@ -78,7 +82,7 @@
 
 require 'componentes-interfaces/nav.php';
 
-if(isset($_SESSION['usuer'])){
+if(isset($_SESSION['user'])){
 
   $usuario="cliente";
 
@@ -115,9 +119,9 @@ if(isset($_SESSION['usuer'])){
   <div style="width:90%;margin-left:5%;color:grey;;border-radius:10px;" class="bg-light p-3">
    <img src="api/assets/img/metodos-pago/oops.png" style="width: 100%;">
    <hr>
-    <h6><li>Al parecer no eres usuario registrado</li></h6>
+    <h6><li id="texto1">Al parecer no eres usuario registrado</li></h6>
     <hr>
-    <h6><li>Para usar el carrito debes ser usuario registrado</li></h6>
+    <h6><li id="texto2">Para usar el carrito debes ser usuario registrado</li></h6>
 
 
   </div>
@@ -129,8 +133,9 @@ if(isset($_SESSION['usuer'])){
 
 
 
- <div class="container">
+ <div class="container d-flex justify-content-between pl-2 pr-2">
         <a href="tienda.php" class="btn btn-success"><i class="fas fa-store"></i> / <i class="fas fa-arrow-left"></i> Tienda </a>
+        <a href="carrito.php" class="btn btn-warning">Carrito <i class="fas fa-arrow-right"></i> / <i class="fas fa-cart-plus"></i>  </a>
  </div>
  <br>
 

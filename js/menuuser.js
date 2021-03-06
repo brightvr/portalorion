@@ -144,10 +144,7 @@ menu.addEventListener('click',()=>{
 
     $('.ver-cate').on('click',function(){
 
-     
-
-
-
+    
         $('.contenedor-cate').toggleClass('d-none');
 
 

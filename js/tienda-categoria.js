@@ -43,7 +43,7 @@
                 card = `
                 <br>
                 <div class="contenedor">
-        
+                <input class="d-none id-product" value="${data.id_producto}">
                 <div style="width: 95%;margin-left:2%;background:white;box-shadow:4px 4px 10px black;" class="micard">
                     
                       <div class="d-flex">
@@ -198,6 +198,7 @@
             let moreCuantity = document.getElementsByClassName('mas');
             let lessCuantity = document.getElementsByClassName('menos');
             let cart = document.getElementsByClassName('carrito');
+            let idProduct = document.getElementsByClassName('id-product');
 
         
             for( let f=0; f<inputCuantity.length;f++){
@@ -225,6 +226,60 @@
                     
                     }else{
 
+                        //console.log(inputCuantity[f].value);
+
+                        if(parseInt(inputCuantity[f].value)===0){
+
+                            $('#texto1').empty();
+                            $('#texto2').empty();
+
+                            $('#texto1').append(`No puedes agregar "0" unidades`);
+                            $('#texto2').append(`Si no te permite añadir unidades es por que no hay stock disponible`);
+
+                            $('.contenedor-msg').toggleClass('d-none');
+
+                        }else{
+
+        
+           
+                            cart[f].innerHTML=`
+                            <div class="p-2 d-flex justify-content-center">
+                                <div style="width: 2rem; height: 2rem;" class="spinner-border text-success" role="status">
+                                    
+                                    <span class="sr-only">Loading...</span>
+
+                                </div>
+                            </div>
+                            
+                            `;
+
+                            const addCart = new FormData();
+                            
+                            //console.log("<?php //echo $_SESSION['user'][0]['id_usuario'] ?>");
+                            console.log(idProduct[f].value);
+                            addCart.append('add-product',idProduct[f].value);
+
+                            let path = "api/interfaces/addCart.php";
+
+                            fetch(path,{
+
+                                method : 'POST',
+                                body : addCart
+                            
+                            })
+                            .then(response=>response.json())
+                            .then(response=>{
+
+                                cart[f].innerHTML="Añadido";
+
+                            })
+                            
+
+
+                        
+
+
+                         }
 
                     }
             

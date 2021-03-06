@@ -103,7 +103,7 @@ require 'componentes-interfaces/nav.php';
       </div>
   <br>
  
-    <div class="bg-light p-3">
+    <div style="width: 90%;margin-left:5%;box-shadow:3px 3px 6px black;" class="bg-light p-3">
 
     <h4 class="d-flex justify-content-center" style="color: green;">Compra Exitosa</h4>
     <br>
@@ -149,8 +149,11 @@ require 'componentes-interfaces/nav.php';
 
     <div>
     
-   
     </div>
+    </div>
+    </div>
+    <br>
+    <br>
     <?php
 
 require_once 'footer.php';

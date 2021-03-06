@@ -189,10 +189,10 @@ require 'componentes-interfaces/nav.php';
 
       echo '
       <br>
-        <div class="p-2  container d-flex justify-content-center">
+        <div style="width:90%;margin-left:5%;" class="p-2  d-flex justify-content-center">
 
-        <div style="color:white; background:green; box-shadow:5px 5px 7px black; border-radius:6px;" class="carrito  ">
-        <p style="font-size:22px" class="m-3 p-2"><span style="font-size:22px; color:white;"><i class="fas fa-cart-plus"></i></span> Mi carrito(vacío)    <span style="margin-left:35px; color:black; font-size:32px;"><i class="fas fa-boxes"></i></span></p>
+        <div style="width:100%;color:white; background:green; box-shadow:5px 5px 7px black; border-radius:6px;" class="carrito  ">
+        <p style="font-size:22px" class="m-3 p-2"><span style="font-size:22px; color:white;"><i class="fas fa-cart-plus"></i></span> Mi carrito   <span style="margin-left:35px; color:black; font-size:32px;"><i class="fas fa-boxes"></i></span></p>
         <hr class="elcarrito d-none"> 
         <p class="m-3 elcarrito d-none"><small>'.$_SESSION['user'][0]['nombre'].', crea paquetes de hasta 30 productos y paga un solo envío</small></p>
         <hr class="elcarrito d-none">
@@ -246,7 +246,7 @@ require 'componentes-interfaces/nav.php';
 
 
       <div class=" p-2  pt-5">
-        <div style=" width: 300px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2"><h5>'.$category[$f]['nombre'].'</h5></div>
+        <div style=" width: 300px; box-shadow:5px 5px 8px black;" class="titulo bg-dark text-light d-flex justify-content-center p-2"><h5>'.$category[$f]['nombre'].'</h5></div>
       <a href="categoria.php?categoria='.$category[$f]['nombre'].'">  <img  src="'.$category[$f]['card'].'" alt="" style="box-shadow:5px 5px 8px black; background:white; width: 300px; height:150px;"></a>
       </div>
       

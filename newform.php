@@ -52,6 +52,7 @@ if(!isset($_SESSION['user'])){
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,41 +64,59 @@ if(!isset($_SESSION['user'])){
 
 
 </head>
+
 <body>
 
-<?php
+    <?php
 
 require 'componentes-interfaces/nav.php';
 
 ?>
-  <div class="menu-apps">
+    <div class="menu-apps">
 
-        <div  class="vinculo iconos-menu " href="#"><i class="fas fa-house-user"></i></div>
-        <div  class="vinculo iconos-menu" href="#"><i class="fas fa-store"></i></div>
+        <div class="vinculo iconos-menu " href="#"><i class="fas fa-house-user"></i></div>
+        <div class="vinculo iconos-menu" href="#"><i class="fas fa-store"></i></div>
         <div class="vinculo iconos-menu" href="#"><i class="fas fa-money-check-alt"></i></div>
-        <div  class="vinculo iconos-menu-escogido " href="#"><i class="fas fa-truck"></i></div>
-      </div>
-  <br>
+        <div class="vinculo iconos-menu-escogido " href="#"><i class="fas fa-truck"></i></div>
+    </div>
+    <br>
 
-  <div class="container">
-      
-      <a href="producto.php?id=<?php echo $_SESSION['venta']['id_producto'] ?>" class="btn btn-success"><h3><img style="width:80px;" src="<?php echo $_SESSION['venta']['img'] ?>" class="img-ubicacion">  /  <i class="fas fa-arrow-left"></i> Producto</h3></a>
+    <div class="container">
+
+        <a href="producto.php?id=<?php echo $_SESSION['venta']['id_producto'] ?>" class="btn btn-success">
+            <h6><img style="width:50px;" src="<?php echo $_SESSION['venta']['img'] ?>" class="img-ubicacion"> / <i
+                    class="fas fa-arrow-left"></i> Producto</h6>
+        </a>
 
     </div>
 
-      <br>
-      <div class="fondo-verde p-3 d-flex justify-content-center"><h3 class="bg-light p-2">TU COMPRA</h3></div>
+    <br>
+    <div style="width:90%;box-shadow:3px 3px 6px black;margin-left:5%;"
+        class="fondo-verde2 text-light p-2 d-flex justify-content-center btn-data">
+        <h5>Datos de la compra</h5>
+    </div>
 
-      <div class="fondo-verde  p-2">
 
-      <h5 class="bg-light p-2"> <?php echo $_SESSION['venta']['producto'] ?> <img style="width: 70px; height:60px;" src="<?php  echo $_SESSION['venta']['img'] ?>"></h5>
-      <h5 class="bg-light p-2"> Productos: $ <?php echo number_format( floatval($_SESSION['venta']['subtotal']), 0, ".", ",") ?> pesos cop</h5>
-      <h5 class="bg-light p-2"> Envio: $ <?php echo number_format( floatval($_SESSION['venta']['envio']), 0, ".", ",") ?> pesos cop</h4>
-      <h5 class="bg-light p-2"> Total a Pagar: $ <?php echo number_format( floatval($_SESSION['venta']['total']), 0, ".", ",") ?> pesos cop</h4>
 
-      </div>
-      <hr>
-      <?php
+    <div style="width:90%;box-shadow:3px 3px 6px black;margin-left:5%;" class="bg-light data-pay d-none  p-2 ">
+
+        <h6 class="bg-light p-2"> <?php echo $_SESSION['venta']['producto'] ?> <img style="width: 50px; height:40px;"
+                src="<?php  echo $_SESSION['venta']['img'] ?>"></h6>
+        <hr>
+        <h6 class="bg-light p-2"> Productos: $
+            <?php echo number_format( floatval($_SESSION['venta']['subtotal']), 0, ".", ",") ?> pesos cop</h6>
+        <hr>
+        <h6 class="bg-light p-2"> Envio: $
+            <?php echo number_format( floatval($_SESSION['venta']['envio']), 0, ".", ",") ?> pesos cop</h6>
+        <hr>
+        <h6 class="bg-light p-2"> Total a Pagar: $
+            <?php echo number_format( floatval($_SESSION['venta']['total']), 0, ".", ",") ?> pesos cop</h6>
+
+    </div>
+    <br>
+    <br>
+
+    <?php
       
         if($_GET['pago']==="contra-entrega"){
 
@@ -125,12 +144,12 @@ require 'componentes-interfaces/nav.php';
           <small>
           Simplemente haz click en pagar
           </small><br>
-          <small>Para alterar estos cambos ve a tu perfil de usuario</small>
+          <small>Para alterar estos campos ve a tu perfil de usuario</small>
         </div>
         <form class=" p-3" action="'.$path.'" method="POST">
         <ul class="list-group list-group-flush">
           <li class="list-group-item d-flex justify-content-center">
-          <h5>Datos del destinatario</h5>
+          <h6 style="color:grey">Datos del destinatario</h6>
           </li>
           <li class="list-group-item">
           <label>Nombre :</label><br>
@@ -162,7 +181,7 @@ require 'componentes-interfaces/nav.php';
         <input class="d-none" type="text"  name="name-product" value="'.$_SESSION['venta']['producto'].'">
         <input class="d-none" type="text"  name="cantidad-product" value="'.$_SESSION['venta']['cantidad'].'">
         
-        <button class="btn btn-block btn-success"><h3>Pagar '.$_GET['pago'].'<h3></button>
+        <button class="btn btn-block btn-success"><h5>Pagar '.$_GET['pago'].'<h5></button>
         </form>
       </div>
       </div>
@@ -188,7 +207,7 @@ require 'componentes-interfaces/nav.php';
         <form class=" p-3" action="'.$path.'" method="POST">
         <ul class="list-group list-group-flush">
           <li class="list-group-item d-flex justify-content-center">
-          <h5>Datos del destinatario</h5>
+          <h6 style="color:grey">Datos del destinatario</h6>
           </li>
           <li class="list-group-item">
           <label>Nombre :</label><br>
@@ -222,7 +241,7 @@ require 'componentes-interfaces/nav.php';
         <hr>
         <input class="d-none" type="text"  name="name-product" value="'.$_SESSION['venta']['producto'].'">
         <input class="d-none" type="text"  name="cantidad-product" value="'.$_SESSION['venta']['cantidad'].'">
-        <button class="btn btn-block btn-success"><h3>Pagar '.$_GET['pago'].'</h3></button>
+        <button class="btn btn-block btn-success"><h5>Pagar '.$_GET['pago'].'</h5></button>
         </form>
       </div>
       </div>
@@ -239,12 +258,12 @@ require 'componentes-interfaces/nav.php';
 
             echo '
             
-            <div class="fondo-verde p-3">
-            <div class="bg-light p-2">
-             <h5> Recuerda que si el domiciliario no se puede contactar contigo tu 
-              pedido sera <strong style="color:red;">CANCELADO</strong>, debes estar pendiente del numero de contacto que pongas en el formulario.</h5>
+            <div style="color:grey;"  class=" p-3">
+            <div style="box-shadow:3px 3px 6px black;" class="bg-light p-3">
+             <small> Recuerda que si el domiciliario no se puede contactar contigo tu 
+              pedido sera <strong style="color:red;">CANCELADO</strong>, debes estar pendiente del numero de contacto que pongas en el formulario.</small>
               <br>
-              <h5>La llamada de confirmacion se realiza entre 10 y 15 mintos despues de hacer efectiva la compra </h5>
+            
             </div>
           </div>
           <br>
@@ -258,11 +277,11 @@ require 'componentes-interfaces/nav.php';
 
             echo '
             
-            <div class="bg-light p-3">
-            <h5>Recuerda que para poder pagar debes ser mayor de edad, 
-            mercado pago te pedira tu numero de identificacion (cédula de ciudadania)
-            para verfificar que seas <strong>mayor de edad </strong>
-            </h5>
+            <div  style="width:90%;margin-left:5%;box-shadow:3px 3px 6px black;color:grey;" class="bg-light p-3">
+            <h6>Recuerda que para poder pagar debes ser mayor de edad, 
+            mercado pago te pedira tu numero de identificacion   ( cédula de ciudadania )
+             para verfificar que seas <strong>mayor de edad </strong>
+            </h6>
             </div>
             <br>
             
@@ -275,26 +294,35 @@ require 'componentes-interfaces/nav.php';
 
 
 
-  <?php
+    <?php
 
    echo ' <script src="librerias/jquery/jquery-3.5.1.js"></script>';
 
   ?>
-  <br>
+    <br>
 
-  <?php
+    <?php
 
 require_once 'footer.php';
 
 ?>
 
-    
-  <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
-  <script src="librerias/icons/js/all.js"></script>
-  <script src="js/navigation.js"></script>
-  <script src="js/index.js"></script> 
 
-  <?php
+    <script src="librerias/bootstrap/js/bootstrap.min.js"></script>
+    <script src="librerias/icons/js/all.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/index.js"></script>
+
+    <script>
+    $('.btn-data').on('click', function() {
+
+        $('.data-pay').toggleClass('d-none');
+
+    });
+    </script>
+
+
+    <?php
 
     if(!isset($_SESSION['user'])){
 
@@ -308,6 +336,7 @@ require_once 'footer.php';
 
    
   ?>
-  
-  </body>
-  </html>
+
+</body>
+
+</html>

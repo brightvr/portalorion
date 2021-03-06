@@ -109,7 +109,7 @@ if(isset($_SESSION['venta-pagos'])){
 require 'componentes-interfaces/nav.php';
 
 
-if(isset($_SESSION['usuer'])){
+if(isset($_SESSION['user'])){
 
   $usuario="cliente";
 
@@ -146,9 +146,9 @@ if(isset($_SESSION['usuer'])){
   <div style="width:90%;margin-left:5%;color:grey;border-radius:10px;" class="bg-light p-3">
     <img src="api/assets/img/metodos-pago/oops.png" style="width: 100%;">
     <hr>
-    <h6><li>Al parecer no eres usuario registrado</li></h6>
+    <h6><li id="texto1">Al parecer no eres usuario registrado</li></h6>
     <hr>
-    <h6><li>Para usar el carrito debes ser usuario registrado</li></h6>
+    <h6><li id="texto2">Para usar el carrito debes ser usuario registrado</li></h6>
 
 
   </div>
@@ -164,12 +164,13 @@ if(isset($_SESSION['usuer'])){
 
      
 
-      <div class="container">
+      <div class="container d-flex justify-content-between">
       <?php
 
       if(!isset($_SESSION['categoria.php']) && !isset($_SESSION['index.php'])){
 
         echo '<a href="tienda.php" class="btn btn-success"><i class="fas fa-store"></i>  /  <i class="fas fa-arrow-left"></i> Tienda</a>';
+        echo '<a href="tienda.php" class="btn btn-warning"> Carrito <i class="fas fa-arrow-right"></i> / <i class="fas fa-cart-plus"></i></a>';
 
 
       }
@@ -177,13 +178,17 @@ if(isset($_SESSION['usuer'])){
       if(isset($_SESSION['index.php'])){
        
         echo '<a href="index.php" class="btn btn-success"><i class="fas fa-house-user"></i>  /  <i class="fas fa-arrow-left"></i> Inicio</a>';
+        echo '<a href="tienda.php" class="btn btn-warning"> Carrito <i class="fas fa-arrow-right"></i> / <i class="fas fa-cart-plus"></i></a>';
+
         unset($_SESSION['index.php']);
 
       }
 
       if(isset($_SESSION['categoria.php'])){
 
-        echo '<a href="'.$_SESSION['categoria.php'][0].'" class="btn btn-success"><i class="fas fa-store"></i>  / <img width="50px;" src="'.$_SESSION['categoria.php'][1].'"> /  <i class="fas fa-arrow-left"></i> '.$_SESSION['categoria.php'][2].'</a>';
+        echo '<a href="'.$_SESSION['categoria.php'][0].'" class="btn btn-success"><img width="50px;" src="'.$_SESSION['categoria.php'][1].'"> /  <i class="fas fa-arrow-left"></i> Regresar</a>';
+        echo '<a href="tienda.php" class="btn btn-warning"> Carrito <i class="fas fa-arrow-right"></i> / <i class="fas fa-cart-plus"></i></a>';
+
         unset($_SESSION['categoria.php']);
 
       }
@@ -197,8 +202,8 @@ if(isset($_SESSION['usuer'])){
       
 
       </div>
-    
-      <br>
+      
+      <br><hr style="width: 80%;margin-left:10%;">
 
      
 
@@ -207,6 +212,7 @@ if(isset($_SESSION['usuer'])){
 <div class="app-mobile">
        
           <div class="bg-light" style="width: 90%;margin-left:5%;box-shadow:3px 3px 6px black;">
+          <input class="d-none id-product-1" value="<?php echo $producto[0]['id_producto'] ?>">
           <div class="fondo-verde2 text-light p-3"><h5 class="d-flex justify-content-center"><?php echo $producto[0]['nombre'] ?></h5></div>
 
           <img class="img-producto" src="<?php echo $producto[0]['img'] ?>" alt="">
@@ -453,6 +459,7 @@ if(isset($_SESSION['usuer'])){
 
                 echo '
                 <input type="text" value="'.$allProducts[$h]['stock'].'" class="d-none stock-1">
+                <input class="d-none id-product" value="'.$allProducts[$h]['id_producto'].'">
                 <br>
                 <div style="width: 95%;margin-left:2%;background:white;box-shadow:4px 4px 10px black;" class="micard">
                     
@@ -481,7 +488,7 @@ if(isset($_SESSION['usuer'])){
                       <div class="d-flex p-2">
                       <div style="width: 50%;" class="d-block p-2"> <a href="producto.php?id='.$allProducts[$h]['id_producto'].'" class="btn btn-danger btn-block">Ver producto</a> </div>     
                         <div style=" background: rgba(0, 0, 0, 0.178); width: 1px; height:50px;"></div>
-                        <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-warning btn-block add-carrito">Añadir <i class="fas fa-cart-plus"></i></div> </div>
+                        <div style="width: 50%;" class="d-block p-2"> <div class="btn btn-warning btn-block add-carrito-1">Añadir <i class="fas fa-cart-plus"></i></div> </div>
                  
                       </div>
                     
@@ -540,12 +547,6 @@ require_once 'footer.php';
           
           </div>
 
-
-
-          
-    <br>
-
-    <br>
 
 
 

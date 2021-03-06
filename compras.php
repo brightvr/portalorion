@@ -95,12 +95,12 @@ require 'componentes-interfaces/nav.php';
 
   <div class="container">
   
-    <div class="fondo-verde p-2 d-flex justify-content-center"><h3>Mis Compras</h3></div>  
+    <div class="fondo-verde2 text-light p-2 d-flex justify-content-center"><h3>Mis Compras</h3></div>  
   
   </div>
   <br>
   <br>
-  <div class="fondo-verde p-3">Recuerda que los pagos pendientes no aparecen registrados en tus compras hasta que sean aprovados</div>
+  <div style="color:grey;width:90%;margin-left:5%;box-shadow:2px 2px 5px black" class="bg-light p-3">Recuerda que los pagos pendientes no aparecen registrados en tus compras hasta que sean aprovados</div>
   <br>
   <br>
   <div class="container p-3 bg-light d-flex flex-wrap">
@@ -112,7 +112,7 @@ require 'componentes-interfaces/nav.php';
    //var_dump($compras);
    if($compras===null){
 
-      echo '<div class="container fondo-verde p-2"><h2>Todavia no tienes compras registradas</h2></div>';
+      echo '<div class="container  p-2"><h6 style="color:grey"><li>Todavia no tienes compras registradas</h6></li></div>';
 
    }else{
 

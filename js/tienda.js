@@ -57,7 +57,7 @@ $(window).on('load',function(){
                         $('.cont-categorias').append(`
 
                         <div  class=" p-2  pt-5">
-                        <div style=" width: 300px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2"><h5>${response[i].nombre}</h5></div>
+                        <div style=" width: 300px; box-shadow:5px 5px 8px black;" class="titulo bg-dark text-light d-flex justify-content-center p-2"><h5>${response[i].nombre}</h5></div>
                         <a href="categoria.php?categoria=${response[i].nombre}"><img  src="${response[i].card}" alt="" style="box-shadow:5px 5px 8px black; background:white; width: 300px; height:150px;"></a>
                       </div>
                       <br>
@@ -112,7 +112,7 @@ $(window).on('load',function(){
                     $('.cont-categorias').append(`
 
                     <div  class=" p-2  pt-5">
-                    <div style=" width:300px; box-shadow:5px 5px 8px black;" class="titulo bg-light d-flex justify-content-center p-2"><h5>${response[i].nombre}</h5></div>
+                    <div style=" width:300px; box-shadow:5px 5px 8px black;" class="titulo bg-dark text-light d-flex justify-content-center p-2"><h5>${response[i].nombre}</h5></div>
                     <a href="categoria.php?categoria=${response[i].nombre}"><img  src="${response[i].card}" alt="" style="box-shadow:5px 5px 8px black; background:white; width:300px; height:150px;"></a>
                   </div>
                   <br>

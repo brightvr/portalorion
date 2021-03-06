@@ -17,8 +17,10 @@
 
    
 <div class="new-place position-absolute d-flex justify-content-end"></div>
-   
+<div style="padding-top:-360px;" class="new-place2 d-none position-absolute  "></div>  
  </nav>
+ 
+
 <script>
 
   
