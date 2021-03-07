@@ -1,146 +1,126 @@
 <?php
 
-ini_set('display_errors',1);
-ini_set('display_startup_errors',1);
-error_reporting(E_ALL);
+  ini_set('display_errors',1);
+  ini_set('display_startup_errors',1);
+  error_reporting(E_ALL);
 
 
 
-session_start();
-require_once 'conexion.php';
+  session_start();
+  require_once 'conexion.php';
 
-if(isset($_GET['response'])){
-
-  echo '
-
-    <div  style="width:100%; position:fixed; z-index:9999999999999999;"  class="bg-success respuestas">
-    <span class="btn-cerrar" style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span>
-    <div class="container  p-3  text-white d-flex justify-content-center"><h5>'.$_GET['response'].'</h5></div>
-    </div>
-
-
-
-  ';
-
-  echo '
-  
-  <script>
-
-   let btn= document.querySelector(".btn-cerrar");
-   btn.addEventListener("click",()=>{
-
-
-   
-
-    let padre= document.querySelector(".respuestas").parentNode;
-    let hijo= document.querySelector(".respuestas")
-    padre.removeChild(hijo);
-
-  });
-
-  </script>
-  
-  ';
-
-}
-
-
-
-if(isset($_POST['buscar'])){
-
-
-  
-
-  $consulta='select * from productos where nombre like "%'.$_POST['buscar'].'%";';
-
-
-  $query =mysqli_query($miconexion->Conectando(),$consulta);
-
-  $productos=null;
-
-  while($res= mysqli_fetch_assoc($query)){
-
-  $productos[]=$res;
-
-  }
-
-  if($productos===null){
-
-   echo '    <div class="manta">
-
-   <div class="btn-cerrar"><i class="fas fa-window-close"></i></div>
-   
-   <div class="manta2 alert alert-success d-flex flex-wrap">
-
-   <div class="alert alert-danger"><h2>No se encontraron resultados para "'.$_POST['buscar'].'"</h2></div>
-
-   </div>
-   </div>
-   ';
-  
-  }else{
-
+  if(isset($_GET['response'])){
 
     echo '
-    <div class="manta">
-    <div class="btn-cerrar"><i class="fas fa-window-close"></i></div>
-    <div class="alert alert-success d-flex justify-content-center"><h5>RESULTADOS PARA: " '.$_POST['buscar'].' "</h5></div>
+
+      <div  style="width:100%; position:fixed; z-index:9999999999999999;"  class="bg-success respuestas">
+      <span class="btn-cerrar" style="font-size:30px; color:red;"><i class="fas fa-window-close"></i></span>
+      <div class="container  p-3  text-white d-flex justify-content-center"><h5>'.$_GET['response'].'</h5></div>
+      </div>
+
+
+
+    ';
+
+    echo '
     
-    <div class="manta2 alert alert-success d-flex flex-wrap">';
+    <script>
+
+    let btn= document.querySelector(".btn-cerrar");
+    btn.addEventListener("click",()=>{
 
 
-    for($i=0;$i<count($productos);$i++){
+    
+
+      let padre= document.querySelector(".respuestas").parentNode;
+      let hijo= document.querySelector(".respuestas")
+      padre.removeChild(hijo);
+
+    });
+
+    </script>
+    
+    ';
+
+  } 
+
+  $consult= "select * from productos order by rand() limit 20";
+
+  $query=mysqli_query($miconexion->Conectando(),$consult);
+
+  $allProduct=null;
+
+  while($res=mysqli_fetch_assoc($query)){
+
+    $allProduct[]=$res;
+
+  }
+
   
-      echo '
-      
-      <div class="card" style="width: 22rem;">
-      <img src="'.$productos[$i]['img'].'" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h3 class="card-title">'.$productos[$i]['nombre'].'</h3>
-        <p class="card-text"><h4>$ '.$productos[$i]['precio'].' pesos cop</h4></p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Stock disponible : '.$productos[$i]['stock'].' </li>
-        <li class="list-group-item">'.$productos[$i]['disponibilidad'].' : '.$productos[$i]['stock'].' </li>
-        
-      </ul>
-      <div class="card-body">
-        <a href="producto.php?id='.$productos[$i]['id_producto'].'" class="d-flex justify-content-center p-3 btn-success btn-block"><h1>Comprar</h1></a>
-      </div>
-    </div>
-      
-      
-      ';
-    }
-  
-    echo '</div></div>';
 
+
+
+  $consult2= "select * from productos limit 20";
+
+  $query3=mysqli_query($miconexion->Conectando(),$consult2);
+
+  $allProduct2=null;
+
+  while($res3=mysqli_fetch_assoc($query3)){
+
+    $allProduct2[]=$res3;
 
   }
 
 
- 
-}
-
-unset($_POST);
 
 
+  $consult4= "select p.id_producto, p.nombre, p.precio, p.img, p.stock from productos p, categorias c, categorias_productos x where x.id_categoria=6 and p.id_producto=x.id_producto  limit 30";
+
+  $query4=mysqli_query($miconexion->Conectando(),$consult4);
+
+  $LlegaHoy=null;
+
+  while($res4=mysqli_fetch_assoc($query4)){
+
+    $LlegaHoy[]=$res4;
+
+  }
 
 
-    $miconsulta= "select * from categorias order by nombre ASC";
-
-    $query2 = mysqli_query($miconexion->Conectando(),$miconsulta);
-
-    $category=null;
-
-    while($res2= mysqli_fetch_assoc($query2)){
-
-     $category[]=$res2;
-
-    }
 
 
- ?>
+
+  $consult4= "select p.id_producto, p.nombre, p.precio, p.img, p.stock from productos p, categorias c, categorias_productos x where c.nombre='Supermercado' and x.id_categoria=27 and p.id_producto=x.id_producto";
+
+  $query4=mysqli_query($miconexion->Conectando(),$consult4);
+
+  $supermercado=null;
+
+  while($res4=mysqli_fetch_assoc($query4)){
+
+    $supermercado[]=$res4;
+
+  }
+
+
+
+
+
+  $miconsulta= "select * from categorias order by nombre ASC";
+
+  $query2 = mysqli_query($miconexion->Conectando(),$miconsulta);
+
+  $category=null;
+
+  while($res2= mysqli_fetch_assoc($query2)){
+
+    $category[]=$res2;
+
+  }
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -206,7 +186,7 @@ require 'componentes-interfaces/nav.php';
       ';
     }
 
-  ?></a>
+  ?>
   <!--
   <div class="cont-buscador  bg-light">
     <div class="fondo-verde d-flex justify-content-center"><h4>¿Que estás buscando?</h4></div>
@@ -217,16 +197,188 @@ require 'componentes-interfaces/nav.php';
     </form>
     <br>
   </div>-->
+
+  <br>
+<hr>
+<br>
+
+<div class="fondo-verde2 p-1 d-flex justify-content-center"><h3 class="text-light">Llega hoy mismo</h3></div>
+<div class="fondo-verde2 p-1 d-flex justify-content-center"><small class="text-light">*Compras realizadas en Bogotá antes de las 2 p.m.</small></div>
+    <div class="container d-flex flex-wrap justify-content-center p-1" style="width: 100%;height:450px;overflow-y:scroll;">
+    <?php
+
+    if($LlegaHoy===null){
+
+      var_dump('No hay producos disponibles');
+    
+    }else{
+
+      for($i=0;$i<count($LlegaHoy);$i++){
+
+        echo '
+
+        <a style="text-decoration:none;color:black;" href="producto.php?id='.$LlegaHoy[$i]['id_producto'].'"><div class=" card m-2" style="width: 10rem;  box-shadow:3px 3px 4px black;">
+        <img src="'.$LlegaHoy[$i]['img'].'" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">'.$LlegaHoy[$i]['nombre'].'</p>
+          <hr>
+          <p class="card-text"><h6>$ '.number_format(floatval($LlegaHoy[$i]['precio']),0,'.',',').' pesos </h6></p>
+        </div>
+       </div></a>
+  
+        
+        ';
+  
+      }
+
+      }
+
+?>
+</div>
+
+
+ 
+
    
   
+  <br>
+  <hr>
+  <br>
+  <div class="fondo-verde2 p-3 d-flex justify-content-center"><h3 class="text-light">Productos destacados</h3></div>
+    <div class="container d-flex flex-wrap justify-content-center p-1" style="width: 100%;height:450px;overflow-y:scroll;">
+    <?php
+
+    if($allProduct===null){
+
+      var_dump('No hay producos disponibles');
+    
+    }else{
+
+      for($i=0;$i<count($allProduct);$i++){
+
+        echo '
+
+        <a style="text-decoration:none;color:black;" href="producto.php?id='.$allProduct[$i]['id_producto'].'"><div class=" card m-2" style="width: 10rem;  box-shadow:3px 3px 4px black;">
+        <img src="'.$allProduct[$i]['img'].'" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">'.$allProduct[$i]['nombre'].'</p>
+          <hr>
+          <p class="card-text"><h6>$ '.number_format(floatval($allProduct[$i]['precio']),0,'.',',').' pesos </h6></p>
+        </div>
+       </div></a>
+  
+        
+        ';
+  
+      }
+
+      }
+
+
+
+    ?>
+    </div>
+
+
 
     <br>
   <hr>
   <br>
- 
-  <div class="fondo-verde2 p-3 d-flex justify-content-center"><h3 class="text-light">Las mejores categorias</h3></div>
+
+
+
+  <div class="fondo-verde2 p-1 d-flex justify-content-center"><h3 class="text-light">Supermercdo</h3></div>
+  <div class="fondo-verde2 p-1 d-flex justify-content-center"><small class="text-light">*Llega hoy comprando antes de las 2 p. m.</small></div>
+  <div class="fondo-verde2 p-1 d-flex justify-content-center"><small class="text-light">*Servicio disponible en Bogotá unicmente</small></div>
+    <div class="container d-flex flex-wrap justify-content-center p-1" style="width: 100%;height:450px;overflow-y:scroll;">
+    <?php
+
+    if($supermercado===null){
+
+      var_dump('No hay producos disponibles');
+    
+    }else{
+
+      for($i=0;$i<count($supermercado);$i++){
+
+        echo '
+
+        <a style="text-decoration:none;color:black;" href="producto.php?id='.$supermercado[$i]['id_producto'].'"><div class=" card m-2" style="width: 10rem;  box-shadow:3px 3px 4px black;">
+        <img src="'.$supermercado[$i]['img'].'" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">'.$supermercado[$i]['nombre'].'</p>
+          <hr>
+          <p class="card-text"><h6>$ '.number_format(floatval($supermercado[$i]['precio']),0,'.',',').' pesos </h6></p>
+        </div>
+       </div></a>
+  
+        
+        ';
+  
+      }
+
+      }
+
+?>
+</div>
+
+
+
+
+
+
+
   <br>
-  <div class="container bg-light p-4">
+  <hr>
+  <br>
+ 
+
+
+
+  <div class="fondo-verde2 p-3 d-flex justify-content-center"><h3 class="text-light">PRODUCTOS 10% OFF</h3></div>
+    <div class="container d-flex flex-wrap justify-content-center p-1" style="width: 100%;height:450px;overflow-y:scroll;">
+    <?php
+
+    if($allProduct2===null){
+
+      var_dump('No hay producos disponibles');
+    
+    }else{
+
+      for($i=0;$i<count($allProduct2);$i++){
+
+        echo '
+
+        <a style="text-decoration:none;color:black;" href="producto.php?id='.$allProduct2[$i]['id_producto'].'"><div class=" card m-2" style="width: 10rem;  box-shadow:3px 3px 4px black;">
+        <img src="'.$allProduct2[$i]['img'].'" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">'.$allProduct2[$i]['nombre'].'</p>
+          <hr>
+          <p class="card-text"><h6>$ '.number_format(floatval($allProduct2[$i]['precio']),0,'.',',').' pesos </h6></p>
+        </div>
+       </div></a>
+  
+        
+        ';
+  
+      }
+
+      }
+
+
+
+    ?>
+    </div>
+
+
+
+
+  <br>
+  <hr>
+  <br>
+  <div  style="width:90%;margin-left:5%;box-shadow:2px 2px 5px black;" class="fondo-verde2 p-3 d-flex justify-content-center"><h3 class="text-light">Las mejores categorias</h3></div>
+  
+  <div style="width:90%;margin-left:5%;box-shadow:2px 2px 5px black;" class="container bg-light p-4">
   <input name="buscar" class="form-control mr-sm-2 buscador-categorias" type="search" placeholder="Buscar categoria" aria-label="Search"><br>
   <button class="buscar-categoria btn-success btn-block my-2 "><h3>Buscar categoria</h3></button>
   <button class="all-category btn-danger btn-block my-2 d-none"><h3>Todas las categorias</h3></button>

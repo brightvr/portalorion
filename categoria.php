@@ -7,7 +7,15 @@
     header('Location:categoria.php?categoria=Todo');
   }
 
-  //  var_dump($_GET['categoria']);
+
+  if($_GET['categoria']==="Mercado libre"){
+
+    header('Location:https://portalorion.ml');
+  }
+
+
+
+  // var_dump($_GET['categoria']);
 
   require_once 'conexion.php';
 
@@ -68,7 +76,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $_GET['categoria']?> </title>
 </head>
-<body>
+
 
     <link rel="stylesheet" href="librerias/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="librerias/icons/css/all.css">
@@ -77,6 +85,43 @@
 
 </head>
 <body>
+
+<!-- btn messenger-->
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v10.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your Chat Plugin code -->
+      <div class="fb-customerchat"
+        attribution="setup_tool"
+        page_id="104358894638030"
+  theme_color="#67b868"
+  logged_in_greeting="Hola, Somos Portal Orion tienda virtual, ¿en que te podemos ayudar?"
+  logged_out_greeting="Hola, Somos Portal Orion tienda virtual, ¿en que te podemos ayudar?">
+      </div>
+
+<!-- btn messenger-->
+
+
+
+
+
+
 
 <?php
 
