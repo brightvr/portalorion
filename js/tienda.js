@@ -97,7 +97,7 @@ $(window).on('load',function(){
     
             $('.cont-categorias').prepend(`
             
-            <div style="width: 20rem; height: 20rem;" class="spinner-border text-success" role="status">
+            <div style="width: 16rem; height: 16rem;" class="spinner-border text-success" role="status">
             <span class="sr-only">Loading...</span>
           </div>
             

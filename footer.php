@@ -1,5 +1,5 @@
 
-<footer style="width: 100%; height:400px; background:black;" >
+<footer style="width: 100%; height:500px; background:black;" >
 
 <br>
 <br>
@@ -35,4 +35,8 @@
 <div class="container">
     <img style="width: 100%;" src="api/assets/img/metodos-pago/MEDIOS-DE-PAGO.png" alt="">
 </div>
+<br>
+<br>
+<br>
+
 </footer>

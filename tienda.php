@@ -139,6 +139,47 @@
 </head>
 <body>
 
+<!-- btn messenger-->
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v10.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/es_LA/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your Chat Plugin code -->
+      <div class="fb-customerchat"
+        attribution="setup_tool"
+        page_id="104358894638030"
+  theme_color="#67b868"
+  logged_in_greeting="Hola, Somos Portal Orion tienda virtual, ¿en que te podemos ayudar?"
+  logged_out_greeting="Hola, Somos Portal Orion tienda virtual, ¿en que te podemos ayudar?">
+      </div>
+
+<!-- btn messenger-->
+
+<!-- btn whatsapp-->
+<div style="position:relative" class="pl-1">
+
+<a href="https://api.whatsapp.com/send?phone=573192091708&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20desde%20whatsapp" style="box-shadow:2px 2px 4px black;position: fixed;z-index:99999999999999999999999999999999999999999999999;margin-top:85vh;font-size:35px;border-radius:50%;padding-bottom:55px;" class="btn btn-success "><i class="fab fa-whatsapp"></i></a>
+<span  style="position: fixed;z-index:99999999999999999999999999999999999999999999999;margin-top:94vh;"><samll class="p-2" style="box-shadow:0px 0px 6px black;background:white;color:grey;">Comprar desde whatsapp</small>
+</div>
+<!-- btn whatsapp-->
+
+
+
 <?php
 
 require 'componentes-interfaces/nav.php';
@@ -198,13 +239,59 @@ require 'componentes-interfaces/nav.php';
     <br>
   </div>-->
 
+
+
+  <br>
+  <hr>
+  <br>
+  <div  style="width:90%;margin-left:5%;box-shadow:2px 2px 5px black;" class="fondo-verde2 p-3 d-flex justify-content-center"><h4 class="text-light">¿Que estas buscando?</h4></div>
+  
+  <div style="width:90%;margin-left:5%;box-shadow:2px 2px 5px black;" class="container bg-light p-4">
+  <input name="buscar" class="form-control mr-sm-2 buscador-categorias" type="search" placeholder="Buscar categoria" aria-label="Search"><br>
+  <button class="buscar-categoria btn-success btn-block my-2 "><h3>Buscar categoria</h3></button>
+  <button class="all-category btn-danger btn-block my-2 d-none"><h3>Todas las categorias</h3></button>
+  </div>
+    <br>
+    <br>
+  <div  class="fondo-verde2 p-3 d-flex justify-content-center"><h3 class="text-light">Las mejores categorias</h3></div>
+  <div class="cont-categorias p-2 container d-flex flex-wrap justify-content-center" style="height:400px;overflow-y:scroll;width:100%;background:white;">
+
+
+    <?php 
+
+    //var_dump($category[0]['card']);
+    for($f=0; $f<count($category);$f++){
+
+      
+      echo '
+
+
+      <div class=" p-2  pt-5">
+        <div style=" width: 300px; box-shadow:5px 5px 8px black;" class="titulo bg-dark text-light d-flex justify-content-center p-2"><h5>'.$category[$f]['nombre'].'</h5></div>
+      <a href="categoria.php?categoria='.$category[$f]['nombre'].'">  <img  src="'.$category[$f]['card'].'" alt="" style="box-shadow:5px 5px 8px black; background:white; width: 300px; height:150px;"></a>
+      </div>
+      
+      ';
+
+
+    }
+
+
+
+    ?>
+
+  </div>
+
+
+
+
   <br>
 <hr>
 <br>
 
 <div class="fondo-verde2 p-1 d-flex justify-content-center"><h3 class="text-light">Llega hoy mismo</h3></div>
 <div class="fondo-verde2 p-1 d-flex justify-content-center"><small class="text-light">*Compras realizadas en Bogotá antes de las 2 p.m.</small></div>
-    <div class="container d-flex flex-wrap justify-content-center p-1" style="width: 100%;height:450px;overflow-y:scroll;">
+    <div class="container d-flex flex-wrap justify-content-center p-1" style="width: 100%;">
     <?php
 
     if($LlegaHoy===null){
@@ -245,7 +332,7 @@ require 'componentes-interfaces/nav.php';
   <hr>
   <br>
   <div class="fondo-verde2 p-3 d-flex justify-content-center"><h3 class="text-light">Productos destacados</h3></div>
-    <div class="container d-flex flex-wrap justify-content-center p-1" style="width: 100%;height:450px;overflow-y:scroll;">
+    <div class="container d-flex flex-wrap justify-content-center p-1" style="width: 100%;">
     <?php
 
     if($allProduct===null){
@@ -290,7 +377,7 @@ require 'componentes-interfaces/nav.php';
   <div class="fondo-verde2 p-1 d-flex justify-content-center"><h3 class="text-light">Supermercdo</h3></div>
   <div class="fondo-verde2 p-1 d-flex justify-content-center"><small class="text-light">*Llega hoy comprando antes de las 2 p. m.</small></div>
   <div class="fondo-verde2 p-1 d-flex justify-content-center"><small class="text-light">*Servicio disponible en Bogotá unicmente</small></div>
-    <div class="container d-flex flex-wrap justify-content-center p-1" style="width: 100%;height:450px;overflow-y:scroll;">
+    <div class="container d-flex flex-wrap justify-content-center p-1" style="width: 100%;">
     <?php
 
     if($supermercado===null){
@@ -336,7 +423,7 @@ require 'componentes-interfaces/nav.php';
 
 
   <div class="fondo-verde2 p-3 d-flex justify-content-center"><h3 class="text-light">PRODUCTOS 10% OFF</h3></div>
-    <div class="container d-flex flex-wrap justify-content-center p-1" style="width: 100%;height:450px;overflow-y:scroll;">
+    <div class="container d-flex flex-wrap justify-content-center p-1" style="width: 100%;">
     <?php
 
     if($allProduct2===null){
@@ -373,45 +460,7 @@ require 'componentes-interfaces/nav.php';
 
 
 
-  <br>
-  <hr>
-  <br>
-  <div  style="width:90%;margin-left:5%;box-shadow:2px 2px 5px black;" class="fondo-verde2 p-3 d-flex justify-content-center"><h3 class="text-light">Las mejores categorias</h3></div>
   
-  <div style="width:90%;margin-left:5%;box-shadow:2px 2px 5px black;" class="container bg-light p-4">
-  <input name="buscar" class="form-control mr-sm-2 buscador-categorias" type="search" placeholder="Buscar categoria" aria-label="Search"><br>
-  <button class="buscar-categoria btn-success btn-block my-2 "><h3>Buscar categoria</h3></button>
-  <button class="all-category btn-danger btn-block my-2 d-none"><h3>Todas las categorias</h3></button>
-  </div>
-
-
-  <div class="cont-categorias p-2 container d-flex flex-wrap justify-content-center">
-
-
-    <?php 
-
-    //var_dump($category[0]['card']);
-    for($f=0; $f<count($category);$f++){
-
-      
-      echo '
-
-
-      <div class=" p-2  pt-5">
-        <div style=" width: 300px; box-shadow:5px 5px 8px black;" class="titulo bg-dark text-light d-flex justify-content-center p-2"><h5>'.$category[$f]['nombre'].'</h5></div>
-      <a href="categoria.php?categoria='.$category[$f]['nombre'].'">  <img  src="'.$category[$f]['card'].'" alt="" style="box-shadow:5px 5px 8px black; background:white; width: 300px; height:150px;"></a>
-      </div>
-      
-      ';
-
-
-    }
-
-
-
-    ?>
-
-  </div>
 
   <br>
   

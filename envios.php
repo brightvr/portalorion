@@ -130,6 +130,13 @@ if(isset($_GET['response'])){
       </div>
 
 <!-- btn messenger-->
+<!-- btn whatsapp-->
+<div style="position:relative" class="pl-1">
+
+<a href="https://api.whatsapp.com/send?phone=573192091708&text=Hola,%20vengo%20del%20catálogo,%20quiero%20comprar%20desde%20whatsapp" style="box-shadow:2px 2px 4px black;position: fixed;z-index:99999999999999999999999999999999999999999999999;margin-top:85vh;font-size:35px;border-radius:50%;padding-bottom:5px;" class="btn btn-success "><i class="fab fa-whatsapp"></i></a>
+<span  style="position: fixed;z-index:99999999999999999999999999999999999999999999999;margin-top:94vh;"><samll class="p-2" style="box-shadow:0px 0px 6px black;background:white;color:grey;">Comprar desde whatsapp</small>
+</div>
+<!-- btn whatsapp-->
 
 
 
