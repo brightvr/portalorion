@@ -69,7 +69,7 @@ const PrintCategorys = (container,data)=>{
 }
 
 
-// data must be a string if you nothing need send else data must be an objet FormData(); 
+// data must be a string if you nothing need send, else data must be an objet FormData(); 
 const GetData = (path,data)=>{
 
     let query;
